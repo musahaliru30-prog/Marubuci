@@ -3,24 +3,26 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>Marubuci — Haliru Ali Musa</title>
-<meta name="description" content="Haliru Ali Musa — Writer, Critic, and Engineer from Katsina, Nigeria."/>
+<title>Marubuci — Haliru Ali Musa | Writer, Critic &amp; Engineer from Katsina</title>
+<meta name="description" content="Haliru Ali Musa — Award-winning writer, critic, and engineer from Katsina, Nigeria. Fiction, poetry, essays, and cultural criticism. Subscribe for unlimited access."/>
+<meta name="keywords" content="Haliru Ali Musa, Marubuci, Nigerian writer, Katsina, Hausa literature, African fiction, poetry, essay"/>
+<meta property="og:title" content="Marubuci — Haliru Ali Musa"/>
+<meta property="og:description" content="Award-winning Nigerian writer from Katsina. Fiction, poetry, essays &amp; criticism."/>
+<meta property="og:type" content="website"/>
+<meta property="og:image" content="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=1200&q=80"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Marubuci — Haliru Ali Musa"/>
+<meta name="twitter:description" content="Award-winning Nigerian writer from Katsina. Fiction, poetry, essays &amp; criticism."/>
+<link rel="canonical" href="https://haliruali.github.io/"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,600;1,6..72,300;1,6..72,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet"/>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --bg:#F5EFE0;
-  --parchment:#EDE3CC;
-  --paper:#FAF6EE;
-  --earth:#1A1208;
-  --terra:#C4622D;
-  --indigo:#1B3A6B;
-  --gold:#D4A030;
-  --muted:#7A6A52;
-  --border:#D6C9B0;
-  --soft:#E8DFC8;
+  --bg:#F5EFE0;--parchment:#EDE3CC;--paper:#FAF6EE;--earth:#1A1208;
+  --terra:#C4622D;--indigo:#1B3A6B;--gold:#D4A030;--muted:#7A6A52;
+  --border:#D6C9B0;--soft:#E8DFC8;
 }
 html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--earth);font-family:'Newsreader',Georgia,serif;line-height:1.7}
@@ -28,6 +30,17 @@ body{background:var(--bg);color:var(--earth);font-family:'Newsreader',Georgia,se
 ::selection{background:rgba(196,98,45,.18)}
 
 .top-stripe{height:4px;background:repeating-linear-gradient(90deg,var(--terra) 0 6px,var(--indigo) 6px 12px,var(--gold) 12px 18px,var(--earth) 18px 24px)}
+
+/* COOKIE / SUBSCRIPTION REMINDER BANNER */
+#cookie-banner{position:fixed;bottom:0;left:0;right:0;z-index:400;background:var(--indigo);color:#F5EFE0;padding:14px 40px;display:flex;align-items:center;justify-content:space-between;gap:20px;transform:translateY(100%);transition:transform .5s cubic-bezier(.16,1,.3,1)}
+#cookie-banner.visible{transform:translateY(0)}
+.cookie-text{font-family:'Inter',sans-serif;font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(245,239,224,.75)}
+.cookie-text strong{color:#F5EFE0;letter-spacing:.25em}
+.cookie-actions{display:flex;gap:10px;flex-shrink:0}
+.cookie-btn{font-family:'Inter',sans-serif;font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;padding:8px 16px;border:1px solid rgba(245,239,224,.25);color:rgba(245,239,224,.8);background:none;cursor:pointer;transition:all .3s;white-space:nowrap}
+.cookie-btn.primary{background:var(--terra);border-color:var(--terra);color:#F5EFE0}
+.cookie-btn:hover{border-color:rgba(245,239,224,.6);color:#F5EFE0}
+.cookie-btn.primary:hover{opacity:.85}
 
 nav{position:sticky;top:0;z-index:100;background:rgba(245,239,224,.96);backdrop-filter:blur(8px);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:14px 40px;}
 .brand{font-style:italic;font-size:1.2rem;color:var(--earth);display:flex;align-items:center;gap:8px;text-decoration:none}
@@ -44,7 +57,6 @@ nav{position:sticky;top:0;z-index:100;background:rgba(245,239,224,.96);backdrop-
 .border-strip{height:12px;width:100%;overflow:hidden}
 .border-strip svg{width:100%;height:12px}
 
-/* HERO */
 .hero{min-height:100vh;position:relative;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden}
 .hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:sepia(.15) contrast(1.05)}
 .hero-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(26,18,8,.96) 0%,rgba(26,18,8,.7) 40%,rgba(27,58,107,.15) 75%,transparent 100%)}
@@ -75,9 +87,23 @@ section{padding:80px 48px}
 .plan-pill{font-family:'Inter',sans-serif;font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;padding:8px 18px;border:1px solid rgba(245,239,224,.25);color:rgba(245,239,224,.8);cursor:pointer;background:none;transition:all .3s}
 .plan-pill:hover,.plan-pill.active-plan{background:var(--terra);border-color:var(--terra);color:#F5EFE0}
 
+/* SEARCH BAR */
+.works-header{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;margin-bottom:0}
+.search-wrap{position:relative;display:flex;align-items:center}
+.search-input{width:260px;background:rgba(26,18,8,.06);border:1px solid var(--border);color:var(--earth);padding:9px 14px 9px 36px;font-family:'Inter',sans-serif;font-size:.75rem;letter-spacing:.08em;outline:none;transition:border-color .3s,width .3s}
+.search-input:focus{border-color:var(--terra);width:320px}
+.search-input::placeholder{color:var(--muted)}
+.search-icon{position:absolute;left:11px;color:var(--muted);pointer-events:none}
+
+/* FILTER TABS */
+.filter-tabs{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
+.filter-tab{font-family:'Inter',sans-serif;font-size:.58rem;letter-spacing:.25em;text-transform:uppercase;padding:7px 16px;border:1px solid var(--border);color:var(--muted);background:none;cursor:pointer;transition:all .3s}
+.filter-tab:hover{border-color:var(--terra);color:var(--terra)}
+.filter-tab.active{background:var(--terra);border-color:var(--terra);color:var(--bg)}
+
 /* WORKS GRID */
-.works-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:48px 36px;margin-top:48px}
-.work-card{display:block;text-decoration:none;color:inherit;cursor:pointer}
+.works-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:48px 36px;margin-top:32px}
+.work-card{display:block;text-decoration:none;color:inherit;cursor:pointer;position:relative}
 .work-cover{aspect-ratio:3/4;overflow:hidden;background:var(--soft);position:relative;margin-bottom:18px;border:1px solid var(--border)}
 .work-cover img{width:100%;height:100%;object-fit:cover;filter:grayscale(40%);transition:filter .6s,transform .6s}
 .work-card:hover .work-cover img{filter:grayscale(0%);transform:scale(1.04)}
@@ -89,14 +115,17 @@ section{padding:80px 48px}
 .work-badge.free{background:var(--indigo);color:#F5EFE0}
 .work-badge.paid{background:var(--terra);color:#F5EFE0}
 .work-badge.unlocked{background:#2D6A4F;color:#F5EFE0}
+.work-badge.new-badge{background:var(--gold);color:var(--earth);right:10px;left:auto;top:10px}
 .work-lock-overlay{position:absolute;inset:0;background:rgba(26,18,8,.45);display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .3s}
 .work-card:hover .work-lock-overlay{opacity:1}
 .work-genre{font-family:'Inter',sans-serif;font-size:.6rem;letter-spacing:.3em;text-transform:uppercase;color:var(--terra);margin-bottom:8px}
 .work-title{font-size:1.35rem;font-weight:400;letter-spacing:-.01em;line-height:1.25;color:var(--earth);transition:color .3s}
 .work-card:hover .work-title{color:var(--terra)}
 .work-excerpt{font-size:.95rem;font-style:italic;color:var(--muted);line-height:1.7;margin-top:8px}
-.work-read{display:flex;align-items:center;gap:8px;margin-top:14px;font-family:'Inter',sans-serif;font-size:.6rem;letter-spacing:.28em;text-transform:uppercase;color:var(--muted);transition:color .3s}
+.work-meta-row{display:flex;align-items:center;justify-content:space-between;margin-top:14px}
+.work-read{display:flex;align-items:center;gap:8px;font-family:'Inter',sans-serif;font-size:.6rem;letter-spacing:.28em;text-transform:uppercase;color:var(--muted);transition:color .3s}
 .work-card:hover .work-read{color:var(--terra)}
+.work-read-time{font-family:'Inter',sans-serif;font-size:.58rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);opacity:.7}
 .works-empty{text-align:center;padding:80px;color:var(--muted);font-style:italic;font-size:1.1rem;grid-column:1/-1}
 .works-loading{text-align:center;padding:80px;color:var(--muted);font-family:'Inter',sans-serif;font-size:.65rem;letter-spacing:.3em;text-transform:uppercase;grid-column:1/-1}
 
@@ -124,6 +153,7 @@ section{padding:80px 48px}
 .cf-input:focus{border-color:var(--terra)}
 .cf-btn{display:inline-flex;align-items:center;gap:10px;font-family:'Inter',sans-serif;font-size:.65rem;letter-spacing:.28em;text-transform:uppercase;color:rgba(196,98,45,.9);border:1px solid rgba(196,98,45,.5);padding:14px 28px;background:none;cursor:pointer;transition:all .3s}
 .cf-btn:hover{background:var(--terra);color:var(--bg);border-color:var(--terra)}
+.cf-btn:disabled{opacity:.5;cursor:not-allowed}
 .social-link{display:block;font-family:'Inter',sans-serif;font-size:.65rem;letter-spacing:.25em;text-transform:uppercase;color:rgba(245,239,224,.4);text-decoration:none;margin-bottom:10px;transition:color .3s}
 .social-link:hover{color:var(--terra)}
 
@@ -185,16 +215,98 @@ footer{background:#110C05;color:var(--bg);padding:60px 48px 32px}
 .read-divider{height:1px;background:var(--border);margin:32px 0}
 .read-content{font-size:1.15rem;line-height:2.1;color:var(--earth);white-space:pre-wrap;font-family:'Newsreader',serif}
 
+/* SOCIAL SHARING */
+.share-bar{display:flex;align-items:center;gap:12px;margin-top:40px;padding-top:24px;border-top:1px solid var(--border)}
+.share-label{font-family:'Inter',sans-serif;font-size:.58rem;letter-spacing:.3em;text-transform:uppercase;color:var(--muted);margin-right:4px}
+.share-btn{display:inline-flex;align-items:center;gap:7px;font-family:'Inter',sans-serif;font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;padding:8px 14px;border:1px solid var(--border);color:var(--muted);background:none;cursor:pointer;text-decoration:none;transition:all .3s}
+.share-btn:hover{border-color:var(--terra);color:var(--terra)}
+.share-btn.whatsapp:hover{border-color:#25D366;color:#25D366}
+.share-btn.copy-link.copied{border-color:#2D6A4F;color:#2D6A4F}
+
 /* PAYWALL */
 .paywall{text-align:center;padding:48px 32px;border:1px solid var(--border);background:var(--soft);margin-top:32px}
 .paywall h3{font-family:'Newsreader',serif;font-weight:300;font-size:1.5rem;margin-bottom:10px;color:var(--earth)}
 .paywall-sub{font-family:'Inter',sans-serif;font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:24px}
-.paywall-price{font-family:'Newsreader',serif;font-size:2.2rem;color:var(--terra);margin-bottom:8px}
 .paywall-or{font-family:'Inter',sans-serif;font-size:.6rem;letter-spacing:.25em;text-transform:uppercase;color:var(--muted);margin:20px 0}
 .pay-btn{display:inline-flex;align-items:center;gap:10px;font-family:'Inter',sans-serif;font-size:.65rem;letter-spacing:.28em;text-transform:uppercase;background:var(--terra);color:var(--bg);border:none;padding:14px 28px;cursor:pointer;transition:opacity .3s;margin:4px}
 .pay-btn:hover{opacity:.85}
 .pay-btn.outline{background:none;border:1px solid var(--indigo);color:var(--indigo)}
 .pay-btn.outline:hover{background:var(--indigo);color:var(--bg);opacity:1}
+
+/* 404 PAGE */
+#page-404{display:none;position:fixed;inset:0;background:var(--bg);z-index:500;align-items:center;justify-content:center;flex-direction:column;text-align:center;padding:40px}
+#page-404.show{display:flex}
+.e404-pattern{position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none'%3E%3Cpath d='M30 0L60 30L30 60L0 30Z' stroke='%23C4622D' stroke-width='0.5' opacity='0.06'/%3E%3C/g%3E%3C/svg%3E");pointer-events:none}
+.e404-content{position:relative;z-index:1;max-width:480px}
+.e404-num{font-family:'Newsreader',serif;font-size:clamp(6rem,15vw,10rem);font-weight:300;color:var(--terra);line-height:1;letter-spacing:-.04em;opacity:.35}
+.e404-title{font-family:'Newsreader',serif;font-size:clamp(1.5rem,3vw,2.2rem);font-weight:300;color:var(--earth);margin-bottom:12px;letter-spacing:-.01em}
+.e404-sub{font-family:'Inter',sans-serif;font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:32px;line-height:1.8}
+.e404-btn{display:inline-flex;align-items:center;gap:10px;font-family:'Inter',sans-serif;font-size:.65rem;letter-spacing:.28em;text-transform:uppercase;color:var(--terra);border:1px solid var(--terra);padding:13px 28px;text-decoration:none;transition:all .3s;cursor:pointer;background:none}
+.e404-btn:hover{background:var(--terra);color:var(--bg)}
+
+/* ── COMMENTS SECTION ── */
+.comments-section{margin-top:56px;padding-top:40px;border-top:1px solid var(--border)}
+.comments-heading{display:flex;align-items:center;gap:12px;margin-bottom:28px}
+.comments-heading .dash{width:24px;height:1px;background:var(--terra)}
+.comments-heading span{font-family:'Inter',sans-serif;font-size:.6rem;letter-spacing:.35em;text-transform:uppercase;color:var(--terra)}
+.comments-heading .count{font-family:'Inter',sans-serif;font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-left:auto}
+
+/* Comment form */
+.comment-form{background:var(--soft);border:1px solid var(--border);padding:24px;margin-bottom:32px}
+.comment-form-title{font-family:'Inter',sans-serif;font-size:.6rem;letter-spacing:.3em;text-transform:uppercase;color:var(--muted);margin-bottom:16px}
+.comment-field{width:100%;background:var(--bg);border:1px solid var(--border);color:var(--earth);padding:11px 14px;font-family:'Newsreader',serif;font-size:.95rem;outline:none;transition:border-color .3s;display:block;margin-bottom:12px;resize:vertical}
+.comment-field:focus{border-color:var(--terra)}
+.comment-field::placeholder{color:var(--muted);font-style:italic}
+.comment-submit-row{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.comment-submit-btn{display:inline-flex;align-items:center;gap:8px;font-family:'Inter',sans-serif;font-size:.6rem;letter-spacing:.28em;text-transform:uppercase;padding:10px 22px;background:var(--terra);color:var(--bg);border:none;cursor:pointer;transition:opacity .3s}
+.comment-submit-btn:hover{opacity:.85}
+.comment-submit-btn:disabled{opacity:.45;cursor:not-allowed}
+.comment-login-nudge{font-family:'Inter',sans-serif;font-size:.65rem;color:var(--muted);font-style:italic}
+.comment-login-nudge span{color:var(--terra);cursor:pointer;text-decoration:underline}
+.comment-status{font-family:'Inter',sans-serif;font-size:.62rem;letter-spacing:.15em;text-transform:uppercase;margin-top:10px;display:none}
+.comment-status.ok{color:#2D6A4F}
+.comment-status.err{color:#C0392B}
+
+/* Comment list */
+.comments-list{display:flex;flex-direction:column;gap:0}
+.comment-item{padding:20px 0;border-bottom:1px solid var(--border)}
+.comment-item:last-child{border-bottom:none}
+.comment-meta{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.comment-avatar{width:30px;height:30px;border-radius:50%;background:var(--indigo);display:flex;align-items:center;justify-content:center;font-family:'Inter',sans-serif;font-size:.6rem;font-weight:500;color:#F5EFE0;flex-shrink:0;text-transform:uppercase}
+.comment-author{font-family:'Inter',sans-serif;font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;color:var(--earth);font-weight:500}
+.comment-date{font-family:'Inter',sans-serif;font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-left:auto}
+.comment-body{font-family:'Newsreader',serif;font-size:1rem;line-height:1.85;color:var(--earth);padding-left:40px}
+.comment-like-row{padding-left:40px;margin-top:8px;display:flex;align-items:center;gap:16px}
+.comment-like-btn{display:inline-flex;align-items:center;gap:5px;background:none;border:none;font-family:'Inter',sans-serif;font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);cursor:pointer;padding:0;transition:color .3s}
+.comment-like-btn:hover,.comment-like-btn.liked{color:var(--terra)}
+.comment-like-btn.liked svg path{fill:var(--terra)}
+.comment-reply-btn{display:inline-flex;align-items:center;gap:5px;background:none;border:none;font-family:'Inter',sans-serif;font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);cursor:pointer;padding:0;transition:color .3s}
+.comment-reply-btn:hover{color:var(--indigo)}
+
+/* Inline reply form */
+.reply-form-wrap{margin-top:12px;padding-left:40px;display:none}
+.reply-form-wrap.open{display:block}
+.reply-input{width:100%;background:var(--bg);border:1px solid var(--border);color:var(--earth);padding:10px 14px;font-family:'Newsreader',serif;font-size:.9rem;outline:none;transition:border-color .3s;display:block;margin-bottom:8px;resize:vertical}
+.reply-input:focus{border-color:var(--terra)}
+.reply-input::placeholder{color:var(--muted);font-style:italic}
+.reply-submit-btn{font-family:'Inter',sans-serif;font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;padding:8px 18px;background:var(--indigo);color:#F5EFE0;border:none;cursor:pointer;transition:opacity .3s}
+.reply-submit-btn:hover{opacity:.8}
+.reply-cancel-btn{font-family:'Inter',sans-serif;font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;padding:8px 14px;background:none;border:1px solid var(--border);color:var(--muted);cursor:pointer;margin-left:8px;transition:all .3s}
+.reply-cancel-btn:hover{border-color:var(--terra);color:var(--terra)}
+
+/* Nested replies */
+.replies-list{margin-top:12px;padding-left:40px;border-left:2px solid var(--border)}
+.reply-item{padding:12px 0 12px 16px;border-bottom:1px solid rgba(214,201,176,.4)}
+.reply-item:last-child{border-bottom:none}
+.reply-meta{display:flex;align-items:center;gap:8px;margin-bottom:6px}
+.reply-avatar{width:22px;height:22px;border-radius:50%;background:var(--terra);display:flex;align-items:center;justify-content:center;font-family:'Inter',sans-serif;font-size:.5rem;font-weight:500;color:#F5EFE0;flex-shrink:0;text-transform:uppercase}
+.reply-author{font-family:'Inter',sans-serif;font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--earth);font-weight:500}
+.reply-date{font-family:'Inter',sans-serif;font-size:.55rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-left:auto}
+.reply-body{font-family:'Newsreader',serif;font-size:.95rem;line-height:1.8;color:var(--earth)}
+
+.comments-empty{font-family:'Inter',sans-serif;font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);text-align:center;padding:32px 0;font-style:italic}
+.comments-loading{font-family:'Inter',sans-serif;font-size:.6rem;letter-spacing:.25em;text-transform:uppercase;color:var(--muted);text-align:center;padding:20px 0;animation:pulse 1.5s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:.4}50%{opacity:1}}
 
 @media(max-width:768px){
   nav{padding:14px 20px}.nav-links{gap:14px}
@@ -205,10 +317,37 @@ footer{background:#110C05;color:var(--bg);padding:60px 48px 32px}
   .footer-grid{grid-template-columns:1fr}
   .read-modal-inner{padding:60px 20px}
   .auth-box,.profile-box{padding:32px 24px}
+  .search-input{width:200px}.search-input:focus{width:240px}
+  .works-header{flex-direction:column;align-items:flex-start}
+  #cookie-banner{padding:14px 20px;flex-direction:column;align-items:flex-start}
+  .share-bar{flex-wrap:wrap}
+  .comment-body,.comment-like-row,.reply-form-wrap{padding-left:0}
+  .replies-list{padding-left:12px}
 }
 </style>
 </head>
 <body>
+
+<!-- 404 PAGE -->
+<div id="page-404">
+  <div class="e404-pattern"></div>
+  <div class="e404-content">
+    <div class="e404-num">404</div>
+    <h1 class="e404-title">Page Not Found</h1>
+    <p class="e404-sub">The page you're looking for doesn't exist.<br>Perhaps it was moved, or the link was mistyped.</p>
+    <button class="e404-btn" onclick="document.getElementById('page-404').classList.remove('show')">← Return to Library</button>
+  </div>
+</div>
+
+<!-- SUBSCRIPTION REMINDER BANNER -->
+<div id="cookie-banner">
+  <p class="cookie-text"><strong>Unlimited access</strong> — subscribe from ₦500/day to read every work by Haliru Ali Musa</p>
+  <div class="cookie-actions">
+    <button class="cookie-btn" onclick="dismissBanner()">Maybe later</button>
+    <button class="cookie-btn primary" onclick="openSubscribe('monthly');dismissBanner()">View Plans</button>
+  </div>
+</div>
+
 <div class="top-stripe"></div>
 
 <nav>
@@ -262,7 +401,22 @@ footer{background:#110C05;color:var(--bg);padding:60px 48px 32px}
 
 <!-- WORKS -->
 <section id="works" class="hausa-bg">
-  <div class="section-tag"><div class="dash"></div><span>Ayyuka · Selected Works</span></div>
+  <div class="works-header">
+    <div>
+      <div class="section-tag"><div class="dash"></div><span>Ayyuka · Selected Works</span></div>
+      <div class="filter-tabs" id="filter-tabs">
+        <button class="filter-tab active" data-genre="all">All</button>
+        <button class="filter-tab" data-genre="Fiction">Fiction</button>
+        <button class="filter-tab" data-genre="Poetry">Poetry</button>
+        <button class="filter-tab" data-genre="Essay">Essay</button>
+        <button class="filter-tab" data-genre="Column">Column</button>
+      </div>
+    </div>
+    <div class="search-wrap">
+      <svg class="search-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      <input type="text" class="search-input" id="works-search" placeholder="Search by title or genre…" oninput="filterWorks()"/>
+    </div>
+  </div>
   <div class="hausa-divider" style="max-width:240px;margin:12px 0 0">
     <div class="line"></div>
     <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 2L22 12L12 22L2 12Z" stroke="#C4622D" stroke-width="1" fill="none" opacity=".7"/><circle cx="12" cy="12" r="1.5" fill="#C4622D" opacity=".8"/></svg>
@@ -318,7 +472,7 @@ footer{background:#110C05;color:var(--bg);padding:60px 48px 32px}
       <input type="text" class="cf-input" id="cf-name" placeholder="Your name"/>
       <input type="email" class="cf-input" id="cf-email" placeholder="Your email"/>
       <textarea class="cf-input" id="cf-message" rows="6" placeholder="Your message…" style="resize:vertical;line-height:1.7"></textarea>
-      <button class="cf-btn" onclick="sendMessage()">Send Message →</button>
+      <button class="cf-btn" id="cf-send-btn" onclick="sendMessage()">Send Message →</button>
       <p id="cf-status" style="font-family:'Inter',sans-serif;font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;margin-top:12px;color:var(--terra);display:none"></p>
     </div>
     <div>
@@ -427,18 +581,29 @@ footer{background:#110C05;color:var(--bg);padding:60px 48px 32px}
     <div class="read-date" id="read-date"></div>
     <div class="read-divider"></div>
     <div id="read-body"></div>
+    <!-- Comments injected here after content -->
+    <div id="comments-root"></div>
   </div>
 </div>
 
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <script src="https://js.paystack.co/v1/inline.js"></script>
 <script>
+// ─── CONFIG ───────────────────────────────────────────────────────────────────
 const SB_URL = 'https://hsgfdysohdciciemrkyn.supabase.co';
 const SB_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhzZ2ZkeXNvaGRjaWNpZW1ya3luIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODAzNTIyOTksImV4cCI6MjA5NTkyODI5OX0.W6ayZvJF4aQ7rUBrZu7Pzo92XtBIsKrl89HF1d3lsSM';
 const PK_KEY = 'pk_live_76012132e4a1142e58c9723394cfa4ebae51adfe';
 const SESSION_KEY = 'maru_reader';
 
-const hdrs = {'apikey':SB_KEY,'Authorization':'Bearer '+SB_KEY,'Content-Type':'application/json','Prefer':'return=representation'};
+const EJS_SERVICE  = 'YOUR_EMAILJS_SERVICE_ID';
+const EJS_TEMPLATE_CONTACT = 'YOUR_CONTACT_TEMPLATE_ID';
+const EJS_TEMPLATE_NOTIFY  = 'YOUR_NOTIFY_TEMPLATE_ID';
+const EJS_PUBLIC_KEY = 'YOUR_EMAILJS_PUBLIC_KEY';
 
+try { emailjs.init(EJS_PUBLIC_KEY); } catch(e) {}
+
+// ─── SUPABASE HELPERS ─────────────────────────────────────────────────────────
+const hdrs = {'apikey':SB_KEY,'Authorization':'Bearer '+SB_KEY,'Content-Type':'application/json','Prefer':'return=representation'};
 async function sbGet(path){
   const r = await fetch(SB_URL+'/rest/v1/'+path,{headers:hdrs});
   const t = await r.text(); return t?JSON.parse(t):[];
@@ -452,80 +617,136 @@ async function sbPatch(path,body){
   const t = await r.text(); return t?JSON.parse(t):[];
 }
 
-// Simple password hash
+// ─── SESSION ──────────────────────────────────────────────────────────────────
 async function hashPass(p){
   const buf = await crypto.subtle.digest('SHA-256',new TextEncoder().encode(p));
   return Array.from(new Uint8Array(buf)).map(b=>b.toString(16).padStart(2,'0')).join('');
 }
-
-// Session
 function getSession(){return JSON.parse(sessionStorage.getItem(SESSION_KEY)||'null')}
 function setSession(u){sessionStorage.setItem(SESSION_KEY,JSON.stringify(u))}
 function clearSession(){sessionStorage.removeItem(SESSION_KEY)}
 
-// Corner SVG
+// ─── UTILITIES ────────────────────────────────────────────────────────────────
+function readingTime(text){
+  if(!text) return '';
+  const words = text.trim().split(/\s+/).length;
+  return Math.max(1, Math.round(words/220)) + ' min read';
+}
+function isNew(dateStr){
+  if(!dateStr) return false;
+  return (new Date() - new Date(dateStr)) < 14*24*60*60*1000;
+}
+function setWorkSEO(w){
+  document.title = w.title + ' — Haliru Ali Musa | Marubuci';
+  let d = document.querySelector('meta[name="description"]');
+  if(d) d.content = (w.excerpt||w.title) + ' — by Haliru Ali Musa';
+  let og = document.querySelector('meta[property="og:title"]');
+  if(og) og.content = w.title + ' — Haliru Ali Musa';
+}
+function resetSEO(){
+  document.title = 'Marubuci — Haliru Ali Musa | Writer, Critic & Engineer from Katsina';
+  let d = document.querySelector('meta[name="description"]');
+  if(d) d.content = 'Haliru Ali Musa — Award-winning writer, critic, and engineer from Katsina, Nigeria.';
+}
+function initials(name){ return (name||'?').split(' ').map(w=>w[0]).join('').substring(0,2).toUpperCase(); }
+function timeAgo(dateStr){
+  const s = Math.floor((new Date()-new Date(dateStr))/1000);
+  if(s<60) return 'just now';
+  if(s<3600) return Math.floor(s/60)+'m ago';
+  if(s<86400) return Math.floor(s/3600)+'h ago';
+  if(s<604800) return Math.floor(s/86400)+'d ago';
+  return new Date(dateStr).toLocaleDateString('en-NG',{day:'numeric',month:'short',year:'numeric'});
+}
 function corners(){
   return `<svg class="work-corner tl" viewBox="0 0 32 32" fill="none"><path d="M4 4L16 4L4 16Z" stroke="#C4622D" stroke-width=".8" fill="none" opacity=".6"/><path d="M4 4L28 4L28 28L4 28Z" stroke="#C4622D" stroke-width=".5" fill="none" opacity=".3"/></svg>
   <svg class="work-corner tr" viewBox="0 0 32 32" fill="none"><path d="M4 4L16 4L4 16Z" stroke="#C4622D" stroke-width=".8" fill="none" opacity=".6"/></svg>
   <svg class="work-corner bl" viewBox="0 0 32 32" fill="none"><path d="M4 4L16 4L4 16Z" stroke="#C4622D" stroke-width=".8" fill="none" opacity=".6"/></svg>
   <svg class="work-corner br" viewBox="0 0 32 32" fill="none"><path d="M4 4L16 4L4 16Z" stroke="#C4622D" stroke-width=".8" fill="none" opacity=".6"/></svg>`;
 }
-
 function hasActiveSubscription(subs){
   if(!subs||!subs.length)return false;
-  const now = new Date();
-  return subs.some(s=>s.status==='active'&&new Date(s.end_date)>now);
+  return subs.some(s=>s.status==='active'&&new Date(s.end_date)>new Date());
 }
 
+// ─── WORK CARD ────────────────────────────────────────────────────────────────
 function workCard(w, subs){
   const subActive = hasActiveSubscription(subs);
   const isFree = w.access==='free';
   const canRead = isFree || subActive;
   const img = w.img||'https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=600&q=80';
   const badge = isFree?'<span class="work-badge free">Free</span>':subActive?'<span class="work-badge unlocked">✓ Subscribed</span>':`<span class="work-badge paid">₦${w.price}</span>`;
+  const newBadge = isNew(w.created_at||w.date) ? '<span class="work-badge new-badge">New</span>' : '';
+  const rt = readingTime(w.content||w.excerpt||'');
   return `<div class="work-card" onclick="openWork('${w.id}')">
     <div class="work-cover">
       <img src="${img}" alt="${w.title}" loading="lazy"/>
-      ${corners()}
-      ${badge}
+      ${corners()}${badge}${newBadge}
       ${!canRead?`<div class="work-lock-overlay"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="rgba(245,239,224,.9)" stroke-width="1.5"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg></div>`:''}
     </div>
     <div class="work-genre">${w.genre||'Work'}</div>
     <h3 class="work-title">${w.title}</h3>
     <p class="work-excerpt">${w.excerpt||''}</p>
-    <div class="work-read">${canRead?'Karanta — Read ↗':'🔒 Subscribe to Read ↗'}</div>
+    <div class="work-meta-row">
+      <div class="work-read">${canRead?'Karanta — Read ↗':'🔒 Subscribe to Read ↗'}</div>
+      ${rt?`<span class="work-read-time">${rt}</span>`:''}
+    </div>
   </div>`;
 }
 
-let readerSubs = [];
-async function loadWorks(){
-  try {
-    const works = await sbGet('works?select=*&status=eq.published&order=created_at.desc');
-    const sess = getSession();
-    if(sess) readerSubs = await sbGet('subscriptions?reader_id=eq.'+sess.id+'&status=eq.active');
-    const grid = document.getElementById('works-grid');
-    grid.innerHTML = works.length ? works.map(w=>workCard(w,readerSubs)).join('') : '<div class="works-empty">No works published yet. Check back soon.</div>';
-  } catch(e){
-    document.getElementById('works-grid').innerHTML='<div class="works-empty">Could not load library.</div>';
-  }
+// ─── WORKS LOADING & FILTER ───────────────────────────────────────────────────
+let allWorks=[], readerSubs=[], activeGenre='all';
+
+function filterWorks(){
+  const q=(document.getElementById('works-search').value||'').toLowerCase().trim();
+  const grid=document.getElementById('works-grid');
+  let filtered=allWorks;
+  if(activeGenre!=='all') filtered=filtered.filter(w=>(w.genre||'').toLowerCase()===activeGenre);
+  if(q) filtered=filtered.filter(w=>(w.title||'').toLowerCase().includes(q)||(w.genre||'').toLowerCase().includes(q)||(w.excerpt||'').toLowerCase().includes(q));
+  grid.innerHTML=filtered.length?filtered.map(w=>workCard(w,readerSubs)).join(''):'<div class="works-empty">No works match your search.</div>';
 }
 
+document.getElementById('filter-tabs').addEventListener('click',e=>{
+  const tab=e.target.closest('.filter-tab');
+  if(!tab)return;
+  document.querySelectorAll('.filter-tab').forEach(t=>t.classList.remove('active'));
+  tab.classList.add('active');
+  activeGenre=tab.dataset.genre;
+  filterWorks();
+});
+
+async function loadWorks(){
+  try{
+    const works=await sbGet('works?select=*&status=eq.published&order=created_at.desc');
+    const sess=getSession();
+    if(sess) readerSubs=await sbGet('subscriptions?reader_id=eq.'+sess.id+'&status=eq.active');
+    allWorks=works; filterWorks();
+  }catch(e){ document.getElementById('works-grid').innerHTML='<div class="works-empty">Could not load library.</div>'; }
+}
+
+// ─── OPEN WORK ────────────────────────────────────────────────────────────────
+let currentWork=null;
+
 async function openWork(id){
-  try {
-    const rows = await sbGet('works?id=eq.'+id);
+  try{
+    const rows=await sbGet('works?id=eq.'+id);
     if(!rows.length)return;
-    const w = rows[0];
-    const sess = getSession();
-    let subs = [];
-    if(sess) subs = await sbGet('subscriptions?reader_id=eq.'+sess.id+'&status=eq.active');
-    const canRead = w.access==='free' || hasActiveSubscription(subs);
-    document.getElementById('read-genre').textContent = w.genre||'';
-    document.getElementById('read-title').textContent = w.title;
-    document.getElementById('read-date').textContent = w.date ? new Date(w.date).toLocaleDateString('en-NG',{year:'numeric',month:'long',day:'numeric'}) : '';
+    const w=rows[0]; currentWork=w;
+    const sess=getSession();
+    let subs=[];
+    if(sess) subs=await sbGet('subscriptions?reader_id=eq.'+sess.id+'&status=eq.active');
+    const canRead=w.access==='free'||hasActiveSubscription(subs);
+    setWorkSEO(w);
+    document.getElementById('read-genre').textContent=w.genre||'';
+    document.getElementById('read-title').textContent=w.title;
+    const dateStr=w.date?new Date(w.date).toLocaleDateString('en-NG',{year:'numeric',month:'long',day:'numeric'}):'';
+    const rt=readingTime(w.content||'');
+    document.getElementById('read-date').textContent=[dateStr,rt].filter(Boolean).join(' · ');
     if(canRead){
-      document.getElementById('read-body').innerHTML=`<div class="read-content">${w.content||'Content coming soon.'}</div>`;
+      document.getElementById('read-body').innerHTML=
+        `<div class="read-content">${w.content||'Content coming soon.'}</div>${buildShareBar(w)}`;
+      document.getElementById('copy-link-btn').addEventListener('click',copyWorkLink);
     } else {
-      const preview = (w.content||'').substring(0,500);
+      const preview=(w.content||'').substring(0,500);
       document.getElementById('read-body').innerHTML=`
         <div class="read-content" style="opacity:.35;max-height:180px;overflow:hidden;mask-image:linear-gradient(to bottom,black 30%,transparent)">${preview}…</div>
         <div class="paywall">
@@ -540,13 +761,267 @@ async function openWork(id){
           <p style="font-family:'Inter',sans-serif;font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-top:20px">Secure · Nigerian banks accepted · Instant access</p>
         </div>`;
     }
+    // Always render comments section (free & paid readers can comment if signed in)
+    renderCommentsSection(w.id);
     document.getElementById('read-modal').classList.add('open');
     document.body.style.overflow='hidden';
-  } catch(e){console.error(e)}
+  }catch(e){console.error(e)}
 }
-function closeRead(){document.getElementById('read-modal').classList.remove('open');document.body.style.overflow=''}
 
-// AUTH
+// ─── SHARE BAR ────────────────────────────────────────────────────────────────
+function buildShareBar(w){
+  const url=encodeURIComponent(window.location.href.split('#')[0]);
+  const text=encodeURIComponent(`"${w.title}" by Haliru Ali Musa — Read on Marubuci`);
+  return `<div class="share-bar">
+    <span class="share-label">Share</span>
+    <a class="share-btn whatsapp" href="https://wa.me/?text=${text}%20${url}" target="_blank" rel="noopener">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      WhatsApp
+    </a>
+    <a class="share-btn" href="https://twitter.com/intent/tweet?text=${text}&url=${url}" target="_blank" rel="noopener">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.741l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+      X / Twitter
+    </a>
+    <button class="share-btn copy-link" id="copy-link-btn">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+      Copy Link
+    </button>
+  </div>`;
+}
+function copyWorkLink(){
+  navigator.clipboard.writeText(window.location.href.split('#')[0]).then(()=>{
+    const btn=document.getElementById('copy-link-btn');
+    if(btn){btn.classList.add('copied');btn.innerHTML=btn.innerHTML.replace('Copy Link','✓ Copied!');}
+    setTimeout(()=>{if(btn){btn.classList.remove('copied');btn.innerHTML=btn.innerHTML.replace('✓ Copied!','Copy Link');}},2000);
+  });
+}
+function closeRead(){
+  document.getElementById('read-modal').classList.remove('open');
+  document.body.style.overflow='';
+  resetSEO(); currentWork=null;
+  document.getElementById('comments-root').innerHTML='';
+}
+
+// ─── COMMENTS SYSTEM ──────────────────────────────────────────────────────────
+// Requires a Supabase table: comments
+//   id (uuid, pk), work_id (text), reader_id (uuid, fk readers.id),
+//   reader_name (text), body (text), parent_id (uuid nullable, fk comments.id),
+//   likes (int, default 0), created_at (timestamptz, default now())
+//
+// Also: comment_likes table
+//   id (uuid, pk), comment_id (uuid), reader_id (uuid), created_at (timestamptz)
+
+let likedComments = new Set(); // track what this session has liked
+
+async function renderCommentsSection(workId){
+  const root = document.getElementById('comments-root');
+  root.innerHTML = `<div class="comments-section">
+    <div class="comments-heading">
+      <div class="dash"></div><span>Maganar Masu Karatu · Reader Comments</span>
+      <span class="count" id="comment-count"></span>
+    </div>
+    <div id="comment-form-area"></div>
+    <div id="comments-list-area"><div class="comments-loading">Loading comments…</div></div>
+  </div>`;
+  renderCommentForm(workId);
+  await loadComments(workId);
+}
+
+function renderCommentForm(workId){
+  const sess = getSession();
+  const area = document.getElementById('comment-form-area');
+  if(!area) return;
+  if(sess){
+    area.innerHTML = `<div class="comment-form">
+      <div class="comment-form-title">Leave a comment as <strong>${sess.name||sess.email}</strong></div>
+      <textarea class="comment-field" id="new-comment-text" rows="4" placeholder="Share your thoughts on this work…"></textarea>
+      <div class="comment-submit-row">
+        <button class="comment-submit-btn" id="comment-submit-btn" onclick="submitComment('${workId}')">
+          Post Comment
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+      <div class="comment-status" id="comment-status"></div>
+    </div>`;
+  } else {
+    area.innerHTML = `<div class="comment-form" style="text-align:center;padding:28px 24px">
+      <p class="comment-login-nudge">
+        <span onclick="openAuth('login')">Sign in</span> or <span onclick="openAuth('signup')">create a free account</span> to join the conversation.
+      </p>
+    </div>`;
+  }
+}
+
+async function loadComments(workId){
+  const listArea = document.getElementById('comments-list-area');
+  if(!listArea) return;
+  try{
+    // Load top-level comments
+    const comments = await sbGet('comments?work_id=eq.'+workId+'&parent_id=is.null&order=created_at.asc');
+    // Load all replies for this work
+    const replies = await sbGet('comments?work_id=eq.'+workId+'&parent_id=not.is.null&order=created_at.asc');
+    // Load likes for current session
+    const sess = getSession();
+    if(sess){
+      try{
+        const myLikes = await sbGet('comment_likes?reader_id=eq.'+sess.id);
+        likedComments = new Set((myLikes||[]).map(l=>l.comment_id));
+      }catch(e){ likedComments = new Set(); }
+    }
+    const countEl = document.getElementById('comment-count');
+    const total = comments.length + replies.length;
+    if(countEl) countEl.textContent = total ? `${total} comment${total===1?'':'s'}` : '';
+    if(!comments.length){
+      listArea.innerHTML = '<p class="comments-empty">Be the first to share your thoughts on this work.</p>';
+      return;
+    }
+    // Group replies by parent_id
+    const replyMap = {};
+    for(const r of replies){
+      if(!replyMap[r.parent_id]) replyMap[r.parent_id]=[];
+      replyMap[r.parent_id].push(r);
+    }
+    listArea.innerHTML = `<div class="comments-list">${comments.map(c=>commentHTML(c, replyMap[c.id]||[], workId)).join('')}</div>`;
+  }catch(e){
+    listArea.innerHTML='<p class="comments-empty" style="color:#C0392B">Could not load comments.</p>';
+  }
+}
+
+function commentHTML(c, replies, workId){
+  const liked = likedComments.has(c.id);
+  const likeIcon = `<svg width="12" height="12" viewBox="0 0 24 24" fill="${liked?'var(--terra)':'none'}" stroke="currentColor" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>`;
+  const repliesHTML = replies.length ? `<div class="replies-list">${replies.map(r=>replyHTML(r)).join('')}</div>` : '';
+  return `<div class="comment-item" id="comment-${c.id}">
+    <div class="comment-meta">
+      <div class="comment-avatar">${initials(c.reader_name)}</div>
+      <span class="comment-author">${escapeHtml(c.reader_name||'Reader')}</span>
+      <span class="comment-date">${timeAgo(c.created_at)}</span>
+    </div>
+    <div class="comment-body">${escapeHtml(c.body)}</div>
+    <div class="comment-like-row">
+      <button class="comment-like-btn ${liked?'liked':''}" onclick="toggleLike('${c.id}','${workId}',this)" title="${liked?'Unlike':'Like'}">
+        ${likeIcon} ${c.likes||0}
+      </button>
+      <button class="comment-reply-btn" onclick="toggleReplyForm('${c.id}','${workId}',this)">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        Reply
+      </button>
+    </div>
+    <div class="reply-form-wrap" id="reply-form-${c.id}"></div>
+    ${repliesHTML}
+  </div>`;
+}
+
+function replyHTML(r){
+  return `<div class="reply-item" id="comment-${r.id}">
+    <div class="reply-meta">
+      <div class="reply-avatar">${initials(r.reader_name)}</div>
+      <span class="reply-author">${escapeHtml(r.reader_name||'Reader')}</span>
+      <span class="reply-date">${timeAgo(r.created_at)}</span>
+    </div>
+    <div class="reply-body">${escapeHtml(r.body)}</div>
+  </div>`;
+}
+
+function escapeHtml(str){
+  return (str||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+async function submitComment(workId, parentId=null){
+  const sess = getSession();
+  if(!sess){ openAuth('login'); return; }
+  const isReply = !!parentId;
+  const textareaId = isReply ? `reply-text-${parentId}` : 'new-comment-text';
+  const btnId = isReply ? `reply-submit-${parentId}` : 'comment-submit-btn';
+  const statusId = isReply ? `reply-status-${parentId}` : 'comment-status';
+  const textarea = document.getElementById(textareaId);
+  const btn = document.getElementById(btnId);
+  const statusEl = document.getElementById(statusId);
+  if(!textarea) return;
+  const body = textarea.value.trim();
+  if(!body){
+    if(statusEl){statusEl.textContent='Please write something first.';statusEl.className='comment-status err';statusEl.style.display='block';}
+    return;
+  }
+  if(btn) btn.disabled=true;
+  try{
+    const payload = {
+      work_id: workId,
+      reader_id: sess.id,
+      reader_name: sess.name||sess.email,
+      body,
+      likes: 0
+    };
+    if(parentId) payload.parent_id = parentId;
+    await sbPost('comments', payload);
+    textarea.value='';
+    if(statusEl){statusEl.textContent='✓ Comment posted!';statusEl.className='comment-status ok';statusEl.style.display='block';}
+    // Refresh comments
+    await loadComments(workId);
+    if(isReply){
+      // Close reply form
+      const wrap = document.getElementById(`reply-form-${parentId}`);
+      if(wrap) wrap.classList.remove('open');
+    }
+  }catch(e){
+    if(statusEl){statusEl.textContent='Could not post comment. Please try again.';statusEl.className='comment-status err';statusEl.style.display='block';}
+  }
+  if(btn) btn.disabled=false;
+}
+
+function toggleReplyForm(commentId, workId, btn){
+  const wrap = document.getElementById(`reply-form-${commentId}`);
+  if(!wrap) return;
+  const sess = getSession();
+  if(wrap.classList.contains('open')){
+    wrap.classList.remove('open'); wrap.innerHTML=''; return;
+  }
+  if(!sess){
+    openAuth('login'); return;
+  }
+  wrap.classList.add('open');
+  wrap.innerHTML = `
+    <textarea class="reply-input" id="reply-text-${commentId}" rows="3" placeholder="Write a reply…"></textarea>
+    <div>
+      <button class="reply-submit-btn" id="reply-submit-${commentId}" onclick="submitComment('${workId}','${commentId}')">Reply</button>
+      <button class="reply-cancel-btn" onclick="document.getElementById('reply-form-${commentId}').classList.remove('open');document.getElementById('reply-form-${commentId}').innerHTML=''">Cancel</button>
+    </div>
+    <div class="comment-status" id="reply-status-${commentId}" style="margin-top:8px"></div>`;
+  wrap.querySelector('textarea').focus();
+}
+
+async function toggleLike(commentId, workId, btn){
+  const sess = getSession();
+  if(!sess){ openAuth('login'); return; }
+  const liked = likedComments.has(commentId);
+  // Optimistic UI
+  const countSpan = btn.childNodes[btn.childNodes.length-1];
+  const currentCount = parseInt(countSpan.textContent)||0;
+  try{
+    if(liked){
+      // Unlike: delete from comment_likes, decrement
+      likedComments.delete(commentId);
+      btn.classList.remove('liked');
+      countSpan.textContent=' '+(currentCount-1);
+      await sbPatch('comments?id=eq.'+commentId,{likes:currentCount-1});
+      // Delete like record (best effort)
+      try{ await fetch(SB_URL+'/rest/v1/comment_likes?comment_id=eq.'+commentId+'&reader_id=eq.'+sess.id,{method:'DELETE',headers:hdrs}); }catch(e){}
+    } else {
+      // Like
+      likedComments.add(commentId);
+      btn.classList.add('liked');
+      countSpan.textContent=' '+(currentCount+1);
+      await sbPost('comment_likes',{comment_id:commentId,reader_id:sess.id});
+      await sbPatch('comments?id=eq.'+commentId,{likes:currentCount+1});
+    }
+  }catch(e){
+    // Revert optimistic update on error
+    if(liked){ likedComments.add(commentId); btn.classList.add('liked'); countSpan.textContent=' '+currentCount; }
+    else { likedComments.delete(commentId); btn.classList.remove('liked'); countSpan.textContent=' '+currentCount; }
+  }
+}
+
+// ─── AUTH ─────────────────────────────────────────────────────────────────────
 function openAuth(mode){
   if(getSession()){openProfile();return}
   document.getElementById('auth-overlay').classList.add('open');
@@ -558,47 +1033,43 @@ function showLogin(){document.getElementById('auth-login').style.display='block'
 function showSignup(){document.getElementById('auth-login').style.display='none';document.getElementById('auth-signup').style.display='block'}
 
 async function doLogin(){
-  const email = document.getElementById('login-email').value.trim().toLowerCase();
-  const pass = document.getElementById('login-password').value;
-  const err = document.getElementById('login-err');
+  const email=document.getElementById('login-email').value.trim().toLowerCase();
+  const pass=document.getElementById('login-password').value;
+  const err=document.getElementById('login-err');
   err.style.display='none';
-  try {
-    const hash = await hashPass(pass);
-    const rows = await sbGet('readers?email=eq.'+encodeURIComponent(email)+'&password_hash=eq.'+hash);
+  try{
+    const hash=await hashPass(pass);
+    const rows=await sbGet('readers?email=eq.'+encodeURIComponent(email)+'&password_hash=eq.'+hash);
     if(!rows.length){err.style.display='block';return}
-    setSession(rows[0]);
-    closeAuth();
-    updateNavAuth();
-    loadWorks();
-  } catch(e){err.textContent='Error signing in.';err.style.display='block'}
+    setSession(rows[0]); closeAuth(); updateNavAuth(); loadWorks();
+    // Refresh comment form if reading
+    if(currentWork) renderCommentForm(currentWork.id);
+  }catch(e){err.textContent='Error signing in.';err.style.display='block'}
 }
 
 async function doSignup(){
-  const name = document.getElementById('signup-name').value.trim();
-  const email = document.getElementById('signup-email').value.trim().toLowerCase();
-  const pass = document.getElementById('signup-password').value;
-  const err = document.getElementById('signup-err');
+  const name=document.getElementById('signup-name').value.trim();
+  const email=document.getElementById('signup-email').value.trim().toLowerCase();
+  const pass=document.getElementById('signup-password').value;
+  const err=document.getElementById('signup-err');
   err.style.display='none';
   if(!name||!email||!pass){err.textContent='Please fill all fields.';err.style.display='block';return}
-  try {
-    const existing = await sbGet('readers?email=eq.'+encodeURIComponent(email));
+  try{
+    const existing=await sbGet('readers?email=eq.'+encodeURIComponent(email));
     if(existing.length){err.textContent='Email already registered.';err.style.display='block';return}
-    const hash = await hashPass(pass);
-    const rows = await sbPost('readers',{name,email,password_hash:hash});
-    const user = Array.isArray(rows)?rows[0]:rows;
-    setSession(user);
-    closeAuth();
-    updateNavAuth();
-    loadWorks();
-    openProfile();
-  } catch(e){err.textContent='Error creating account.';err.style.display='block'}
+    const hash=await hashPass(pass);
+    const rows=await sbPost('readers',{name,email,password_hash:hash});
+    const user=Array.isArray(rows)?rows[0]:rows;
+    setSession(user); closeAuth(); updateNavAuth(); loadWorks(); openProfile();
+    if(currentWork) renderCommentForm(currentWork.id);
+  }catch(e){err.textContent='Error creating account.';err.style.display='block'}
 }
 
-function doLogout(){clearSession();closeProfile();updateNavAuth();readerSubs=[];loadWorks()}
+function doLogout(){clearSession();closeProfile();updateNavAuth();readerSubs=[];allWorks=[];loadWorks();if(currentWork)renderCommentForm(currentWork.id)}
 
 function updateNavAuth(){
-  const sess = getSession();
-  const area = document.getElementById('nav-auth-area');
+  const sess=getSession();
+  const area=document.getElementById('nav-auth-area');
   if(sess){
     area.innerHTML=`<span class="nav-user" onclick="openProfile()"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>${sess.name||sess.email}</span>`;
   } else {
@@ -606,12 +1077,11 @@ function updateNavAuth(){
   }
 }
 
-// PROFILE
+// ─── PROFILE ──────────────────────────────────────────────────────────────────
 function openProfile(){
-  const sess = getSession();
-  if(!sess)return;
-  document.getElementById('profile-name').textContent = sess.name||'Reader';
-  document.getElementById('profile-email').textContent = sess.email;
+  const sess=getSession(); if(!sess)return;
+  document.getElementById('profile-name').textContent=sess.name||'Reader';
+  document.getElementById('profile-email').textContent=sess.email;
   loadSubStatus();
   document.getElementById('profile-overlay').classList.add('open');
   document.body.style.overflow='hidden';
@@ -619,88 +1089,94 @@ function openProfile(){
 function closeProfile(){document.getElementById('profile-overlay').classList.remove('open');document.body.style.overflow=''}
 
 async function loadSubStatus(){
-  const sess = getSession();
-  if(!sess)return;
-  const subs = await sbGet('subscriptions?reader_id=eq.'+sess.id+'&status=eq.active&order=end_date.desc');
-  const statusEl = document.getElementById('sub-status-val');
+  const sess=getSession(); if(!sess)return;
+  const subs=await sbGet('subscriptions?reader_id=eq.'+sess.id+'&status=eq.active&order=end_date.desc');
+  const el=document.getElementById('sub-status-val');
   if(hasActiveSubscription(subs)){
-    const s = subs[0];
-    const end = new Date(s.end_date).toLocaleDateString('en-NG',{year:'numeric',month:'long',day:'numeric'});
-    statusEl.innerHTML=`<span style="color:#2D6A4F">✓ Active — ${s.plan} plan</span><br><span style="font-family:'Inter',sans-serif;font-size:.65rem;color:var(--muted);letter-spacing:.15em">Expires ${end}</span>`;
-  } else {
-    statusEl.textContent = 'No active subscription';
-  }
+    const s=subs[0];
+    const end=new Date(s.end_date).toLocaleDateString('en-NG',{year:'numeric',month:'long',day:'numeric'});
+    el.innerHTML=`<span style="color:#2D6A4F">✓ Active — ${s.plan} plan</span><br><span style="font-family:'Inter',sans-serif;font-size:.65rem;color:var(--muted);letter-spacing:.15em">Expires ${end}</span>`;
+  } else { el.textContent='No active subscription'; }
 }
 
-let selectedPlan = null;
-function selectPlan(plan, el){
-  selectedPlan = plan;
+let selectedPlan=null;
+function selectPlan(plan,el){
+  selectedPlan=plan;
   document.querySelectorAll('.plan-card').forEach(c=>c.classList.remove('selected'));
   el.classList.add('selected');
   document.getElementById('subscribe-btn').style.display='block';
 }
-
 function openSubscribe(plan){
-  const sess = getSession();
-  if(!sess){openAuth('signup');return}
+  const sess=getSession(); if(!sess){openAuth('signup');return}
   openProfile();
   setTimeout(()=>{
-    const map = {daily:0,monthly:1,yearly:2};
-    const cards = document.querySelectorAll('.plan-card');
+    const map={daily:0,monthly:1,yearly:2};
+    const cards=document.querySelectorAll('.plan-card');
     if(cards[map[plan]])selectPlan(plan,cards[map[plan]]);
   },200);
 }
 
+async function sendSubscriptionNotification(name,email,plan,amount){
+  try{ await emailjs.send(EJS_SERVICE,EJS_TEMPLATE_NOTIFY,{subscriber_name:name,subscriber_email:email,plan,amount:'₦'+amount.toLocaleString()}); }
+  catch(e){ console.warn('EmailJS not configured:',e); }
+}
+
 async function processSubscription(){
-  const sess = getSession();
-  if(!sess||!selectedPlan)return;
-  const plans = {daily:{amount:500,days:1,label:'Daily Pass'},monthly:{amount:5000,days:30,label:'Monthly'},yearly:{amount:50000,days:365,label:'Annual'}};
-  const p = plans[selectedPlan];
-  const handler = PaystackPop.setup({
-    key: PK_KEY,
-    email: sess.email,
-    amount: p.amount * 100,
-    currency: 'NGN',
+  const sess=getSession(); if(!sess||!selectedPlan)return;
+  const plans={daily:{amount:500,days:1,label:'Daily Pass'},monthly:{amount:5000,days:30,label:'Monthly'},yearly:{amount:50000,days:365,label:'Annual'}};
+  const p=plans[selectedPlan];
+  PaystackPop.setup({
+    key:PK_KEY, email:sess.email, amount:p.amount*100, currency:'NGN',
     metadata:{reader_id:sess.id,plan:selectedPlan},
-    callback: async function(response){
-      const now = new Date();
-      const end = new Date(now.getTime() + p.days*24*60*60*1000);
-      await sbPost('subscriptions',{
-        reader_id:sess.id,
-        plan:p.label,
-        amount:p.amount,
-        start_date:now.toISOString(),
-        end_date:end.toISOString(),
-        paystack_ref:response.reference,
-        status:'active'
-      });
-      readerSubs = await sbGet('subscriptions?reader_id=eq.'+sess.id+'&status=eq.active');
-      loadSubStatus();
-      loadWorks();
+    callback:async function(response){
+      const now=new Date();
+      const end=new Date(now.getTime()+p.days*24*60*60*1000);
+      await sbPost('subscriptions',{reader_id:sess.id,plan:p.label,amount:p.amount,start_date:now.toISOString(),end_date:end.toISOString(),paystack_ref:response.reference,status:'active'});
+      await sendSubscriptionNotification(sess.name||sess.email,sess.email,p.label,p.amount);
+      readerSubs=await sbGet('subscriptions?reader_id=eq.'+sess.id+'&status=eq.active');
+      loadSubStatus(); filterWorks();
       document.getElementById('subscribe-btn').textContent='✓ Subscribed!';
       setTimeout(()=>{closeProfile();closeRead();},1200);
     },
-    onClose: function(){}
-  });
-  handler.openIframe();
+    onClose:function(){}
+  }).openIframe();
 }
 
+// ─── CONTACT FORM ─────────────────────────────────────────────────────────────
+async function sendMessage(){
+  const name=document.getElementById('cf-name').value.trim();
+  const email=document.getElementById('cf-email').value.trim();
+  const msg=document.getElementById('cf-message').value.trim();
+  const status=document.getElementById('cf-status');
+  const btn=document.getElementById('cf-send-btn');
+  if(!name||!email||!msg){status.textContent='Please fill all fields.';status.style.color='#C0392B';status.style.display='block';return;}
+  if(!/\S+@\S+\.\S+/.test(email)){status.textContent='Please enter a valid email.';status.style.color='#C0392B';status.style.display='block';return;}
+  btn.disabled=true;btn.textContent='Sending…';
+  try{
+    await emailjs.send(EJS_SERVICE,EJS_TEMPLATE_CONTACT,{from_name:name,from_email:email,message:msg});
+    status.textContent='✓ Message sent — Haliru will be in touch soon.';status.style.color='#2D6A4F';status.style.display='block';
+    document.getElementById('cf-name').value='';document.getElementById('cf-email').value='';document.getElementById('cf-message').value='';
+  }catch(e){
+    window.location.href=`mailto:?subject=Message from ${encodeURIComponent(name)} via Marubuci&body=${encodeURIComponent(msg+'\n\nFrom: '+name+' ('+email+')')}`;
+    status.textContent='Configure EmailJS for silent sending. Your mail app will open as fallback.';status.style.color='var(--terra)';status.style.display='block';
+  }
+  btn.disabled=false;btn.textContent='Send Message →';
+}
+
+// ─── BIO & SOCIALS ────────────────────────────────────────────────────────────
 async function loadBio(){
-  try {
-    const rows = await sbGet('bio?id=eq.1');
-    if(!rows.length)return;
+  try{
+    const rows=await sbGet('bio?id=eq.1'); if(!rows.length)return;
     const b=rows[0];
     if(b.short_bio)document.getElementById('about-short').textContent=b.short_bio;
     if(b.full_bio){const lines=b.full_bio.split('\n\n');if(lines[1])document.getElementById('about-full-preview').textContent=lines[1]}
     if(b.img)document.getElementById('about-img').src=b.img;
-    if(b.awards){document.getElementById('awards-list').innerHTML=b.awards.split('\n').filter(Boolean).map(a=>`<div class="award-item">${a}</div>`).join('')}
-  } catch(e){}
+    if(b.awards)document.getElementById('awards-list').innerHTML=b.awards.split('\n').filter(Boolean).map(a=>`<div class="award-item">${a}</div>`).join('');
+  }catch(e){}
 }
-
 async function loadSocials(){
-  try {
-    const rows = await sbGet('settings?id=eq.1');
-    if(!rows.length)return;
+  try{
+    const rows=await sbGet('settings?id=eq.1'); if(!rows.length)return;
     const s=rows[0];
     let html='';
     if(s.twitter)html+=`<a href="https://twitter.com/${s.twitter.replace('@','')}" target="_blank" class="social-link">Twitter / X — ${s.twitter}</a>`;
@@ -708,29 +1184,34 @@ async function loadSocials(){
     if(s.email)html+=`<a href="mailto:${s.email}" class="social-link">Email — ${s.email}</a>`;
     if(html)document.getElementById('social-links').innerHTML=html;
     else document.getElementById('social-links').innerHTML='';
-  } catch(e){}
+  }catch(e){}
 }
 
-function sendMessage(){
-  const name=document.getElementById('cf-name').value.trim();
-  const email=document.getElementById('cf-email').value.trim();
-  const msg=document.getElementById('cf-message').value.trim();
-  const status=document.getElementById('cf-status');
-  if(!name||!email||!msg){status.textContent='Please fill all fields.';status.style.display='block';return}
-  window.location.href=`mailto:?subject=Message from ${encodeURIComponent(name)} via Marubuci&body=${encodeURIComponent(msg+'\n\nFrom: '+name+' ('+email+')')}`;
-  status.textContent='Message prepared — your mail app will open.';
-  status.style.display='block';
-  document.getElementById('cf-name').value='';
-  document.getElementById('cf-email').value='';
-  document.getElementById('cf-message').value='';
+// ─── BANNER ───────────────────────────────────────────────────────────────────
+function initBanner(){
+  if(getSession()||localStorage.getItem('maru_banner_dismissed'))return;
+  setTimeout(()=>document.getElementById('cookie-banner').classList.add('visible'),6000);
+}
+function dismissBanner(){
+  document.getElementById('cookie-banner').classList.remove('visible');
+  localStorage.setItem('maru_banner_dismissed',Date.now());
 }
 
+// ─── KEYBOARD ─────────────────────────────────────────────────────────────────
 document.getElementById('login-password').addEventListener('keydown',e=>{if(e.key==='Enter')doLogin()});
+document.addEventListener('keydown',e=>{
+  if(e.key!=='Escape')return;
+  if(document.getElementById('read-modal').classList.contains('open'))closeRead();
+  else if(document.getElementById('auth-overlay').classList.contains('open'))closeAuth();
+  else if(document.getElementById('profile-overlay').classList.contains('open'))closeProfile();
+});
 
+// ─── INIT ─────────────────────────────────────────────────────────────────────
 updateNavAuth();
 loadWorks();
 loadBio();
 loadSocials();
+initBanner();
 </script>
 </body>
 </html>
