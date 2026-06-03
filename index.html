@@ -11,44 +11,55 @@
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --sand:#EDE3CC;--parchment:#E5D9BF;--earth:#2A1A0E;
-  --terra:#C4622D;--indigo:#1B2B6B;--gold:#D4A030;
-  --muted:#8A7560;--border:#C8B89A;
+  --bg:#F5EFE0;
+  --parchment:#EDE3CC;
+  --paper:#FAF6EE;
+  --earth:#1A1208;
+  --terra:#C4622D;
+  --indigo:#1B3A6B;
+  --gold:#D4A030;
+  --muted:#7A6A52;
+  --border:#D6C9B0;
+  --soft:#E8DFC8;
 }
 html{scroll-behavior:smooth}
-body{background:var(--sand);color:var(--earth);font-family:'Newsreader',Georgia,serif}
+body{background:var(--bg);color:var(--earth);font-family:'Newsreader',Georgia,serif;line-height:1.7}
 ::-webkit-scrollbar{width:3px}::-webkit-scrollbar-thumb{background:var(--terra);border-radius:2px}
 ::selection{background:rgba(196,98,45,.18)}
 
 .top-stripe{height:4px;background:repeating-linear-gradient(90deg,var(--terra) 0 6px,var(--indigo) 6px 12px,var(--gold) 12px 18px,var(--earth) 18px 24px)}
 
-nav{position:sticky;top:0;z-index:100;background:rgba(237,227,204,.93);backdrop-filter:blur(6px);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:14px 40px;}
+nav{position:sticky;top:0;z-index:100;background:rgba(245,239,224,.96);backdrop-filter:blur(8px);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:14px 40px;}
 .brand{font-style:italic;font-size:1.2rem;color:var(--earth);display:flex;align-items:center;gap:8px;text-decoration:none}
-.nav-links{display:flex;gap:32px;list-style:none}
+.nav-links{display:flex;gap:28px;list-style:none;align-items:center}
 .nav-links a{font-family:'Inter',sans-serif;font-size:.65rem;letter-spacing:.28em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .3s}
 .nav-links a:hover{color:var(--terra)}
+.nav-auth-btn{font-family:'Inter',sans-serif;font-size:.6rem;letter-spacing:.25em;text-transform:uppercase;padding:7px 16px;border:1px solid var(--terra);color:var(--terra);background:none;cursor:pointer;transition:all .3s}
+.nav-auth-btn:hover,.nav-auth-btn.filled{background:var(--terra);color:var(--bg)}
+.nav-user{font-family:'Inter',sans-serif;font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);cursor:pointer;display:flex;align-items:center;gap:6px}
+.nav-user:hover{color:var(--terra)}
 
-.hausa-bg{background-image:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none'%3E%3Cpath d='M30 0L60 30L30 60L0 30Z' stroke='%23C4622D' stroke-width='0.6' opacity='0.15'/%3E%3Cpath d='M30 10L50 30L30 50L10 30Z' stroke='%23C4622D' stroke-width='0.5' opacity='0.1'/%3E%3C/g%3E%3C/svg%3E")}
+.hausa-bg{background-image:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none'%3E%3Cpath d='M30 0L60 30L30 60L0 30Z' stroke='%23C4622D' stroke-width='0.5' opacity='0.08'/%3E%3Cpath d='M30 10L50 30L30 50L10 30Z' stroke='%231B3A6B' stroke-width='0.4' opacity='0.06'/%3E%3C/g%3E%3C/svg%3E");background-color:var(--bg)}
 
 .border-strip{height:12px;width:100%;overflow:hidden}
 .border-strip svg{width:100%;height:12px}
 
 /* HERO */
 .hero{min-height:100vh;position:relative;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden}
-.hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:sepia(.2) contrast(1.05)}
-.hero-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(26,10,4,.95) 0%,rgba(26,10,4,.65) 40%,rgba(100,40,10,.2) 70%,transparent 100%)}
-.hero-pattern{position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none'%3E%3Cpath d='M30 0L60 30L30 60L0 30Z' stroke='%23C4622D' stroke-width='0.6' opacity='0.12'/%3E%3C/g%3E%3C/svg%3E");opacity:.25}
+.hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:sepia(.15) contrast(1.05)}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(26,18,8,.96) 0%,rgba(26,18,8,.7) 40%,rgba(27,58,107,.15) 75%,transparent 100%)}
+.hero-pattern{position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none'%3E%3Cpath d='M30 0L60 30L30 60L0 30Z' stroke='%23C4622D' stroke-width='0.6' opacity='0.1'/%3E%3C/g%3E%3C/svg%3E");opacity:.3}
 .hero-content{position:relative;z-index:2;padding:0 48px 80px;max-width:960px}
 .hero-tag{display:flex;align-items:center;gap:12px;margin-bottom:28px}
 .hero-tag-line{width:32px;height:1px;background:rgba(196,98,45,.6)}
 .hero-tag span{font-family:'Inter',sans-serif;font-size:.6rem;letter-spacing:.35em;text-transform:uppercase;color:rgba(196,98,45,.75)}
-.hero-title{font-size:clamp(2rem,5vw,4.5rem);font-weight:300;line-height:1.15;letter-spacing:-.02em;color:var(--sand);margin-bottom:20px}
-.hero-sub{font-size:1.1rem;font-style:italic;color:rgba(237,227,204,.55);max-width:480px;line-height:1.7;margin-bottom:40px}
-.btn-enter{display:inline-flex;align-items:center;gap:12px;font-family:'Inter',sans-serif;font-size:.65rem;letter-spacing:.28em;text-transform:uppercase;color:rgba(196,98,45,.85);border:1px solid rgba(196,98,45,.45);padding:14px 28px;text-decoration:none;transition:all .3s}
-.btn-enter:hover{background:var(--terra);color:var(--sand);border-color:var(--terra)}
-.hero-rule{position:absolute;right:48px;top:80px;bottom:0;width:1px;background:linear-gradient(to bottom,transparent,rgba(196,98,45,.3) 20%,rgba(196,98,45,.3) 80%,transparent)}
+.hero-title{font-size:clamp(2rem,5vw,4.5rem);font-weight:300;line-height:1.15;letter-spacing:-.02em;color:#F5EFE0;margin-bottom:20px}
+.hero-sub{font-size:1.1rem;font-style:italic;color:rgba(245,239,224,.55);max-width:480px;line-height:1.7;margin-bottom:40px}
+.btn-enter{display:inline-flex;align-items:center;gap:12px;font-family:'Inter',sans-serif;font-size:.65rem;letter-spacing:.28em;text-transform:uppercase;color:rgba(196,98,45,.9);border:1px solid rgba(196,98,45,.5);padding:14px 28px;text-decoration:none;transition:all .3s;margin-right:12px}
+.btn-enter:hover,.btn-enter.solid{background:var(--terra);color:var(--bg);border-color:var(--terra)}
+.hero-rule{position:absolute;right:48px;top:80px;bottom:0;width:1px;background:linear-gradient(to bottom,transparent,rgba(196,98,45,.25) 20%,rgba(196,98,45,.25) 80%,transparent)}
 
-.hausa-divider{display:flex;align-items:center;gap:12px;margin:0 auto}
+.hausa-divider{display:flex;align-items:center;gap:12px}
 .hausa-divider .line{flex:1;height:1px;background:var(--border)}
 
 section{padding:80px 48px}
@@ -56,119 +67,168 @@ section{padding:80px 48px}
 .section-tag .dash{width:32px;height:1px;background:var(--terra)}
 .section-tag span{font-family:'Inter',sans-serif;font-size:.6rem;letter-spacing:.35em;text-transform:uppercase;color:var(--terra)}
 
+/* SUBSCRIPTION BANNER */
+.sub-banner{background:var(--indigo);color:#F5EFE0;padding:20px 48px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.sub-banner-text p{font-family:'Inter',sans-serif;font-size:.65rem;letter-spacing:.25em;text-transform:uppercase;color:rgba(245,239,224,.6);margin-bottom:4px}
+.sub-banner-text h3{font-family:'Newsreader',serif;font-weight:300;font-size:1.2rem}
+.sub-banner-plans{display:flex;gap:12px;flex-wrap:wrap}
+.plan-pill{font-family:'Inter',sans-serif;font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;padding:8px 18px;border:1px solid rgba(245,239,224,.25);color:rgba(245,239,224,.8);cursor:pointer;background:none;transition:all .3s}
+.plan-pill:hover,.plan-pill.active-plan{background:var(--terra);border-color:var(--terra);color:#F5EFE0}
+
 /* WORKS GRID */
 .works-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:48px 36px;margin-top:48px}
 .work-card{display:block;text-decoration:none;color:inherit;cursor:pointer}
-.work-cover{aspect-ratio:3/4;overflow:hidden;background:var(--parchment);position:relative;margin-bottom:18px}
-.work-cover img{width:100%;height:100%;object-fit:cover;filter:grayscale(60%);transition:filter .6s,transform .6s}
+.work-cover{aspect-ratio:3/4;overflow:hidden;background:var(--soft);position:relative;margin-bottom:18px;border:1px solid var(--border)}
+.work-cover img{width:100%;height:100%;object-fit:cover;filter:grayscale(40%);transition:filter .6s,transform .6s}
 .work-card:hover .work-cover img{filter:grayscale(0%);transform:scale(1.04)}
-.work-corner{position:absolute;width:28px;height:28px;opacity:.45;transition:opacity .4s}
-.work-card:hover .work-corner{opacity:.9}
+.work-corner{position:absolute;width:28px;height:28px;opacity:.4;transition:opacity .4s}
+.work-card:hover .work-corner{opacity:.85}
 .work-corner.tl{top:8px;left:8px}.work-corner.tr{top:8px;right:8px;transform:rotate(90deg)}
 .work-corner.bl{bottom:8px;left:8px;transform:rotate(-90deg)}.work-corner.br{bottom:8px;right:8px;transform:rotate(180deg)}
-.work-price{position:absolute;top:10px;right:10px;font-family:'Inter',sans-serif;font-size:.6rem;letter-spacing:.2em;padding:5px 10px;background:rgba(26,10,4,.82);color:var(--sand)}
-.work-lock{position:absolute;inset:0;background:rgba(26,10,4,.55);display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .3s}
-.work-card:hover .work-lock{opacity:1}
+.work-badge{position:absolute;top:10px;left:10px;font-family:'Inter',sans-serif;font-size:.55rem;letter-spacing:.2em;padding:4px 10px;text-transform:uppercase}
+.work-badge.free{background:var(--indigo);color:#F5EFE0}
+.work-badge.paid{background:var(--terra);color:#F5EFE0}
+.work-badge.unlocked{background:#2D6A4F;color:#F5EFE0}
+.work-lock-overlay{position:absolute;inset:0;background:rgba(26,18,8,.45);display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .3s}
+.work-card:hover .work-lock-overlay{opacity:1}
 .work-genre{font-family:'Inter',sans-serif;font-size:.6rem;letter-spacing:.3em;text-transform:uppercase;color:var(--terra);margin-bottom:8px}
-.work-title{font-size:1.4rem;font-weight:400;letter-spacing:-.01em;line-height:1.2;transition:color .3s}
+.work-title{font-size:1.35rem;font-weight:400;letter-spacing:-.01em;line-height:1.25;color:var(--earth);transition:color .3s}
 .work-card:hover .work-title{color:var(--terra)}
 .work-excerpt{font-size:.95rem;font-style:italic;color:var(--muted);line-height:1.7;margin-top:8px}
 .work-read{display:flex;align-items:center;gap:8px;margin-top:14px;font-family:'Inter',sans-serif;font-size:.6rem;letter-spacing:.28em;text-transform:uppercase;color:var(--muted);transition:color .3s}
 .work-card:hover .work-read{color:var(--terra)}
-.works-empty{text-align:center;padding:80px;color:var(--muted);font-style:italic;font-size:1.1rem}
-.works-loading{text-align:center;padding:80px;color:var(--muted);font-family:'Inter',sans-serif;font-size:.65rem;letter-spacing:.3em;text-transform:uppercase}
+.works-empty{text-align:center;padding:80px;color:var(--muted);font-style:italic;font-size:1.1rem;grid-column:1/-1}
+.works-loading{text-align:center;padding:80px;color:var(--muted);font-family:'Inter',sans-serif;font-size:.65rem;letter-spacing:.3em;text-transform:uppercase;grid-column:1/-1}
 
 /* PROVERBS */
-.proverbs-section{background:var(--earth);color:var(--sand)}
+.proverbs-section{background:var(--earth);color:var(--bg)}
 .proverb-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:40px;margin-top:40px}
 .proverb-card{border-left:2px solid rgba(196,98,45,.5);padding-left:18px}
-.proverb-hausa{font-size:1.1rem;font-style:italic;margin-bottom:6px;color:var(--sand)}
-.proverb-english{font-family:'Inter',sans-serif;font-size:.65rem;letter-spacing:.25em;text-transform:uppercase;color:rgba(237,227,204,.45)}
+.proverb-hausa{font-size:1.1rem;font-style:italic;margin-bottom:6px}
+.proverb-english{font-family:'Inter',sans-serif;font-size:.65rem;letter-spacing:.25em;text-transform:uppercase;color:rgba(245,239,224,.4)}
 
 /* ABOUT */
-.about-strip{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;padding:80px 48px;background:var(--parchment)}
+.about-strip{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;padding:80px 48px;background:var(--paper)}
 .about-img-wrap{position:relative}
-.about-img-wrap img{width:100%;aspect-ratio:4/5;object-fit:cover;display:block}
-.about-img-caption{position:absolute;bottom:12px;left:12px;font-family:'Inter',sans-serif;font-size:.55rem;letter-spacing:.25em;text-transform:uppercase;color:rgba(237,227,204,.7);background:rgba(26,10,4,.7);padding:5px 10px}
-.about-text h2{font-size:clamp(2rem,3.5vw,3rem);font-weight:300;letter-spacing:-.02em;line-height:1.15;margin-bottom:24px}
-.about-text p{font-size:1.05rem;line-height:1.85;color:var(--muted);margin-bottom:18px}
-.about-text p:first-of-type{color:var(--earth);font-size:1.1rem}
-.awards-list{margin-top:20px}
-.award-item{font-family:'Inter',sans-serif;font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-bottom:8px;padding-left:12px;border-left:2px solid var(--terra)}
+.about-img-wrap img{width:100%;aspect-ratio:4/5;object-fit:cover;display:block;border:1px solid var(--border)}
+.about-img-caption{position:absolute;bottom:12px;left:12px;font-family:'Inter',sans-serif;font-size:.55rem;letter-spacing:.25em;text-transform:uppercase;color:rgba(245,239,224,.7);background:rgba(26,18,8,.75);padding:5px 10px}
+.about-text h2{font-size:clamp(2rem,3.5vw,3rem);font-weight:300;letter-spacing:-.02em;line-height:1.15;margin-bottom:24px;color:var(--earth)}
+.about-text p{font-size:1.05rem;line-height:1.9;color:var(--muted);margin-bottom:18px}
+.about-text p.lead{color:var(--earth);font-size:1.1rem}
+.award-item{font-family:'Inter',sans-serif;font-size:.68rem;letter-spacing:.15em;color:var(--muted);margin-bottom:10px;padding-left:14px;border-left:2px solid var(--terra);line-height:1.5}
 
 /* CONTACT */
-.contact-section{background:var(--earth);color:var(--sand);padding:80px 48px}
+.contact-section{background:var(--earth);color:var(--bg);padding:80px 48px}
 .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;margin-top:40px}
-.contact-form input,.contact-form textarea{width:100%;background:rgba(237,227,204,.06);border:1px solid rgba(237,227,204,.15);color:var(--sand);padding:12px 16px;font-family:'Newsreader',serif;font-size:.95rem;outline:none;margin-bottom:16px;transition:border-color .3s}
-.contact-form input:focus,.contact-form textarea:focus{border-color:var(--terra)}
-.contact-form textarea{resize:vertical;min-height:140px;line-height:1.7}
-.contact-form button{display:inline-flex;align-items:center;gap:10px;font-family:'Inter',sans-serif;font-size:.65rem;letter-spacing:.28em;text-transform:uppercase;color:rgba(196,98,45,.85);border:1px solid rgba(196,98,45,.45);padding:14px 28px;background:none;cursor:pointer;transition:all .3s}
-.contact-form button:hover{background:var(--terra);color:var(--sand);border-color:var(--terra)}
-.contact-info p{font-size:1rem;line-height:1.85;color:rgba(237,227,204,.6);margin-bottom:24px;font-style:italic}
-.social-links{display:flex;flex-direction:column;gap:10px;margin-top:24px}
-.social-link{font-family:'Inter',sans-serif;font-size:.65rem;letter-spacing:.25em;text-transform:uppercase;color:rgba(237,227,204,.4);text-decoration:none;transition:color .3s}
+.cf-input{width:100%;background:rgba(245,239,224,.07);border:1px solid rgba(245,239,224,.15);color:var(--bg);padding:12px 16px;font-family:'Newsreader',serif;font-size:.95rem;outline:none;margin-bottom:16px;transition:border-color .3s;display:block}
+.cf-input:focus{border-color:var(--terra)}
+.cf-btn{display:inline-flex;align-items:center;gap:10px;font-family:'Inter',sans-serif;font-size:.65rem;letter-spacing:.28em;text-transform:uppercase;color:rgba(196,98,45,.9);border:1px solid rgba(196,98,45,.5);padding:14px 28px;background:none;cursor:pointer;transition:all .3s}
+.cf-btn:hover{background:var(--terra);color:var(--bg);border-color:var(--terra)}
+.social-link{display:block;font-family:'Inter',sans-serif;font-size:.65rem;letter-spacing:.25em;text-transform:uppercase;color:rgba(245,239,224,.4);text-decoration:none;margin-bottom:10px;transition:color .3s}
 .social-link:hover{color:var(--terra)}
 
+/* FOOTER */
+footer{background:#110C05;color:var(--bg);padding:60px 48px 32px}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:40px;margin-bottom:40px}
+.footer-brand{font-size:1.2rem;font-style:italic;margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.footer-quote{font-size:1rem;font-style:italic;color:rgba(245,239,224,.45)}
+.footer-quote-en{font-family:'Inter',sans-serif;font-size:.6rem;letter-spacing:.25em;text-transform:uppercase;color:rgba(245,239,224,.25);margin-top:4px}
+.footer-col-title{font-family:'Inter',sans-serif;font-size:.6rem;letter-spacing:.3em;text-transform:uppercase;color:var(--terra);margin-bottom:16px}
+.footer-col a,.footer-col span{display:block;font-family:'Inter',sans-serif;font-size:.82rem;color:rgba(245,239,224,.45);text-decoration:none;margin-bottom:10px;transition:color .3s}
+.footer-col a:hover{color:var(--terra)}
+.footer-bottom{border-top:1px solid rgba(245,239,224,.08);padding-top:24px;display:flex;justify-content:space-between;align-items:center}
+.footer-bottom p{font-family:'Inter',sans-serif;font-size:.6rem;color:rgba(245,239,224,.3)}
+
+/* AUTH MODAL */
+.overlay{position:fixed;inset:0;background:rgba(26,18,8,.75);z-index:300;display:none;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(4px)}
+.overlay.open{display:flex}
+.auth-box{background:var(--paper);border:1px solid var(--border);width:100%;max-width:420px;padding:48px;position:relative}
+.auth-box h2{font-family:'Newsreader',serif;font-weight:300;font-size:1.6rem;margin-bottom:6px;color:var(--earth)}
+.auth-box p{font-family:'Inter',sans-serif;font-size:.6rem;letter-spacing:.25em;text-transform:uppercase;color:var(--muted);margin-bottom:28px}
+.auth-field{margin-bottom:16px}
+.auth-field label{display:block;font-family:'Inter',sans-serif;font-size:.58rem;letter-spacing:.25em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+.auth-field input{width:100%;background:var(--bg);border:1px solid var(--border);color:var(--earth);padding:11px 14px;font-family:'Newsreader',serif;font-size:.95rem;outline:none;transition:border-color .3s}
+.auth-field input:focus{border-color:var(--terra)}
+.auth-btn{width:100%;padding:13px;background:var(--terra);color:var(--bg);border:none;font-family:'Inter',sans-serif;font-size:.65rem;letter-spacing:.3em;text-transform:uppercase;cursor:pointer;transition:opacity .3s;margin-top:8px}
+.auth-btn:hover{opacity:.85}
+.auth-switch{font-family:'Inter',sans-serif;font-size:.65rem;color:var(--muted);margin-top:16px;text-align:center}
+.auth-switch span{color:var(--terra);cursor:pointer;text-decoration:underline}
+.auth-close{position:absolute;top:16px;right:20px;background:none;border:none;color:var(--muted);font-size:1.1rem;cursor:pointer}
+.auth-close:hover{color:var(--terra)}
+.auth-err{color:#C0392B;font-family:'Inter',sans-serif;font-size:.65rem;margin-top:8px;display:none}
+
+/* PROFILE MODAL */
+.profile-box{background:var(--paper);border:1px solid var(--border);width:100%;max-width:520px;padding:48px;position:relative;max-height:90vh;overflow-y:auto}
+.profile-box h2{font-family:'Newsreader',serif;font-weight:300;font-size:1.5rem;margin-bottom:4px;color:var(--earth)}
+.profile-box .sub-tag{font-family:'Inter',sans-serif;font-size:.6rem;letter-spacing:.25em;text-transform:uppercase;color:var(--muted);margin-bottom:28px;display:block}
+.plan-card{border:1px solid var(--border);padding:20px 24px;margin-bottom:12px;cursor:pointer;transition:all .3s;background:var(--bg)}
+.plan-card:hover,.plan-card.selected{border-color:var(--terra);background:rgba(196,98,45,.04)}
+.plan-card-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+.plan-name{font-family:'Newsreader',serif;font-size:1.1rem;color:var(--earth)}
+.plan-price{font-family:'Newsreader',serif;font-size:1.3rem;color:var(--terra)}
+.plan-desc{font-family:'Inter',sans-serif;font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+.sub-status{background:var(--soft);border:1px solid var(--border);padding:20px;margin-bottom:24px}
+.sub-status-label{font-family:'Inter',sans-serif;font-size:.6rem;letter-spacing:.25em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+.sub-status-val{font-family:'Newsreader',serif;font-size:1.1rem;color:var(--earth)}
+.profile-logout{display:block;width:100%;margin-top:16px;padding:10px;background:none;border:1px solid var(--border);color:var(--muted);font-family:'Inter',sans-serif;font-size:.6rem;letter-spacing:.25em;text-transform:uppercase;cursor:pointer;transition:all .3s}
+.profile-logout:hover{border-color:var(--terra);color:var(--terra)}
+
 /* READ MODAL */
-.read-modal{position:fixed;inset:0;z-index:200;background:var(--sand);overflow-y:auto;display:none}
+.read-modal{position:fixed;inset:0;z-index:200;background:var(--paper);overflow-y:auto;display:none;border-top:4px solid var(--terra)}
 .read-modal.open{display:block}
-.read-modal-inner{max-width:700px;margin:0 auto;padding:80px 40px}
-.read-close{position:fixed;top:24px;right:32px;background:none;border:none;font-family:'Inter',sans-serif;font-size:.6rem;letter-spacing:.28em;text-transform:uppercase;color:var(--muted);cursor:pointer;display:flex;align-items:center;gap:8px}
+.read-modal-inner{max-width:680px;margin:0 auto;padding:80px 40px}
+.read-close{position:fixed;top:20px;right:28px;background:none;border:none;font-family:'Inter',sans-serif;font-size:.6rem;letter-spacing:.28em;text-transform:uppercase;color:var(--muted);cursor:pointer;display:flex;align-items:center;gap:8px;z-index:10}
 .read-close:hover{color:var(--terra)}
 .read-genre{font-family:'Inter',sans-serif;font-size:.6rem;letter-spacing:.35em;text-transform:uppercase;color:var(--terra);margin-bottom:16px}
-.read-title{font-size:clamp(1.8rem,4vw,3.2rem);font-weight:300;letter-spacing:-.02em;line-height:1.15;margin-bottom:32px}
+.read-title{font-size:clamp(1.8rem,4vw,3rem);font-weight:300;letter-spacing:-.02em;line-height:1.15;margin-bottom:8px;color:var(--earth)}
+.read-date{font-family:'Inter',sans-serif;font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:32px}
 .read-divider{height:1px;background:var(--border);margin:32px 0}
-.read-content{font-size:1.15rem;line-height:2;color:var(--earth);white-space:pre-wrap}
+.read-content{font-size:1.15rem;line-height:2.1;color:var(--earth);white-space:pre-wrap;font-family:'Newsreader',serif}
 
 /* PAYWALL */
-.paywall{text-align:center;padding:60px 40px;border:1px solid var(--border);background:var(--parchment);margin-top:40px}
-.paywall h3{font-family:'Newsreader',serif;font-weight:300;font-size:1.6rem;margin-bottom:12px}
-.paywall p{font-family:'Inter',sans-serif;font-size:.75rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:28px}
-.paywall-price{font-family:'Newsreader',serif;font-size:2.5rem;color:var(--terra);margin-bottom:24px}
-.pay-btn{display:inline-flex;align-items:center;gap:10px;font-family:'Inter',sans-serif;font-size:.65rem;letter-spacing:.28em;text-transform:uppercase;background:var(--terra);color:var(--sand);border:none;padding:16px 32px;cursor:pointer;transition:opacity .3s}
+.paywall{text-align:center;padding:48px 32px;border:1px solid var(--border);background:var(--soft);margin-top:32px}
+.paywall h3{font-family:'Newsreader',serif;font-weight:300;font-size:1.5rem;margin-bottom:10px;color:var(--earth)}
+.paywall-sub{font-family:'Inter',sans-serif;font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:24px}
+.paywall-price{font-family:'Newsreader',serif;font-size:2.2rem;color:var(--terra);margin-bottom:8px}
+.paywall-or{font-family:'Inter',sans-serif;font-size:.6rem;letter-spacing:.25em;text-transform:uppercase;color:var(--muted);margin:20px 0}
+.pay-btn{display:inline-flex;align-items:center;gap:10px;font-family:'Inter',sans-serif;font-size:.65rem;letter-spacing:.28em;text-transform:uppercase;background:var(--terra);color:var(--bg);border:none;padding:14px 28px;cursor:pointer;transition:opacity .3s;margin:4px}
 .pay-btn:hover{opacity:.85}
-
-/* FOOTER */
-footer{background:var(--earth);color:var(--sand);padding:60px 48px 32px}
-.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:40px;margin-bottom:40px}
-.footer-brand-name{font-size:1.2rem;font-style:italic;margin-bottom:12px;display:flex;align-items:center;gap:8px}
-.footer-quote{font-size:1rem;font-style:italic;color:rgba(237,227,204,.5)}
-.footer-quote-en{font-family:'Inter',sans-serif;font-size:.6rem;letter-spacing:.25em;text-transform:uppercase;color:rgba(237,227,204,.3);margin-top:4px}
-.footer-col-title{font-family:'Inter',sans-serif;font-size:.6rem;letter-spacing:.3em;text-transform:uppercase;color:var(--terra);margin-bottom:16px}
-.footer-col a,.footer-col span{display:block;font-family:'Inter',sans-serif;font-size:.85rem;color:rgba(237,227,204,.5);text-decoration:none;margin-bottom:10px;transition:color .3s}
-.footer-col a:hover{color:var(--terra)}
-.footer-bottom{border-top:1px solid rgba(237,227,204,.1);padding-top:24px;display:flex;justify-content:space-between;align-items:center}
-.footer-bottom p{font-family:'Inter',sans-serif;font-size:.65rem;color:rgba(237,227,204,.35)}
+.pay-btn.outline{background:none;border:1px solid var(--indigo);color:var(--indigo)}
+.pay-btn.outline:hover{background:var(--indigo);color:var(--bg);opacity:1}
 
 @media(max-width:768px){
-  nav{padding:14px 20px}.nav-links{gap:18px}
+  nav{padding:14px 20px}.nav-links{gap:14px}
   section,.about-strip,.contact-section{padding:60px 20px}
+  .sub-banner{padding:20px;flex-direction:column;align-items:flex-start}
   .hero-content{padding:0 20px 60px}.hero-rule{display:none}
   .about-strip,.contact-grid{grid-template-columns:1fr}
   .footer-grid{grid-template-columns:1fr}
   .read-modal-inner{padding:60px 20px}
+  .auth-box,.profile-box{padding:32px 24px}
 }
 </style>
 </head>
 <body>
-
 <div class="top-stripe"></div>
 
 <nav>
   <a href="#" class="brand">
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 2L22 12L12 22L2 12Z" stroke="#C4622D" stroke-width="1" fill="none" opacity=".7"/><rect x="7" y="7" width="10" height="10" transform="rotate(45 12 12)" stroke="#C4622D" stroke-width=".8" fill="none" opacity=".5"/><circle cx="12" cy="12" r="1.5" fill="#C4622D" opacity=".8"/></svg>
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 2L22 12L12 22L2 12Z" stroke="#C4622D" stroke-width="1" fill="none" opacity=".8"/><rect x="7" y="7" width="10" height="10" transform="rotate(45 12 12)" stroke="#1B3A6B" stroke-width=".7" fill="none" opacity=".5"/><circle cx="12" cy="12" r="1.5" fill="#C4622D"/></svg>
     Marubuci
   </a>
   <ul class="nav-links">
     <li><a href="#works">Library</a></li>
     <li><a href="#about">About</a></li>
     <li><a href="#contact">Contact</a></li>
+    <li id="nav-auth-area">
+      <button class="nav-auth-btn" onclick="openAuth('login')">Sign In</button>
+    </li>
   </ul>
 </nav>
 
 <!-- HERO -->
 <section class="hero">
-  <img class="hero-img" src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=1800&q=80" alt="Ancient Northern Nigeria architecture"/>
+  <img class="hero-img" src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=1800&q=80" alt="Katsina"/>
   <div class="hero-overlay"></div>
   <div class="hero-pattern"></div>
   <div class="hero-rule"></div>
@@ -177,6 +237,7 @@ footer{background:var(--earth);color:var(--sand);padding:60px 48px 32px}
     <h1 class="hero-title">Daga cikin duhun dare,<br>labarin yakan haskaka<br>kamar wuta.</h1>
     <p class="hero-sub">From the darkness of night, the story shines like fire.</p>
     <a href="#works" class="btn-enter">Enter the Library <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+    <a href="#" class="btn-enter" onclick="openAuth('signup');return false">Subscribe →</a>
   </div>
   <div class="border-strip">
     <svg viewBox="0 0 480 12" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
@@ -185,6 +246,19 @@ footer{background:var(--earth);color:var(--sand);padding:60px 48px 32px}
     </svg>
   </div>
 </section>
+
+<!-- SUBSCRIPTION BANNER -->
+<div class="sub-banner">
+  <div class="sub-banner-text">
+    <p>Marubuci Subscription</p>
+    <h3>Unlimited access to all works by Haliru Ali Musa</h3>
+  </div>
+  <div class="sub-banner-plans">
+    <button class="plan-pill" onclick="openSubscribe('daily')">₦500 / Day</button>
+    <button class="plan-pill" onclick="openSubscribe('monthly')">₦5,000 / Month</button>
+    <button class="plan-pill" onclick="openSubscribe('yearly')">₦50,000 / Year</button>
+  </div>
+</div>
 
 <!-- WORKS -->
 <section id="works" class="hausa-bg">
@@ -201,7 +275,7 @@ footer{background:var(--earth);color:var(--sand);padding:60px 48px 32px}
 
 <!-- PROVERBS -->
 <section class="proverbs-section">
-  <div class="section-tag"><div class="dash" style="background:rgba(196,98,45,.5)"></div><span style="color:var(--terra)">Karin Magana · Hausa Proverbs</span></div>
+  <div class="section-tag"><div class="dash" style="background:rgba(196,98,45,.5)"></div><span>Karin Magana · Hausa Proverbs</span></div>
   <div class="proverb-grid">
     <div class="proverb-card"><p class="proverb-hausa">"Ilimi magani ne."</p><p class="proverb-english">Knowledge is medicine.</p></div>
     <div class="proverb-card"><p class="proverb-hausa">"Haƙuri gari ne."</p><p class="proverb-english">Patience is a virtue.</p></div>
@@ -213,23 +287,23 @@ footer{background:var(--earth);color:var(--sand);padding:60px 48px 32px}
 <!-- ABOUT -->
 <div id="about" class="about-strip">
   <div class="about-img-wrap">
-    <img id="about-img" src="https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?w=800&q=80" alt="Katsina, Northern Nigeria"/>
+    <img id="about-img" src="https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?w=800&q=80" alt="Katsina"/>
     <div class="about-img-caption">Katsina, Northern Nigeria</div>
   </div>
   <div class="about-text">
     <div class="section-tag" style="margin-bottom:20px"><div class="dash"></div><span>Marubuci · The Writer</span></div>
     <h2>From the walls<br>of Katsina.</h2>
-    <p id="about-short">Haliru Ali Musa is a writer, critic, and engineer from Katsina State, Nigeria, now based in Lagos.</p>
-    <p id="about-full-preview">A 2024 alumnus of the Nigerian Academy of Letters Creative Writing Workshop, he writes The Long View, a weekly column in Naira Stories Magazine that meditates on art, literature, and the African condition through the lens of introspection and cultural truth.</p>
+    <p class="lead" id="about-short">Haliru Ali Musa is a writer, critic, and engineer from Katsina State, Nigeria, now based in Lagos.</p>
+    <p id="about-full-preview">A 2024 alumnus of the Nigerian Academy of Letters Creative Writing Workshop, he writes The Long View — a weekly column in Naira Stories Magazine that meditates on art, literature, and the African condition through the lens of introspection and cultural truth.</p>
     <div class="hausa-divider" style="max-width:200px;margin:28px 0">
       <div class="line"></div>
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M12 2L22 12L12 22L2 12Z" stroke="#C4622D" stroke-width="1" fill="none" opacity=".7"/><circle cx="12" cy="12" r="1.5" fill="#C4622D" opacity=".8"/></svg>
       <div class="line"></div>
     </div>
-    <div class="awards-list" id="awards-list">
+    <div id="awards-list">
       <div class="award-item">2024 Alexander Nderitu Prize for World Literature — The Pregnant Ghost</div>
       <div class="award-item">2025 Quramo Prize Longlist — Dogs Are No Better</div>
-      <div class="award-item">8th African Writers Award 2025</div>
+      <div class="award-item">8th African Writers Award 2025 — Build a Bird That Flies Backward into Yesterday</div>
       <div class="award-item">Columnist, Naira Stories Magazine — The Long View</div>
       <div class="award-item">Reviewer, P.eng Literature Magazine</div>
     </div>
@@ -240,21 +314,17 @@ footer{background:var(--earth);color:var(--sand);padding:60px 48px 32px}
 <section id="contact" class="contact-section">
   <div class="section-tag"><div class="dash" style="background:rgba(196,98,45,.5)"></div><span style="color:var(--terra)">Tuntuɓa · Get in Touch</span></div>
   <div class="contact-grid">
-    <div class="contact-form">
-      <div class="field" style="margin-bottom:0">
-        <input type="text" id="cf-name" placeholder="Your name" style="background:rgba(237,227,204,.06);border:1px solid rgba(237,227,204,.15);color:var(--sand);padding:12px 16px;font-family:'Newsreader',serif;font-size:.95rem;outline:none;width:100%;margin-bottom:16px;transition:border-color .3s"/>
-        <input type="email" id="cf-email" placeholder="Your email" style="background:rgba(237,227,204,.06);border:1px solid rgba(237,227,204,.15);color:var(--sand);padding:12px 16px;font-family:'Newsreader',serif;font-size:.95rem;outline:none;width:100%;margin-bottom:16px;transition:border-color .3s"/>
-        <textarea id="cf-message" placeholder="Your message…" rows="6" style="background:rgba(237,227,204,.06);border:1px solid rgba(237,227,204,.15);color:var(--sand);padding:12px 16px;font-family:'Newsreader',serif;font-size:.95rem;outline:none;width:100%;margin-bottom:16px;transition:border-color .3s;resize:vertical;line-height:1.7"></textarea>
-        <button onclick="sendMessage()" style="display:inline-flex;align-items:center;gap:10px;font-family:'Inter',sans-serif;font-size:.65rem;letter-spacing:.28em;text-transform:uppercase;background:none;color:rgba(196,98,45,.85);border:1px solid rgba(196,98,45,.45);padding:14px 28px;cursor:pointer;transition:all .3s" onmouseover="this.style.background='#C4622D';this.style.color='#EDE3CC'" onmouseout="this.style.background='none';this.style.color='rgba(196,98,45,.85)'">
-          Send Message →
-        </button>
-        <p id="cf-status" style="font-family:'Inter',sans-serif;font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;margin-top:12px;color:rgba(196,98,45,.7);display:none"></p>
-      </div>
+    <div>
+      <input type="text" class="cf-input" id="cf-name" placeholder="Your name"/>
+      <input type="email" class="cf-input" id="cf-email" placeholder="Your email"/>
+      <textarea class="cf-input" id="cf-message" rows="6" placeholder="Your message…" style="resize:vertical;line-height:1.7"></textarea>
+      <button class="cf-btn" onclick="sendMessage()">Send Message →</button>
+      <p id="cf-status" style="font-family:'Inter',sans-serif;font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;margin-top:12px;color:var(--terra);display:none"></p>
     </div>
-    <div class="contact-info">
-      <p id="contact-bio-line">"The story is the thread that connects us across every distance."</p>
-      <div class="social-links" id="social-links">
-        <span class="social-link" style="color:rgba(237,227,204,.4)">Links coming soon</span>
+    <div>
+      <p style="font-size:1.05rem;font-style:italic;color:rgba(245,239,224,.55);line-height:1.85;margin-bottom:24px">"The story is the thread that connects us across every distance — from Katsina to the world."</p>
+      <div id="social-links">
+        <span class="social-link" style="cursor:default">Contact details loading…</span>
       </div>
     </div>
   </div>
@@ -270,7 +340,7 @@ footer{background:var(--earth);color:var(--sand);padding:60px 48px 32px}
   </div>
   <div class="footer-grid">
     <div>
-      <div class="footer-brand-name">
+      <div class="footer-brand">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 2L22 12L12 22L2 12Z" stroke="#C4622D" stroke-width="1" fill="none" opacity=".7"/><circle cx="12" cy="12" r="1.5" fill="#C4622D" opacity=".8"/></svg>
         Marubuci
       </div>
@@ -282,15 +352,71 @@ footer{background:var(--earth);color:var(--sand);padding:60px 48px 32px}
       <a href="#works">Library</a><a href="#about">About</a><a href="#contact">Contact</a>
     </div>
     <div class="footer-col">
-      <p class="footer-col-title">Doka · Legal</p>
-      <span>Privacy Policy</span><span>Terms of Use</span>
+      <p class="footer-col-title">Subscriber</p>
+      <a href="#" onclick="openSubscribe('monthly');return false">Monthly — ₦5,000</a>
+      <a href="#" onclick="openSubscribe('daily');return false">Daily — ₦500</a>
+      <a href="#" onclick="openSubscribe('yearly');return false">Yearly — ₦50,000</a>
     </div>
   </div>
   <div class="footer-bottom">
     <p>© 2026 Haliru Ali Musa. Katsina, Nigeria. All rights reserved.</p>
-    <p style="color:rgba(196,98,45,.5);letter-spacing:.3em;text-transform:uppercase;font-family:'Inter',sans-serif;font-size:.65rem">Hausa · Literary Tradition</p>
+    <p style="color:rgba(196,98,45,.5);letter-spacing:.3em;text-transform:uppercase;font-family:'Inter',sans-serif;font-size:.6rem">Hausa · Literary Tradition</p>
   </div>
 </footer>
+
+<!-- AUTH MODAL -->
+<div class="overlay" id="auth-overlay">
+  <div class="auth-box">
+    <button class="auth-close" onclick="closeAuth()">✕</button>
+    <div id="auth-login">
+      <h2>Welcome back</h2>
+      <p>Sign in to your reader account</p>
+      <div class="auth-field"><label>Email</label><input type="email" id="login-email" placeholder="your@email.com"/></div>
+      <div class="auth-field"><label>Password</label><input type="password" id="login-password" placeholder="••••••••"/></div>
+      <div class="auth-err" id="login-err">Incorrect email or password.</div>
+      <button class="auth-btn" onclick="doLogin()">Sign In</button>
+      <p class="auth-switch">No account? <span onclick="showSignup()">Create one free</span></p>
+    </div>
+    <div id="auth-signup" style="display:none">
+      <h2>Create account</h2>
+      <p>Join to read and subscribe</p>
+      <div class="auth-field"><label>Your Name</label><input type="text" id="signup-name" placeholder="Aminu Musa"/></div>
+      <div class="auth-field"><label>Email</label><input type="email" id="signup-email" placeholder="your@email.com"/></div>
+      <div class="auth-field"><label>Password</label><input type="password" id="signup-password" placeholder="Choose a password"/></div>
+      <div class="auth-err" id="signup-err">This email is already registered.</div>
+      <button class="auth-btn" onclick="doSignup()">Create Account</button>
+      <p class="auth-switch">Already have one? <span onclick="showLogin()">Sign in</span></p>
+    </div>
+  </div>
+</div>
+
+<!-- PROFILE MODAL -->
+<div class="overlay" id="profile-overlay">
+  <div class="profile-box">
+    <button class="auth-close" onclick="closeProfile()">✕</button>
+    <h2 id="profile-name">Your Profile</h2>
+    <span class="sub-tag" id="profile-email"></span>
+    <div class="sub-status" id="sub-status-box">
+      <div class="sub-status-label">Subscription Status</div>
+      <div class="sub-status-val" id="sub-status-val">No active subscription</div>
+    </div>
+    <p style="font-family:'Inter',sans-serif;font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:16px">Choose a plan</p>
+    <div class="plan-card" onclick="selectPlan('daily',this)">
+      <div class="plan-card-top"><span class="plan-name">Daily Pass</span><span class="plan-price">₦500</span></div>
+      <div class="plan-desc">Full access for 24 hours</div>
+    </div>
+    <div class="plan-card" onclick="selectPlan('monthly',this)">
+      <div class="plan-card-top"><span class="plan-name">Monthly</span><span class="plan-price">₦5,000</span></div>
+      <div class="plan-desc">Full access for 30 days</div>
+    </div>
+    <div class="plan-card" onclick="selectPlan('yearly',this)">
+      <div class="plan-card-top"><span class="plan-name">Annual</span><span class="plan-price">₦50,000</span></div>
+      <div class="plan-desc">Full access for 1 year — best value</div>
+    </div>
+    <button class="auth-btn" id="subscribe-btn" onclick="processSubscription()" style="margin-top:16px;display:none">Pay with Paystack</button>
+    <button class="profile-logout" onclick="doLogout()">Sign Out</button>
+  </div>
+</div>
 
 <!-- READ MODAL -->
 <div class="read-modal" id="read-modal">
@@ -298,199 +424,313 @@ footer{background:var(--earth);color:var(--sand);padding:60px 48px 32px}
   <div class="read-modal-inner">
     <div class="read-genre" id="read-genre"></div>
     <h1 class="read-title" id="read-title"></h1>
+    <div class="read-date" id="read-date"></div>
     <div class="read-divider"></div>
     <div id="read-body"></div>
   </div>
 </div>
 
+<script src="https://js.paystack.co/v1/inline.js"></script>
 <script>
-const SUPABASE_URL = 'https://hsgfdysohdciciemrkyn.supabase.co';
-const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhzZ2ZkeXNvaGRjaWNpZW1ya3luIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODAzNTIyOTksImV4cCI6MjA5NTkyODI5OX0.W6ayZvJF4aQ7rUBrZu7Pzo92XtBIsKrl89HF1d3lsSM';
-const UNLOCKED_KEY = 'maru_unlocked';
+const SB_URL = 'https://hsgfdysohdciciemrkyn.supabase.co';
+const SB_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhzZ2ZkeXNvaGRjaWNpZW1ya3luIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODAzNTIyOTksImV4cCI6MjA5NTkyODI5OX0.W6ayZvJF4aQ7rUBrZu7Pzo92XtBIsKrl89HF1d3lsSM';
+const PK_KEY = 'pk_live_76012132e4a1142e58c9723394cfa4ebae51adfe';
+const SESSION_KEY = 'maru_reader';
 
-const hdrs = {
-  'apikey': SUPABASE_KEY,
-  'Authorization': 'Bearer ' + SUPABASE_KEY
-};
+const hdrs = {'apikey':SB_KEY,'Authorization':'Bearer '+SB_KEY,'Content-Type':'application/json','Prefer':'return=representation'};
 
 async function sbGet(path){
-  const res = await fetch(SUPABASE_URL+'/rest/v1/'+path, {headers:hdrs});
-  const text = await res.text();
-  return text ? JSON.parse(text) : [];
+  const r = await fetch(SB_URL+'/rest/v1/'+path,{headers:hdrs});
+  const t = await r.text(); return t?JSON.parse(t):[];
+}
+async function sbPost(path,body){
+  const r = await fetch(SB_URL+'/rest/v1/'+path,{method:'POST',headers:hdrs,body:JSON.stringify(body)});
+  const t = await r.text(); return t?JSON.parse(t):[];
+}
+async function sbPatch(path,body){
+  const r = await fetch(SB_URL+'/rest/v1/'+path,{method:'PATCH',headers:{...hdrs,'Prefer':'return=representation'},body:JSON.stringify(body)});
+  const t = await r.text(); return t?JSON.parse(t):[];
 }
 
-function getUnlocked(){return JSON.parse(localStorage.getItem(UNLOCKED_KEY)||'[]')}
-function addUnlocked(id){const u=getUnlocked();if(!u.includes(id)){u.push(id);localStorage.setItem(UNLOCKED_KEY,JSON.stringify(u))}}
+// Simple password hash
+async function hashPass(p){
+  const buf = await crypto.subtle.digest('SHA-256',new TextEncoder().encode(p));
+  return Array.from(new Uint8Array(buf)).map(b=>b.toString(16).padStart(2,'0')).join('');
+}
+
+// Session
+function getSession(){return JSON.parse(sessionStorage.getItem(SESSION_KEY)||'null')}
+function setSession(u){sessionStorage.setItem(SESSION_KEY,JSON.stringify(u))}
+function clearSession(){sessionStorage.removeItem(SESSION_KEY)}
 
 // Corner SVG
 function corners(){
-  const c=`<svg class="work-corner tl" viewBox="0 0 32 32" fill="none"><path d="M4 4L16 4L4 16Z" stroke="#C4622D" stroke-width=".8" fill="none" opacity=".6"/><path d="M4 4L28 4L28 28L4 28Z" stroke="#C4622D" stroke-width=".5" fill="none" opacity=".3"/></svg>`;
-  return c+c.replace('tl','tr').replace('tl','tr')+c.replace('tl','bl')+c.replace('tl','br');
+  return `<svg class="work-corner tl" viewBox="0 0 32 32" fill="none"><path d="M4 4L16 4L4 16Z" stroke="#C4622D" stroke-width=".8" fill="none" opacity=".6"/><path d="M4 4L28 4L28 28L4 28Z" stroke="#C4622D" stroke-width=".5" fill="none" opacity=".3"/></svg>
+  <svg class="work-corner tr" viewBox="0 0 32 32" fill="none"><path d="M4 4L16 4L4 16Z" stroke="#C4622D" stroke-width=".8" fill="none" opacity=".6"/></svg>
+  <svg class="work-corner bl" viewBox="0 0 32 32" fill="none"><path d="M4 4L16 4L4 16Z" stroke="#C4622D" stroke-width=".8" fill="none" opacity=".6"/></svg>
+  <svg class="work-corner br" viewBox="0 0 32 32" fill="none"><path d="M4 4L16 4L4 16Z" stroke="#C4622D" stroke-width=".8" fill="none" opacity=".6"/></svg>`;
 }
 
-function workCard(w){
-  const unlocked = getUnlocked().includes(w.id);
+function hasActiveSubscription(subs){
+  if(!subs||!subs.length)return false;
+  const now = new Date();
+  return subs.some(s=>s.status==='active'&&new Date(s.end_date)>now);
+}
+
+function workCard(w, subs){
+  const subActive = hasActiveSubscription(subs);
   const isFree = w.access==='free';
-  const canRead = isFree || unlocked;
-  const priceLabel = isFree ? 'FREE' : (unlocked ? '✓ UNLOCKED' : `₦${w.price}`);
-  const img = w.img || 'https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=600&q=80';
+  const canRead = isFree || subActive;
+  const img = w.img||'https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=600&q=80';
+  const badge = isFree?'<span class="work-badge free">Free</span>':subActive?'<span class="work-badge unlocked">✓ Subscribed</span>':`<span class="work-badge paid">₦${w.price}</span>`;
   return `<div class="work-card" onclick="openWork('${w.id}')">
     <div class="work-cover">
       <img src="${img}" alt="${w.title}" loading="lazy"/>
       ${corners()}
-      <div class="work-price">${priceLabel}</div>
-      ${!canRead?`<div class="work-lock"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="rgba(237,227,204,.8)" stroke-width="1.5"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg></div>`:''}
+      ${badge}
+      ${!canRead?`<div class="work-lock-overlay"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="rgba(245,239,224,.9)" stroke-width="1.5"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg></div>`:''}
     </div>
     <div class="work-genre">${w.genre||'Work'}</div>
     <h3 class="work-title">${w.title}</h3>
     <p class="work-excerpt">${w.excerpt||''}</p>
-    <div class="work-read">${canRead?'Karanta — Read ↗':'🔒 Unlock to Read ↗'}</div>
+    <div class="work-read">${canRead?'Karanta — Read ↗':'🔒 Subscribe to Read ↗'}</div>
   </div>`;
 }
 
+let readerSubs = [];
 async function loadWorks(){
   try {
     const works = await sbGet('works?select=*&status=eq.published&order=created_at.desc');
+    const sess = getSession();
+    if(sess) readerSubs = await sbGet('subscriptions?reader_id=eq.'+sess.id+'&status=eq.active');
     const grid = document.getElementById('works-grid');
-    if(!works.length){
-      grid.innerHTML='<div class="works-empty">No works published yet. Check back soon.</div>';
-      return;
-    }
-    grid.innerHTML = works.map(workCard).join('');
+    grid.innerHTML = works.length ? works.map(w=>workCard(w,readerSubs)).join('') : '<div class="works-empty">No works published yet. Check back soon.</div>';
   } catch(e){
-    document.getElementById('works-grid').innerHTML='<div class="works-empty">Could not load library. Please refresh.</div>';
+    document.getElementById('works-grid').innerHTML='<div class="works-empty">Could not load library.</div>';
   }
 }
 
-let currentWork = null;
 async function openWork(id){
   try {
     const rows = await sbGet('works?id=eq.'+id);
     if(!rows.length)return;
     const w = rows[0];
-    currentWork = w;
-    const unlocked = getUnlocked().includes(w.id);
-    const canRead = w.access==='free' || unlocked;
+    const sess = getSession();
+    let subs = [];
+    if(sess) subs = await sbGet('subscriptions?reader_id=eq.'+sess.id+'&status=eq.active');
+    const canRead = w.access==='free' || hasActiveSubscription(subs);
     document.getElementById('read-genre').textContent = w.genre||'';
     document.getElementById('read-title').textContent = w.title;
+    document.getElementById('read-date').textContent = w.date ? new Date(w.date).toLocaleDateString('en-NG',{year:'numeric',month:'long',day:'numeric'}) : '';
     if(canRead){
-      document.getElementById('read-body').innerHTML = `<div class="read-content">${w.content||'Content coming soon.'}</div>`;
+      document.getElementById('read-body').innerHTML=`<div class="read-content">${w.content||'Content coming soon.'}</div>`;
     } else {
-      const settings = await sbGet('settings?id=eq.1');
-      const s = settings[0]||{};
-      document.getElementById('read-body').innerHTML = `
-        <div class="read-content" style="opacity:.4;max-height:200px;overflow:hidden;mask-image:linear-gradient(to bottom,black 40%,transparent)">${(w.content||'').substring(0,600)}…</div>
+      const preview = (w.content||'').substring(0,500);
+      document.getElementById('read-body').innerHTML=`
+        <div class="read-content" style="opacity:.35;max-height:180px;overflow:hidden;mask-image:linear-gradient(to bottom,black 30%,transparent)">${preview}…</div>
         <div class="paywall">
           <h3>Continue Reading</h3>
-          <p>This work is available for purchase</p>
-          <div class="paywall-price">₦${w.price}</div>
-          <button class="pay-btn" onclick="initiatePayment('${w.id}','${w.title}',${w.price})">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
-            Unlock with Paystack
-          </button>
-          <p style="font-family:'Inter',sans-serif;font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-top:16px">Secure payment · Instant access · Keep forever</p>
+          <p class="paywall-sub">Subscribe for unlimited access to all works</p>
+          <div class="paywall-or">Choose your plan</div>
+          <div>
+            <button class="pay-btn outline" onclick="openSubscribe('daily')">₦500 · Daily</button>
+            <button class="pay-btn" onclick="openSubscribe('monthly')">₦5,000 · Monthly</button>
+            <button class="pay-btn outline" onclick="openSubscribe('yearly')">₦50,000 · Yearly</button>
+          </div>
+          <p style="font-family:'Inter',sans-serif;font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-top:20px">Secure · Nigerian banks accepted · Instant access</p>
         </div>`;
     }
     document.getElementById('read-modal').classList.add('open');
     document.body.style.overflow='hidden';
   } catch(e){console.error(e)}
 }
+function closeRead(){document.getElementById('read-modal').classList.remove('open');document.body.style.overflow=''}
 
-function closeRead(){
-  document.getElementById('read-modal').classList.remove('open');
-  document.body.style.overflow='';
+// AUTH
+function openAuth(mode){
+  if(getSession()){openProfile();return}
+  document.getElementById('auth-overlay').classList.add('open');
+  mode==='signup'?showSignup():showLogin();
+  document.body.style.overflow='hidden';
+}
+function closeAuth(){document.getElementById('auth-overlay').classList.remove('open');document.body.style.overflow=''}
+function showLogin(){document.getElementById('auth-login').style.display='block';document.getElementById('auth-signup').style.display='none'}
+function showSignup(){document.getElementById('auth-login').style.display='none';document.getElementById('auth-signup').style.display='block'}
+
+async function doLogin(){
+  const email = document.getElementById('login-email').value.trim().toLowerCase();
+  const pass = document.getElementById('login-password').value;
+  const err = document.getElementById('login-err');
+  err.style.display='none';
+  try {
+    const hash = await hashPass(pass);
+    const rows = await sbGet('readers?email=eq.'+encodeURIComponent(email)+'&password_hash=eq.'+hash);
+    if(!rows.length){err.style.display='block';return}
+    setSession(rows[0]);
+    closeAuth();
+    updateNavAuth();
+    loadWorks();
+  } catch(e){err.textContent='Error signing in.';err.style.display='block'}
 }
 
-async function initiatePayment(workId, workTitle, price){
+async function doSignup(){
+  const name = document.getElementById('signup-name').value.trim();
+  const email = document.getElementById('signup-email').value.trim().toLowerCase();
+  const pass = document.getElementById('signup-password').value;
+  const err = document.getElementById('signup-err');
+  err.style.display='none';
+  if(!name||!email||!pass){err.textContent='Please fill all fields.';err.style.display='block';return}
   try {
-    const settings = await sbGet('settings?id=eq.1');
-    const s = settings[0]||{};
-    const key = s.paystack_key;
-    if(!key){
-      alert('Payment not yet configured. Please contact the author directly.');
-      return;
-    }
-    const email = prompt('Enter your email address to continue:');
-    if(!email||!email.includes('@'))return;
-    const handler = PaystackPop.setup({
-      key: key,
-      email: email,
-      amount: price * 100,
-      currency: s.currency||'NGN',
-      metadata:{work_id:workId,work_title:workTitle},
-      callback: function(response){
-        addUnlocked(workId);
-        openWork(workId);
-        loadWorks();
-      },
-      onClose: function(){}
-    });
-    handler.openIframe();
-  } catch(e){
-    alert('Payment setup error. Please try again.');
+    const existing = await sbGet('readers?email=eq.'+encodeURIComponent(email));
+    if(existing.length){err.textContent='Email already registered.';err.style.display='block';return}
+    const hash = await hashPass(pass);
+    const rows = await sbPost('readers',{name,email,password_hash:hash});
+    const user = Array.isArray(rows)?rows[0]:rows;
+    setSession(user);
+    closeAuth();
+    updateNavAuth();
+    loadWorks();
+    openProfile();
+  } catch(e){err.textContent='Error creating account.';err.style.display='block'}
+}
+
+function doLogout(){clearSession();closeProfile();updateNavAuth();readerSubs=[];loadWorks()}
+
+function updateNavAuth(){
+  const sess = getSession();
+  const area = document.getElementById('nav-auth-area');
+  if(sess){
+    area.innerHTML=`<span class="nav-user" onclick="openProfile()"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>${sess.name||sess.email}</span>`;
+  } else {
+    area.innerHTML=`<button class="nav-auth-btn" onclick="openAuth('login')">Sign In</button>`;
   }
+}
+
+// PROFILE
+function openProfile(){
+  const sess = getSession();
+  if(!sess)return;
+  document.getElementById('profile-name').textContent = sess.name||'Reader';
+  document.getElementById('profile-email').textContent = sess.email;
+  loadSubStatus();
+  document.getElementById('profile-overlay').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeProfile(){document.getElementById('profile-overlay').classList.remove('open');document.body.style.overflow=''}
+
+async function loadSubStatus(){
+  const sess = getSession();
+  if(!sess)return;
+  const subs = await sbGet('subscriptions?reader_id=eq.'+sess.id+'&status=eq.active&order=end_date.desc');
+  const statusEl = document.getElementById('sub-status-val');
+  if(hasActiveSubscription(subs)){
+    const s = subs[0];
+    const end = new Date(s.end_date).toLocaleDateString('en-NG',{year:'numeric',month:'long',day:'numeric'});
+    statusEl.innerHTML=`<span style="color:#2D6A4F">✓ Active — ${s.plan} plan</span><br><span style="font-family:'Inter',sans-serif;font-size:.65rem;color:var(--muted);letter-spacing:.15em">Expires ${end}</span>`;
+  } else {
+    statusEl.textContent = 'No active subscription';
+  }
+}
+
+let selectedPlan = null;
+function selectPlan(plan, el){
+  selectedPlan = plan;
+  document.querySelectorAll('.plan-card').forEach(c=>c.classList.remove('selected'));
+  el.classList.add('selected');
+  document.getElementById('subscribe-btn').style.display='block';
+}
+
+function openSubscribe(plan){
+  const sess = getSession();
+  if(!sess){openAuth('signup');return}
+  openProfile();
+  setTimeout(()=>{
+    const map = {daily:0,monthly:1,yearly:2};
+    const cards = document.querySelectorAll('.plan-card');
+    if(cards[map[plan]])selectPlan(plan,cards[map[plan]]);
+  },200);
+}
+
+async function processSubscription(){
+  const sess = getSession();
+  if(!sess||!selectedPlan)return;
+  const plans = {daily:{amount:500,days:1,label:'Daily Pass'},monthly:{amount:5000,days:30,label:'Monthly'},yearly:{amount:50000,days:365,label:'Annual'}};
+  const p = plans[selectedPlan];
+  const handler = PaystackPop.setup({
+    key: PK_KEY,
+    email: sess.email,
+    amount: p.amount * 100,
+    currency: 'NGN',
+    metadata:{reader_id:sess.id,plan:selectedPlan},
+    callback: async function(response){
+      const now = new Date();
+      const end = new Date(now.getTime() + p.days*24*60*60*1000);
+      await sbPost('subscriptions',{
+        reader_id:sess.id,
+        plan:p.label,
+        amount:p.amount,
+        start_date:now.toISOString(),
+        end_date:end.toISOString(),
+        paystack_ref:response.reference,
+        status:'active'
+      });
+      readerSubs = await sbGet('subscriptions?reader_id=eq.'+sess.id+'&status=eq.active');
+      loadSubStatus();
+      loadWorks();
+      document.getElementById('subscribe-btn').textContent='✓ Subscribed!';
+      setTimeout(()=>{closeProfile();closeRead();},1200);
+    },
+    onClose: function(){}
+  });
+  handler.openIframe();
 }
 
 async function loadBio(){
   try {
     const rows = await sbGet('bio?id=eq.1');
     if(!rows.length)return;
-    const b = rows[0];
-    if(b.short_bio) document.getElementById('about-short').textContent = b.short_bio;
-    if(b.full_bio){
-      const lines = b.full_bio.split('\n\n');
-      if(lines[1]) document.getElementById('about-full-preview').textContent = lines[1];
-    }
-    if(b.img) document.getElementById('about-img').src = b.img;
-    if(b.awards){
-      document.getElementById('awards-list').innerHTML = b.awards.split('\n').filter(Boolean).map(a=>`<div class="award-item">${a}</div>`).join('');
-    }
+    const b=rows[0];
+    if(b.short_bio)document.getElementById('about-short').textContent=b.short_bio;
+    if(b.full_bio){const lines=b.full_bio.split('\n\n');if(lines[1])document.getElementById('about-full-preview').textContent=lines[1]}
+    if(b.img)document.getElementById('about-img').src=b.img;
+    if(b.awards){document.getElementById('awards-list').innerHTML=b.awards.split('\n').filter(Boolean).map(a=>`<div class="award-item">${a}</div>`).join('')}
   } catch(e){}
 }
 
-async function loadSettings(){
+async function loadSocials(){
   try {
     const rows = await sbGet('settings?id=eq.1');
     if(!rows.length)return;
-    const s = rows[0];
-    const links = document.getElementById('social-links');
-    let html = '';
-    if(s.twitter) html+=`<a href="https://twitter.com/${s.twitter.replace('@','')}" target="_blank" class="social-link">Twitter / X — ${s.twitter}</a>`;
-    if(s.instagram) html+=`<a href="https://instagram.com/${s.instagram.replace('@','')}" target="_blank" class="social-link">Instagram — ${s.instagram}</a>`;
-    if(s.email) html+=`<a href="mailto:${s.email}" class="social-link">Email — ${s.email}</a>`;
-    if(html) links.innerHTML = html;
+    const s=rows[0];
+    let html='';
+    if(s.twitter)html+=`<a href="https://twitter.com/${s.twitter.replace('@','')}" target="_blank" class="social-link">Twitter / X — ${s.twitter}</a>`;
+    if(s.instagram)html+=`<a href="https://instagram.com/${s.instagram.replace('@','')}" target="_blank" class="social-link">Instagram — ${s.instagram}</a>`;
+    if(s.email)html+=`<a href="mailto:${s.email}" class="social-link">Email — ${s.email}</a>`;
+    if(html)document.getElementById('social-links').innerHTML=html;
+    else document.getElementById('social-links').innerHTML='';
   } catch(e){}
 }
 
 function sendMessage(){
-  const name = document.getElementById('cf-name').value.trim();
-  const email = document.getElementById('cf-email').value.trim();
-  const msg = document.getElementById('cf-message').value.trim();
-  const status = document.getElementById('cf-status');
+  const name=document.getElementById('cf-name').value.trim();
+  const email=document.getElementById('cf-email').value.trim();
+  const msg=document.getElementById('cf-message').value.trim();
+  const status=document.getElementById('cf-status');
   if(!name||!email||!msg){status.textContent='Please fill all fields.';status.style.display='block';return}
-  // Opens mail client as fallback (no backend needed)
   window.location.href=`mailto:?subject=Message from ${encodeURIComponent(name)} via Marubuci&body=${encodeURIComponent(msg+'\n\nFrom: '+name+' ('+email+')')}`;
-  status.textContent='Message prepared. Opening your mail app…';
+  status.textContent='Message prepared — your mail app will open.';
   status.style.display='block';
   document.getElementById('cf-name').value='';
   document.getElementById('cf-email').value='';
   document.getElementById('cf-message').value='';
 }
 
-// Paystack script (loads only when needed)
-function loadPaystack(){
-  if(!document.getElementById('paystack-js')){
-    const s=document.createElement('script');s.id='paystack-js';
-    s.src='https://js.paystack.co/v1/inline.js';
-    document.head.appendChild(s);
-  }
-}
+document.getElementById('login-password').addEventListener('keydown',e=>{if(e.key==='Enter')doLogin()});
 
-// Init
+updateNavAuth();
 loadWorks();
 loadBio();
-loadSettings();
-loadPaystack();
+loadSocials();
 </script>
 </body>
 </html>
