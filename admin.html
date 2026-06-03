@@ -8,95 +8,115 @@
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --bg:#0D0A07;--panel:#151008;--card:#1C1208;--border:#2E1F0E;
-  --terra:#C4622D;--gold:#D4A030;--sand:#EDE3CC;--muted:#6B5840;
-  --success:#2D7A4B;--danger:#8B2020;
+  --bg:#F0E8D5;
+  --panel:#EAE0C8;
+  --card:#F5EFE0;
+  --border:#D6C9B0;
+  --earth:#1A1208;
+  --terra:#C4622D;
+  --indigo:#1B3A6B;
+  --gold:#D4A030;
+  --muted:#7A6A52;
+  --danger:#8B2020;
+  --success:#2D6A4F;
 }
-body{background:var(--bg);color:var(--sand);font-family:'DM Mono',monospace;min-height:100vh}
-::selection{background:rgba(196,98,45,.25)}
+body{background:var(--bg);color:var(--earth);font-family:'DM Mono',monospace;min-height:100vh}
+::selection{background:rgba(196,98,45,.2)}
 ::-webkit-scrollbar{width:3px}::-webkit-scrollbar-thumb{background:var(--terra)}
 
-#login-screen{position:fixed;inset:0;background:var(--bg);z-index:999;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:32px;}
-.login-logo{display:flex;align-items:center;gap:10px;font-family:'Newsreader',serif;font-size:1.4rem;font-style:italic}
-.login-box{width:340px;padding:40px;border:1px solid var(--border);background:var(--panel)}
-.login-box h2{font-family:'Newsreader',serif;font-weight:300;font-size:1.1rem;margin-bottom:6px}
-.login-box p{font-size:.65rem;letter-spacing:.2em;color:var(--muted);margin-bottom:28px;text-transform:uppercase}
+/* LOGIN */
+#login-screen{position:fixed;inset:0;background:var(--bg);z-index:999;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:32px}
+.login-logo{display:flex;align-items:center;gap:10px;font-family:'Newsreader',serif;font-size:1.4rem;font-style:italic;color:var(--earth)}
+.login-box{width:360px;padding:44px;border:1px solid var(--border);background:var(--card);box-shadow:0 4px 32px rgba(26,18,8,.08)}
+.login-box h2{font-family:'Newsreader',serif;font-weight:300;font-size:1.15rem;margin-bottom:4px;color:var(--earth)}
+.login-box .sub{font-size:.6rem;letter-spacing:.25em;text-transform:uppercase;color:var(--muted);margin-bottom:32px;display:block}
 .field{margin-bottom:16px}
-.field label{display:block;font-size:.6rem;letter-spacing:.25em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
-.field input,.field textarea,.field select{width:100%;background:var(--card);border:1px solid var(--border);color:var(--sand);padding:10px 14px;font-family:'DM Mono',monospace;font-size:.85rem;outline:none;transition:border-color .3s;}
+.field label{display:block;font-size:.58rem;letter-spacing:.25em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+.field input,.field textarea,.field select{width:100%;background:var(--bg);border:1px solid var(--border);color:var(--earth);padding:10px 14px;font-family:'DM Mono',monospace;font-size:.85rem;outline:none;transition:border-color .3s}
 .field input:focus,.field textarea:focus,.field select:focus{border-color:var(--terra)}
 .field textarea{resize:vertical;min-height:120px;line-height:1.7}
-.btn{width:100%;padding:12px;background:var(--terra);color:var(--sand);border:none;font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.3em;text-transform:uppercase;cursor:pointer;transition:opacity .3s;}
+.btn{width:100%;padding:12px;background:var(--terra);color:var(--card);border:none;font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.3em;text-transform:uppercase;cursor:pointer;transition:opacity .3s}
 .btn:hover{opacity:.85}
-.btn-sm{width:auto;padding:8px 16px;font-size:.6rem}
+.btn-sm{width:auto;padding:8px 18px;font-size:.6rem}
 .btn-ghost{background:transparent;border:1px solid var(--border);color:var(--muted)}
 .btn-ghost:hover{border-color:var(--terra);color:var(--terra);opacity:1}
-.btn-danger{background:var(--danger)}
-.err{color:#E05050;font-size:.7rem;margin-top:8px;display:none}
+.btn-danger{background:var(--danger);color:#fff}
+.btn-success{background:var(--success);color:#fff}
+.err{color:#C0392B;font-size:.7rem;margin-top:8px;display:none}
 
+/* APP */
 #app{display:none;min-height:100vh}
-.topbar{position:sticky;top:0;z-index:50;background:var(--panel);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:14px 32px;}
-.topbar-brand{font-family:'Newsreader',serif;font-style:italic;font-size:1.1rem;display:flex;align-items:center;gap:8px}
+.top-stripe{height:4px;background:repeating-linear-gradient(90deg,var(--terra) 0 6px,var(--indigo) 6px 12px,var(--gold) 12px 18px,var(--earth) 18px 24px)}
+.topbar{position:sticky;top:0;z-index:50;background:rgba(240,232,213,.96);backdrop-filter:blur(8px);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:14px 32px}
+.topbar-brand{font-family:'Newsreader',serif;font-style:italic;font-size:1.1rem;display:flex;align-items:center;gap:8px;color:var(--earth)}
 .topbar-right{display:flex;align-items:center;gap:20px}
 .topbar-user{font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
 .logout-btn{font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--terra);background:none;border:none;cursor:pointer;font-family:'DM Mono',monospace}
 .logout-btn:hover{text-decoration:underline}
 
-.layout{display:grid;grid-template-columns:220px 1fr;min-height:calc(100vh - 53px)}
-.sidebar{background:var(--panel);border-right:1px solid var(--border);padding:24px 0;display:flex;flex-direction:column;}
-.nav-item{display:flex;align-items:center;gap:10px;padding:10px 24px;font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);cursor:pointer;transition:all .2s;border-left:2px solid transparent;}
-.nav-item:hover{color:var(--sand);background:rgba(196,98,45,.06)}
+.layout{display:grid;grid-template-columns:220px 1fr;min-height:calc(100vh - 57px)}
+.sidebar{background:var(--panel);border-right:1px solid var(--border);padding:24px 0;display:flex;flex-direction:column}
+.nav-item{display:flex;align-items:center;gap:10px;padding:10px 24px;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);cursor:pointer;transition:all .2s;border-left:2px solid transparent}
+.nav-item:hover{color:var(--earth);background:rgba(196,98,45,.06)}
 .nav-item.active{color:var(--terra);border-left-color:var(--terra);background:rgba(196,98,45,.08)}
 .nav-icon{width:14px;height:14px;opacity:.6}
-.sidebar-bottom{margin-top:auto;padding:24px;border-top:1px solid var(--border);}
+.sidebar-bottom{margin-top:auto;padding:20px 24px;border-top:1px solid var(--border)}
+.sidebar-link{font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);text-decoration:none;display:flex;align-items:center;gap:6px}
+.sidebar-link:hover{color:var(--terra)}
 
 .main{padding:40px 48px;max-width:1100px}
-.page{display:none}
-.page.active{display:block}
+.page{display:none}.page.active{display:block}
 .page-header{margin-bottom:32px}
-.page-header h1{font-family:'Newsreader',serif;font-weight:300;font-size:1.8rem;margin-bottom:4px}
-.page-header p{font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+.page-header h1{font-family:'Newsreader',serif;font-weight:300;font-size:1.8rem;margin-bottom:4px;color:var(--earth)}
+.page-header p{font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
 
 .stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:40px}
-.stat-card{background:var(--card);border:1px solid var(--border);padding:24px;border-left:3px solid var(--terra)}
+.stat-card{background:var(--card);border:1px solid var(--border);padding:24px;border-left:3px solid var(--terra);box-shadow:0 2px 8px rgba(26,18,8,.04)}
 .stat-val{font-family:'Newsreader',serif;font-size:2.2rem;font-weight:300;color:var(--terra)}
-.stat-label{font-size:.6rem;letter-spacing:.25em;text-transform:uppercase;color:var(--muted);margin-top:4px}
+.stat-label{font-size:.58rem;letter-spacing:.25em;text-transform:uppercase;color:var(--muted);margin-top:4px}
 
 .works-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px}
-.works-header h2{font-family:'Newsreader',serif;font-weight:300;font-size:1.3rem}
-.work-row{background:var(--card);border:1px solid var(--border);padding:20px 24px;margin-bottom:12px;display:grid;grid-template-columns:1fr auto auto auto auto;gap:16px;align-items:center;transition:border-color .2s;}
+.works-header h2{font-family:'Newsreader',serif;font-weight:300;font-size:1.3rem;color:var(--earth)}
+.work-row{background:var(--card);border:1px solid var(--border);padding:18px 24px;margin-bottom:10px;display:grid;grid-template-columns:1fr auto auto auto auto;gap:16px;align-items:center;transition:border-color .2s;box-shadow:0 1px 4px rgba(26,18,8,.04)}
 .work-row:hover{border-color:var(--terra)}
-.work-row-title{font-family:'Newsreader',serif;font-size:1rem}
-.work-row-genre{font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
-.badge{font-size:.55rem;letter-spacing:.2em;text-transform:uppercase;padding:4px 10px;border:1px solid;}
-.badge-free{color:#2D7A4B;border-color:#2D7A4B}
+.work-row-title{font-family:'Newsreader',serif;font-size:1rem;color:var(--earth)}
+.work-row-genre{font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-top:2px}
+.badge{font-size:.52rem;letter-spacing:.2em;text-transform:uppercase;padding:4px 10px;border:1px solid}
+.badge-free{color:var(--success);border-color:var(--success)}
 .badge-paid{color:var(--gold);border-color:var(--gold)}
 .badge-draft{color:var(--muted);border-color:var(--border)}
 .badge-published{color:var(--terra);border-color:var(--terra)}
 .row-actions{display:flex;gap:8px}
 
-.modal-overlay{position:fixed;inset:0;background:rgba(13,10,7,.92);z-index:200;display:none;align-items:center;justify-content:center;padding:20px;}
+/* SUBSCRIBERS TABLE */
+.sub-table{width:100%;border-collapse:collapse;margin-top:20px}
+.sub-table th{font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);padding:8px 16px;text-align:left;border-bottom:1px solid var(--border)}
+.sub-table td{font-family:'DM Mono',monospace;font-size:.75rem;color:var(--earth);padding:12px 16px;border-bottom:1px solid rgba(214,201,176,.5)}
+.sub-table tr:hover td{background:rgba(196,98,45,.04)}
+.sub-active{color:var(--success)}
+.sub-expired{color:var(--muted)}
+
+/* MODAL */
+.modal-overlay{position:fixed;inset:0;background:rgba(26,18,8,.5);z-index:200;display:none;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(4px)}
 .modal-overlay.open{display:flex}
-.modal{background:var(--panel);border:1px solid var(--border);width:100%;max-width:720px;max-height:90vh;overflow-y:auto;padding:40px;}
+.modal{background:var(--card);border:1px solid var(--border);width:100%;max-width:720px;max-height:90vh;overflow-y:auto;padding:44px;box-shadow:0 8px 40px rgba(26,18,8,.12)}
 .modal-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:28px}
-.modal-header h2{font-family:'Newsreader',serif;font-weight:300;font-size:1.4rem}
-.modal-close{background:none;border:none;color:var(--muted);cursor:pointer;font-size:1.2rem;font-family:'DM Mono',monospace}
-.modal-close:hover{color:var(--sand)}
+.modal-header h2{font-family:'Newsreader',serif;font-weight:300;font-size:1.4rem;color:var(--earth)}
+.modal-close{background:none;border:none;color:var(--muted);cursor:pointer;font-size:1.1rem;font-family:'DM Mono',monospace}
+.modal-close:hover{color:var(--terra)}
 .form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
 
-.bio-card{background:var(--card);border:1px solid var(--border);padding:32px;margin-bottom:24px}
-.settings-section{background:var(--card);border:1px solid var(--border);padding:32px;margin-bottom:24px}
-.settings-section h3{font-family:'Newsreader',serif;font-weight:300;font-size:1.1rem;margin-bottom:20px;padding-bottom:12px;border-bottom:1px solid var(--border)}
+.bio-card,.settings-section{background:var(--card);border:1px solid var(--border);padding:32px;margin-bottom:24px;box-shadow:0 2px 8px rgba(26,18,8,.04)}
+.settings-section h3{font-family:'Newsreader',serif;font-weight:300;font-size:1.1rem;margin-bottom:20px;padding-bottom:12px;border-bottom:1px solid var(--border);color:var(--earth)}
 
-.toast{position:fixed;bottom:32px;right:32px;z-index:999;background:var(--terra);color:var(--sand);padding:14px 24px;font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;transform:translateY(80px);opacity:0;transition:all .4s;pointer-events:none;}
+.toast{position:fixed;bottom:32px;right:32px;z-index:999;padding:14px 24px;font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;transform:translateY(80px);opacity:0;transition:all .4s;pointer-events:none}
 .toast.show{transform:translateY(0);opacity:1}
-.toast.error{background:var(--danger)}
+.toast.ok{background:var(--terra);color:var(--card)}
+.toast.fail{background:var(--danger);color:#fff}
 
 .empty{text-align:center;padding:60px;color:var(--muted);font-size:.75rem;letter-spacing:.2em;text-transform:uppercase}
-.loading{text-align:center;padding:40px;color:var(--muted);font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;animation:pulse 1.5s infinite;}
+.loading{text-align:center;padding:40px;color:var(--muted);font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;animation:pulse 1.5s infinite}
 @keyframes pulse{0%,100%{opacity:.4}50%{opacity:1}}
-
-.top-stripe{height:3px;background:repeating-linear-gradient(90deg,var(--terra) 0 6px,var(--gold) 6px 12px,#1B2B6B 12px 18px,var(--bg) 18px 24px)}
 
 @media(max-width:900px){
   .layout{grid-template-columns:1fr}.sidebar{display:none}
@@ -106,28 +126,27 @@ body{background:var(--bg);color:var(--sand);font-family:'DM Mono',monospace;min-
 </style>
 </head>
 <body>
-<div class="top-stripe"></div>
 
 <!-- LOGIN -->
 <div id="login-screen">
   <div class="login-logo">
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 2L22 12L12 22L2 12Z" stroke="#C4622D" stroke-width="1.2" fill="none"/><circle cx="12" cy="12" r="2" fill="#C4622D"/></svg>
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 2L22 12L12 22L2 12Z" stroke="#C4622D" stroke-width="1.2" fill="none"/><rect x="7" y="7" width="10" height="10" transform="rotate(45 12 12)" stroke="#1B3A6B" stroke-width=".8" fill="none" opacity=".5"/><circle cx="12" cy="12" r="2" fill="#C4622D"/></svg>
     Marubuci
   </div>
   <div class="login-box">
     <h2>Admin Access</h2>
-    <p>Control Centre — Haliru Ali Musa</p>
+    <span class="sub">Control Centre — Haliru Ali Musa</span>
     <div class="field"><label>Username</label><input type="text" id="login-user" placeholder="admin"/></div>
     <div class="field"><label>Password</label><input type="password" id="login-pass" placeholder="••••••••"/></div>
     <div class="err" id="login-err">Incorrect credentials. Try again.</div>
     <br/>
-    <button class="btn" onclick="doLogin()">Enter Dashboard</button>
-    <p style="font-size:.55rem;color:var(--muted);margin-top:16px;letter-spacing:.15em;">Default: admin / marubuci2026</p>
+    <button class="btn" onclick="doLogin()">Enter Dashboard →</button>
   </div>
 </div>
 
 <!-- APP -->
 <div id="app">
+  <div class="top-stripe"></div>
   <div class="topbar">
     <div class="topbar-brand">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 2L22 12L12 22L2 12Z" stroke="#C4622D" stroke-width="1" fill="none"/><circle cx="12" cy="12" r="1.5" fill="#C4622D"/></svg>
@@ -149,8 +168,12 @@ body{background:var(--bg);color:var(--sand);font-family:'DM Mono',monospace;min-
         <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg>
         Works / Library
       </div>
-      <div class="nav-item" onclick="showPage('bio',this)">
+      <div class="nav-item" onclick="showPage('subscribers',this)">
         <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+        Subscribers
+      </div>
+      <div class="nav-item" onclick="showPage('bio',this)">
+        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
         Bio & About
       </div>
       <div class="nav-item" onclick="showPage('settings',this)">
@@ -158,7 +181,7 @@ body{background:var(--bg);color:var(--sand);font-family:'DM Mono',monospace;min-
         Settings
       </div>
       <div class="sidebar-bottom">
-        <a href="index.html" target="_blank" style="font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);text-decoration:none;display:flex;align-items:center;gap:6px">
+        <a href="index.html" target="_blank" class="sidebar-link">
           <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
           View Live Site
         </a>
@@ -169,79 +192,75 @@ body{background:var(--bg);color:var(--sand);font-family:'DM Mono',monospace;min-
 
       <!-- DASHBOARD -->
       <div class="page active" id="page-dashboard">
-        <div class="page-header">
-          <h1>Overview</h1>
-          <p>Marubuci Control Centre</p>
-        </div>
+        <div class="page-header"><h1>Overview</h1><p>Marubuci Control Centre</p></div>
         <div class="stats-grid" id="stats-grid">
           <div class="stat-card"><div class="stat-val">—</div><div class="stat-label">Total Works</div></div>
           <div class="stat-card"><div class="stat-val">—</div><div class="stat-label">Published</div></div>
-          <div class="stat-card"><div class="stat-val">—</div><div class="stat-label">Paid / Locked</div></div>
-          <div class="stat-card"><div class="stat-val">—</div><div class="stat-label">Free Access</div></div>
+          <div class="stat-card"><div class="stat-val">—</div><div class="stat-label">Readers</div></div>
+          <div class="stat-card"><div class="stat-val">—</div><div class="stat-label">Active Subs</div></div>
         </div>
-        <div class="works-header">
-          <h2>Recent Works</h2>
-          <button class="btn btn-sm" onclick="openNewWork()">+ New Work</button>
-        </div>
-        <div id="recent-works-list"><div class="loading">Loading works…</div></div>
+        <div class="works-header"><h2>Recent Works</h2><button class="btn btn-sm" onclick="openNewWork()">+ New Work</button></div>
+        <div id="recent-works-list"><div class="loading">Loading…</div></div>
       </div>
 
       <!-- WORKS -->
       <div class="page" id="page-works">
-        <div class="page-header">
-          <h1>Works & Library</h1>
-          <p>Manage all published and draft works</p>
-        </div>
+        <div class="page-header"><h1>Works & Library</h1><p>Manage all published and draft works</p></div>
         <div class="works-header">
-          <input type="text" placeholder="Search works…" id="search-works" oninput="renderWorks()" style="background:var(--card);border:1px solid var(--border);color:var(--sand);padding:8px 14px;font-family:'DM Mono',monospace;font-size:.75rem;outline:none;width:220px"/>
+          <input type="text" placeholder="Search…" id="search-works" oninput="renderWorks()" style="background:var(--card);border:1px solid var(--border);color:var(--earth);padding:8px 14px;font-family:'DM Mono',monospace;font-size:.75rem;outline:none;width:220px;transition:border-color .3s" onfocus="this.style.borderColor='#C4622D'" onblur="this.style.borderColor='#D6C9B0'"/>
           <button class="btn btn-sm" onclick="openNewWork()">+ New Work</button>
         </div>
         <div id="works-list"><div class="loading">Loading…</div></div>
       </div>
 
+      <!-- SUBSCRIBERS -->
+      <div class="page" id="page-subscribers">
+        <div class="page-header"><h1>Subscribers</h1><p>All reader accounts and subscription status</p></div>
+        <div id="subscribers-content"><div class="loading">Loading…</div></div>
+      </div>
+
       <!-- BIO -->
       <div class="page" id="page-bio">
-        <div class="page-header">
-          <h1>Bio & About</h1>
-          <p>Your public author profile</p>
-        </div>
+        <div class="page-header"><h1>Bio & About</h1><p>Your public author profile</p></div>
         <div class="bio-card">
           <div class="field"><label>Display Name</label><input type="text" id="bio-name" value="Haliru Ali Musa"/></div>
-          <div class="field"><label>Tagline / Location</label><input type="text" id="bio-tagline" value="Writer · Critic · Engineer · Katsina, Nigeria"/></div>
-          <div class="field"><label>Short Bio (shown on homepage)</label><textarea id="bio-short" rows="4">Haliru Ali Musa is a writer, critic, and engineer from Katsina State, Nigeria, now based in Lagos. A 2024 alumnus of the Nigerian Academy of Letters Creative Writing Workshop, he writes The Long View, a weekly column in Naira Stories Magazine.</textarea></div>
+          <div class="field"><label>Tagline</label><input type="text" id="bio-tagline" value="Writer · Critic · Engineer · Katsina, Nigeria"/></div>
+          <div class="field"><label>Short Bio</label><textarea id="bio-short" rows="3">Haliru Ali Musa is a writer, critic, and engineer from Katsina State, Nigeria, now based in Lagos.</textarea></div>
           <div class="field"><label>Full Bio</label><textarea id="bio-full" rows="10">Haliru Ali Musa is a writer, critic, and engineer from Katsina State, Nigeria, now based in Lagos. A 2024 alumnus of the Nigerian Academy of Letters Creative Writing Workshop, he writes The Long View, a weekly column in Naira Stories Magazine that meditates on art, literature, and the African condition through the lens of introspection and cultural truth, and also a reviewer for P.eng literature magazine.
 
 His short story The Pregnant Ghost won the inaugural 2024 Alexander Nderitu Prize for World Literature, while his novella Dogs Are No Better was longlisted for the 2025 Quramo Prize. His story Build a Bird That Flies Backward into Yesterday won the 8th African Writers Award in 2025.
 
-Musa's work has appeared in Farafina Books, Akpata Literary Magazine, Naira Stories, The Sun Nigeria, Moveee Magazine, The Kalahari Review, The African Griot Review (Kenya), and The Asian Journal of Literature and Chestnut Review. His critical essays include "Three Wells, Three Wars: On the 2025 NLNG Prize Shortlist" and a study of Chukwuemeka Famous' We Will Live Again.</textarea></div>
+Musa's work has appeared in Farafina Books, Akpata Literary Magazine, Naira Stories, The Sun Nigeria, Moveee Magazine, The Kalahari Review, The African Griot Review (Kenya), and The Asian Journal of Literature and Chestnut Review.</textarea></div>
           <div class="field"><label>Awards & Publications (one per line)</label><textarea id="bio-awards" rows="6">2024 Alexander Nderitu Prize for World Literature — The Pregnant Ghost
 2025 Quramo Prize Longlist — Dogs Are No Better
 8th African Writers Award 2025 — Build a Bird That Flies Backward into Yesterday
 2024 Nigerian Academy of Letters Creative Writing Workshop
 Columnist, Naira Stories Magazine — The Long View
 Reviewer, P.eng Literature Magazine</textarea></div>
-          <div class="field"><label>Profile / About Image URL</label><input type="text" id="bio-img" value="https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?w=800&q=80"/></div>
-          <button class="btn btn-sm" onclick="saveBio()" style="margin-top:8px">Save Bio to Database</button>
+          <div class="field"><label>Profile Image URL</label><input type="text" id="bio-img" value="https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?w=800&q=80"/></div>
+          <button class="btn btn-sm" onclick="saveBio()" style="margin-top:8px">Save Bio</button>
         </div>
       </div>
 
       <!-- SETTINGS -->
       <div class="page" id="page-settings">
-        <div class="page-header">
-          <h1>Settings</h1>
-          <p>Site configuration</p>
-        </div>
+        <div class="page-header"><h1>Settings</h1><p>Site configuration</p></div>
         <div class="settings-section">
           <h3>Payment</h3>
-          <div class="field"><label>Paystack Public Key</label><input type="text" id="set-paystack" placeholder="pk_live_xxxxxxxxxxxxxxxx"/></div>
+          <div class="field"><label>Paystack Live Key</label><input type="text" id="set-paystack" value="pk_live_76012132e4a1142e58c9723394cfa4ebae51adfe"/></div>
           <div class="field"><label>Currency</label>
-            <select id="set-currency">
-              <option value="NGN">NGN — Nigerian Naira</option>
-              <option value="USD">USD — US Dollar</option>
-              <option value="GBP">GBP — British Pound</option>
-            </select>
+            <select id="set-currency"><option value="NGN">NGN — Nigerian Naira</option><option value="USD">USD — US Dollar</option></select>
           </div>
           <button class="btn btn-sm" onclick="saveSettings()">Save</button>
+        </div>
+        <div class="settings-section">
+          <h3>Subscription Pricing</h3>
+          <div class="form-row">
+            <div class="field"><label>Daily (NGN)</label><input type="number" id="set-daily" value="500"/></div>
+            <div class="field"><label>Monthly (NGN)</label><input type="number" id="set-monthly" value="5000"/></div>
+          </div>
+          <div class="field" style="max-width:200px"><label>Yearly (NGN)</label><input type="number" id="set-yearly" value="50000"/></div>
+          <button class="btn btn-sm" onclick="saveSettings()">Save Pricing</button>
         </div>
         <div class="settings-section">
           <h3>Contact & Social</h3>
@@ -257,6 +276,10 @@ Reviewer, P.eng Literature Magazine</textarea></div>
             <div class="field"><label>Confirm</label><input type="password" id="confirm-pass"/></div>
           </div>
           <button class="btn btn-sm" onclick="changePass()">Update Password</button>
+        </div>
+        <div class="settings-section">
+          <h3>Data Export</h3>
+          <button class="btn btn-sm btn-ghost" onclick="exportData()">Export Works as JSON</button>
         </div>
       </div>
 
@@ -275,33 +298,29 @@ Reviewer, P.eng Literature Magazine</textarea></div>
       <div class="field"><label>Title</label><input type="text" id="w-title" placeholder="Title of the work"/></div>
       <div class="field"><label>Genre</label><input type="text" id="w-genre" placeholder="Fiction, Poetry, Essay…"/></div>
     </div>
-    <div class="field"><label>Excerpt / Tagline (shown on library card)</label><input type="text" id="w-excerpt" placeholder="A short compelling description"/></div>
-    <div class="field"><label>Full Text / Content</label><textarea id="w-content" rows="14" placeholder="Write or paste the full text of the work here. Readers will see this after unlocking."></textarea></div>
+    <div class="field"><label>Excerpt / Tagline</label><input type="text" id="w-excerpt" placeholder="A short description shown on the library card"/></div>
+    <div class="field"><label>Full Text</label><textarea id="w-content" rows="16" placeholder="Write or paste the full text here. Subscribers and free readers will see this."></textarea></div>
     <div class="form-row">
       <div class="field">
         <label>Access</label>
         <select id="w-access" onchange="togglePrice()">
-          <option value="free">Free</option>
-          <option value="paid">Paid (locked)</option>
+          <option value="free">Free — anyone can read</option>
+          <option value="paid">Subscribers only</option>
         </select>
       </div>
       <div class="field" id="price-field" style="display:none">
-        <label>Price (NGN)</label>
+        <label>Individual Price (NGN) — for non-subscribers</label>
         <input type="number" id="w-price" placeholder="500" min="0"/>
       </div>
     </div>
     <div class="field"><label>Cover Image URL</label><input type="text" id="w-img" placeholder="https://images.unsplash.com/…"/></div>
     <div class="form-row">
-      <div class="field">
-        <label>Status</label>
-        <select id="w-status">
-          <option value="published">Published</option>
-          <option value="draft">Draft</option>
-        </select>
+      <div class="field"><label>Status</label>
+        <select id="w-status"><option value="published">Published</option><option value="draft">Draft</option></select>
       </div>
       <div class="field"><label>Date</label><input type="date" id="w-date"/></div>
     </div>
-    <div style="display:flex;gap:12px;margin-top:8px">
+    <div style="display:flex;gap:12px;margin-top:16px">
       <button class="btn btn-sm" onclick="saveWork()">Save to Database</button>
       <button class="btn btn-sm btn-ghost" onclick="closeModal()">Cancel</button>
     </div>
@@ -311,29 +330,16 @@ Reviewer, P.eng Literature Magazine</textarea></div>
 <div class="toast" id="toast"></div>
 
 <script>
-const SUPABASE_URL = 'https://hsgfdysohdciciemrkyn.supabase.co';
-const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhzZ2ZkeXNvaGRjaWNpZW1ya3luIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODAzNTIyOTksImV4cCI6MjA5NTkyODI5OX0.W6ayZvJF4aQ7rUBrZu7Pzo92XtBIsKrl89HF1d3lsSM';
-const CREDS_KEY = 'maru_creds';
-const AUTH_KEY  = 'maru_auth';
+const SB_URL='https://hsgfdysohdciciemrkyn.supabase.co';
+const SB_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhzZ2ZkeXNvaGRjaWNpZW1ya3luIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODAzNTIyOTksImV4cCI6MjA5NTkyODI5OX0.W6ayZvJF4aQ7rUBrZu7Pzo92XtBIsKrl89HF1d3lsSM';
+const CREDS_KEY='maru_admin_creds';
+const AUTH_KEY='maru_admin_auth';
 
-const headers = {
-  'Content-Type': 'application/json',
-  'apikey': SUPABASE_KEY,
-  'Authorization': 'Bearer ' + SUPABASE_KEY,
-  'Prefer': 'return=representation'
-};
+const hdrs={'apikey':SB_KEY,'Authorization':'Bearer '+SB_KEY,'Content-Type':'application/json','Prefer':'return=representation'};
 
-async function sb(path, options={}) {
-  const res = await fetch(SUPABASE_URL + '/rest/v1/' + path, {
-    headers: {...headers, ...(options.headers||{})},
-    ...options
-  });
-  if (!res.ok) {
-    const err = await res.text();
-    throw new Error(err);
-  }
-  const text = await res.text();
-  return text ? JSON.parse(text) : [];
+async function sb(path,opts={}){
+  const r=await fetch(SB_URL+'/rest/v1/'+path,{headers:{...hdrs,...(opts.headers||{})},...opts});
+  const t=await r.text();return t?JSON.parse(t):[];
 }
 
 // AUTH
@@ -365,7 +371,8 @@ function showPage(id,el){
   document.getElementById('page-'+id).classList.add('active');
   if(el)el.classList.add('active');
   if(id==='dashboard')renderDashboard();
-  if(id==='works')renderWorks();
+  if(id==='works'){allWorks=[];renderWorks();}
+  if(id==='subscribers')renderSubscribers();
   if(id==='bio')loadBio();
   if(id==='settings')loadSettings();
 }
@@ -373,33 +380,29 @@ function showPage(id,el){
 // DASHBOARD
 async function renderDashboard(){
   try {
-    const works = await sb('works?select=*&order=created_at.desc');
-    const pub = works.filter(w=>w.status==='published').length;
-    const paid = works.filter(w=>w.access==='paid').length;
-    const free = works.filter(w=>w.access==='free').length;
+    const [works,readers,subs]=await Promise.all([
+      sb('works?select=id,status,access'),
+      sb('readers?select=id'),
+      sb('subscriptions?select=id,status,end_date')
+    ]);
+    const pub=works.filter(w=>w.status==='published').length;
+    const activeSubs=subs.filter(s=>s.status==='active'&&new Date(s.end_date)>new Date()).length;
     document.getElementById('stats-grid').innerHTML=`
       <div class="stat-card"><div class="stat-val">${works.length}</div><div class="stat-label">Total Works</div></div>
       <div class="stat-card"><div class="stat-val">${pub}</div><div class="stat-label">Published</div></div>
-      <div class="stat-card"><div class="stat-val">${paid}</div><div class="stat-label">Paid / Locked</div></div>
-      <div class="stat-card"><div class="stat-val">${free}</div><div class="stat-label">Free Access</div></div>
-    `;
-    const recent = works.slice(0,5);
-    document.getElementById('recent-works-list').innerHTML = recent.length ? recent.map(workRow).join('') : '<div class="empty">No works yet. Create your first work.</div>';
-  } catch(e){
-    document.getElementById('recent-works-list').innerHTML='<div class="empty">Could not load works. Check connection.</div>';
-    showToast('DB error: '+e.message, true);
-  }
+      <div class="stat-card"><div class="stat-val">${readers.length}</div><div class="stat-label">Readers</div></div>
+      <div class="stat-card"><div class="stat-val">${activeSubs}</div><div class="stat-label">Active Subs</div></div>`;
+    const recent=await sb('works?select=*&order=created_at.desc&limit=5');
+    document.getElementById('recent-works-list').innerHTML=recent.length?recent.map(workRow).join(''):'<div class="empty">No works yet.</div>';
+  } catch(e){showToast('DB error: '+e.message,false)}
 }
 
 function workRow(w){
   return `<div class="work-row">
-    <div>
-      <div class="work-row-title">${w.title}</div>
-      <div class="work-row-genre">${w.genre||''}</div>
-    </div>
+    <div><div class="work-row-title">${w.title}</div><div class="work-row-genre">${w.genre||''}</div></div>
     <span class="badge badge-${w.access}">${w.access}</span>
     <span class="badge badge-${w.status}">${w.status}</span>
-    <div>${w.access==='paid'?`<span style="font-size:.7rem;color:var(--gold)">₦${w.price}</span>`:'—'}</div>
+    <div>${w.access==='paid'?`<span style="font-size:.7rem;color:var(--gold)">₦${w.price||0}</span>`:'—'}</div>
     <div class="row-actions">
       <button class="btn btn-sm btn-ghost" onclick="editWork('${w.id}')">Edit</button>
       <button class="btn btn-sm btn-danger" onclick="deleteWork('${w.id}')">Del</button>
@@ -407,20 +410,43 @@ function workRow(w){
   </div>`;
 }
 
-let allWorks = [];
+let allWorks=[];
 async function renderWorks(){
-  const q = (document.getElementById('search-works')?.value||'').toLowerCase();
+  const q=(document.getElementById('search-works')?.value||'').toLowerCase();
   try {
-    if(!allWorks.length) allWorks = await sb('works?select=*&order=created_at.desc');
-    const filtered = allWorks.filter(w=>!q||w.title.toLowerCase().includes(q)||(w.genre||'').toLowerCase().includes(q));
-    document.getElementById('works-list').innerHTML = filtered.length ? filtered.map(workRow).join('') : '<div class="empty">No works found.</div>';
-  } catch(e){
-    document.getElementById('works-list').innerHTML='<div class="empty">Could not load works.</div>';
-  }
+    if(!allWorks.length)allWorks=await sb('works?select=*&order=created_at.desc');
+    const f=allWorks.filter(w=>!q||w.title.toLowerCase().includes(q)||(w.genre||'').toLowerCase().includes(q));
+    document.getElementById('works-list').innerHTML=f.length?f.map(workRow).join(''):'<div class="empty">No works found.</div>';
+  } catch(e){document.getElementById('works-list').innerHTML='<div class="empty">Could not load.</div>'}
+}
+
+// SUBSCRIBERS
+async function renderSubscribers(){
+  try {
+    const readers=await sb('readers?select=*&order=created_at.desc');
+    const subs=await sb('subscriptions?select=*&order=start_date.desc');
+    const now=new Date();
+    let html=`<table class="sub-table">
+      <tr><th>Name</th><th>Email</th><th>Plan</th><th>Status</th><th>Expires</th><th>Joined</th></tr>`;
+    for(const r of readers){
+      const rs=subs.filter(s=>s.reader_id===r.id&&new Date(s.end_date)>now&&s.status==='active');
+      const active=rs[0];
+      html+=`<tr>
+        <td>${r.name||'—'}</td>
+        <td>${r.email}</td>
+        <td>${active?active.plan:'—'}</td>
+        <td class="${active?'sub-active':'sub-expired'}">${active?'● Active':'○ None'}</td>
+        <td>${active?new Date(active.end_date).toLocaleDateString('en-NG'):'—'}</td>
+        <td>${new Date(r.created_at).toLocaleDateString('en-NG')}</td>
+      </tr>`;
+    }
+    html+='</table>';
+    document.getElementById('subscribers-content').innerHTML=readers.length?html:'<div class="empty">No readers yet.</div>';
+  } catch(e){document.getElementById('subscribers-content').innerHTML='<div class="empty">Could not load.</div>'}
 }
 
 // MODAL
-let editingId = null;
+let editingId=null;
 function openNewWork(){
   editingId=null;
   document.getElementById('modal-title').textContent='New Work';
@@ -432,7 +458,7 @@ function openNewWork(){
   document.getElementById('work-modal').classList.add('open');
 }
 function editWork(id){
-  const w = allWorks.find(x=>x.id===id);
+  const w=allWorks.find(x=>x.id===id);
   if(!w)return;
   editingId=id;
   document.getElementById('modal-title').textContent='Edit Work';
@@ -453,124 +479,96 @@ function togglePrice(){document.getElementById('price-field').style.display=docu
 
 async function saveWork(){
   const title=document.getElementById('w-title').value.trim();
-  if(!title){showToast('Title is required',true);return}
-  const work={
-    title,
-    genre:document.getElementById('w-genre').value.trim(),
-    excerpt:document.getElementById('w-excerpt').value.trim(),
-    content:document.getElementById('w-content').value.trim(),
-    access:document.getElementById('w-access').value,
-    price:parseFloat(document.getElementById('w-price').value)||0,
-    img:document.getElementById('w-img').value.trim(),
-    status:document.getElementById('w-status').value,
-    date:document.getElementById('w-date').value||null,
-  };
+  if(!title){showToast('Title is required',false);return}
+  const work={title,genre:document.getElementById('w-genre').value.trim(),excerpt:document.getElementById('w-excerpt').value.trim(),content:document.getElementById('w-content').value.trim(),access:document.getElementById('w-access').value,price:parseFloat(document.getElementById('w-price').value)||0,img:document.getElementById('w-img').value.trim(),status:document.getElementById('w-status').value,date:document.getElementById('w-date').value||null};
   try {
     if(editingId){
-      await sb('works?id=eq.'+editingId, {method:'PATCH', body:JSON.stringify(work)});
+      await sb('works?id=eq.'+editingId,{method:'PATCH',body:JSON.stringify(work)});
       showToast('Work updated');
     } else {
-      await sb('works', {method:'POST', body:JSON.stringify(work)});
+      await sb('works',{method:'POST',body:JSON.stringify(work)});
       showToast('Work published');
     }
-    allWorks=[];
-    closeModal();
-    renderDashboard();
-    renderWorks();
-  } catch(e){showToast('Error: '+e.message,true)}
+    allWorks=[];closeModal();renderDashboard();renderWorks();
+  } catch(e){showToast('Error: '+e.message,false)}
 }
 
 async function deleteWork(id){
   if(!confirm('Delete this work permanently?'))return;
   try {
-    await sb('works?id=eq.'+id, {method:'DELETE'});
-    allWorks=[];
-    renderWorks();renderDashboard();
-    showToast('Work deleted');
-  } catch(e){showToast('Error: '+e.message,true)}
+    await sb('works?id=eq.'+id,{method:'DELETE'});
+    allWorks=[];renderWorks();renderDashboard();
+    showToast('Deleted');
+  } catch(e){showToast('Error',false)}
 }
 
 // BIO
 async function loadBio(){
   try {
-    const rows = await sb('bio?id=eq.1');
-    if(rows.length){
-      const b=rows[0];
-      if(b.name)document.getElementById('bio-name').value=b.name;
-      if(b.tagline)document.getElementById('bio-tagline').value=b.tagline;
-      if(b.short_bio)document.getElementById('bio-short').value=b.short_bio;
-      if(b.full_bio)document.getElementById('bio-full').value=b.full_bio;
-      if(b.awards)document.getElementById('bio-awards').value=b.awards;
-      if(b.img)document.getElementById('bio-img').value=b.img;
-    }
+    const rows=await sb('bio?id=eq.1');
+    if(!rows.length)return;
+    const b=rows[0];
+    if(b.name)document.getElementById('bio-name').value=b.name;
+    if(b.tagline)document.getElementById('bio-tagline').value=b.tagline;
+    if(b.short_bio)document.getElementById('bio-short').value=b.short_bio;
+    if(b.full_bio)document.getElementById('bio-full').value=b.full_bio;
+    if(b.awards)document.getElementById('bio-awards').value=b.awards;
+    if(b.img)document.getElementById('bio-img').value=b.img;
   } catch(e){}
 }
 async function saveBio(){
-  const bio={
-    id:1,
-    name:document.getElementById('bio-name').value,
-    tagline:document.getElementById('bio-tagline').value,
-    short_bio:document.getElementById('bio-short').value,
-    full_bio:document.getElementById('bio-full').value,
-    awards:document.getElementById('bio-awards').value,
-    img:document.getElementById('bio-img').value,
-  };
+  const bio={id:1,name:document.getElementById('bio-name').value,tagline:document.getElementById('bio-tagline').value,short_bio:document.getElementById('bio-short').value,full_bio:document.getElementById('bio-full').value,awards:document.getElementById('bio-awards').value,img:document.getElementById('bio-img').value};
   try {
-    await sb('bio', {method:'POST', headers:{'Prefer':'resolution=merge-duplicates'}, body:JSON.stringify(bio)});
+    await sb('bio',{method:'POST',headers:{'Prefer':'resolution=merge-duplicates'},body:JSON.stringify(bio)});
     showToast('Bio saved');
-  } catch(e){showToast('Error: '+e.message,true)}
+  } catch(e){showToast('Error: '+e.message,false)}
 }
 
 // SETTINGS
 async function loadSettings(){
   try {
-    const rows = await sb('settings?id=eq.1');
-    if(rows.length){
-      const s=rows[0];
-      if(s.paystack_key)document.getElementById('set-paystack').value=s.paystack_key;
-      if(s.currency)document.getElementById('set-currency').value=s.currency;
-      if(s.email)document.getElementById('set-email').value=s.email;
-      if(s.twitter)document.getElementById('set-twitter').value=s.twitter;
-      if(s.instagram)document.getElementById('set-instagram').value=s.instagram;
-    }
+    const rows=await sb('settings?id=eq.1');
+    if(!rows.length)return;
+    const s=rows[0];
+    if(s.paystack_key)document.getElementById('set-paystack').value=s.paystack_key;
+    if(s.currency)document.getElementById('set-currency').value=s.currency;
+    if(s.email)document.getElementById('set-email').value=s.email;
+    if(s.twitter)document.getElementById('set-twitter').value=s.twitter;
+    if(s.instagram)document.getElementById('set-instagram').value=s.instagram;
   } catch(e){}
 }
 async function saveSettings(){
-  const s={
-    id:1,
-    paystack_key:document.getElementById('set-paystack').value,
-    currency:document.getElementById('set-currency').value,
-    email:document.getElementById('set-email').value,
-    twitter:document.getElementById('set-twitter').value,
-    instagram:document.getElementById('set-instagram').value,
-  };
+  const s={id:1,paystack_key:document.getElementById('set-paystack').value,currency:document.getElementById('set-currency').value,email:document.getElementById('set-email').value,twitter:document.getElementById('set-twitter').value,instagram:document.getElementById('set-instagram').value};
   try {
-    await sb('settings', {method:'POST', headers:{'Prefer':'resolution=merge-duplicates'}, body:JSON.stringify(s)});
+    await sb('settings',{method:'POST',headers:{'Prefer':'resolution=merge-duplicates'},body:JSON.stringify(s)});
     showToast('Settings saved');
-  } catch(e){showToast('Error: '+e.message,true)}
+  } catch(e){showToast('Error: '+e.message,false)}
 }
 function changePass(){
   const np=document.getElementById('new-pass').value;
   const cp=document.getElementById('confirm-pass').value;
-  if(!np){showToast('Enter a new password',true);return}
-  if(np!==cp){showToast('Passwords do not match',true);return}
+  if(!np){showToast('Enter a new password',false);return}
+  if(np!==cp){showToast('Passwords do not match',false);return}
   const c=getCreds();
   localStorage.setItem(CREDS_KEY,JSON.stringify({...c,pass:np}));
   showToast('Password updated');
   document.getElementById('new-pass').value='';
   document.getElementById('confirm-pass').value='';
 }
+async function exportData(){
+  const works=await sb('works?select=*');
+  const blob=new Blob([JSON.stringify(works,null,2)],{type:'application/json'});
+  const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='marubuci-works.json';a.click();
+}
 
 // TOAST
-function showToast(msg,isError=false){
+function showToast(msg,ok=true){
   const t=document.getElementById('toast');
-  t.textContent=msg;
-  t.classList.toggle('error',isError);
+  t.textContent=msg;t.className='toast '+(ok?'ok':'fail');
   t.classList.add('show');
   setTimeout(()=>t.classList.remove('show'),2800);
 }
 
-// INIT
 async function init(){await renderDashboard()}
 if(sessionStorage.getItem(AUTH_KEY))init();
 </script>
