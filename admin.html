@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Marubuci — Admin</title>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,300;1,6..72,400&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0D0A07;--panel:#151008;--card:#1C1208;--border:#2E1F0E;
+  --terra:#C4622D;--gold:#D4A030;--sand:#EDE3CC;--muted:#6B5840;
+  --success:#2D7A4B;--danger:#8B2020;
+}
+body{background:var(--bg);color:var(--sand);font-family:'DM Mono',monospace;min-height:100vh}
+::selection{background:rgba(196,98,45,.25)}
+::-webkit-scrollbar{width:3px}::-webkit-scrollbar-thumb{background:var(--terra)}
+
+#login-screen{position:fixed;inset:0;background:var(--bg);z-index:999;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:32px;}
+.login-logo{display:flex;align-items:center;gap:10px;font-family:'Newsreader',serif;font-size:1.4rem;font-style:italic}
+.login-box{width:340px;padding:40px;border:1px solid var(--border);background:var(--panel)}
+.login-box h2{font-family:'Newsreader',serif;font-weight:300;font-size:1.1rem;margin-bottom:6px}
+.login-box p{font-size:.65rem;letter-spacing:.2em;color:var(--muted);margin-bottom:28px;text-transform:uppercase}
+.field{margin-bottom:16px}
+.field label{display:block;font-size:.6rem;letter-spacing:.25em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+.field input,.field textarea,.field select{width:100%;background:var(--card);border:1px solid var(--border);color:var(--sand);padding:10px 14px;font-family:'DM Mono',monospace;font-size:.85rem;outline:none;transition:border-color .3s;}
+.field input:focus,.field textarea:focus,.field select:focus{border-color:var(--terra)}
+.field textarea{resize:vertical;min-height:120px;line-height:1.7}
+.btn{width:100%;padding:12px;background:var(--terra);color:var(--sand);border:none;font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.3em;text-transform:uppercase;cursor:pointer;transition:opacity .3s;}
+.btn:hover{opacity:.85}
+.btn-sm{width:auto;padding:8px 16px;font-size:.6rem}
+.btn-ghost{background:transparent;border:1px solid var(--border);color:var(--muted)}
+.btn-ghost:hover{border-color:var(--terra);color:var(--terra);opacity:1}
+.btn-danger{background:var(--danger)}
+.err{color:#E05050;font-size:.7rem;margin-top:8px;display:none}
+
+#app{display:none;min-height:100vh}
+.topbar{position:sticky;top:0;z-index:50;background:var(--panel);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:14px 32px;}
+.topbar-brand{font-family:'Newsreader',serif;font-style:italic;font-size:1.1rem;display:flex;align-items:center;gap:8px}
+.topbar-right{display:flex;align-items:center;gap:20px}
+.topbar-user{font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+.logout-btn{font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--terra);background:none;border:none;cursor:pointer;font-family:'DM Mono',monospace}
+.logout-btn:hover{text-decoration:underline}
+
+.layout{display:grid;grid-template-columns:220px 1fr;min-height:calc(100vh - 53px)}
+.sidebar{background:var(--panel);border-right:1px solid var(--border);padding:24px 0;display:flex;flex-direction:column;}
+.nav-item{display:flex;align-items:center;gap:10px;padding:10px 24px;font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);cursor:pointer;transition:all .2s;border-left:2px solid transparent;}
+.nav-item:hover{color:var(--sand);background:rgba(196,98,45,.06)}
+.nav-item.active{color:var(--terra);border-left-color:var(--terra);background:rgba(196,98,45,.08)}
+.nav-icon{width:14px;height:14px;opacity:.6}
+.sidebar-bottom{margin-top:auto;padding:24px;border-top:1px solid var(--border);}
+
+.main{padding:40px 48px;max-width:1100px}
+.page{display:none}
+.page.active{display:block}
+.page-header{margin-bottom:32px}
+.page-header h1{font-family:'Newsreader',serif;font-weight:300;font-size:1.8rem;margin-bottom:4px}
+.page-header p{font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:40px}
+.stat-card{background:var(--card);border:1px solid var(--border);padding:24px;border-left:3px solid var(--terra)}
+.stat-val{font-family:'Newsreader',serif;font-size:2.2rem;font-weight:300;color:var(--terra)}
+.stat-label{font-size:.6rem;letter-spacing:.25em;text-transform:uppercase;color:var(--muted);margin-top:4px}
+
+.works-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px}
+.works-header h2{font-family:'Newsreader',serif;font-weight:300;font-size:1.3rem}
+.work-row{background:var(--card);border:1px solid var(--border);padding:20px 24px;margin-bottom:12px;display:grid;grid-template-columns:1fr auto auto auto auto;gap:16px;align-items:center;transition:border-color .2s;}
+.work-row:hover{border-color:var(--terra)}
+.work-row-title{font-family:'Newsreader',serif;font-size:1rem}
+.work-row-genre{font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+.badge{font-size:.55rem;letter-spacing:.2em;text-transform:uppercase;padding:4px 10px;border:1px solid;}
+.badge-free{color:#2D7A4B;border-color:#2D7A4B}
+.badge-paid{color:var(--gold);border-color:var(--gold)}
+.badge-draft{color:var(--muted);border-color:var(--border)}
+.badge-published{color:var(--terra);border-color:var(--terra)}
+.row-actions{display:flex;gap:8px}
+
+.modal-overlay{position:fixed;inset:0;background:rgba(13,10,7,.92);z-index:200;display:none;align-items:center;justify-content:center;padding:20px;}
+.modal-overlay.open{display:flex}
+.modal{background:var(--panel);border:1px solid var(--border);width:100%;max-width:720px;max-height:90vh;overflow-y:auto;padding:40px;}
+.modal-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:28px}
+.modal-header h2{font-family:'Newsreader',serif;font-weight:300;font-size:1.4rem}
+.modal-close{background:none;border:none;color:var(--muted);cursor:pointer;font-size:1.2rem;font-family:'DM Mono',monospace}
+.modal-close:hover{color:var(--sand)}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+
+.bio-card{background:var(--card);border:1px solid var(--border);padding:32px;margin-bottom:24px}
+.settings-section{background:var(--card);border:1px solid var(--border);padding:32px;margin-bottom:24px}
+.settings-section h3{font-family:'Newsreader',serif;font-weight:300;font-size:1.1rem;margin-bottom:20px;padding-bottom:12px;border-bottom:1px solid var(--border)}
+
+.toast{position:fixed;bottom:32px;right:32px;z-index:999;background:var(--terra);color:var(--sand);padding:14px 24px;font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;transform:translateY(80px);opacity:0;transition:all .4s;pointer-events:none;}
+.toast.show{transform:translateY(0);opacity:1}
+.toast.error{background:var(--danger)}
+
+.empty{text-align:center;padding:60px;color:var(--muted);font-size:.75rem;letter-spacing:.2em;text-transform:uppercase}
+.loading{text-align:center;padding:40px;color:var(--muted);font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;animation:pulse 1.5s infinite;}
+@keyframes pulse{0%,100%{opacity:.4}50%{opacity:1}}
+
+.top-stripe{height:3px;background:repeating-linear-gradient(90deg,var(--terra) 0 6px,var(--gold) 6px 12px,#1B2B6B 12px 18px,var(--bg) 18px 24px)}
+
+@media(max-width:900px){
+  .layout{grid-template-columns:1fr}.sidebar{display:none}
+  .stats-grid{grid-template-columns:1fr 1fr}
+  .work-row{grid-template-columns:1fr auto}
+}
+</style>
+</head>
+<body>
+<div class="top-stripe"></div>
+
+<!-- LOGIN -->
+<div id="login-screen">
+  <div class="login-logo">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 2L22 12L12 22L2 12Z" stroke="#C4622D" stroke-width="1.2" fill="none"/><circle cx="12" cy="12" r="2" fill="#C4622D"/></svg>
+    Marubuci
+  </div>
+  <div class="login-box">
+    <h2>Admin Access</h2>
+    <p>Control Centre — Haliru Ali Musa</p>
+    <div class="field"><label>Username</label><input type="text" id="login-user" placeholder="admin"/></div>
+    <div class="field"><label>Password</label><input type="password" id="login-pass" placeholder="••••••••"/></div>
+    <div class="err" id="login-err">Incorrect credentials. Try again.</div>
+    <br/>
+    <button class="btn" onclick="doLogin()">Enter Dashboard</button>
+    <p style="font-size:.55rem;color:var(--muted);margin-top:16px;letter-spacing:.15em;">Default: admin / marubuci2026</p>
+  </div>
+</div>
+
+<!-- APP -->
+<div id="app">
+  <div class="topbar">
+    <div class="topbar-brand">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 2L22 12L12 22L2 12Z" stroke="#C4622D" stroke-width="1" fill="none"/><circle cx="12" cy="12" r="1.5" fill="#C4622D"/></svg>
+      Marubuci — Admin
+    </div>
+    <div class="topbar-right">
+      <span class="topbar-user">Haliru Ali Musa</span>
+      <button class="logout-btn" onclick="logout()">Log Out →</button>
+    </div>
+  </div>
+
+  <div class="layout">
+    <div class="sidebar">
+      <div class="nav-item active" onclick="showPage('dashboard',this)">
+        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+        Dashboard
+      </div>
+      <div class="nav-item" onclick="showPage('works',this)">
+        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg>
+        Works / Library
+      </div>
+      <div class="nav-item" onclick="showPage('bio',this)">
+        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+        Bio & About
+      </div>
+      <div class="nav-item" onclick="showPage('settings',this)">
+        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg>
+        Settings
+      </div>
+      <div class="sidebar-bottom">
+        <a href="index.html" target="_blank" style="font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);text-decoration:none;display:flex;align-items:center;gap:6px">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          View Live Site
+        </a>
+      </div>
+    </div>
+
+    <div class="main">
+
+      <!-- DASHBOARD -->
+      <div class="page active" id="page-dashboard">
+        <div class="page-header">
+          <h1>Overview</h1>
+          <p>Marubuci Control Centre</p>
+        </div>
+        <div class="stats-grid" id="stats-grid">
+          <div class="stat-card"><div class="stat-val">—</div><div class="stat-label">Total Works</div></div>
+          <div class="stat-card"><div class="stat-val">—</div><div class="stat-label">Published</div></div>
+          <div class="stat-card"><div class="stat-val">—</div><div class="stat-label">Paid / Locked</div></div>
+          <div class="stat-card"><div class="stat-val">—</div><div class="stat-label">Free Access</div></div>
+        </div>
+        <div class="works-header">
+          <h2>Recent Works</h2>
+          <button class="btn btn-sm" onclick="openNewWork()">+ New Work</button>
+        </div>
+        <div id="recent-works-list"><div class="loading">Loading works…</div></div>
+      </div>
+
+      <!-- WORKS -->
+      <div class="page" id="page-works">
+        <div class="page-header">
+          <h1>Works & Library</h1>
+          <p>Manage all published and draft works</p>
+        </div>
+        <div class="works-header">
+          <input type="text" placeholder="Search works…" id="search-works" oninput="renderWorks()" style="background:var(--card);border:1px solid var(--border);color:var(--sand);padding:8px 14px;font-family:'DM Mono',monospace;font-size:.75rem;outline:none;width:220px"/>
+          <button class="btn btn-sm" onclick="openNewWork()">+ New Work</button>
+        </div>
+        <div id="works-list"><div class="loading">Loading…</div></div>
+      </div>
+
+      <!-- BIO -->
+      <div class="page" id="page-bio">
+        <div class="page-header">
+          <h1>Bio & About</h1>
+          <p>Your public author profile</p>
+        </div>
+        <div class="bio-card">
+          <div class="field"><label>Display Name</label><input type="text" id="bio-name" value="Haliru Ali Musa"/></div>
+          <div class="field"><label>Tagline / Location</label><input type="text" id="bio-tagline" value="Writer · Critic · Engineer · Katsina, Nigeria"/></div>
+          <div class="field"><label>Short Bio (shown on homepage)</label><textarea id="bio-short" rows="4">Haliru Ali Musa is a writer, critic, and engineer from Katsina State, Nigeria, now based in Lagos. A 2024 alumnus of the Nigerian Academy of Letters Creative Writing Workshop, he writes The Long View, a weekly column in Naira Stories Magazine.</textarea></div>
+          <div class="field"><label>Full Bio</label><textarea id="bio-full" rows="10">Haliru Ali Musa is a writer, critic, and engineer from Katsina State, Nigeria, now based in Lagos. A 2024 alumnus of the Nigerian Academy of Letters Creative Writing Workshop, he writes The Long View, a weekly column in Naira Stories Magazine that meditates on art, literature, and the African condition through the lens of introspection and cultural truth, and also a reviewer for P.eng literature magazine.
+
+His short story The Pregnant Ghost won the inaugural 2024 Alexander Nderitu Prize for World Literature, while his novella Dogs Are No Better was longlisted for the 2025 Quramo Prize. His story Build a Bird That Flies Backward into Yesterday won the 8th African Writers Award in 2025.
+
+Musa's work has appeared in Farafina Books, Akpata Literary Magazine, Naira Stories, The Sun Nigeria, Moveee Magazine, The Kalahari Review, The African Griot Review (Kenya), and The Asian Journal of Literature and Chestnut Review. His critical essays include "Three Wells, Three Wars: On the 2025 NLNG Prize Shortlist" and a study of Chukwuemeka Famous' We Will Live Again.</textarea></div>
+          <div class="field"><label>Awards & Publications (one per line)</label><textarea id="bio-awards" rows="6">2024 Alexander Nderitu Prize for World Literature — The Pregnant Ghost
+2025 Quramo Prize Longlist — Dogs Are No Better
+8th African Writers Award 2025 — Build a Bird That Flies Backward into Yesterday
+2024 Nigerian Academy of Letters Creative Writing Workshop
+Columnist, Naira Stories Magazine — The Long View
+Reviewer, P.eng Literature Magazine</textarea></div>
+          <div class="field"><label>Profile / About Image URL</label><input type="text" id="bio-img" value="https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?w=800&q=80"/></div>
+          <button class="btn btn-sm" onclick="saveBio()" style="margin-top:8px">Save Bio to Database</button>
+        </div>
+      </div>
+
+      <!-- SETTINGS -->
+      <div class="page" id="page-settings">
+        <div class="page-header">
+          <h1>Settings</h1>
+          <p>Site configuration</p>
+        </div>
+        <div class="settings-section">
+          <h3>Payment</h3>
+          <div class="field"><label>Paystack Public Key</label><input type="text" id="set-paystack" placeholder="pk_live_xxxxxxxxxxxxxxxx"/></div>
+          <div class="field"><label>Currency</label>
+            <select id="set-currency">
+              <option value="NGN">NGN — Nigerian Naira</option>
+              <option value="USD">USD — US Dollar</option>
+              <option value="GBP">GBP — British Pound</option>
+            </select>
+          </div>
+          <button class="btn btn-sm" onclick="saveSettings()">Save</button>
+        </div>
+        <div class="settings-section">
+          <h3>Contact & Social</h3>
+          <div class="field"><label>Contact Email</label><input type="email" id="set-email" placeholder="haliru@example.com"/></div>
+          <div class="field"><label>Twitter / X</label><input type="text" id="set-twitter" placeholder="@haliruali"/></div>
+          <div class="field"><label>Instagram</label><input type="text" id="set-instagram" placeholder="@haliruali"/></div>
+          <button class="btn btn-sm" onclick="saveSettings()">Save</button>
+        </div>
+        <div class="settings-section">
+          <h3>Change Admin Password</h3>
+          <div class="form-row">
+            <div class="field"><label>New Password</label><input type="password" id="new-pass"/></div>
+            <div class="field"><label>Confirm</label><input type="password" id="confirm-pass"/></div>
+          </div>
+          <button class="btn btn-sm" onclick="changePass()">Update Password</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- WORK MODAL -->
+<div class="modal-overlay" id="work-modal">
+  <div class="modal">
+    <div class="modal-header">
+      <h2 id="modal-title">New Work</h2>
+      <button class="modal-close" onclick="closeModal()">✕</button>
+    </div>
+    <div class="form-row">
+      <div class="field"><label>Title</label><input type="text" id="w-title" placeholder="Title of the work"/></div>
+      <div class="field"><label>Genre</label><input type="text" id="w-genre" placeholder="Fiction, Poetry, Essay…"/></div>
+    </div>
+    <div class="field"><label>Excerpt / Tagline (shown on library card)</label><input type="text" id="w-excerpt" placeholder="A short compelling description"/></div>
+    <div class="field"><label>Full Text / Content</label><textarea id="w-content" rows="14" placeholder="Write or paste the full text of the work here. Readers will see this after unlocking."></textarea></div>
+    <div class="form-row">
+      <div class="field">
+        <label>Access</label>
+        <select id="w-access" onchange="togglePrice()">
+          <option value="free">Free</option>
+          <option value="paid">Paid (locked)</option>
+        </select>
+      </div>
+      <div class="field" id="price-field" style="display:none">
+        <label>Price (NGN)</label>
+        <input type="number" id="w-price" placeholder="500" min="0"/>
+      </div>
+    </div>
+    <div class="field"><label>Cover Image URL</label><input type="text" id="w-img" placeholder="https://images.unsplash.com/…"/></div>
+    <div class="form-row">
+      <div class="field">
+        <label>Status</label>
+        <select id="w-status">
+          <option value="published">Published</option>
+          <option value="draft">Draft</option>
+        </select>
+      </div>
+      <div class="field"><label>Date</label><input type="date" id="w-date"/></div>
+    </div>
+    <div style="display:flex;gap:12px;margin-top:8px">
+      <button class="btn btn-sm" onclick="saveWork()">Save to Database</button>
+      <button class="btn btn-sm btn-ghost" onclick="closeModal()">Cancel</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+const SUPABASE_URL = 'https://hsgfdysohdciciemrkyn.supabase.co';
+const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhzZ2ZkeXNvaGRjaWNpZW1ya3luIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODAzNTIyOTksImV4cCI6MjA5NTkyODI5OX0.W6ayZvJF4aQ7rUBrZu7Pzo92XtBIsKrl89HF1d3lsSM';
+const CREDS_KEY = 'maru_creds';
+const AUTH_KEY  = 'maru_auth';
+
+const headers = {
+  'Content-Type': 'application/json',
+  'apikey': SUPABASE_KEY,
+  'Authorization': 'Bearer ' + SUPABASE_KEY,
+  'Prefer': 'return=representation'
+};
+
+async function sb(path, options={}) {
+  const res = await fetch(SUPABASE_URL + '/rest/v1/' + path, {
+    headers: {...headers, ...(options.headers||{})},
+    ...options
+  });
+  if (!res.ok) {
+    const err = await res.text();
+    throw new Error(err);
+  }
+  const text = await res.text();
+  return text ? JSON.parse(text) : [];
+}
+
+// AUTH
+function getCreds(){return JSON.parse(localStorage.getItem(CREDS_KEY)||'{"user":"admin","pass":"marubuci2026"}')}
+function doLogin(){
+  const u=document.getElementById('login-user').value.trim();
+  const p=document.getElementById('login-pass').value;
+  const c=getCreds();
+  if(u===c.user&&p===c.pass){
+    sessionStorage.setItem(AUTH_KEY,'1');
+    document.getElementById('login-screen').style.display='none';
+    document.getElementById('app').style.display='block';
+    init();
+  } else {
+    document.getElementById('login-err').style.display='block';
+  }
+}
+function logout(){sessionStorage.removeItem(AUTH_KEY);location.reload()}
+document.getElementById('login-pass').addEventListener('keydown',e=>{if(e.key==='Enter')doLogin()});
+if(sessionStorage.getItem(AUTH_KEY)){
+  document.getElementById('login-screen').style.display='none';
+  document.getElementById('app').style.display='block';
+}
+
+// NAV
+function showPage(id,el){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.nav-item').forEach(n=>n.classList.remove('active'));
+  document.getElementById('page-'+id).classList.add('active');
+  if(el)el.classList.add('active');
+  if(id==='dashboard')renderDashboard();
+  if(id==='works')renderWorks();
+  if(id==='bio')loadBio();
+  if(id==='settings')loadSettings();
+}
+
+// DASHBOARD
+async function renderDashboard(){
+  try {
+    const works = await sb('works?select=*&order=created_at.desc');
+    const pub = works.filter(w=>w.status==='published').length;
+    const paid = works.filter(w=>w.access==='paid').length;
+    const free = works.filter(w=>w.access==='free').length;
+    document.getElementById('stats-grid').innerHTML=`
+      <div class="stat-card"><div class="stat-val">${works.length}</div><div class="stat-label">Total Works</div></div>
+      <div class="stat-card"><div class="stat-val">${pub}</div><div class="stat-label">Published</div></div>
+      <div class="stat-card"><div class="stat-val">${paid}</div><div class="stat-label">Paid / Locked</div></div>
+      <div class="stat-card"><div class="stat-val">${free}</div><div class="stat-label">Free Access</div></div>
+    `;
+    const recent = works.slice(0,5);
+    document.getElementById('recent-works-list').innerHTML = recent.length ? recent.map(workRow).join('') : '<div class="empty">No works yet. Create your first work.</div>';
+  } catch(e){
+    document.getElementById('recent-works-list').innerHTML='<div class="empty">Could not load works. Check connection.</div>';
+    showToast('DB error: '+e.message, true);
+  }
+}
+
+function workRow(w){
+  return `<div class="work-row">
+    <div>
+      <div class="work-row-title">${w.title}</div>
+      <div class="work-row-genre">${w.genre||''}</div>
+    </div>
+    <span class="badge badge-${w.access}">${w.access}</span>
+    <span class="badge badge-${w.status}">${w.status}</span>
+    <div>${w.access==='paid'?`<span style="font-size:.7rem;color:var(--gold)">₦${w.price}</span>`:'—'}</div>
+    <div class="row-actions">
+      <button class="btn btn-sm btn-ghost" onclick="editWork('${w.id}')">Edit</button>
+      <button class="btn btn-sm btn-danger" onclick="deleteWork('${w.id}')">Del</button>
+    </div>
+  </div>`;
+}
+
+let allWorks = [];
+async function renderWorks(){
+  const q = (document.getElementById('search-works')?.value||'').toLowerCase();
+  try {
+    if(!allWorks.length) allWorks = await sb('works?select=*&order=created_at.desc');
+    const filtered = allWorks.filter(w=>!q||w.title.toLowerCase().includes(q)||(w.genre||'').toLowerCase().includes(q));
+    document.getElementById('works-list').innerHTML = filtered.length ? filtered.map(workRow).join('') : '<div class="empty">No works found.</div>';
+  } catch(e){
+    document.getElementById('works-list').innerHTML='<div class="empty">Could not load works.</div>';
+  }
+}
+
+// MODAL
+let editingId = null;
+function openNewWork(){
+  editingId=null;
+  document.getElementById('modal-title').textContent='New Work';
+  ['w-title','w-excerpt','w-content','w-img','w-price','w-genre'].forEach(id=>document.getElementById(id).value='');
+  document.getElementById('w-access').value='free';
+  document.getElementById('w-status').value='published';
+  document.getElementById('w-date').value=new Date().toISOString().split('T')[0];
+  document.getElementById('price-field').style.display='none';
+  document.getElementById('work-modal').classList.add('open');
+}
+function editWork(id){
+  const w = allWorks.find(x=>x.id===id);
+  if(!w)return;
+  editingId=id;
+  document.getElementById('modal-title').textContent='Edit Work';
+  document.getElementById('w-title').value=w.title||'';
+  document.getElementById('w-genre').value=w.genre||'';
+  document.getElementById('w-excerpt').value=w.excerpt||'';
+  document.getElementById('w-content').value=w.content||'';
+  document.getElementById('w-access').value=w.access||'free';
+  document.getElementById('w-price').value=w.price||'';
+  document.getElementById('w-img').value=w.img||'';
+  document.getElementById('w-status').value=w.status||'published';
+  document.getElementById('w-date').value=w.date||'';
+  document.getElementById('price-field').style.display=w.access==='paid'?'block':'none';
+  document.getElementById('work-modal').classList.add('open');
+}
+function closeModal(){document.getElementById('work-modal').classList.remove('open')}
+function togglePrice(){document.getElementById('price-field').style.display=document.getElementById('w-access').value==='paid'?'block':'none'}
+
+async function saveWork(){
+  const title=document.getElementById('w-title').value.trim();
+  if(!title){showToast('Title is required',true);return}
+  const work={
+    title,
+    genre:document.getElementById('w-genre').value.trim(),
+    excerpt:document.getElementById('w-excerpt').value.trim(),
+    content:document.getElementById('w-content').value.trim(),
+    access:document.getElementById('w-access').value,
+    price:parseFloat(document.getElementById('w-price').value)||0,
+    img:document.getElementById('w-img').value.trim(),
+    status:document.getElementById('w-status').value,
+    date:document.getElementById('w-date').value||null,
+  };
+  try {
+    if(editingId){
+      await sb('works?id=eq.'+editingId, {method:'PATCH', body:JSON.stringify(work)});
+      showToast('Work updated');
+    } else {
+      await sb('works', {method:'POST', body:JSON.stringify(work)});
+      showToast('Work published');
+    }
+    allWorks=[];
+    closeModal();
+    renderDashboard();
+    renderWorks();
+  } catch(e){showToast('Error: '+e.message,true)}
+}
+
+async function deleteWork(id){
+  if(!confirm('Delete this work permanently?'))return;
+  try {
+    await sb('works?id=eq.'+id, {method:'DELETE'});
+    allWorks=[];
+    renderWorks();renderDashboard();
+    showToast('Work deleted');
+  } catch(e){showToast('Error: '+e.message,true)}
+}
+
+// BIO
+async function loadBio(){
+  try {
+    const rows = await sb('bio?id=eq.1');
+    if(rows.length){
+      const b=rows[0];
+      if(b.name)document.getElementById('bio-name').value=b.name;
+      if(b.tagline)document.getElementById('bio-tagline').value=b.tagline;
+      if(b.short_bio)document.getElementById('bio-short').value=b.short_bio;
+      if(b.full_bio)document.getElementById('bio-full').value=b.full_bio;
+      if(b.awards)document.getElementById('bio-awards').value=b.awards;
+      if(b.img)document.getElementById('bio-img').value=b.img;
+    }
+  } catch(e){}
+}
+async function saveBio(){
+  const bio={
+    id:1,
+    name:document.getElementById('bio-name').value,
+    tagline:document.getElementById('bio-tagline').value,
+    short_bio:document.getElementById('bio-short').value,
+    full_bio:document.getElementById('bio-full').value,
+    awards:document.getElementById('bio-awards').value,
+    img:document.getElementById('bio-img').value,
+  };
+  try {
+    await sb('bio', {method:'POST', headers:{'Prefer':'resolution=merge-duplicates'}, body:JSON.stringify(bio)});
+    showToast('Bio saved');
+  } catch(e){showToast('Error: '+e.message,true)}
+}
+
+// SETTINGS
+async function loadSettings(){
+  try {
+    const rows = await sb('settings?id=eq.1');
+    if(rows.length){
+      const s=rows[0];
+      if(s.paystack_key)document.getElementById('set-paystack').value=s.paystack_key;
+      if(s.currency)document.getElementById('set-currency').value=s.currency;
+      if(s.email)document.getElementById('set-email').value=s.email;
+      if(s.twitter)document.getElementById('set-twitter').value=s.twitter;
+      if(s.instagram)document.getElementById('set-instagram').value=s.instagram;
+    }
+  } catch(e){}
+}
+async function saveSettings(){
+  const s={
+    id:1,
+    paystack_key:document.getElementById('set-paystack').value,
+    currency:document.getElementById('set-currency').value,
+    email:document.getElementById('set-email').value,
+    twitter:document.getElementById('set-twitter').value,
+    instagram:document.getElementById('set-instagram').value,
+  };
+  try {
+    await sb('settings', {method:'POST', headers:{'Prefer':'resolution=merge-duplicates'}, body:JSON.stringify(s)});
+    showToast('Settings saved');
+  } catch(e){showToast('Error: '+e.message,true)}
+}
+function changePass(){
+  const np=document.getElementById('new-pass').value;
+  const cp=document.getElementById('confirm-pass').value;
+  if(!np){showToast('Enter a new password',true);return}
+  if(np!==cp){showToast('Passwords do not match',true);return}
+  const c=getCreds();
+  localStorage.setItem(CREDS_KEY,JSON.stringify({...c,pass:np}));
+  showToast('Password updated');
+  document.getElementById('new-pass').value='';
+  document.getElementById('confirm-pass').value='';
+}
+
+// TOAST
+function showToast(msg,isError=false){
+  const t=document.getElementById('toast');
+  t.textContent=msg;
+  t.classList.toggle('error',isError);
+  t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'),2800);
+}
+
+// INIT
+async function init(){await renderDashboard()}
+if(sessionStorage.getItem(AUTH_KEY))init();
+</script>
+</body>
+</html>
