@@ -31,9 +31,7 @@ html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--earth);font-family:'Newsreader',Georgia,serif;line-height:1.7;transition:background .4s,color .4s}
 ::-webkit-scrollbar{width:3px}::-webkit-scrollbar-thumb{background:var(--terra);border-radius:2px}
 ::selection{background:rgba(196,98,45,.18)}
-
 .top-stripe{height:4px;background:repeating-linear-gradient(90deg,var(--terra) 0 6px,var(--indigo) 6px 12px,var(--gold) 12px 18px,var(--earth) 18px 24px)}
-
 nav{position:sticky;top:0;z-index:100;background:rgba(245,239,224,.96);backdrop-filter:blur(8px);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:14px 40px;transition:background .4s}
 body.dark nav{background:rgba(15,10,5,.96)}
 .brand{font-style:italic;font-size:1.2rem;color:var(--earth);display:flex;align-items:center;gap:8px;text-decoration:none}
@@ -46,7 +44,6 @@ body.dark nav{background:rgba(15,10,5,.96)}
 .nav-user:hover{color:var(--terra)}
 .dark-toggle{background:none;border:none;cursor:pointer;font-size:1rem;padding:4px 8px;border-radius:4px;transition:transform .3s}
 .dark-toggle:hover{transform:scale(1.2)}
-
 .cookie-banner{position:fixed;bottom:0;left:0;right:0;z-index:500;background:var(--earth);color:var(--bg);padding:16px 40px;display:flex;align-items:center;justify-content:space-between;gap:20px;transform:translateY(100%);transition:transform .5s;border-top:3px solid var(--terra)}
 .cookie-banner.show{transform:translateY(0)}
 .cookie-text{font-family:'Inter',sans-serif;font-size:.65rem;letter-spacing:.15em;color:rgba(245,239,224,.7);line-height:1.6}
@@ -55,7 +52,6 @@ body.dark nav{background:rgba(15,10,5,.96)}
 .cookie-btn{font-family:'Inter',sans-serif;font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;padding:8px 18px;border:none;cursor:pointer;transition:all .3s}
 .cookie-accept{background:var(--terra);color:var(--bg)}
 .cookie-close{background:transparent;border:1px solid rgba(245,239,224,.25);color:rgba(245,239,224,.5)}
-
 .sub-reminder{background:var(--indigo);color:var(--bg);padding:12px 40px;display:flex;align-items:center;justify-content:space-between;gap:16px}
 .sub-reminder p{font-family:'Inter',sans-serif;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(245,239,224,.75)}
 .sub-reminder p strong{color:#F5EFE0}
@@ -64,11 +60,9 @@ body.dark nav{background:rgba(15,10,5,.96)}
 .plan-pill:hover{background:var(--terra);border-color:var(--terra);color:var(--bg)}
 .sub-reminder-close{background:none;border:none;color:rgba(245,239,224,.4);cursor:pointer;font-size:1rem}
 .sub-reminder-close:hover{color:var(--terra)}
-
 .hausa-bg{background-image:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none'%3E%3Cpath d='M30 0L60 30L30 60L0 30Z' stroke='%23C4622D' stroke-width='0.5' opacity='0.08'/%3E%3Cpath d='M30 10L50 30L30 50L10 30Z' stroke='%231B3A6B' stroke-width='0.4' opacity='0.06'/%3E%3C/g%3E%3C/svg%3E");background-color:var(--bg)}
 .border-strip{height:12px;width:100%;overflow:hidden}
 .border-strip svg{width:100%;height:12px}
-
 .hero{min-height:100vh;position:relative;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden}
 .hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:sepia(.15) contrast(1.05)}
 .hero-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(26,18,8,.96) 0%,rgba(26,18,8,.7) 40%,rgba(27,58,107,.15) 75%,transparent 100%)}
@@ -82,15 +76,12 @@ body.dark nav{background:rgba(15,10,5,.96)}
 .btn-enter{display:inline-flex;align-items:center;gap:12px;font-family:'Inter',sans-serif;font-size:.65rem;letter-spacing:.28em;text-transform:uppercase;color:rgba(196,98,45,.9);border:1px solid rgba(196,98,45,.5);padding:14px 28px;text-decoration:none;transition:all .3s;margin-right:12px;margin-bottom:8px}
 .btn-enter:hover{background:var(--terra);color:#F5EFE0;border-color:var(--terra)}
 .hero-rule{position:absolute;right:48px;top:80px;bottom:0;width:1px;background:linear-gradient(to bottom,transparent,rgba(196,98,45,.25) 20%,rgba(196,98,45,.25) 80%,transparent)}
-
 .hausa-divider{display:flex;align-items:center;gap:12px}
 .hausa-divider .line{flex:1;height:1px;background:var(--border)}
 section{padding:80px 48px}
 .section-tag{display:flex;align-items:center;gap:12px;margin-bottom:10px}
 .section-tag .dash{width:32px;height:1px;background:var(--terra)}
 .section-tag span{font-family:'Inter',sans-serif;font-size:.6rem;letter-spacing:.35em;text-transform:uppercase;color:var(--terra)}
-
-/* FEATURED */
 .featured-work{background:var(--paper);border:1px solid var(--border);padding:40px;margin-top:40px;display:grid;grid-template-columns:1fr 2fr;gap:40px;align-items:center;cursor:pointer;transition:border-color .3s}
 .featured-work:hover{border-color:var(--terra)}
 .featured-img{aspect-ratio:3/4;overflow:hidden;border:1px solid var(--border)}
@@ -104,19 +95,16 @@ section{padding:80px 48px}
 .featured-meta{display:flex;gap:16px;align-items:center}
 .featured-genre{font-family:'Inter',sans-serif;font-size:.6rem;letter-spacing:.25em;text-transform:uppercase;color:var(--terra)}
 .featured-time{font-family:'Inter',sans-serif;font-size:.6rem;letter-spacing:.2em;color:var(--muted)}
-
 .filter-tabs{display:flex;gap:8px;flex-wrap:wrap;margin-top:24px}
 .filter-tab{font-family:'Inter',sans-serif;font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;padding:7px 16px;border:1px solid var(--border);color:var(--muted);background:none;cursor:pointer;transition:all .3s}
 .filter-tab:hover{border-color:var(--terra);color:var(--terra)}
 .filter-tab.active{background:var(--terra);border-color:var(--terra);color:var(--bg)}
-
 .library-controls{display:flex;align-items:center;justify-content:space-between;margin-top:20px;gap:16px;flex-wrap:wrap}
 .search-wrap{position:relative;flex:1;max-width:320px}
 .search-wrap input{width:100%;background:var(--paper);border:1px solid var(--border);color:var(--earth);padding:9px 14px 9px 36px;font-family:'Inter',sans-serif;font-size:.75rem;outline:none;transition:border-color .3s}
 .search-wrap input:focus{border-color:var(--terra)}
 .search-wrap svg{position:absolute;left:11px;top:50%;transform:translateY(-50%);opacity:.4;pointer-events:none}
 .results-count{font-family:'Inter',sans-serif;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
-
 .works-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:48px 36px;margin-top:32px}
 .work-card{display:block;text-decoration:none;color:inherit;cursor:pointer}
 .work-cover{aspect-ratio:3/4;overflow:hidden;background:var(--soft);position:relative;margin-bottom:18px;border:1px solid var(--border)}
@@ -142,16 +130,12 @@ section{padding:80px 48px}
 .work-footer{display:flex;align-items:center;justify-content:space-between;margin-top:14px}
 .work-read{font-family:'Inter',sans-serif;font-size:.6rem;letter-spacing:.28em;text-transform:uppercase;color:var(--muted);transition:color .3s}
 .work-card:hover .work-read{color:var(--terra)}
-.work-stats{display:flex;gap:10px;align-items:center}
-.work-stat{font-family:'Inter',sans-serif;font-size:.58rem;color:var(--muted);display:flex;align-items:center;gap:3px}
 .work-share{display:flex;gap:6px;opacity:0;transition:opacity .3s}
 .work-card:hover .work-share{opacity:1}
 .share-btn{background:none;border:none;cursor:pointer;padding:2px 4px;color:var(--muted);font-size:.75rem;transition:color .3s}
 .share-btn:hover{color:var(--terra)}
 .works-empty{text-align:center;padding:80px;color:var(--muted);font-style:italic;font-size:1.1rem;grid-column:1/-1}
 .works-loading{text-align:center;padding:80px;color:var(--muted);font-family:'Inter',sans-serif;font-size:.65rem;letter-spacing:.3em;text-transform:uppercase;grid-column:1/-1}
-
-/* NEWSLETTER */
 .newsletter-section{background:var(--indigo);padding:60px 48px}
 .newsletter-inner{max-width:600px;margin:0 auto;text-align:center}
 .newsletter-inner h3{font-family:'Newsreader',serif;font-weight:300;font-size:clamp(1.4rem,3vw,2rem);color:#F5EFE0;margin-bottom:10px}
@@ -163,16 +147,12 @@ section{padding:80px 48px}
 .newsletter-form button{background:var(--terra);color:#F5EFE0;border:none;padding:12px 24px;font-family:'Inter',sans-serif;font-size:.6rem;letter-spacing:.25em;text-transform:uppercase;cursor:pointer;transition:opacity .3s;white-space:nowrap}
 .newsletter-form button:hover{opacity:.85}
 .newsletter-msg{font-family:'Inter',sans-serif;font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;margin-top:12px;color:rgba(245,239,224,.6);display:none}
-
-/* PROVERBS */
 .proverbs-section{background:var(--earth);color:var(--bg)}
 body.dark .proverbs-section{background:#080503}
 .proverb-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:40px;margin-top:40px}
 .proverb-card{border-left:2px solid rgba(196,98,45,.5);padding-left:18px}
 .proverb-hausa{font-size:1.1rem;font-style:italic;margin-bottom:6px}
 .proverb-english{font-family:'Inter',sans-serif;font-size:.65rem;letter-spacing:.25em;text-transform:uppercase;color:rgba(245,239,224,.4)}
-
-/* ABOUT */
 .about-strip{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;padding:80px 48px;background:var(--paper)}
 .about-img-wrap{position:relative}
 .about-img-wrap img{width:100%;aspect-ratio:4/5;object-fit:cover;display:block;border:1px solid var(--border)}
@@ -181,8 +161,6 @@ body.dark .proverbs-section{background:#080503}
 .about-text p{font-size:1.05rem;line-height:1.9;color:var(--muted);margin-bottom:18px}
 .about-text p.lead{color:var(--earth);font-size:1.1rem}
 .award-item{font-family:'Inter',sans-serif;font-size:.68rem;letter-spacing:.15em;color:var(--muted);margin-bottom:10px;padding-left:14px;border-left:2px solid var(--terra);line-height:1.5}
-
-/* CONTACT */
 .contact-section{background:var(--earth);color:var(--bg);padding:80px 48px}
 body.dark .contact-section{background:#080503}
 .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;margin-top:40px}
@@ -192,7 +170,6 @@ body.dark .contact-section{background:#080503}
 .cf-btn:hover{background:var(--terra);color:var(--bg);border-color:var(--terra)}
 .social-link{display:flex;align-items:center;gap:8px;font-family:'Inter',sans-serif;font-size:.65rem;letter-spacing:.25em;text-transform:uppercase;color:rgba(245,239,224,.4);text-decoration:none;margin-bottom:12px;transition:color .3s}
 .social-link:hover{color:var(--terra)}
-
 footer{background:#110C05;color:var(--bg);padding:60px 48px 32px}
 .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:40px;margin-bottom:40px}
 .footer-brand{font-size:1.2rem;font-style:italic;margin-bottom:12px;display:flex;align-items:center;gap:8px}
@@ -203,8 +180,6 @@ footer{background:#110C05;color:var(--bg);padding:60px 48px 32px}
 .footer-col a:hover{color:var(--terra)}
 .footer-bottom{border-top:1px solid rgba(245,239,224,.08);padding-top:24px;display:flex;justify-content:space-between;align-items:center}
 .footer-bottom p{font-family:'Inter',sans-serif;font-size:.6rem;color:rgba(245,239,224,.3)}
-
-/* OVERLAYS */
 .overlay{position:fixed;inset:0;background:rgba(26,18,8,.75);z-index:300;display:none;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(4px)}
 .overlay.open{display:flex}
 .auth-box{background:var(--paper);border:1px solid var(--border);width:100%;max-width:420px;padding:48px;position:relative}
@@ -221,7 +196,6 @@ footer{background:#110C05;color:var(--bg);padding:60px 48px 32px}
 .auth-close{position:absolute;top:16px;right:20px;background:none;border:none;color:var(--muted);font-size:1.1rem;cursor:pointer}
 .auth-close:hover{color:var(--terra)}
 .auth-err{color:#C0392B;font-family:'Inter',sans-serif;font-size:.65rem;margin-top:8px;display:none}
-
 .profile-box{background:var(--paper);border:1px solid var(--border);width:100%;max-width:520px;padding:48px;position:relative;max-height:90vh;overflow-y:auto}
 .profile-box h2{font-family:'Newsreader',serif;font-weight:300;font-size:1.5rem;margin-bottom:4px;color:var(--earth)}
 .profile-box .sub-tag{font-family:'Inter',sans-serif;font-size:.6rem;letter-spacing:.25em;text-transform:uppercase;color:var(--muted);margin-bottom:28px;display:block}
@@ -243,8 +217,6 @@ footer{background:#110C05;color:var(--bg);padding:60px 48px 32px}
 .history-work-date{font-family:'Inter',sans-serif;font-size:.55rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted)}
 .profile-logout{display:block;width:100%;margin-top:16px;padding:10px;background:none;border:1px solid var(--border);color:var(--muted);font-family:'Inter',sans-serif;font-size:.6rem;letter-spacing:.25em;text-transform:uppercase;cursor:pointer;transition:all .3s}
 .profile-logout:hover{border-color:var(--terra);color:var(--terra)}
-
-/* READ MODAL */
 .read-modal{position:fixed;inset:0;z-index:200;background:var(--paper);overflow-y:auto;display:none;border-top:4px solid var(--terra)}
 .read-modal.open{display:block}
 .read-progress{position:fixed;top:4px;left:0;height:3px;background:var(--terra);width:0%;z-index:201;transition:width .1s}
@@ -260,8 +232,6 @@ footer{background:#110C05;color:var(--bg);padding:60px 48px 32px}
 .read-likes.liked{color:var(--terra)}
 .read-divider{height:1px;background:var(--border);margin:32px 0}
 .read-content{font-size:1.15rem;line-height:2.1;color:var(--earth);white-space:pre-wrap;font-family:'Newsreader',serif}
-
-/* COMMENTS */
 .comments-section{margin-top:48px;padding-top:40px;border-top:1px solid var(--border)}
 .comments-title{font-family:'Newsreader',serif;font-weight:300;font-size:1.4rem;color:var(--earth);margin-bottom:8px}
 .comments-count{font-family:'Inter',sans-serif;font-size:.6rem;letter-spacing:.25em;text-transform:uppercase;color:var(--muted);margin-bottom:28px}
@@ -281,8 +251,6 @@ footer{background:#110C05;color:var(--bg);padding:60px 48px 32px}
 .comment-body{font-size:1rem;line-height:1.8;color:var(--earth)}
 .comments-empty{font-family:'Inter',sans-serif;font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);text-align:center;padding:32px}
 .comments-loading{font-family:'Inter',sans-serif;font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);text-align:center;padding:20px}
-
-/* RELATED */
 .related-section{margin-top:48px;padding-top:40px;border-top:1px solid var(--border)}
 .related-title{font-family:'Newsreader',serif;font-weight:300;font-size:1.2rem;color:var(--earth);margin-bottom:20px}
 .related-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
@@ -293,15 +261,11 @@ footer{background:#110C05;color:var(--bg);padding:60px 48px 32px}
 .related-genre{font-family:'Inter',sans-serif;font-size:.55rem;letter-spacing:.25em;text-transform:uppercase;color:var(--terra);margin-bottom:4px}
 .related-name{font-family:'Newsreader',serif;font-size:.95rem;color:var(--earth);line-height:1.3;transition:color .3s}
 .related-card:hover .related-name{color:var(--terra)}
-
-/* SHARE */
 .read-share{margin-top:40px;padding-top:32px;border-top:1px solid var(--border)}
 .read-share p{font-family:'Inter',sans-serif;font-size:.6rem;letter-spacing:.25em;text-transform:uppercase;color:var(--muted);margin-bottom:16px}
 .share-buttons{display:flex;gap:10px;flex-wrap:wrap}
 .share-button{display:inline-flex;align-items:center;gap:8px;font-family:'Inter',sans-serif;font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;padding:9px 16px;border:1px solid var(--border);color:var(--muted);background:none;cursor:pointer;text-decoration:none;transition:all .3s}
 .share-button:hover{border-color:var(--terra);color:var(--terra)}
-
-/* PAYWALL */
 .paywall{text-align:center;padding:48px 32px;border:1px solid var(--border);background:var(--soft);margin-top:32px}
 .paywall h3{font-family:'Newsreader',serif;font-weight:300;font-size:1.5rem;margin-bottom:10px;color:var(--earth)}
 .paywall-sub{font-family:'Inter',sans-serif;font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:24px}
@@ -309,11 +273,9 @@ footer{background:#110C05;color:var(--bg);padding:60px 48px 32px}
 .pay-btn:hover{opacity:.85}
 .pay-btn.outline{background:none;border:1px solid var(--indigo);color:var(--indigo)}
 .pay-btn.outline:hover{background:var(--indigo);color:var(--bg);opacity:1}
-
 .toast-stack{position:fixed;bottom:32px;right:32px;z-index:999;display:flex;flex-direction:column;gap:8px;pointer-events:none}
 .toast-msg{background:var(--terra);color:var(--bg);padding:12px 20px;font-family:'Inter',sans-serif;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;transform:translateX(120px);opacity:0;transition:all .4s}
 .toast-msg.show{transform:translateX(0);opacity:1}
-
 @media(max-width:768px){
   nav{padding:14px 20px}.nav-links{gap:12px}
   section,.about-strip,.contact-section{padding:60px 20px}
@@ -343,7 +305,7 @@ footer{background:#110C05;color:var(--bg);padding:60px 48px 32px}
 </div>
 
 <nav>
-  <a href="#" class="brand">
+  <a href="#" class="brand" onclick="handleBrandClick(event)">
     <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 2L22 12L12 22L2 12Z" stroke="#C4622D" stroke-width="1" fill="none" opacity=".8"/><rect x="7" y="7" width="10" height="10" transform="rotate(45 12 12)" stroke="#1B3A6B" stroke-width=".7" fill="none" opacity=".5"/><circle cx="12" cy="12" r="1.5" fill="#C4622D"/></svg>
     Marubuci
   </a>
@@ -406,7 +368,6 @@ footer{background:#110C05;color:var(--bg);padding:60px 48px 32px}
   <div class="works-grid" id="works-grid"><div class="works-loading">Loading library…</div></div>
 </section>
 
-<!-- NEWSLETTER -->
 <div class="newsletter-section">
   <div class="newsletter-inner">
     <h3>Stay Connected</h3>
@@ -552,7 +513,10 @@ footer{background:#110C05;color:var(--bg);padding:60px 48px 32px}
     <div class="read-meta">
       <span class="read-date" id="read-date"></span>
       <span class="read-time" id="read-time"></span>
-      <button class="read-likes" id="like-btn" onclick="toggleLike()">♡ <span id="like-count">0</span></button>
+      <!-- FIX #10: like count is a standalone element, not rebuilt inside innerHTML -->
+      <button class="read-likes" id="like-btn" onclick="toggleLike()">
+        <span id="like-heart">♡</span> <span id="like-count">0</span>
+      </button>
     </div>
     <div class="read-divider"></div>
     <div id="read-body"></div>
@@ -600,16 +564,18 @@ const BANNER='maru_banner';
 const DARK='maru_dark';
 const FINGER='maru_fp';
 
-function getS(){return JSON.parse(sessionStorage.getItem(SESSION)||'null')}
-function setS(u){sessionStorage.setItem(SESSION,JSON.stringify(u))}
-function clearS(){sessionStorage.removeItem(SESSION)}
+// FIX #3: Use localStorage instead of sessionStorage so session survives page refresh
+function getS(){return JSON.parse(localStorage.getItem(SESSION)||'null')}
+function setS(u){localStorage.setItem(SESSION,JSON.stringify(u))}
+function clearS(){localStorage.removeItem(SESSION)}
 
-// fingerprint for likes
 function getFP(){let f=localStorage.getItem(FINGER);if(!f){f='fp_'+Math.random().toString(36).substr(2,12);localStorage.setItem(FINGER,f)}return f}
-
 function readTime(t){return Math.max(1,Math.round((t||'').split(/\s+/).length/200))+' min read'}
 function isNew(d){return d&&(new Date()-new Date(d))<14*24*60*60*1000}
 function hasActiveSub(s){return s&&s.some(x=>x.status==='active'&&new Date(x.end_date)>new Date())}
+
+// FIX #2: canonical share URL — always use clean base path + hash, never append to location.href
+function workUrl(id){return location.origin+location.pathname+'#work-'+id}
 
 function corners(){return`<svg class="work-corner tl" viewBox="0 0 32 32" fill="none"><path d="M4 4L16 4L4 16Z" stroke="#C4622D" stroke-width=".8" fill="none" opacity=".6"/><path d="M4 4L28 4L28 28L4 28Z" stroke="#C4622D" stroke-width=".5" fill="none" opacity=".3"/></svg><svg class="work-corner tr" viewBox="0 0 32 32" fill="none"><path d="M4 4L16 4L4 16Z" stroke="#C4622D" stroke-width=".8" fill="none" opacity=".6"/></svg><svg class="work-corner bl" viewBox="0 0 32 32" fill="none"><path d="M4 4L16 4L4 16Z" stroke="#C4622D" stroke-width=".8" fill="none" opacity=".6"/></svg><svg class="work-corner br" viewBox="0 0 32 32" fill="none"><path d="M4 4L16 4L4 16Z" stroke="#C4622D" stroke-width=".8" fill="none" opacity=".6"/></svg>`}
 
@@ -625,13 +591,55 @@ if(localStorage.getItem(DARK)){document.body.classList.add('dark');document.getE
 let allWorks=[],readerSubs=[],activeFilter='all';
 let currentWork=null,currentLiked=false;
 
-async function loadWorks(){
+// FIX #1 + #7: loadWorks now calls checkHashRoute after render; subscriptions fetched once
+async function loadWorks(reopenCurrentWork){
   try{
     allWorks=await db('works?select=*&status=eq.published&order=created_at.desc');
     const sess=getS();
     if(sess)readerSubs=await db('subscriptions?reader_id=eq.'+sess.id+'&status=eq.active');
     renderFeatured();renderGrid();
+    // FIX #1: check hash route after works are loaded (handles refresh & direct links)
+    if(reopenCurrentWork&&currentWork){
+      // re-open the same work to refresh its access state (e.g. after subscribing)
+      openWork(currentWork.id);
+    } else {
+      checkHashRoute();
+    }
   }catch(e){document.getElementById('works-grid').innerHTML='<div class="works-empty">Could not load library.</div>'}
+}
+
+// FIX #1: Hash-based routing
+function checkHashRoute(){
+  const hash=location.hash;
+  if(hash.startsWith('#work-')){
+    const id=hash.replace('#work-','').trim();
+    if(id)openWork(id);
+  }
+}
+
+// FIX #4: Back button support
+window.addEventListener('popstate',function(){
+  if(!location.hash.startsWith('#work-')){
+    // hash was cleared (back to home) — close modal without pushing another state
+    const modal=document.getElementById('read-modal');
+    if(modal.classList.contains('open')){
+      modal.classList.remove('open');
+      document.body.style.overflow='';
+      document.getElementById('read-progress').style.width='0%';
+    }
+  } else {
+    // navigated to a different work hash via forward/back
+    checkHashRoute();
+  }
+});
+
+// FIX #5: Brand logo click closes modal and goes home cleanly
+function handleBrandClick(e){
+  e.preventDefault();
+  if(document.getElementById('read-modal').classList.contains('open')){
+    closeRead();
+  }
+  window.scrollTo({top:0,behavior:'smooth'});
 }
 
 function renderFeatured(){
@@ -691,15 +699,26 @@ function setFilter(f,el){activeFilter=f;document.querySelectorAll('.filter-tab')
 
 // OPEN WORK
 async function openWork(id){
+  // FIX #8: wrap everything in try/finally so overflow is always restored on error
+  const modal=document.getElementById('read-modal');
   try{
     const rows=await db('works?id=eq.'+id);
     if(!rows.length)return;
     const w=rows[0];currentWork=w;
+
+    // FIX #5: reset progress bar immediately when opening a new work
+    document.getElementById('read-progress').style.width='0%';
+
+    // FIX #1: push hash to URL (clean, no double-stacking)
+    const cleanHash='#work-'+id;
+    if(location.hash!==cleanHash){
+      history.pushState(null,'',cleanHash);
+    }
+
     const sess=getS();
     let subs=[];
     if(sess){
       subs=await db('subscriptions?reader_id=eq.'+sess.id+'&status=eq.active');
-      // save reading history
       try{await db('reading_history',{method:'POST',headers:{'Prefer':'resolution=merge-duplicates'},body:JSON.stringify({reader_id:sess.id,work_id:id,last_read:new Date().toISOString()})})}catch(e){}
     }
     const canRead=w.access==='free'||hasActiveSub(subs);
@@ -708,24 +727,23 @@ async function openWork(id){
     document.getElementById('read-date').textContent=w.date?new Date(w.date).toLocaleDateString('en-NG',{year:'numeric',month:'long',day:'numeric'}):'';
     document.getElementById('read-time').textContent=canRead?'⏱ '+readTime(w.content):'';
 
-    // likes
+    // FIX #10: update like button via dedicated child elements, not innerHTML replacement
     const likes=await db('likes?work_id=eq.'+id);
     const fp=getFP();
     currentLiked=likes.some(l=>l.fingerprint===fp);
     document.getElementById('like-count').textContent=likes.length;
+    document.getElementById('like-heart').textContent=currentLiked?'♥':'♡';
     const lb=document.getElementById('like-btn');
     lb.classList.toggle('liked',currentLiked);
-    lb.innerHTML=(currentLiked?'♥ ':'♡ ')+'<span id="like-count">'+likes.length+'</span>';
 
     if(canRead){
       document.getElementById('read-body').innerHTML=`<div class="read-content">${w.content||'Content coming soon.'}</div>`;
-      // share
       const shareEl=document.getElementById('read-share');shareEl.style.display='block';
-      const url=encodeURIComponent(location.href+'#work-'+id);
+      // FIX #2: use canonical workUrl() — no double hash
+      const url=encodeURIComponent(workUrl(id));
       const title=encodeURIComponent(w.title+' — Marubuci by Haliru Ali Musa');
       document.getElementById('share-wa').href=`https://wa.me/?text=${title}%20${url}`;
       document.getElementById('share-tw').href=`https://twitter.com/intent/tweet?text=${title}&url=${url}`;
-      // related
       const related=allWorks.filter(x=>x.id!==id&&(x.genre||'')===(w.genre||'')).slice(0,3);
       const rs=document.getElementById('related-section');
       if(related.length){
@@ -737,13 +755,13 @@ async function openWork(id){
             <div class="related-name">${r.title}</div>
           </div>`).join('');
       }else{rs.style.display='none'}
-      // comments
       document.getElementById('comments-section').style.display='block';
       loadComments(id);
       updateCommentForm();
     } else {
       document.getElementById('read-share').style.display='none';
       document.getElementById('related-section').style.display='none';
+      // FIX #6: explicitly hide comments for paywalled works
       document.getElementById('comments-section').style.display='none';
       document.getElementById('read-body').innerHTML=`
         <div class="read-content" style="opacity:.3;max-height:180px;overflow:hidden;mask-image:linear-gradient(to bottom,black 30%,transparent)">${(w.content||'').substring(0,500)}…</div>
@@ -758,20 +776,29 @@ async function openWork(id){
           <p style="font-family:'Inter',sans-serif;font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-top:16px">Secure · Nigerian banks, cards & USSD · Instant access</p>
         </div>`;
     }
-    const modal=document.getElementById('read-modal');
     modal.classList.add('open');
     modal.scrollTop=0;
     document.body.style.overflow='hidden';
-    // reading progress
     modal.onscroll=function(){
       const prog=(modal.scrollTop/(modal.scrollHeight-modal.clientHeight))*100;
       document.getElementById('read-progress').style.width=Math.min(100,prog)+'%';
     };
-  }catch(e){console.error(e)}
+  }catch(e){
+    // FIX #8: always restore scroll on error so page is never frozen
+    document.body.style.overflow='';
+    console.error('openWork error:',e);
+  }
 }
-function closeRead(){document.getElementById('read-modal').classList.remove('open');document.body.style.overflow='';document.getElementById('read-progress').style.width='0%'}
 
-// LIKES
+function closeRead(){
+  document.getElementById('read-modal').classList.remove('open');
+  document.body.style.overflow='';
+  document.getElementById('read-progress').style.width='0%';
+  // FIX #1 + #4: clear hash from URL without adding a new history entry
+  history.pushState(null,'',location.pathname+location.search);
+}
+
+// LIKES — FIX #10: update heart/count via child elements only
 async function toggleLike(){
   if(!currentWork)return;
   const fp=getFP();
@@ -785,9 +812,9 @@ async function toggleLike(){
       currentLiked=true;
     }
     const likes=await db('likes?work_id=eq.'+id);
-    const lb=document.getElementById('like-btn');
-    lb.classList.toggle('liked',currentLiked);
-    lb.innerHTML=(currentLiked?'♥ ':'♡ ')+'<span id="like-count">'+likes.length+'</span>';
+    document.getElementById('like-count').textContent=likes.length;
+    document.getElementById('like-heart').textContent=currentLiked?'♥':'♡';
+    document.getElementById('like-btn').classList.toggle('liked',currentLiked);
   }catch(e){}
 }
 
@@ -829,15 +856,15 @@ async function submitComment(){
   }catch(e){showToast('Error posting comment')}
 }
 
-// SHARE
+// SHARE — FIX #2: use canonical workUrl()
 function shareQuick(id,title,p){
-  const url=encodeURIComponent(location.href+'#work-'+id);
+  const url=encodeURIComponent(workUrl(id));
   const t=encodeURIComponent(decodeURIComponent(title)+' — Marubuci by Haliru Ali Musa');
   if(p==='wa')window.open(`https://wa.me/?text=${t}%20${url}`,'_blank');
   else window.open(`https://twitter.com/intent/tweet?text=${t}&url=${url}`,'_blank');
 }
-function copyWorkLink(id){navigator.clipboard.writeText(location.href+'#work-'+id).then(()=>showToast('Link copied!'))}
-function copyLink(){navigator.clipboard.writeText(location.href+'#work-'+(currentWork?.id||'')).then(()=>showToast('Link copied!'))}
+function copyWorkLink(id){navigator.clipboard.writeText(workUrl(id)).then(()=>showToast('Link copied!'))}
+function copyLink(){navigator.clipboard.writeText(workUrl(currentWork?.id||'')).then(()=>showToast('Link copied!'))}
 
 // AUTH
 function openAuth(m){if(getS()){openProfile();return}document.getElementById('auth-overlay').classList.add('open');m==='signup'?showSignup():showLogin();document.body.style.overflow='hidden'}
@@ -853,10 +880,15 @@ async function doLogin(){
     const hash=await hashPass(pass);
     const rows=await db('readers?email=eq.'+encodeURIComponent(email)+'&password_hash=eq.'+hash);
     if(!rows.length){err.style.display='block';return}
-    setS(rows[0]);closeAuth();updateNav();loadWorks();showSubReminder();
+    setS(rows[0]);closeAuth();updateNav();
+    // FIX #7: fetch fresh subs independently, no full re-fetch of all works needed
+    readerSubs=await db('subscriptions?reader_id=eq.'+rows[0].id+'&status=eq.active');
+    renderFeatured();renderGrid();
+    showSubReminder();
     showToast('Welcome back, '+rows[0].name+'!');
   }catch(e){err.textContent='Error.';err.style.display='block'}
 }
+
 async function doSignup(){
   const name=document.getElementById('signup-name').value.trim();
   const email=document.getElementById('signup-email').value.trim().toLowerCase();
@@ -869,11 +901,17 @@ async function doSignup(){
     const hash=await hashPass(pass);
     const rows=await db('readers',{method:'POST',body:JSON.stringify({name,email,password_hash:hash})});
     const user=Array.isArray(rows)?rows[0]:rows;
-    setS(user);closeAuth();updateNav();loadWorks();openProfile();
+    setS(user);closeAuth();updateNav();renderFeatured();renderGrid();openProfile();
     showToast('Welcome, '+name+'!');
   }catch(e){err.textContent='Error.';err.style.display='block'}
 }
-function doLogout(){clearS();closeProfile();updateNav();readerSubs=[];loadWorks();document.getElementById('sub-reminder').style.display='none';showToast('Signed out')}
+
+function doLogout(){
+  clearS();closeProfile();updateNav();readerSubs=[];
+  renderFeatured();renderGrid();
+  document.getElementById('sub-reminder').style.display='none';
+  showToast('Signed out');
+}
 
 function updateNav(){
   const sess=getS();const area=document.getElementById('nav-auth-area');
@@ -938,9 +976,14 @@ async function processSubscription(){
       const now=new Date();const end=new Date(now.getTime()+p.days*24*60*60*1000);
       await db('subscriptions',{method:'POST',body:JSON.stringify({reader_id:sess.id,plan:p.label,amount:p.amount,start_date:now.toISOString(),end_date:end.toISOString(),paystack_ref:res.reference,status:'active'})});
       readerSubs=await db('subscriptions?reader_id=eq.'+sess.id+'&status=eq.active');
-      loadSubStatus();loadWorks();
+      loadSubStatus();
+      // FIX #7: re-render cards & re-open current work to unlock it, without full reload
+      renderFeatured();renderGrid();
       showToast('Subscription activated! Enjoy all works.');
-      setTimeout(()=>{closeProfile();if(currentWork)openWork(currentWork.id)},1400);
+      setTimeout(()=>{
+        closeProfile();
+        if(currentWork)openWork(currentWork.id);
+      },1400);
     },onClose:function(){}
   }).openIframe();
 }
@@ -984,13 +1027,17 @@ async function loadSocials(){
   }catch(e){}
 }
 
+// FIX #9: open mailto in a link, not window.location.href, to avoid losing SPA state
 function sendMessage(){
   const name=document.getElementById('cf-name').value.trim();
   const email=document.getElementById('cf-email').value.trim();
   const msg=document.getElementById('cf-message').value.trim();
   const s=document.getElementById('cf-status');
   if(!name||!email||!msg){s.textContent='Please fill all fields.';s.style.display='block';return}
-  window.location.href=`mailto:?subject=Message from ${encodeURIComponent(name)} via Marubuci&body=${encodeURIComponent(msg+'\n\nFrom: '+name+' ('+email+')')}`;
+  const a=document.createElement('a');
+  a.href=`mailto:?subject=Message from ${encodeURIComponent(name)} via Marubuci&body=${encodeURIComponent(msg+'\n\nFrom: '+name+' ('+email+')')}`;
+  a.style.display='none';
+  document.body.appendChild(a);a.click();document.body.removeChild(a);
   s.textContent='Message prepared — your mail app will open.';s.style.display='block';
   document.getElementById('cf-name').value='';document.getElementById('cf-email').value='';document.getElementById('cf-message').value='';
 }
@@ -1008,7 +1055,13 @@ function showToast(msg){
 document.getElementById('login-password').addEventListener('keydown',e=>{if(e.key==='Enter')doLogin()});
 document.getElementById('comment-input')?.addEventListener('keydown',e=>{if(e.key==='Enter'&&e.ctrlKey)submitComment()});
 
-updateNav();loadWorks();loadBio();loadSocials();initBanner();
+updateNav();
+loadWorks();   // checkHashRoute is called inside after works load
+loadBio();
+loadSocials();
+initBanner();
+// Show sub reminder on load if user is already signed in
+const _s=getS();if(_s)showSubReminder();
 </script>
 </body>
 </html>
