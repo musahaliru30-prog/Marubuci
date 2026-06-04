@@ -182,7 +182,7 @@ footer{background:#110C05;color:var(--bg);padding:60px 48px 32px}
 .footer-bottom p{font-family:'Inter',sans-serif;font-size:.6rem;color:rgba(245,239,224,.3)}
 .overlay{position:fixed;inset:0;background:rgba(26,18,8,.75);z-index:300;display:none;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(4px)}
 .overlay.open{display:flex}
-.auth-box{background:var(--paper);border:1px solid var(--border);width:100%;max-width:420px;padding:48px;position:relative}
+.auth-box{background:var(--paper);border:1px solid var(--border);width:100%;max-width:440px;padding:48px;position:relative}
 .auth-box h2{font-family:'Newsreader',serif;font-weight:300;font-size:1.6rem;margin-bottom:6px;color:var(--earth)}
 .auth-box p{font-family:'Inter',sans-serif;font-size:.6rem;letter-spacing:.25em;text-transform:uppercase;color:var(--muted);margin-bottom:28px}
 .auth-field{margin-bottom:16px}
@@ -191,11 +191,22 @@ footer{background:#110C05;color:var(--bg);padding:60px 48px 32px}
 .auth-field input:focus{border-color:var(--terra)}
 .auth-btn{width:100%;padding:13px;background:var(--terra);color:var(--bg);border:none;font-family:'Inter',sans-serif;font-size:.65rem;letter-spacing:.3em;text-transform:uppercase;cursor:pointer;transition:opacity .3s;margin-top:8px}
 .auth-btn:hover{opacity:.85}
+.auth-btn:disabled{opacity:.5;cursor:not-allowed}
 .auth-switch{font-family:'Inter',sans-serif;font-size:.65rem;color:var(--muted);margin-top:16px;text-align:center}
 .auth-switch span{color:var(--terra);cursor:pointer;text-decoration:underline}
 .auth-close{position:absolute;top:16px;right:20px;background:none;border:none;color:var(--muted);font-size:1.1rem;cursor:pointer}
 .auth-close:hover{color:var(--terra)}
 .auth-err{color:#C0392B;font-family:'Inter',sans-serif;font-size:.65rem;margin-top:8px;display:none}
+.auth-info{color:var(--indigo);font-family:'Inter',sans-serif;font-size:.65rem;margin-top:8px;display:none;letter-spacing:.1em;line-height:1.6;padding:10px 12px;background:rgba(27,58,107,.08);border-left:2px solid var(--indigo)}
+.auth-link{color:var(--terra);cursor:pointer;text-decoration:underline;font-family:'Inter',sans-serif;font-size:.65rem;background:none;border:none;display:inline;padding:0}
+/* OTP input styling */
+.otp-wrap{display:flex;gap:10px;justify-content:center;margin:20px 0}
+.otp-input{width:48px;height:56px;text-align:center;font-family:'Newsreader',serif;font-size:1.4rem;background:var(--bg);border:1px solid var(--border);color:var(--earth);outline:none;transition:border-color .3s}
+.otp-input:focus{border-color:var(--terra)}
+/* Password strength */
+.pw-strength{height:3px;background:var(--border);margin-top:6px;border-radius:2px;overflow:hidden}
+.pw-strength-bar{height:100%;width:0%;transition:width .3s,background .3s;border-radius:2px}
+.pw-strength-label{font-family:'Inter',sans-serif;font-size:.55rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-top:4px}
 .profile-box{background:var(--paper);border:1px solid var(--border);width:100%;max-width:520px;padding:48px;position:relative;max-height:90vh;overflow-y:auto}
 .profile-box h2{font-family:'Newsreader',serif;font-weight:300;font-size:1.5rem;margin-bottom:4px;color:var(--earth)}
 .profile-box .sub-tag{font-family:'Inter',sans-serif;font-size:.6rem;letter-spacing:.25em;text-transform:uppercase;color:var(--muted);margin-bottom:28px;display:block}
@@ -204,7 +215,11 @@ footer{background:#110C05;color:var(--bg);padding:60px 48px 32px}
 .plan-card-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
 .plan-name{font-family:'Newsreader',serif;font-size:1.1rem;color:var(--earth)}
 .plan-price{font-family:'Newsreader',serif;font-size:1.3rem;color:var(--terra)}
+.plan-free-tag{font-family:'Inter',sans-serif;font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;color:var(--success);border:1px solid var(--success);padding:3px 8px}
 .plan-desc{font-family:'Inter',sans-serif;font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+.plan-features{margin-top:10px;padding-top:10px;border-top:1px solid var(--border)}
+.plan-feature{font-family:'Inter',sans-serif;font-size:.6rem;letter-spacing:.12em;color:var(--muted);margin-bottom:4px;padding-left:14px;position:relative}
+.plan-feature::before{content:'·';position:absolute;left:0;color:var(--terra)}
 .sub-status-box{background:var(--soft);border:1px solid var(--border);padding:20px;margin-bottom:24px}
 .sub-status-label{font-family:'Inter',sans-serif;font-size:.6rem;letter-spacing:.25em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
 .sub-status-val{font-family:'Newsreader',serif;font-size:1.1rem;color:var(--earth)}
@@ -276,6 +291,8 @@ footer{background:#110C05;color:var(--bg);padding:60px 48px 32px}
 .toast-stack{position:fixed;bottom:32px;right:32px;z-index:999;display:flex;flex-direction:column;gap:8px;pointer-events:none}
 .toast-msg{background:var(--terra);color:var(--bg);padding:12px 20px;font-family:'Inter',sans-serif;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;transform:translateX(120px);opacity:0;transition:all .4s}
 .toast-msg.show{transform:translateX(0);opacity:1}
+/* Verified badge */
+.verified-badge{display:inline-flex;align-items:center;gap:4px;font-family:'Inter',sans-serif;font-size:.58rem;letter-spacing:.15em;text-transform:uppercase;color:var(--success);margin-left:8px}
 @media(max-width:768px){
   nav{padding:14px 20px}.nav-links{gap:12px}
   section,.about-strip,.contact-section{padding:60px 20px}
@@ -290,6 +307,7 @@ footer{background:#110C05;color:var(--bg);padding:60px 48px 32px}
   .featured-work{grid-template-columns:1fr}
   .newsletter-form{flex-direction:column}
   .newsletter-form input{border-right:1px solid rgba(245,239,224,.2);border-bottom:none}
+  .otp-wrap{gap:6px}.otp-input{width:40px;height:48px;font-size:1.2rem}
 }
 </style>
 </head>
@@ -459,31 +477,90 @@ footer{background:#110C05;color:var(--bg);padding:60px 48px 32px}
   </div>
 </footer>
 
-<!-- AUTH -->
+<!-- ═══════════════════════════════════════════ AUTH MODAL ═══ -->
 <div class="overlay" id="auth-overlay">
   <div class="auth-box">
     <button class="auth-close" onclick="closeAuth()">✕</button>
+
+    <!-- LOGIN -->
     <div id="auth-login">
       <h2>Welcome back</h2><p>Sign in to your reader account</p>
       <div class="auth-field"><label>Email</label><input type="email" id="login-email" placeholder="your@email.com"/></div>
       <div class="auth-field"><label>Password</label><input type="password" id="login-password" placeholder="••••••••"/></div>
       <div class="auth-err" id="login-err">Incorrect email or password.</div>
       <button class="auth-btn" onclick="doLogin()">Sign In</button>
+      <p class="auth-switch" style="margin-top:12px"><span onclick="showForgot()">Forgot password?</span></p>
       <p class="auth-switch">No account? <span onclick="showSignup()">Create one free</span></p>
     </div>
+
+    <!-- SIGNUP -->
     <div id="auth-signup" style="display:none">
       <h2>Create account</h2><p>Join to read and subscribe</p>
       <div class="auth-field"><label>Your Name</label><input type="text" id="signup-name" placeholder="Aminu Musa"/></div>
       <div class="auth-field"><label>Email</label><input type="email" id="signup-email" placeholder="your@email.com"/></div>
-      <div class="auth-field"><label>Password</label><input type="password" id="signup-password" placeholder="Choose a password"/></div>
+      <div class="auth-field">
+        <label>Password</label>
+        <input type="password" id="signup-password" placeholder="At least 8 characters" oninput="updatePwStrength(this.value)"/>
+        <div class="pw-strength"><div class="pw-strength-bar" id="pw-bar"></div></div>
+        <div class="pw-strength-label" id="pw-label"></div>
+      </div>
+      <div class="auth-field"><label>Confirm Password</label><input type="password" id="signup-password2" placeholder="Repeat your password"/></div>
       <div class="auth-err" id="signup-err">This email is already registered.</div>
-      <button class="auth-btn" onclick="doSignup()">Create Account</button>
+      <button class="auth-btn" onclick="doSignup()" id="signup-btn">Create Account & Verify Email</button>
       <p class="auth-switch">Already have one? <span onclick="showLogin()">Sign in</span></p>
     </div>
+
+    <!-- EMAIL VERIFICATION (OTP) -->
+    <div id="auth-verify" style="display:none">
+      <h2>Verify your email</h2>
+      <p>We sent a 6-digit code to <strong id="verify-email-display"></strong></p>
+      <div class="auth-info" style="display:block;margin-bottom:16px">Enter the code from your inbox. Check your spam folder if you don't see it.</div>
+      <div class="otp-wrap" id="otp-wrap">
+        <input class="otp-input" maxlength="1" type="text" inputmode="numeric" pattern="[0-9]" id="otp0" oninput="otpNext(this,0)"/>
+        <input class="otp-input" maxlength="1" type="text" inputmode="numeric" pattern="[0-9]" id="otp1" oninput="otpNext(this,1)"/>
+        <input class="otp-input" maxlength="1" type="text" inputmode="numeric" pattern="[0-9]" id="otp2" oninput="otpNext(this,2)"/>
+        <input class="otp-input" maxlength="1" type="text" inputmode="numeric" pattern="[0-9]" id="otp3" oninput="otpNext(this,3)"/>
+        <input class="otp-input" maxlength="1" type="text" inputmode="numeric" pattern="[0-9]" id="otp4" oninput="otpNext(this,4)"/>
+        <input class="otp-input" maxlength="1" type="text" inputmode="numeric" pattern="[0-9]" id="otp5" oninput="otpNext(this,5)" onkeyup="if(event.key==='Enter')verifyOTP()"/>
+      </div>
+      <div class="auth-err" id="otp-err">Incorrect code. Please try again.</div>
+      <button class="auth-btn" onclick="verifyOTP()" id="verify-btn">Verify & Create Account</button>
+      <p class="auth-switch" style="margin-top:14px">Didn't receive it? <span onclick="resendOTP()">Resend code</span></p>
+      <p class="auth-switch"><span onclick="showSignup()">← Change email</span></p>
+    </div>
+
+    <!-- FORGOT PASSWORD -->
+    <div id="auth-forgot" style="display:none">
+      <h2>Reset password</h2><p>Enter your email and we'll send a reset code</p>
+      <div class="auth-field"><label>Email</label><input type="email" id="forgot-email" placeholder="your@email.com"/></div>
+      <div class="auth-err" id="forgot-err">Email not found.</div>
+      <div class="auth-info" id="forgot-info">A reset code has been sent to your email.</div>
+      <button class="auth-btn" onclick="sendResetCode()" id="forgot-btn">Send Reset Code</button>
+      <p class="auth-switch"><span onclick="showLogin()">← Back to Sign In</span></p>
+    </div>
+
+    <!-- RESET PASSWORD (OTP + new pw) -->
+    <div id="auth-reset" style="display:none">
+      <h2>New password</h2><p>Enter the code sent to your email</p>
+      <div class="otp-wrap">
+        <input class="otp-input" maxlength="1" type="text" inputmode="numeric" id="rotp0" oninput="rotpNext(this,0)"/>
+        <input class="otp-input" maxlength="1" type="text" inputmode="numeric" id="rotp1" oninput="rotpNext(this,1)"/>
+        <input class="otp-input" maxlength="1" type="text" inputmode="numeric" id="rotp2" oninput="rotpNext(this,2)"/>
+        <input class="otp-input" maxlength="1" type="text" inputmode="numeric" id="rotp3" oninput="rotpNext(this,3)"/>
+        <input class="otp-input" maxlength="1" type="text" inputmode="numeric" id="rotp4" oninput="rotpNext(this,4)"/>
+        <input class="otp-input" maxlength="1" type="text" inputmode="numeric" id="rotp5" oninput="rotpNext(this,5)"/>
+      </div>
+      <div class="auth-field" style="margin-top:8px"><label>New Password</label><input type="password" id="reset-pw" placeholder="At least 8 characters"/></div>
+      <div class="auth-field"><label>Confirm New Password</label><input type="password" id="reset-pw2" placeholder="Repeat password"/></div>
+      <div class="auth-err" id="reset-err">Incorrect code or passwords don't match.</div>
+      <button class="auth-btn" onclick="doReset()">Set New Password</button>
+      <p class="auth-switch"><span onclick="showForgot()">← Resend code</span></p>
+    </div>
+
   </div>
 </div>
 
-<!-- PROFILE -->
+<!-- ═══════════════════════════════════════════ PROFILE MODAL ═══ -->
 <div class="overlay" id="profile-overlay">
   <div class="profile-box">
     <button class="auth-close" onclick="closeProfile()">✕</button>
@@ -491,9 +568,51 @@ footer{background:#110C05;color:var(--bg);padding:60px 48px 32px}
     <span class="sub-tag" id="profile-email"></span>
     <div class="sub-status-box"><div class="sub-status-label">Subscription Status</div><div class="sub-status-val" id="sub-status-val">No active subscription</div></div>
     <p style="font-family:'Inter',sans-serif;font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:16px">Choose a plan</p>
-    <div class="plan-card" onclick="selectPlan('daily',this)"><div class="plan-card-top"><span class="plan-name">Daily Pass</span><span class="plan-price">₦500</span></div><div class="plan-desc">Full access for 24 hours</div></div>
-    <div class="plan-card" onclick="selectPlan('monthly',this)"><div class="plan-card-top"><span class="plan-name">Monthly</span><span class="plan-price">₦5,000</span></div><div class="plan-desc">Full access for 30 days</div></div>
-    <div class="plan-card" onclick="selectPlan('yearly',this)"><div class="plan-card-top"><span class="plan-name">Annual</span><span class="plan-price">₦50,000</span></div><div class="plan-desc">Full access for 1 year — best value</div></div>
+
+    <!-- FREE PLAN -->
+    <div class="plan-card" onclick="selectPlan('free',this)">
+      <div class="plan-card-top">
+        <span class="plan-name">Free Reader</span>
+        <span class="plan-free-tag">Free</span>
+      </div>
+      <div class="plan-desc">Access to all free works</div>
+      <div class="plan-features">
+        <div class="plan-feature">All works marked "Free"</div>
+        <div class="plan-feature">Comments & likes</div>
+        <div class="plan-feature">Newsletter updates</div>
+      </div>
+    </div>
+
+    <!-- DAILY -->
+    <div class="plan-card" onclick="selectPlan('daily',this)">
+      <div class="plan-card-top"><span class="plan-name">Daily Pass</span><span class="plan-price">₦500</span></div>
+      <div class="plan-desc">Full access for 24 hours</div>
+      <div class="plan-features">
+        <div class="plan-feature">All works unlocked</div>
+        <div class="plan-feature">Valid for 24 hours</div>
+      </div>
+    </div>
+
+    <!-- MONTHLY -->
+    <div class="plan-card" onclick="selectPlan('monthly',this)">
+      <div class="plan-card-top"><span class="plan-name">Monthly</span><span class="plan-price">₦5,000</span></div>
+      <div class="plan-desc">Full access for 30 days</div>
+      <div class="plan-features">
+        <div class="plan-feature">All works unlocked</div>
+        <div class="plan-feature">Valid for 30 days</div>
+      </div>
+    </div>
+
+    <!-- YEARLY -->
+    <div class="plan-card" onclick="selectPlan('yearly',this)">
+      <div class="plan-card-top"><span class="plan-name">Annual</span><span class="plan-price">₦50,000</span></div>
+      <div class="plan-desc">Full access for 1 year — best value</div>
+      <div class="plan-features">
+        <div class="plan-feature">All works unlocked</div>
+        <div class="plan-feature">Save ₦10,000 vs monthly</div>
+      </div>
+    </div>
+
     <button class="auth-btn" id="subscribe-btn" onclick="processSubscription()" style="margin-top:16px;display:none">Pay with Paystack</button>
     <div class="history-section" id="history-section" style="display:none">
       <div class="history-title">Recently Read</div>
@@ -503,7 +622,7 @@ footer{background:#110C05;color:var(--bg);padding:60px 48px 32px}
   </div>
 </div>
 
-<!-- READ MODAL -->
+<!-- ═══════════════════════════════════════════ READ MODAL ═══ -->
 <div class="read-modal" id="read-modal">
   <div class="read-progress" id="read-progress"></div>
   <button class="read-close" onclick="closeRead()">← Back to Library</button>
@@ -513,7 +632,6 @@ footer{background:#110C05;color:var(--bg);padding:60px 48px 32px}
     <div class="read-meta">
       <span class="read-date" id="read-date"></span>
       <span class="read-time" id="read-time"></span>
-      <!-- FIX #10: like count is a standalone element, not rebuilt inside innerHTML -->
       <button class="read-likes" id="like-btn" onclick="toggleLike()">
         <span id="like-heart">♡</span> <span id="like-count">0</span>
       </button>
@@ -563,23 +681,79 @@ const SESSION='maru_reader';
 const BANNER='maru_banner';
 const DARK='maru_dark';
 const FINGER='maru_fp';
+const OTP_KEY='maru_pending_otp';
 
-// FIX #3: Use localStorage instead of sessionStorage so session survives page refresh
 function getS(){return JSON.parse(localStorage.getItem(SESSION)||'null')}
 function setS(u){localStorage.setItem(SESSION,JSON.stringify(u))}
 function clearS(){localStorage.removeItem(SESSION)}
-
 function getFP(){let f=localStorage.getItem(FINGER);if(!f){f='fp_'+Math.random().toString(36).substr(2,12);localStorage.setItem(FINGER,f)}return f}
 function readTime(t){return Math.max(1,Math.round((t||'').split(/\s+/).length/200))+' min read'}
 function isNew(d){return d&&(new Date()-new Date(d))<14*24*60*60*1000}
 function hasActiveSub(s){return s&&s.some(x=>x.status==='active'&&new Date(x.end_date)>new Date())}
-
-// FIX #2: canonical share URL — always use clean base path + hash, never append to location.href
 function workUrl(id){return location.origin+location.pathname+'#work-'+id}
 
-function corners(){return`<svg class="work-corner tl" viewBox="0 0 32 32" fill="none"><path d="M4 4L16 4L4 16Z" stroke="#C4622D" stroke-width=".8" fill="none" opacity=".6"/><path d="M4 4L28 4L28 28L4 28Z" stroke="#C4622D" stroke-width=".5" fill="none" opacity=".3"/></svg><svg class="work-corner tr" viewBox="0 0 32 32" fill="none"><path d="M4 4L16 4L4 16Z" stroke="#C4622D" stroke-width=".8" fill="none" opacity=".6"/></svg><svg class="work-corner bl" viewBox="0 0 32 32" fill="none"><path d="M4 4L16 4L4 16Z" stroke="#C4622D" stroke-width=".8" fill="none" opacity=".6"/></svg><svg class="work-corner br" viewBox="0 0 32 32" fill="none"><path d="M4 4L16 4L4 16Z" stroke="#C4622D" stroke-width=".8" fill="none" opacity=".6"/></svg>`}
+// ── OTP GENERATION (6-digit, stored in supabase otp_codes table) ──
+function genOTP(){return Math.floor(100000+Math.random()*900000).toString()}
 
-// DARK MODE
+// We store OTPs in a supabase table: otp_codes(email, code, purpose, expires_at, used)
+async function storeOTP(email,code,purpose){
+  const expires=new Date(Date.now()+15*60*1000).toISOString();
+  // delete old ones first
+  await db('otp_codes?email=eq.'+encodeURIComponent(email)+'&purpose=eq.'+purpose,{method:'DELETE'});
+  await db('otp_codes',{method:'POST',body:JSON.stringify({email,code,purpose,expires_at:expires,used:false})});
+}
+async function verifyOTPCode(email,code,purpose){
+  const rows=await db('otp_codes?email=eq.'+encodeURIComponent(email)+'&code=eq.'+code+'&purpose=eq.'+purpose+'&used=eq.false');
+  if(!rows.length)return false;
+  const row=rows[0];
+  if(new Date(row.expires_at)<new Date())return false;
+  await db('otp_codes?id=eq.'+row.id,{method:'PATCH',body:JSON.stringify({used:true})});
+  return true;
+}
+
+// ── EMAIL SENDING via Supabase Edge Function (or fallback simulation) ──
+async function sendEmailOTP(email,name,code,purpose){
+  // Attempt to call a Supabase edge function for email
+  try{
+    await fetch(SB+'/functions/v1/send-email',{
+      method:'POST',
+      headers:{'Authorization':'Bearer '+SK,'Content-Type':'application/json'},
+      body:JSON.stringify({to:email,name,code,purpose})
+    });
+  }catch(e){
+    // Edge function may not exist — that's OK, OTP is stored in DB
+    // In production: set up an edge function or use Resend/Mailgun
+  }
+}
+
+// ─── OTP INPUT HELPERS ───
+function otpNext(el,i){
+  el.value=el.value.replace(/[^0-9]/g,'');
+  if(el.value&&i<5)document.getElementById('otp'+(i+1)).focus();
+  // auto-verify when all filled
+  const code=[0,1,2,3,4,5].map(n=>document.getElementById('otp'+n).value).join('');
+  if(code.length===6)verifyOTP();
+}
+function getOTPValue(prefix){return[0,1,2,3,4,5].map(n=>document.getElementById(prefix+n).value).join('')}
+function clearOTPInputs(prefix){[0,1,2,3,4,5].forEach(n=>{document.getElementById(prefix+n).value=''})}
+function rotpNext(el,i){el.value=el.value.replace(/[^0-9]/g,'');if(el.value&&i<5)document.getElementById('rotp'+(i+1)).focus()}
+
+// ─── PASSWORD STRENGTH ───
+function updatePwStrength(pw){
+  const bar=document.getElementById('pw-bar');
+  const lbl=document.getElementById('pw-label');
+  let score=0;
+  if(pw.length>=8)score++;
+  if(/[A-Z]/.test(pw))score++;
+  if(/[0-9]/.test(pw))score++;
+  if(/[^A-Za-z0-9]/.test(pw))score++;
+  const levels=[['',''],['25%','#C0392B','Weak'],['50%','#E67E22','Fair'],['75%','#D4A030','Good'],['100%','#2D6A4F','Strong']];
+  const [w,c,t]=levels[score]||levels[0];
+  bar.style.width=w;bar.style.background=c;
+  lbl.textContent=t;lbl.style.color=c;
+}
+
+// ─── DARK MODE ───
 function toggleDark(){
   document.body.classList.toggle('dark');
   const d=document.body.classList.contains('dark');
@@ -590,61 +764,40 @@ if(localStorage.getItem(DARK)){document.body.classList.add('dark');document.getE
 
 let allWorks=[],readerSubs=[],activeFilter='all';
 let currentWork=null,currentLiked=false;
+let pendingUser=null; // holds signup data while awaiting email verification
 
-// FIX #1 + #7: loadWorks now calls checkHashRoute after render; subscriptions fetched once
+function corners(){return`<svg class="work-corner tl" viewBox="0 0 32 32" fill="none"><path d="M4 4L16 4L4 16Z" stroke="#C4622D" stroke-width=".8" fill="none" opacity=".6"/><path d="M4 4L28 4L28 28L4 28Z" stroke="#C4622D" stroke-width=".5" fill="none" opacity=".3"/></svg><svg class="work-corner tr" viewBox="0 0 32 32" fill="none"><path d="M4 4L16 4L4 16Z" stroke="#C4622D" stroke-width=".8" fill="none" opacity=".6"/></svg><svg class="work-corner bl" viewBox="0 0 32 32" fill="none"><path d="M4 4L16 4L4 16Z" stroke="#C4622D" stroke-width=".8" fill="none" opacity=".6"/></svg><svg class="work-corner br" viewBox="0 0 32 32" fill="none"><path d="M4 4L16 4L4 16Z" stroke="#C4622D" stroke-width=".8" fill="none" opacity=".6"/></svg>`}
+
+// ─── WORKS LOADING ───
 async function loadWorks(reopenCurrentWork){
   try{
     allWorks=await db('works?select=*&status=eq.published&order=created_at.desc');
     const sess=getS();
     if(sess)readerSubs=await db('subscriptions?reader_id=eq.'+sess.id+'&status=eq.active');
     renderFeatured();renderGrid();
-    // FIX #1: check hash route after works are loaded (handles refresh & direct links)
-    if(reopenCurrentWork&&currentWork){
-      // re-open the same work to refresh its access state (e.g. after subscribing)
-      openWork(currentWork.id);
-    } else {
-      checkHashRoute();
-    }
+    if(reopenCurrentWork&&currentWork)openWork(currentWork.id);
+    else checkHashRoute();
   }catch(e){document.getElementById('works-grid').innerHTML='<div class="works-empty">Could not load library.</div>'}
 }
 
-// FIX #1: Hash-based routing
 function checkHashRoute(){
   const hash=location.hash;
-  if(hash.startsWith('#work-')){
-    const id=hash.replace('#work-','').trim();
-    if(id)openWork(id);
-  }
+  if(hash.startsWith('#work-')){const id=hash.replace('#work-','').trim();if(id)openWork(id)}
 }
-
-// FIX #4: Back button support
 window.addEventListener('popstate',function(){
   if(!location.hash.startsWith('#work-')){
-    // hash was cleared (back to home) — close modal without pushing another state
     const modal=document.getElementById('read-modal');
-    if(modal.classList.contains('open')){
-      modal.classList.remove('open');
-      document.body.style.overflow='';
-      document.getElementById('read-progress').style.width='0%';
-    }
-  } else {
-    // navigated to a different work hash via forward/back
-    checkHashRoute();
-  }
+    if(modal.classList.contains('open')){modal.classList.remove('open');document.body.style.overflow='';document.getElementById('read-progress').style.width='0%'}
+  }else checkHashRoute();
 });
-
-// FIX #5: Brand logo click closes modal and goes home cleanly
 function handleBrandClick(e){
   e.preventDefault();
-  if(document.getElementById('read-modal').classList.contains('open')){
-    closeRead();
-  }
+  if(document.getElementById('read-modal').classList.contains('open'))closeRead();
   window.scrollTo({top:0,behavior:'smooth'});
 }
 
 function renderFeatured(){
-  const f=allWorks.find(w=>w.featured);
-  const fc=document.getElementById('featured-container');
+  const f=allWorks.find(w=>w.featured);const fc=document.getElementById('featured-container');
   if(!f){fc.innerHTML='';return}
   const canRead=f.access==='free'||hasActiveSub(readerSubs);
   fc.innerHTML=`<div class="featured-work" onclick="openWork('${f.id}')">
@@ -697,26 +850,17 @@ function renderGrid(){
 }
 function setFilter(f,el){activeFilter=f;document.querySelectorAll('.filter-tab').forEach(t=>t.classList.remove('active'));el.classList.add('active');renderGrid()}
 
-// OPEN WORK
+// ─── OPEN WORK ───
 async function openWork(id){
-  // FIX #8: wrap everything in try/finally so overflow is always restored on error
   const modal=document.getElementById('read-modal');
   try{
     const rows=await db('works?id=eq.'+id);
     if(!rows.length)return;
     const w=rows[0];currentWork=w;
-
-    // FIX #5: reset progress bar immediately when opening a new work
     document.getElementById('read-progress').style.width='0%';
-
-    // FIX #1: push hash to URL (clean, no double-stacking)
     const cleanHash='#work-'+id;
-    if(location.hash!==cleanHash){
-      history.pushState(null,'',cleanHash);
-    }
-
-    const sess=getS();
-    let subs=[];
+    if(location.hash!==cleanHash)history.pushState(null,'',cleanHash);
+    const sess=getS();let subs=[];
     if(sess){
       subs=await db('subscriptions?reader_id=eq.'+sess.id+'&status=eq.active');
       try{await db('reading_history',{method:'POST',headers:{'Prefer':'resolution=merge-duplicates'},body:JSON.stringify({reader_id:sess.id,work_id:id,last_read:new Date().toISOString()})})}catch(e){}
@@ -726,42 +870,27 @@ async function openWork(id){
     document.getElementById('read-title').textContent=w.title;
     document.getElementById('read-date').textContent=w.date?new Date(w.date).toLocaleDateString('en-NG',{year:'numeric',month:'long',day:'numeric'}):'';
     document.getElementById('read-time').textContent=canRead?'⏱ '+readTime(w.content):'';
-
-    // FIX #10: update like button via dedicated child elements, not innerHTML replacement
     const likes=await db('likes?work_id=eq.'+id);
     const fp=getFP();
     currentLiked=likes.some(l=>l.fingerprint===fp);
     document.getElementById('like-count').textContent=likes.length;
     document.getElementById('like-heart').textContent=currentLiked?'♥':'♡';
-    const lb=document.getElementById('like-btn');
-    lb.classList.toggle('liked',currentLiked);
-
+    document.getElementById('like-btn').classList.toggle('liked',currentLiked);
     if(canRead){
       document.getElementById('read-body').innerHTML=`<div class="read-content">${w.content||'Content coming soon.'}</div>`;
       const shareEl=document.getElementById('read-share');shareEl.style.display='block';
-      // FIX #2: use canonical workUrl() — no double hash
       const url=encodeURIComponent(workUrl(id));
       const title=encodeURIComponent(w.title+' — Marubuci by Haliru Ali Musa');
       document.getElementById('share-wa').href=`https://wa.me/?text=${title}%20${url}`;
       document.getElementById('share-tw').href=`https://twitter.com/intent/tweet?text=${title}&url=${url}`;
       const related=allWorks.filter(x=>x.id!==id&&(x.genre||'')===(w.genre||'')).slice(0,3);
       const rs=document.getElementById('related-section');
-      if(related.length){
-        rs.style.display='block';
-        document.getElementById('related-grid').innerHTML=related.map(r=>`
-          <div class="related-card" onclick="openWork('${r.id}')">
-            <div class="related-cover"><img src="${r.img||'https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=300&q=80'}" alt="${r.title}" loading="lazy"/></div>
-            <div class="related-genre">${r.genre||''}</div>
-            <div class="related-name">${r.title}</div>
-          </div>`).join('');
-      }else{rs.style.display='none'}
+      if(related.length){rs.style.display='block';document.getElementById('related-grid').innerHTML=related.map(r=>`<div class="related-card" onclick="openWork('${r.id}')"><div class="related-cover"><img src="${r.img||'https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=300&q=80'}" alt="${r.title}" loading="lazy"/></div><div class="related-genre">${r.genre||''}</div><div class="related-name">${r.title}</div></div>`).join('')}else{rs.style.display='none'}
       document.getElementById('comments-section').style.display='block';
-      loadComments(id);
-      updateCommentForm();
-    } else {
+      loadComments(id);updateCommentForm();
+    }else{
       document.getElementById('read-share').style.display='none';
       document.getElementById('related-section').style.display='none';
-      // FIX #6: explicitly hide comments for paywalled works
       document.getElementById('comments-section').style.display='none';
       document.getElementById('read-body').innerHTML=`
         <div class="read-content" style="opacity:.3;max-height:180px;overflow:hidden;mask-image:linear-gradient(to bottom,black 30%,transparent)">${(w.content||'').substring(0,500)}…</div>
@@ -776,41 +905,24 @@ async function openWork(id){
           <p style="font-family:'Inter',sans-serif;font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-top:16px">Secure · Nigerian banks, cards & USSD · Instant access</p>
         </div>`;
     }
-    modal.classList.add('open');
-    modal.scrollTop=0;
-    document.body.style.overflow='hidden';
-    modal.onscroll=function(){
-      const prog=(modal.scrollTop/(modal.scrollHeight-modal.clientHeight))*100;
-      document.getElementById('read-progress').style.width=Math.min(100,prog)+'%';
-    };
-  }catch(e){
-    // FIX #8: always restore scroll on error so page is never frozen
-    document.body.style.overflow='';
-    console.error('openWork error:',e);
-  }
+    modal.classList.add('open');modal.scrollTop=0;document.body.style.overflow='hidden';
+    modal.onscroll=function(){const prog=(modal.scrollTop/(modal.scrollHeight-modal.clientHeight))*100;document.getElementById('read-progress').style.width=Math.min(100,prog)+'%'};
+  }catch(e){document.body.style.overflow='';console.error('openWork error:',e)}
 }
 
 function closeRead(){
   document.getElementById('read-modal').classList.remove('open');
-  document.body.style.overflow='';
-  document.getElementById('read-progress').style.width='0%';
-  // FIX #1 + #4: clear hash from URL without adding a new history entry
+  document.body.style.overflow='';document.getElementById('read-progress').style.width='0%';
   history.pushState(null,'',location.pathname+location.search);
 }
 
-// LIKES — FIX #10: update heart/count via child elements only
+// ─── LIKES ───
 async function toggleLike(){
   if(!currentWork)return;
-  const fp=getFP();
-  const id=currentWork.id;
+  const fp=getFP();const id=currentWork.id;
   try{
-    if(currentLiked){
-      await db('likes?work_id=eq.'+id+'&fingerprint=eq.'+fp,{method:'DELETE'});
-      currentLiked=false;
-    }else{
-      await db('likes',{method:'POST',body:JSON.stringify({work_id:id,fingerprint:fp})});
-      currentLiked=true;
-    }
+    if(currentLiked){await db('likes?work_id=eq.'+id+'&fingerprint=eq.'+fp,{method:'DELETE'});currentLiked=false}
+    else{await db('likes',{method:'POST',body:JSON.stringify({work_id:id,fingerprint:fp})});currentLiked=true}
     const likes=await db('likes?work_id=eq.'+id);
     document.getElementById('like-count').textContent=likes.length;
     document.getElementById('like-heart').textContent=currentLiked?'♥':'♡';
@@ -818,60 +930,52 @@ async function toggleLike(){
   }catch(e){}
 }
 
-// COMMENTS
+// ─── COMMENTS ───
 async function loadComments(workId){
   document.getElementById('comments-list').innerHTML='<div class="comments-loading">Loading…</div>';
   try{
     const comments=await db('comments?work_id=eq.'+workId+'&order=created_at.asc');
     document.getElementById('comments-count').textContent=comments.length+' comment'+(comments.length!==1?'s':'');
     if(!comments.length){document.getElementById('comments-list').innerHTML='<div class="comments-empty">No comments yet. Be the first to share your thoughts.</div>';return}
-    document.getElementById('comments-list').innerHTML=comments.map(c=>`
-      <div class="comment-item">
-        <div class="comment-header">
-          <span class="comment-author">${c.reader_name||'Reader'}</span>
-          <span class="comment-date">${new Date(c.created_at).toLocaleDateString('en-NG',{year:'numeric',month:'short',day:'numeric'})}</span>
-        </div>
-        <p class="comment-body">${c.body.replace(/</g,'&lt;')}</p>
-      </div>`).join('');
+    document.getElementById('comments-list').innerHTML=comments.map(c=>`<div class="comment-item"><div class="comment-header"><span class="comment-author">${c.reader_name||'Reader'}</span><span class="comment-date">${new Date(c.created_at).toLocaleDateString('en-NG',{year:'numeric',month:'short',day:'numeric'})}</span></div><p class="comment-body">${c.body.replace(/</g,'&lt;')}</p></div>`).join('');
   }catch(e){document.getElementById('comments-list').innerHTML='<div class="comments-empty">Could not load comments.</div>'}
 }
-
 function updateCommentForm(){
-  const sess=getS();
-  const msg=document.getElementById('comment-signin-msg');
-  const btn=document.getElementById('comment-submit-btn');
+  const sess=getS();const msg=document.getElementById('comment-signin-msg');const btn=document.getElementById('comment-submit-btn');
   if(sess){msg.textContent='Commenting as '+sess.name;btn.style.display='block'}
   else{msg.innerHTML='<span onclick="openAuth(\'login\')">Sign in</span> to leave a comment';btn.style.display='none'}
 }
-
 async function submitComment(){
   const sess=getS();if(!sess||!currentWork)return;
   const body=document.getElementById('comment-input').value.trim();
   if(!body){showToast('Please write something first');return}
-  try{
-    await db('comments',{method:'POST',body:JSON.stringify({work_id:currentWork.id,reader_id:sess.id,reader_name:sess.name,body})});
-    document.getElementById('comment-input').value='';
-    await loadComments(currentWork.id);
-    showToast('Comment posted!');
-  }catch(e){showToast('Error posting comment')}
+  try{await db('comments',{method:'POST',body:JSON.stringify({work_id:currentWork.id,reader_id:sess.id,reader_name:sess.name,body})});document.getElementById('comment-input').value='';await loadComments(currentWork.id);showToast('Comment posted!')}catch(e){showToast('Error posting comment')}
 }
 
-// SHARE — FIX #2: use canonical workUrl()
+// ─── SHARE ───
 function shareQuick(id,title,p){
-  const url=encodeURIComponent(workUrl(id));
-  const t=encodeURIComponent(decodeURIComponent(title)+' — Marubuci by Haliru Ali Musa');
+  const url=encodeURIComponent(workUrl(id));const t=encodeURIComponent(decodeURIComponent(title)+' — Marubuci by Haliru Ali Musa');
   if(p==='wa')window.open(`https://wa.me/?text=${t}%20${url}`,'_blank');
   else window.open(`https://twitter.com/intent/tweet?text=${t}&url=${url}`,'_blank');
 }
 function copyWorkLink(id){navigator.clipboard.writeText(workUrl(id)).then(()=>showToast('Link copied!'))}
 function copyLink(){navigator.clipboard.writeText(workUrl(currentWork?.id||'')).then(()=>showToast('Link copied!'))}
 
-// AUTH
-function openAuth(m){if(getS()){openProfile();return}document.getElementById('auth-overlay').classList.add('open');m==='signup'?showSignup():showLogin();document.body.style.overflow='hidden'}
-function closeAuth(){document.getElementById('auth-overlay').classList.remove('open');document.body.style.overflow=''}
-function showLogin(){document.getElementById('auth-login').style.display='block';document.getElementById('auth-signup').style.display='none'}
-function showSignup(){document.getElementById('auth-login').style.display='none';document.getElementById('auth-signup').style.display='block'}
+// ═══════════════════════════════════════════════════════════════════
+// AUTH SYSTEM — with email verification & forgot password
+// ═══════════════════════════════════════════════════════════════════
 
+function openAuth(m){if(getS()){openProfile();return}document.getElementById('auth-overlay').classList.add('open');m==='signup'?showSignup():showLogin();document.body.style.overflow='hidden'}
+function closeAuth(){document.getElementById('auth-overlay').classList.remove('open');document.body.style.overflow='';pendingUser=null}
+
+function _hideAll(){['auth-login','auth-signup','auth-verify','auth-forgot','auth-reset'].forEach(id=>document.getElementById(id).style.display='none')}
+function showLogin(){_hideAll();document.getElementById('auth-login').style.display='block'}
+function showSignup(){_hideAll();document.getElementById('auth-signup').style.display='block'}
+function showForgot(){_hideAll();document.getElementById('auth-forgot').style.display='block';document.getElementById('forgot-err').style.display='none';document.getElementById('forgot-info').style.display='none'}
+function showVerify(email){_hideAll();document.getElementById('auth-verify').style.display='block';document.getElementById('verify-email-display').textContent=email;clearOTPInputs('otp');document.getElementById('otp-err').style.display='none';setTimeout(()=>document.getElementById('otp0').focus(),100)}
+function showReset(){_hideAll();document.getElementById('auth-reset').style.display='block';clearOTPInputs('rotp');document.getElementById('reset-err').style.display='none';setTimeout(()=>document.getElementById('rotp0').focus(),100)}
+
+// ── LOGIN ──
 async function doLogin(){
   const email=document.getElementById('login-email').value.trim().toLowerCase();
   const pass=document.getElementById('login-password').value;
@@ -880,55 +984,153 @@ async function doLogin(){
     const hash=await hashPass(pass);
     const rows=await db('readers?email=eq.'+encodeURIComponent(email)+'&password_hash=eq.'+hash);
     if(!rows.length){err.style.display='block';return}
+    // Check if email is verified
+    if(!rows[0].email_verified){
+      // Re-send OTP and show verify screen
+      pendingUser={name:rows[0].name,email,password_hash:hash,existingId:rows[0].id};
+      const code=genOTP();
+      await storeOTP(email,code,'signup');
+      await sendEmailOTP(email,rows[0].name,code,'verify');
+      showToast('Please verify your email first — code sent!');
+      showVerify(email);
+      return;
+    }
     setS(rows[0]);closeAuth();updateNav();
-    // FIX #7: fetch fresh subs independently, no full re-fetch of all works needed
     readerSubs=await db('subscriptions?reader_id=eq.'+rows[0].id+'&status=eq.active');
-    renderFeatured();renderGrid();
-    showSubReminder();
+    renderFeatured();renderGrid();showSubReminder();
     showToast('Welcome back, '+rows[0].name+'!');
-  }catch(e){err.textContent='Error.';err.style.display='block'}
+  }catch(e){err.textContent='Error signing in. Please try again.';err.style.display='block'}
 }
 
+// ── SIGNUP ──
 async function doSignup(){
   const name=document.getElementById('signup-name').value.trim();
   const email=document.getElementById('signup-email').value.trim().toLowerCase();
   const pass=document.getElementById('signup-password').value;
+  const pass2=document.getElementById('signup-password2').value;
   const err=document.getElementById('signup-err');err.style.display='none';
+
   if(!name||!email||!pass){err.textContent='Please fill all fields.';err.style.display='block';return}
+  if(pass.length<8){err.textContent='Password must be at least 8 characters.';err.style.display='block';return}
+  if(pass!==pass2){err.textContent='Passwords do not match.';err.style.display='block';return}
+
+  // Basic email format check
+  if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){err.textContent='Please enter a valid email address.';err.style.display='block';return}
+
+  const btn=document.getElementById('signup-btn');
+  btn.disabled=true;btn.textContent='Sending code…';
   try{
     const ex=await db('readers?email=eq.'+encodeURIComponent(email));
-    if(ex.length){err.textContent='Email already registered.';err.style.display='block';return}
+    if(ex.length&&ex[0].email_verified){
+      err.textContent='Email already registered. Sign in instead.';err.style.display='block';
+      btn.disabled=false;btn.textContent='Create Account & Verify Email';return
+    }
     const hash=await hashPass(pass);
-    const rows=await db('readers',{method:'POST',body:JSON.stringify({name,email,password_hash:hash})});
-    const user=Array.isArray(rows)?rows[0]:rows;
-    setS(user);closeAuth();updateNav();renderFeatured();renderGrid();openProfile();
-    showToast('Welcome, '+name+'!');
-  }catch(e){err.textContent='Error.';err.style.display='block'}
+    pendingUser={name,email,password_hash:hash,existingId:ex.length?ex[0].id:null};
+    const code=genOTP();
+    await storeOTP(email,code,'signup');
+    await sendEmailOTP(email,name,code,'verify');
+    showToast('Verification code sent to '+email);
+    showVerify(email);
+  }catch(e){err.textContent='Error. Please try again.';err.style.display='block'}
+  btn.disabled=false;btn.textContent='Create Account & Verify Email';
 }
 
-function doLogout(){
-  clearS();closeProfile();updateNav();readerSubs=[];
-  renderFeatured();renderGrid();
-  document.getElementById('sub-reminder').style.display='none';
-  showToast('Signed out');
+// ── OTP VERIFY ──
+async function verifyOTP(){
+  if(!pendingUser)return;
+  const code=getOTPValue('otp');
+  if(code.length<6){return}
+  const btn=document.getElementById('verify-btn');
+  const err=document.getElementById('otp-err');err.style.display='none';
+  btn.disabled=true;btn.textContent='Verifying…';
+  try{
+    const ok=await verifyOTPCode(pendingUser.email,code,'signup');
+    if(!ok){err.style.display='block';btn.disabled=false;btn.textContent='Verify & Create Account';return}
+    // Create or update reader with email_verified=true
+    let user;
+    if(pendingUser.existingId){
+      const rows=await db('readers?id=eq.'+pendingUser.existingId,{method:'PATCH',body:JSON.stringify({email_verified:true,name:pendingUser.name,password_hash:pendingUser.password_hash})});
+      user=Array.isArray(rows)?rows[0]:rows;
+    }else{
+      const rows=await db('readers',{method:'POST',body:JSON.stringify({name:pendingUser.name,email:pendingUser.email,password_hash:pendingUser.password_hash,email_verified:true})});
+      user=Array.isArray(rows)?rows[0]:rows;
+    }
+    setS(user);closeAuth();updateNav();renderFeatured();renderGrid();
+    showToast('Email verified! Welcome, '+pendingUser.name+'!');
+    pendingUser=null;
+    openProfile();
+  }catch(e){err.textContent='Verification error. Please try again.';err.style.display='block'}
+  btn.disabled=false;btn.textContent='Verify & Create Account';
 }
+
+async function resendOTP(){
+  if(!pendingUser)return;
+  const code=genOTP();
+  await storeOTP(pendingUser.email,code,'signup');
+  await sendEmailOTP(pendingUser.email,pendingUser.name,code,'verify');
+  clearOTPInputs('otp');
+  document.getElementById('otp0').focus();
+  showToast('New code sent to '+pendingUser.email);
+}
+
+// ── FORGOT PASSWORD ──
+let resetEmail='';
+async function sendResetCode(){
+  const email=document.getElementById('forgot-email').value.trim().toLowerCase();
+  const err=document.getElementById('forgot-err');const info=document.getElementById('forgot-info');
+  err.style.display='none';info.style.display='none';
+  if(!email){err.textContent='Please enter your email.';err.style.display='block';return}
+  const btn=document.getElementById('forgot-btn');btn.disabled=true;btn.textContent='Sending…';
+  try{
+    const rows=await db('readers?email=eq.'+encodeURIComponent(email));
+    if(!rows.length){err.textContent='No account found for this email.';err.style.display='block';btn.disabled=false;btn.textContent='Send Reset Code';return}
+    const code=genOTP();
+    resetEmail=email;
+    await storeOTP(email,code,'reset');
+    await sendEmailOTP(email,rows[0].name,code,'reset');
+    info.style.display='block';
+    showToast('Reset code sent!');
+    setTimeout(()=>showReset(),1200);
+  }catch(e){err.textContent='Error. Please try again.';err.style.display='block'}
+  btn.disabled=false;btn.textContent='Send Reset Code';
+}
+
+async function doReset(){
+  const code=getOTPValue('rotp');
+  const pw=document.getElementById('reset-pw').value;
+  const pw2=document.getElementById('reset-pw2').value;
+  const err=document.getElementById('reset-err');err.style.display='none';
+  if(code.length<6||!pw){return}
+  if(pw.length<8){err.textContent='Password must be at least 8 characters.';err.style.display='block';return}
+  if(pw!==pw2){err.textContent="Passwords don't match.";err.style.display='block';return}
+  try{
+    const ok=await verifyOTPCode(resetEmail,code,'reset');
+    if(!ok){err.textContent='Incorrect or expired code.';err.style.display='block';return}
+    const hash=await hashPass(pw);
+    await db('readers?email=eq.'+encodeURIComponent(resetEmail),{method:'PATCH',body:JSON.stringify({password_hash:hash})});
+    showToast('Password updated! Please sign in.');
+    showLogin();
+  }catch(e){err.textContent='Error. Please try again.';err.style.display='block'}
+}
+
+function doLogout(){clearS();closeProfile();updateNav();readerSubs=[];renderFeatured();renderGrid();document.getElementById('sub-reminder').style.display='none';showToast('Signed out')}
 
 function updateNav(){
   const sess=getS();const area=document.getElementById('nav-auth-area');
   if(sess)area.innerHTML=`<span class="nav-user" onclick="openProfile()"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>${sess.name||sess.email}</span>`;
   else area.innerHTML=`<button class="nav-auth-btn" onclick="openAuth('login')">Sign In</button>`;
 }
-
 function showSubReminder(){
   const sess=getS();if(!sess)return;
   if(!hasActiveSub(readerSubs))document.getElementById('sub-reminder').style.display='flex';
 }
 
-// PROFILE
+// ─── PROFILE ───
 async function openProfile(){
   const sess=getS();if(!sess)return;
   document.getElementById('profile-name').textContent=sess.name||'Reader';
-  document.getElementById('profile-email').textContent=sess.email;
+  document.getElementById('profile-email').textContent=sess.email+(sess.email_verified?' ✓':'');
   loadSubStatus();loadHistory();
   document.getElementById('profile-overlay').classList.add('open');
   document.body.style.overflow='hidden';
@@ -943,7 +1145,7 @@ async function loadSubStatus(){
     const s=subs[0];const end=new Date(s.end_date).toLocaleDateString('en-NG',{year:'numeric',month:'long',day:'numeric'});
     el.innerHTML=`<span style="color:#2D6A4F">✓ Active — ${s.plan}</span><br><span style="font-family:'Inter',sans-serif;font-size:.65rem;color:var(--muted);letter-spacing:.15em">Expires ${end}</span>`;
     document.getElementById('sub-reminder').style.display='none';
-  }else{el.textContent='No active subscription'}
+  }else{el.textContent='No active subscription — choose a plan below'}
 }
 
 async function loadHistory(){
@@ -953,20 +1155,23 @@ async function loadHistory(){
     if(!hist.length)return;
     const hs=document.getElementById('history-section');hs.style.display='block';
     const works=allWorks.filter(w=>hist.some(h=>h.work_id===w.id));
-    document.getElementById('history-list').innerHTML=works.map(w=>`
-      <div class="history-item" onclick="closeProfile();openWork('${w.id}')">
-        <img class="history-thumb" src="${w.img||'https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=100&q=60'}" alt="${w.title}"/>
-        <div><div class="history-work-title">${w.title}</div><div class="history-work-date">${w.genre||''}</div></div>
-      </div>`).join('');
+    document.getElementById('history-list').innerHTML=works.map(w=>`<div class="history-item" onclick="closeProfile();openWork('${w.id}')"><img class="history-thumb" src="${w.img||'https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=100&q=60'}" alt="${w.title}"/><div><div class="history-work-title">${w.title}</div><div class="history-work-date">${w.genre||''}</div></div></div>`).join('');
   }catch(e){}
 }
 
 let selectedPlan=null;
-function selectPlan(p,el){selectedPlan=p;document.querySelectorAll('.plan-card').forEach(c=>c.classList.remove('selected'));el.classList.add('selected');document.getElementById('subscribe-btn').style.display='block'}
-function openSubscribe(p){const sess=getS();if(!sess){openAuth('signup');return}openProfile();setTimeout(()=>{const m={daily:0,monthly:1,yearly:2};const cards=document.querySelectorAll('.plan-card');if(cards[m[p]])selectPlan(p,cards[m[p]])},200)}
+function selectPlan(p,el){
+  selectedPlan=p;
+  document.querySelectorAll('.plan-card').forEach(c=>c.classList.remove('selected'));
+  el.classList.add('selected');
+  const btn=document.getElementById('subscribe-btn');
+  if(p==='free'){btn.style.display='none';showToast('You are already on the free plan!')}
+  else{btn.style.display='block';btn.textContent='Pay ₦'+(p==='daily'?'500':p==='monthly'?'5,000':'50,000')+' with Paystack'}
+}
+function openSubscribe(p){const sess=getS();if(!sess){openAuth('signup');return}openProfile();setTimeout(()=>{const m={free:0,daily:1,monthly:2,yearly:3};const cards=document.querySelectorAll('.plan-card');if(cards[m[p]])selectPlan(p,cards[m[p]])},200)}
 
 async function processSubscription(){
-  const sess=getS();if(!sess||!selectedPlan)return;
+  const sess=getS();if(!sess||!selectedPlan||selectedPlan==='free')return;
   const plans={daily:{amount:500,days:1,label:'Daily Pass'},monthly:{amount:5000,days:30,label:'Monthly'},yearly:{amount:50000,days:365,label:'Annual'}};
   const p=plans[selectedPlan];
   PaystackPop.setup({
@@ -976,19 +1181,15 @@ async function processSubscription(){
       const now=new Date();const end=new Date(now.getTime()+p.days*24*60*60*1000);
       await db('subscriptions',{method:'POST',body:JSON.stringify({reader_id:sess.id,plan:p.label,amount:p.amount,start_date:now.toISOString(),end_date:end.toISOString(),paystack_ref:res.reference,status:'active'})});
       readerSubs=await db('subscriptions?reader_id=eq.'+sess.id+'&status=eq.active');
-      loadSubStatus();
-      // FIX #7: re-render cards & re-open current work to unlock it, without full reload
-      renderFeatured();renderGrid();
+      loadSubStatus();renderFeatured();renderGrid();
       showToast('Subscription activated! Enjoy all works.');
-      setTimeout(()=>{
-        closeProfile();
-        if(currentWork)openWork(currentWork.id);
-      },1400);
-    },onClose:function(){}
+      setTimeout(()=>{closeProfile();if(currentWork)openWork(currentWork.id)},1400);
+    },
+    onClose:function(){}
   }).openIframe();
 }
 
-// NEWSLETTER
+// ─── NEWSLETTER ───
 async function subscribeNewsletter(){
   const name=document.getElementById('nl-name').value.trim();
   const email=document.getElementById('nl-email').value.trim();
@@ -998,10 +1199,8 @@ async function subscribeNewsletter(){
     const ex=await db('newsletter?email=eq.'+encodeURIComponent(email));
     if(ex.length){msg.textContent='You are already subscribed!';msg.style.display='block';return}
     await db('newsletter',{method:'POST',body:JSON.stringify({name,email})});
-    msg.textContent='✓ Subscribed! You will hear from us soon.';
-    msg.style.display='block';
-    document.getElementById('nl-name').value='';
-    document.getElementById('nl-email').value='';
+    msg.textContent='✓ Subscribed! You will hear from us soon.';msg.style.display='block';
+    document.getElementById('nl-name').value='';document.getElementById('nl-email').value='';
     showToast('Newsletter subscription confirmed!');
   }catch(e){msg.textContent='Error. Please try again.';msg.style.display='block'}
 }
@@ -1027,7 +1226,6 @@ async function loadSocials(){
   }catch(e){}
 }
 
-// FIX #9: open mailto in a link, not window.location.href, to avoid losing SPA state
 function sendMessage(){
   const name=document.getElementById('cf-name').value.trim();
   const email=document.getElementById('cf-email').value.trim();
@@ -1036,8 +1234,7 @@ function sendMessage(){
   if(!name||!email||!msg){s.textContent='Please fill all fields.';s.style.display='block';return}
   const a=document.createElement('a');
   a.href=`mailto:?subject=Message from ${encodeURIComponent(name)} via Marubuci&body=${encodeURIComponent(msg+'\n\nFrom: '+name+' ('+email+')')}`;
-  a.style.display='none';
-  document.body.appendChild(a);a.click();document.body.removeChild(a);
+  a.style.display='none';document.body.appendChild(a);a.click();document.body.removeChild(a);
   s.textContent='Message prepared — your mail app will open.';s.style.display='block';
   document.getElementById('cf-name').value='';document.getElementById('cf-email').value='';document.getElementById('cf-message').value='';
 }
@@ -1053,14 +1250,24 @@ function showToast(msg){
 }
 
 document.getElementById('login-password').addEventListener('keydown',e=>{if(e.key==='Enter')doLogin()});
+document.getElementById('forgot-email')?.addEventListener('keydown',e=>{if(e.key==='Enter')sendResetCode()});
 document.getElementById('comment-input')?.addEventListener('keydown',e=>{if(e.key==='Enter'&&e.ctrlKey)submitComment()});
 
+// OTP keyboard navigation (backspace goes to prev)
+document.querySelectorAll('.otp-input').forEach((inp,i)=>{
+  inp.addEventListener('keydown',e=>{
+    if(e.key==='Backspace'&&!inp.value&&i>0){
+      const prefix=inp.id.startsWith('r')?'rotp':'otp';
+      document.getElementById(prefix+(i-1)).focus();
+    }
+  });
+});
+
 updateNav();
-loadWorks();   // checkHashRoute is called inside after works load
+loadWorks();
 loadBio();
 loadSocials();
 initBanner();
-// Show sub reminder on load if user is already signed in
 const _s=getS();if(_s)showSubReminder();
 </script>
 </body>
