@@ -59,7 +59,6 @@ body.dark nav{background:rgba(15,10,5,.96)}
 .border-strip{height:12px;width:100%;overflow:hidden}
 .border-strip svg{width:100%;height:12px}
 
-/* HERO */
 .hero{min-height:100vh;position:relative;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden}
 .hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:sepia(.15) contrast(1.05)}
 .hero-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(26,18,8,.96) 0%,rgba(26,18,8,.7) 40%,rgba(27,58,107,.15) 75%,transparent 100%)}
@@ -83,7 +82,6 @@ section{padding:80px 48px}
 .section-tag .dash{width:32px;height:1px;background:var(--terra)}
 .section-tag span{font-family:'Inter',sans-serif;font-size:.6rem;letter-spacing:.35em;text-transform:uppercase;color:var(--terra)}
 
-/* FEATURED — FIX: ensure entire card is clickable with pointer-events */
 .featured-work{background:var(--paper);border:1px solid var(--border);padding:40px;margin-top:40px;display:grid;grid-template-columns:1fr 2fr;gap:40px;align-items:center;cursor:pointer;transition:border-color .3s;user-select:none}
 .featured-work:hover{border-color:var(--terra)}
 .featured-img{aspect-ratio:3/4;overflow:hidden;border:1px solid var(--border);pointer-events:none}
@@ -98,7 +96,6 @@ section{padding:80px 48px}
 .featured-genre{font-family:'Inter',sans-serif;font-size:.6rem;letter-spacing:.25em;text-transform:uppercase;color:var(--terra)}
 .featured-time{font-family:'Inter',sans-serif;font-size:.6rem;letter-spacing:.2em;color:var(--muted)}
 
-/* FILTER & SEARCH */
 .filter-tabs{display:flex;gap:8px;flex-wrap:wrap;margin-top:24px}
 .filter-tab{font-family:'Inter',sans-serif;font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;padding:7px 16px;border:1px solid var(--border);color:var(--muted);background:none;cursor:pointer;transition:all .3s}
 .filter-tab:hover{border-color:var(--terra);color:var(--terra)}
@@ -110,7 +107,6 @@ section{padding:80px 48px}
 .search-wrap svg{position:absolute;left:11px;top:50%;transform:translateY(-50%);opacity:.4;pointer-events:none}
 .results-count{font-family:'Inter',sans-serif;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
 
-/* WORKS GRID */
 .works-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:48px 36px;margin-top:32px}
 .work-card{display:block;text-decoration:none;color:inherit;cursor:pointer}
 .work-cover{aspect-ratio:3/4;overflow:hidden;background:var(--soft);position:relative;margin-bottom:18px;border:1px solid var(--border)}
@@ -136,13 +132,11 @@ section{padding:80px 48px}
 .work-card:hover .work-share{opacity:1}
 .share-btn{background:none;border:none;cursor:pointer;padding:2px 4px;color:var(--muted);font-size:.75rem;transition:color .3s}
 .share-btn:hover{color:var(--terra)}
-/* FIX: bookmark moved to bottom-left so it doesn't collide with badge-new at top-right */
 .work-bookmark{background:none;border:none;cursor:pointer;padding:2px 6px;color:rgba(245,239,224,.7);font-size:.85rem;transition:all .3s;position:absolute;bottom:10px;left:10px;z-index:2;text-shadow:0 1px 3px rgba(0,0,0,.4)}
 .work-bookmark:hover{color:var(--gold)}
 .work-bookmark.saved{color:var(--gold)}
 .works-empty{text-align:center;padding:80px;color:var(--muted);font-style:italic;font-size:1.1rem;grid-column:1/-1}
 
-/* SKELETON LOADERS */
 .skeleton-card{grid-column:span 1}
 .skeleton-cover{aspect-ratio:3/4;background:var(--soft);position:relative;margin-bottom:18px;border:1px solid var(--border);overflow:hidden}
 .skeleton-cover::after,.skeleton-line::after,.skeleton-meta::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent 0%,rgba(255,255,255,.12) 50%,transparent 100%);animation:shimmer 1.5s infinite}
@@ -150,7 +144,6 @@ section{padding:80px 48px}
 .skeleton-meta{height:10px;background:var(--soft);width:60%;position:relative;overflow:hidden;border-radius:2px}
 @keyframes shimmer{0%{transform:translateX(-100%)}100%{transform:translateX(100%)}}
 
-/* SERIES STRIP */
 .series-strip{background:var(--paper);border:1px solid var(--border);padding:20px 28px;margin-bottom:24px;display:flex;align-items:center;justify-content:space-between;gap:12px;cursor:pointer;transition:border-color .3s}
 .series-strip:hover{border-color:var(--terra)}
 .series-label{font-family:'Inter',sans-serif;font-size:.58rem;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);margin-bottom:4px}
@@ -158,7 +151,6 @@ section{padding:80px 48px}
 .series-count{font-family:'Inter',sans-serif;font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
 .series-arrow{color:var(--terra);font-size:1.2rem}
 
-/* DONATION */
 .donation-section{background:var(--earth);padding:80px 48px;text-align:center}
 body.dark .donation-section{background:#080503}
 .donation-inner{max-width:700px;margin:0 auto}
@@ -174,13 +166,12 @@ body.dark .donation-section{background:#080503}
 .donation-bank{font-family:'Inter',sans-serif;font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(245,239,224,.4);margin-bottom:6px}
 .donation-name{font-family:'Newsreader',serif;font-size:1.1rem;color:#F5EFE0;margin-bottom:6px}
 .donation-number{font-family:'DM Mono',monospace,monospace;font-size:1.4rem;color:var(--gold);letter-spacing:.15em;cursor:default;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
-/* FIX: copy badge stops propagation so parent div doesn't double-fire */
 .copy-badge{font-family:'Inter',sans-serif;font-size:.52rem;letter-spacing:.18em;text-transform:uppercase;background:rgba(212,160,48,.15);border:1px solid rgba(212,160,48,.3);color:var(--gold);padding:3px 8px;cursor:pointer;transition:all .3s;white-space:nowrap}
 .copy-badge:hover{background:var(--gold);color:var(--earth)}
 .donation-type{font-family:'Inter',sans-serif;font-size:.58rem;letter-spacing:.15em;color:rgba(245,239,224,.3);margin-top:4px}
 .donation-quote{font-family:'Newsreader',serif;font-size:1.1rem;font-style:italic;color:rgba(245,239,224,.4);border-top:1px solid rgba(245,239,224,.08);padding-top:32px;line-height:1.8}
 
-/* NEWSLETTER */
+/* FIX 11: Newsletter form — border fix for stacked layout */
 .newsletter-section{background:var(--indigo);padding:60px 48px}
 .newsletter-inner{max-width:600px;margin:0 auto;text-align:center}
 .newsletter-inner h3{font-family:'Newsreader',serif;font-weight:300;font-size:clamp(1.4rem,3vw,2rem);color:#F5EFE0;margin-bottom:10px}
@@ -189,11 +180,11 @@ body.dark .donation-section{background:#080503}
 .newsletter-form input{flex:1;background:rgba(245,239,224,.08);border:1px solid rgba(245,239,224,.2);color:#F5EFE0;padding:12px 16px;font-family:'Newsreader',serif;font-size:.95rem;outline:none;transition:border-color .3s}
 .newsletter-form input::placeholder{color:rgba(245,239,224,.3)}
 .newsletter-form input:focus{border-color:var(--terra)}
+.newsletter-form input+input{border-left:none}
 .newsletter-form button{background:var(--terra);color:#F5EFE0;border:none;padding:12px 24px;font-family:'Inter',sans-serif;font-size:.6rem;letter-spacing:.25em;text-transform:uppercase;cursor:pointer;transition:opacity .3s;white-space:nowrap}
 .newsletter-form button:hover{opacity:.85}
 .newsletter-msg{font-family:'Inter',sans-serif;font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;margin-top:12px;color:rgba(245,239,224,.6);display:none}
 
-/* PROVERBS */
 .proverbs-section{background:var(--earth);color:var(--bg)}
 body.dark .proverbs-section{background:#080503}
 .proverb-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:40px;margin-top:40px}
@@ -201,7 +192,6 @@ body.dark .proverbs-section{background:#080503}
 .proverb-hausa{font-size:1.1rem;font-style:italic;margin-bottom:6px}
 .proverb-english{font-family:'Inter',sans-serif;font-size:.65rem;letter-spacing:.25em;text-transform:uppercase;color:rgba(245,239,224,.4)}
 
-/* ABOUT */
 .about-strip{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;padding:80px 48px;background:var(--paper)}
 .about-img-wrap{position:relative}
 .about-img-wrap img{width:100%;aspect-ratio:4/5;object-fit:cover;display:block;border:1px solid var(--border)}
@@ -211,7 +201,6 @@ body.dark .proverbs-section{background:#080503}
 .about-text p.lead{color:var(--earth);font-size:1.1rem}
 .award-item{font-family:'Inter',sans-serif;font-size:.68rem;letter-spacing:.15em;color:var(--muted);margin-bottom:10px;padding-left:14px;border-left:2px solid var(--terra);line-height:1.5}
 
-/* CONTACT */
 .contact-section{background:var(--earth);color:var(--bg);padding:80px 48px}
 body.dark .contact-section{background:#080503}
 .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;margin-top:40px}
@@ -222,7 +211,6 @@ body.dark .contact-section{background:#080503}
 .social-link{display:flex;align-items:center;gap:8px;font-family:'Inter',sans-serif;font-size:.65rem;letter-spacing:.25em;text-transform:uppercase;color:rgba(245,239,224,.4);text-decoration:none;margin-bottom:12px;transition:color .3s}
 .social-link:hover{color:var(--terra)}
 
-/* FOOTER */
 footer{background:#110C05;color:var(--bg);padding:60px 48px 32px}
 .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:40px;margin-bottom:40px}
 .footer-brand{font-size:1.2rem;font-style:italic;margin-bottom:12px;display:flex;align-items:center;gap:8px}
@@ -234,7 +222,6 @@ footer{background:#110C05;color:var(--bg);padding:60px 48px 32px}
 .footer-bottom{border-top:1px solid rgba(245,239,224,.08);padding-top:24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
 .footer-bottom p{font-family:'Inter',sans-serif;font-size:.6rem;color:rgba(245,239,224,.3)}
 
-/* CHANGELOG */
 .changelog-section{background:var(--soft);padding:48px;border-top:1px solid var(--border)}
 .changelog-inner{max-width:640px;margin:0 auto}
 .changelog-list{margin-top:20px}
@@ -245,7 +232,6 @@ footer{background:#110C05;color:var(--bg);padding:60px 48px 32px}
 .changelog-title:hover{color:var(--terra)}
 .changelog-genre{font-family:'Inter',sans-serif;font-size:.55rem;letter-spacing:.2em;text-transform:uppercase;color:var(--terra);margin-top:3px}
 
-/* OVERLAYS */
 .overlay{position:fixed;inset:0;background:rgba(26,18,8,.75);z-index:300;display:none;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(4px)}
 .overlay.open{display:flex}
 .auth-box{background:var(--paper);border:1px solid var(--border);width:100%;max-width:420px;padding:48px;position:relative;max-height:90vh;overflow-y:auto}
@@ -263,7 +249,6 @@ footer{background:#110C05;color:var(--bg);padding:60px 48px 32px}
 .auth-close:hover{color:var(--terra)}
 .auth-err{color:#C0392B;font-family:'Inter',sans-serif;font-size:.65rem;margin-top:8px;display:none}
 
-/* PROFILE */
 .profile-box{background:var(--paper);border:1px solid var(--border);width:100%;max-width:480px;padding:48px;position:relative;max-height:90vh;overflow-y:auto}
 .profile-box h2{font-family:'Newsreader',serif;font-weight:300;font-size:1.5rem;margin-bottom:4px;color:var(--earth)}
 .profile-box .sub-tag{font-family:'Inter',sans-serif;font-size:.6rem;letter-spacing:.25em;text-transform:uppercase;color:var(--muted);margin-bottom:28px;display:block}
@@ -278,7 +263,6 @@ footer{background:#110C05;color:var(--bg);padding:60px 48px 32px}
 .profile-logout{display:block;width:100%;margin-top:20px;padding:10px;background:none;border:1px solid var(--border);color:var(--muted);font-family:'Inter',sans-serif;font-size:.6rem;letter-spacing:.25em;text-transform:uppercase;cursor:pointer;transition:all .3s}
 .profile-logout:hover{border-color:var(--terra);color:var(--terra)}
 
-/* READ MODAL */
 .read-modal{position:fixed;inset:0;z-index:200;background:var(--paper);overflow-y:auto;display:none;border-top:4px solid var(--terra)}
 .read-modal.open{display:block}
 .read-progress{position:fixed;top:4px;left:0;height:3px;background:var(--gold);width:0%;z-index:201;transition:width .1s}
@@ -294,7 +278,7 @@ footer{background:#110C05;color:var(--bg);padding:60px 48px 32px}
 .read-likes.liked{color:var(--terra)}
 .read-divider{height:1px;background:var(--border);margin:32px 0}
 
-/* FONT SIZE CONTROLS */
+/* FIX 7: font buttons — use data-size to avoid false matches */
 .read-toolbar{display:flex;align-items:center;gap:8px;margin-bottom:20px;padding:10px 14px;background:var(--soft);border:1px solid var(--border);flex-wrap:wrap}
 .read-toolbar-label{font-family:'Inter',sans-serif;font-size:.55rem;letter-spacing:.25em;text-transform:uppercase;color:var(--muted);margin-right:4px}
 .font-btn{background:none;border:1px solid var(--border);color:var(--muted);cursor:pointer;padding:4px 10px;font-family:'Newsreader',serif;transition:all .3s}
@@ -302,12 +286,10 @@ footer{background:#110C05;color:var(--bg);padding:60px 48px 32px}
 .font-btn.active{border-color:var(--terra);color:var(--terra);background:rgba(196,98,45,.08)}
 .read-toolbar-sep{width:1px;height:20px;background:var(--border);margin:0 4px}
 
-/* AUTHOR NOTE */
 .author-note{background:rgba(212,160,48,.06);border-left:3px solid var(--gold);padding:20px 24px;margin-bottom:32px;position:relative}
 .author-note-label{font-family:'Inter',sans-serif;font-size:.55rem;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);margin-bottom:8px}
 .author-note-text{font-style:italic;color:var(--muted);line-height:1.8;font-size:.95rem}
 
-/* TOC */
 .toc-box{background:var(--soft);border:1px solid var(--border);padding:20px 24px;margin-bottom:32px}
 .toc-label{font-family:'Inter',sans-serif;font-size:.55rem;letter-spacing:.28em;text-transform:uppercase;color:var(--muted);margin-bottom:12px}
 .toc-list{list-style:none}
@@ -315,7 +297,6 @@ footer{background:#110C05;color:var(--bg);padding:60px 48px 32px}
 .toc-list a{font-family:'Inter',sans-serif;font-size:.72rem;letter-spacing:.1em;color:var(--terra);text-decoration:none;transition:opacity .3s}
 .toc-list a:hover{opacity:.7}
 
-/* CONTINUE READING BANNER */
 .continue-banner{background:var(--indigo);color:#F5EFE0;padding:12px 20px;display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:20px;border-radius:2px}
 .continue-banner p{font-family:'Inter',sans-serif;font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(245,239,224,.75)}
 .continue-btn{background:var(--terra);color:#F5EFE0;border:none;padding:6px 14px;font-family:'Inter',sans-serif;font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;cursor:pointer;white-space:nowrap}
@@ -323,43 +304,42 @@ footer{background:#110C05;color:var(--bg);padding:60px 48px 32px}
 
 .read-content{font-size:var(--fs-body);line-height:2.1;color:var(--earth);font-family:'Newsreader',serif;white-space:pre-wrap}
 
-/* ========================================================
-   SUBSTACK-STYLE HIGHLIGHT SYSTEM — fully rebuilt
-   ======================================================== */
+/* =============================================
+   FIX 1,2,3,13: HIGHLIGHT TOOLBAR — rebuilt
+   - No overflow:hidden on toolbar
+   - Color picker is a SIBLING div, not a child
+   - Toolbar uses fixed positioning correctly
+   ============================================= */
 .read-content-wrap{position:relative}
-
-/* Highlighted passage marks (from other readers) */
 .hl-passage{background:rgba(212,160,48,.18);border-bottom:2px solid rgba(212,160,48,.5);cursor:pointer;position:relative;transition:background .2s}
 .hl-passage:hover{background:rgba(212,160,48,.28)}
 .hl-count{display:inline-flex;align-items:center;justify-content:center;background:var(--gold);color:var(--earth);font-family:'Inter',sans-serif;font-size:.5rem;font-weight:500;width:16px;height:16px;border-radius:50%;vertical-align:super;margin-left:2px;cursor:pointer}
 
-/* FIX: Floating toolbar — proper fixed positioning, appears above selection */
+/* FIX 13: toolbar has NO overflow:hidden so color row can extend below */
 .highlight-toolbar{
   position:fixed;
-  z-index:500;
+  z-index:9999;
   display:none;
   background:var(--earth);
-  border:1px solid rgba(245,239,224,.15);
-  padding:0;
-  border-radius:4px;
+  border:1px solid rgba(245,239,224,.2);
+  border-radius:4px 4px 0 0;
   align-items:stretch;
-  box-shadow:0 6px 24px rgba(0,0,0,.35);
-  overflow:hidden;
-  min-width:260px;
+  box-shadow:0 4px 20px rgba(0,0,0,.4);
+  min-width:240px;
+  /* NO overflow:hidden here — that was killing the color row */
 }
 .highlight-toolbar.visible{display:flex}
 
-/* Arrow pointing down */
+/* Arrow pointing down from main toolbar */
 .highlight-toolbar::after{
   content:'';
   position:absolute;
   bottom:-6px;
   left:50%;
-  transform:translateX(-50%);
   width:10px;height:10px;
   background:var(--earth);
-  border-right:1px solid rgba(245,239,224,.15);
-  border-bottom:1px solid rgba(245,239,224,.15);
+  border-right:1px solid rgba(245,239,224,.2);
+  border-bottom:1px solid rgba(245,239,224,.2);
   transform:translateX(-50%) rotate(45deg);
 }
 
@@ -367,14 +347,14 @@ footer{background:#110C05;color:var(--bg);padding:60px 48px 32px}
   flex:1;
   background:none;
   border:none;
-  border-right:1px solid rgba(245,239,224,.1);
+  border-right:1px solid rgba(245,239,224,.12);
   color:#F5EFE0;
   font-family:'Inter',sans-serif;
   font-size:.52rem;
   letter-spacing:.15em;
   text-transform:uppercase;
   cursor:pointer;
-  padding:11px 10px;
+  padding:11px 8px;
   transition:background .2s;
   white-space:nowrap;
   display:flex;
@@ -384,20 +364,34 @@ footer{background:#110C05;color:var(--bg);padding:60px 48px 32px}
   line-height:1.2;
 }
 .hl-tool-btn:last-child{border-right:none}
-.hl-tool-btn:hover{background:rgba(245,239,224,.1)}
+.hl-tool-btn:hover{background:rgba(245,239,224,.12)}
 .hl-tool-btn .hl-icon{font-size:1rem;display:block}
 
-/* Highlight color dots */
-.hl-colors{display:flex;align-items:center;gap:6px;padding:8px 12px;border-top:1px solid rgba(245,239,224,.1);background:rgba(0,0,0,.2)}
+/* FIX 2,13: color row is a SIBLING of .highlight-toolbar, same fixed position group */
+.hl-color-row{
+  position:fixed;
+  z-index:9999;
+  display:none;
+  background:rgba(0,0,0,.85);
+  border:1px solid rgba(245,239,224,.2);
+  border-top:none;
+  border-radius:0 0 4px 4px;
+  padding:8px 12px;
+  align-items:center;
+  gap:8px;
+  box-shadow:0 6px 16px rgba(0,0,0,.3);
+  min-width:240px;
+}
+.hl-color-row.visible{display:flex}
+.hl-color-label{font-family:'Inter',sans-serif;font-size:.48rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(245,239,224,.4);flex-shrink:0}
 .hl-dot{width:14px;height:14px;border-radius:50%;cursor:pointer;border:2px solid transparent;transition:transform .15s,border-color .15s;flex-shrink:0}
-.hl-dot:hover{transform:scale(1.25)}
+.hl-dot:hover{transform:scale(1.3)}
 .hl-dot.active{border-color:#fff}
 .hl-dot-gold{background:#D4A030}
 .hl-dot-terra{background:#C4622D}
 .hl-dot-indigo{background:#4a7ac4}
 .hl-dot-green{background:#2D6A4F}
 
-/* inline comment thread bubble */
 .inline-comment-thread{background:var(--paper);border:1px solid var(--border);padding:16px;margin:8px 0 8px 24px;border-left:3px solid var(--gold);position:relative}
 .inline-thread-label{font-family:'Inter',sans-serif;font-size:.55rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:8px}
 .inline-thread-passage{font-style:italic;font-size:.9rem;color:var(--muted);border-left:2px solid var(--border);padding-left:10px;margin-bottom:10px;line-height:1.6}
@@ -411,8 +405,7 @@ footer{background:#110C05;color:var(--bg);padding:60px 48px 32px}
 .inline-thread-close{position:absolute;top:10px;right:12px;background:none;border:none;color:var(--muted);cursor:pointer;font-size:.85rem}
 .inline-thread-close:hover{color:var(--terra)}
 
-/* QUOTE CARD OVERLAY */
-.quote-card-overlay{position:fixed;inset:0;background:rgba(26,18,8,.88);z-index:400;display:none;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(6px)}
+.quote-card-overlay{position:fixed;inset:0;background:rgba(26,18,8,.88);z-index:10000;display:none;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(6px)}
 .quote-card-overlay.open{display:flex}
 .quote-card-box{background:var(--paper);border:1px solid var(--border);max-width:480px;width:100%;padding:0;position:relative}
 .quote-card-preview{background:#F5EFE0;padding:48px 40px;text-align:center;position:relative;overflow:hidden}
@@ -429,29 +422,27 @@ footer{background:#110C05;color:var(--bg);padding:60px 48px 32px}
 .qca-btn.primary:hover{opacity:.85}
 .quote-card-close{position:absolute;top:12px;right:14px;background:none;border:none;color:rgba(26,18,8,.4);cursor:pointer;font-size:1rem;z-index:2}
 
-/* REACTIONS */
+/* FIX 4: reactions bar — starts visible now, toggles inside openWork */
 .reactions-bar{display:flex;gap:8px;align-items:center;margin:24px 0;flex-wrap:wrap}
 .reactions-label{font-family:'Inter',sans-serif;font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-right:4px}
 .reaction-btn{background:var(--soft);border:1px solid var(--border);color:var(--muted);font-family:'Inter',sans-serif;font-size:.62rem;letter-spacing:.1em;padding:7px 14px;cursor:pointer;transition:all .3s;display:flex;align-items:center;gap:5px}
-.reaction-btn:hover{border-color:var(--terra);color:var(--terra)}
+.reaction-btn:hover{border-color:var(--terra);color:var(--terra);background:rgba(196,98,45,.06)}
 .reaction-btn.reacted{background:rgba(196,98,45,.1);border-color:var(--terra);color:var(--terra)}
 .reaction-count{font-size:.55rem;background:var(--border);border-radius:99px;padding:1px 6px;color:var(--muted)}
 .reaction-btn.reacted .reaction-count{background:rgba(196,98,45,.2);color:var(--terra)}
 
-/* DONATE IN READ */
 .read-donate-nudge{margin-top:48px;padding:32px;background:rgba(212,160,48,.06);border:1px solid rgba(212,160,48,.2);text-align:center}
 .read-donate-nudge p{font-family:'Newsreader',serif;font-size:1.05rem;font-style:italic;color:var(--muted);margin-bottom:16px;line-height:1.7}
 .read-donate-btn{display:inline-flex;align-items:center;gap:8px;font-family:'Inter',sans-serif;font-size:.6rem;letter-spacing:.25em;text-transform:uppercase;padding:10px 22px;border:1px solid var(--gold);color:var(--gold);background:none;cursor:pointer;text-decoration:none;transition:all .3s}
 .read-donate-btn:hover{background:var(--gold);color:var(--earth)}
 
-/* SHARE */
 .read-share{margin-top:40px;padding-top:32px;border-top:1px solid var(--border)}
 .read-share p{font-family:'Inter',sans-serif;font-size:.6rem;letter-spacing:.25em;text-transform:uppercase;color:var(--muted);margin-bottom:16px}
 .share-buttons{display:flex;gap:10px;flex-wrap:wrap}
+/* FIX 5,9: share buttons use button not anchor to prevent default navigation */
 .share-button{display:inline-flex;align-items:center;gap:8px;font-family:'Inter',sans-serif;font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;padding:9px 16px;border:1px solid var(--border);color:var(--muted);background:none;cursor:pointer;text-decoration:none;transition:all .3s}
 .share-button:hover{border-color:var(--terra);color:var(--terra)}
 
-/* RELATED */
 .related-section{margin-top:48px;padding-top:40px;border-top:1px solid var(--border)}
 .related-title{font-family:'Newsreader',serif;font-weight:300;font-size:1.2rem;color:var(--earth);margin-bottom:20px}
 .related-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
@@ -463,7 +454,6 @@ footer{background:#110C05;color:var(--bg);padding:60px 48px 32px}
 .related-name{font-family:'Newsreader',serif;font-size:.95rem;color:var(--earth);line-height:1.3;transition:color .3s}
 .related-card:hover .related-name{color:var(--terra)}
 
-/* PREV/NEXT NAV */
 .read-nav{display:flex;justify-content:space-between;align-items:stretch;margin-top:48px;padding-top:32px;border-top:1px solid var(--border);gap:12px}
 .read-nav-btn{flex:1;padding:16px;border:1px solid var(--border);cursor:pointer;background:none;transition:border-color .3s;text-align:left;max-width:48%}
 .read-nav-btn:last-child{text-align:right}
@@ -472,13 +462,12 @@ footer{background:#110C05;color:var(--bg);padding:60px 48px 32px}
 .read-nav-title{font-family:'Newsreader',serif;font-size:.9rem;color:var(--earth);line-height:1.3;transition:color .3s}
 .read-nav-btn:hover .read-nav-title{color:var(--terra)}
 
-/* MOBILE BOTTOM BAR */
+/* FIX 8: mobile bar always block on mobile, shown/hidden via JS */
 .mobile-read-bar{display:none;position:fixed;bottom:0;left:0;right:0;z-index:220;background:var(--paper);border-top:1px solid var(--border);padding:10px 20px;gap:8px;justify-content:space-between;align-items:center}
 .mob-bar-btn{background:none;border:1px solid var(--border);color:var(--muted);padding:8px 14px;font-family:'Inter',sans-serif;font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;cursor:pointer;transition:all .3s;flex:1;text-align:center}
 .mob-bar-btn:hover{border-color:var(--terra);color:var(--terra)}
 .mob-bar-btn.liked{color:var(--terra);border-color:var(--terra)}
 
-/* COMMENTS */
 .comments-section{margin-top:48px;padding-top:40px;border-top:1px solid var(--border)}
 .comments-title{font-family:'Newsreader',serif;font-weight:300;font-size:1.4rem;color:var(--earth);margin-bottom:8px}
 .comments-count{font-family:'Inter',sans-serif;font-size:.6rem;letter-spacing:.25em;text-transform:uppercase;color:var(--muted);margin-bottom:28px}
@@ -499,7 +488,7 @@ footer{background:#110C05;color:var(--bg);padding:60px 48px 32px}
 .comments-empty{font-family:'Inter',sans-serif;font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);text-align:center;padding:32px}
 .comments-loading{font-family:'Inter',sans-serif;font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);text-align:center;padding:20px}
 
-.toast-stack{position:fixed;bottom:32px;right:32px;z-index:999;display:flex;flex-direction:column;gap:8px;pointer-events:none}
+.toast-stack{position:fixed;bottom:32px;right:32px;z-index:99999;display:flex;flex-direction:column;gap:8px;pointer-events:none}
 .toast-msg{background:var(--terra);color:var(--bg);padding:12px 20px;font-family:'Inter',sans-serif;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;transform:translateX(120px);opacity:0;transition:all .4s}
 .toast-msg.show{transform:translateX(0);opacity:1}
 
@@ -513,18 +502,20 @@ footer{background:#110C05;color:var(--bg);padding:60px 48px 32px}
   .hero-content{padding:0 20px 60px}.hero-rule{display:none}
   .about-strip,.contact-grid,.related-grid,.donation-accounts{grid-template-columns:1fr}
   .footer-grid{grid-template-columns:1fr}
-  .read-modal-inner{padding:60px 20px 100px}
+  .read-modal-inner{padding:60px 20px 120px}
   .read-close{top:14px;right:14px}
   .auth-box,.profile-box{padding:32px 24px}
   .featured-work{grid-template-columns:1fr}
+  /* FIX 11: mobile newsletter form — proper border handling when stacked */
   .newsletter-form{flex-direction:column}
-  .read-modal.open ~ .mobile-read-bar,.read-modal.open + * .mobile-read-bar{display:flex}
-  .mobile-read-bar{display:flex}
+  .newsletter-form input+input{border-left:1px solid rgba(245,239,224,.2);border-top:none}
   .related-grid{grid-template-columns:1fr 1fr}
   .read-nav{flex-direction:column}
   .read-nav-btn{max-width:100%}
   .changelog-section{padding:40px 20px}
-  .highlight-toolbar{min-width:220px}
+  .highlight-toolbar,.hl-color-row{min-width:200px}
+  /* FIX 8: always show mobile bar when read modal is open */
+  .read-modal.open ~ .mobile-read-bar{display:flex}
 }
 </style>
 </head>
@@ -553,7 +544,6 @@ footer{background:#110C05;color:var(--bg);padding:60px 48px 32px}
   </ul>
 </nav>
 
-<!-- HERO -->
 <section class="hero">
   <img class="hero-img" src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=1800&q=80" alt="Katsina"/>
   <div class="hero-overlay"></div><div class="hero-pattern"></div><div class="hero-rule"></div>
@@ -572,7 +562,6 @@ footer{background:#110C05;color:var(--bg);padding:60px 48px 32px}
   </div>
 </section>
 
-<!-- WORKS -->
 <section id="works" class="hausa-bg">
   <div class="section-tag"><div class="dash"></div><span>Ayyuka · Selected Works</span></div>
   <div class="hausa-divider" style="max-width:240px;margin:12px 0 0"><div class="line"></div><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 2L22 12L12 22L2 12Z" stroke="#C4622D" stroke-width="1" fill="none" opacity=".7"/><circle cx="12" cy="12" r="1.5" fill="#C4622D" opacity=".8"/></svg><div class="line"></div></div>
@@ -600,7 +589,6 @@ footer{background:#110C05;color:var(--bg);padding:60px 48px 32px}
   </div>
 </section>
 
-<!-- DONATION -->
 <div id="donate" class="donation-section">
   <div class="donation-inner">
     <span class="donation-jar-icon">🫙</span>
@@ -612,7 +600,6 @@ footer{background:#110C05;color:var(--bg);padding:60px 48px 32px}
         <div class="donation-bank">Access Bank Nigeria</div>
         <div class="donation-name">Haliru Ali Musa</div>
         <div class="donation-number">1959495813
-          <!-- FIX: stopPropagation so click doesn't bubble to parent and fire twice -->
           <span class="copy-badge" onclick="event.stopPropagation();copyAcct('1959495813','Dollar account')">Copy</span>
         </div>
         <div class="donation-type">DOM Savings Classic</div>
@@ -631,21 +618,19 @@ footer{background:#110C05;color:var(--bg);padding:60px 48px 32px}
   </div>
 </div>
 
-<!-- NEWSLETTER -->
 <div class="newsletter-section">
   <div class="newsletter-inner">
     <h3>Stay Connected</h3>
     <p>Get updates when new works are published — always free</p>
     <div class="newsletter-form">
       <input type="text" id="nl-name" placeholder="Your name"/>
-      <input type="email" id="nl-email" placeholder="Your email address" style="border-left:none"/>
+      <input type="email" id="nl-email" placeholder="Your email address"/>
       <button onclick="subscribeNewsletter()">Subscribe</button>
     </div>
     <p class="newsletter-msg" id="nl-msg"></p>
   </div>
 </div>
 
-<!-- PROVERBS -->
 <section class="proverbs-section">
   <div class="section-tag"><div class="dash" style="background:rgba(196,98,45,.5)"></div><span>Karin Magana · Hausa Proverbs</span></div>
   <div class="proverb-grid">
@@ -656,7 +641,6 @@ footer{background:#110C05;color:var(--bg);padding:60px 48px 32px}
   </div>
 </section>
 
-<!-- ABOUT -->
 <div id="about" class="about-strip">
   <div class="about-img-wrap">
     <img id="about-img" src="https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?w=800&q=80" alt="Katsina"/>
@@ -678,7 +662,6 @@ footer{background:#110C05;color:var(--bg);padding:60px 48px 32px}
   </div>
 </div>
 
-<!-- CHANGELOG -->
 <div class="changelog-section">
   <div class="changelog-inner">
     <div class="section-tag" style="margin-bottom:4px"><div class="dash"></div><span>What's New · Recent Publications</span></div>
@@ -688,7 +671,6 @@ footer{background:#110C05;color:var(--bg);padding:60px 48px 32px}
   </div>
 </div>
 
-<!-- CONTACT -->
 <section id="contact" class="contact-section">
   <div class="section-tag"><div class="dash" style="background:rgba(196,98,45,.5)"></div><span style="color:var(--terra)">Tuntuɓa · Get in Touch</span></div>
   <div class="contact-grid">
@@ -706,7 +688,6 @@ footer{background:#110C05;color:var(--bg);padding:60px 48px 32px}
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
   <div class="border-strip" style="margin-bottom:40px">
     <svg viewBox="0 0 480 12" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
@@ -797,40 +778,35 @@ footer{background:#110C05;color:var(--bg);padding:60px 48px 32px}
         <span id="like-heart">♡</span> <span id="like-count">0</span>
       </button>
     </div>
-    <!-- FONT SIZE + BOOKMARK TOOLBAR -->
-    <!-- FIX: setFontSize now receives `this` so it can identify the clicked button -->
+    <!-- FIX 7: data-size attrs so active state targets correctly -->
     <div class="read-toolbar">
       <span class="read-toolbar-label">Text size</span>
-      <button class="font-btn" onclick="setFontSize('sm',this)">A−</button>
-      <button class="font-btn active" onclick="setFontSize('md',this)">A</button>
-      <button class="font-btn" onclick="setFontSize('lg',this)">A+</button>
+      <button class="font-btn active" data-size="sm" onclick="setFontSize('sm',this)">A−</button>
+      <button class="font-btn" data-size="md" onclick="setFontSize('md',this)">A</button>
+      <button class="font-btn" data-size="lg" onclick="setFontSize('lg',this)">A+</button>
       <div class="read-toolbar-sep"></div>
       <button class="font-btn" id="bookmark-btn" onclick="toggleBookmark()" title="Save to reading list">🔖 Save</button>
       <div class="read-toolbar-sep"></div>
       <span class="read-toolbar-label" style="font-size:.52rem;color:var(--muted);font-style:italic">Select any text to highlight or share</span>
     </div>
-    <!-- CONTINUE READING BANNER -->
     <div class="continue-banner" id="continue-banner" style="display:none">
       <p>Continue where you left off?</p>
       <button class="continue-btn" id="continue-btn">Jump to my spot</button>
       <button class="continue-dismiss" onclick="document.getElementById('continue-banner').style.display='none'">✕</button>
     </div>
-    <!-- AUTHOR NOTE -->
     <div class="author-note" id="author-note" style="display:none">
       <div class="author-note-label">A note from the author</div>
       <p class="author-note-text" id="author-note-text"></p>
     </div>
-    <!-- TOC -->
     <div class="toc-box" id="toc-box" style="display:none">
       <div class="toc-label">In this piece</div>
       <ul class="toc-list" id="toc-list"></ul>
     </div>
     <div class="read-divider"></div>
-    <!-- CONTENT -->
     <div class="read-content-wrap" id="read-content-wrap">
       <div id="read-body"></div>
     </div>
-    <!-- REACTIONS -->
+    <!-- FIX 4: reactions bar visible by default, properly shown -->
     <div class="reactions-bar" id="reactions-bar">
       <span class="reactions-label">This piece was</span>
       <button class="reaction-btn" data-reaction="moved" onclick="toggleReaction(this)"><span>🥺</span> Moved <span class="reaction-count">0</span></button>
@@ -842,15 +818,15 @@ footer{background:#110C05;color:var(--bg);padding:60px 48px 32px}
       <p>If this work moved you, consider dropping something in the jar.<br>Every contribution keeps the writing going.</p>
       <a class="read-donate-btn" href="#donate" onclick="closeRead()">🫙 Support Haliru's Work</a>
     </div>
+    <!-- FIX 5,9: Share buttons are now <button> elements, share URLs set in openWork -->
     <div class="read-share" id="read-share" style="display:none">
       <p>Share this work</p>
       <div class="share-buttons">
-        <a class="share-button" id="share-wa" href="#" target="_blank">📱 WhatsApp</a>
-        <a class="share-button" id="share-tw" href="#" target="_blank">𝕏 Twitter</a>
+        <button class="share-button" id="share-wa" onclick="doShareWA()">📱 WhatsApp</button>
+        <button class="share-button" id="share-tw" onclick="doShareTW()">𝕏 Twitter</button>
         <button class="share-button" onclick="copyLink()">🔗 Copy Link</button>
       </div>
     </div>
-    <!-- PREV/NEXT NAV -->
     <div class="read-nav" id="read-nav" style="display:none">
       <button class="read-nav-btn" id="nav-prev" onclick="navWork('prev')" style="display:none">
         <div class="read-nav-dir">← Previous</div>
@@ -880,33 +856,34 @@ footer{background:#110C05;color:var(--bg);padding:60px 48px 32px}
   </div>
 </div>
 
-<!-- MOBILE BOTTOM BAR -->
-<div class="mobile-read-bar" id="mobile-read-bar" style="display:none">
+<!-- FIX 8: mobile bar — shown/hidden purely by JS, no inline display:none default -->
+<div class="mobile-read-bar" id="mobile-read-bar">
   <button class="mob-bar-btn" onclick="closeRead()">← Back</button>
   <button class="mob-bar-btn" id="mob-like-btn" onclick="toggleLike()">♡ Like</button>
   <button class="mob-bar-btn" onclick="copyLink()">🔗 Share</button>
   <button class="mob-bar-btn" id="mob-bookmark-btn" onclick="toggleBookmark()">🔖 Save</button>
 </div>
 
-<!-- HIGHLIGHT TOOLBAR — Substack-style: Comment | Share Quote | Highlight (with color picker) -->
+<!-- FIX 2,13: highlight toolbar — NO overflow:hidden. Color row is a SIBLING div outside the toolbar -->
 <div class="highlight-toolbar" id="highlight-toolbar">
-  <button class="hl-tool-btn" onclick="hlComment()">
+  <button class="hl-tool-btn" id="hl-btn-comment" onclick="hlComment()">
     <span class="hl-icon">💬</span>Comment
   </button>
-  <button class="hl-tool-btn" onclick="hlShare()">
+  <button class="hl-tool-btn" id="hl-btn-share" onclick="hlShare()">
     <span class="hl-icon">🖼</span>Share quote
   </button>
-  <button class="hl-tool-btn" onclick="hlHighlight(currentHlColor)">
+  <button class="hl-tool-btn" id="hl-btn-highlight" onclick="hlHighlight()">
     <span class="hl-icon">✦</span>Highlight
   </button>
-  <!-- Row 2: color dots, shown inside the same toolbar -->
-  <div style="position:absolute;bottom:-38px;left:0;right:0;background:var(--earth);border:1px solid rgba(245,239,224,.15);border-top:none;padding:8px 12px;display:flex;align-items:center;gap:8px;border-radius:0 0 4px 4px;box-shadow:0 6px 16px rgba(0,0,0,.25)" id="hl-color-row">
-    <span style="font-family:'Inter',sans-serif;font-size:.48rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(245,239,224,.4);flex-shrink:0">Color</span>
-    <span class="hl-dot hl-dot-gold active" onclick="setHlColor('rgba(212,160,48,.25)','rgba(212,160,48,.6)',this)" title="Gold"></span>
-    <span class="hl-dot hl-dot-terra" onclick="setHlColor('rgba(196,98,45,.2)','rgba(196,98,45,.6)',this)" title="Terra"></span>
-    <span class="hl-dot hl-dot-indigo" onclick="setHlColor('rgba(74,122,196,.2)','rgba(74,122,196,.6)',this)" title="Blue"></span>
-    <span class="hl-dot hl-dot-green" onclick="setHlColor('rgba(45,106,79,.2)','rgba(45,106,79,.6)',this)" title="Green"></span>
-  </div>
+</div>
+
+<!-- FIX 2,13: color row is SEPARATE from toolbar, positioned by JS -->
+<div class="hl-color-row" id="hl-color-row">
+  <span class="hl-color-label">Color</span>
+  <span class="hl-dot hl-dot-gold active" onclick="setHlColor('rgba(212,160,48,.3)','rgba(212,160,48,.7)',this)" title="Gold"></span>
+  <span class="hl-dot hl-dot-terra" onclick="setHlColor('rgba(196,98,45,.25)','rgba(196,98,45,.7)',this)" title="Terra"></span>
+  <span class="hl-dot hl-dot-indigo" onclick="setHlColor('rgba(74,122,196,.25)','rgba(74,122,196,.7)',this)" title="Blue"></span>
+  <span class="hl-dot hl-dot-green" onclick="setHlColor('rgba(45,106,79,.25)','rgba(45,106,79,.7)',this)" title="Green"></span>
 </div>
 
 <!-- QUOTE CARD OVERLAY -->
@@ -945,8 +922,7 @@ const BOOKMARKS='maru_bookmarks';
 const SAVED_SCROLL='maru_scroll';
 const REACTIONS_KEY='maru_reactions';
 
-// FIX: Contact email — loaded from settings; fallback used in sendMessage
-let CONTACT_EMAIL = 'haliruali@example.com';
+let CONTACT_EMAIL='haliruali@example.com';
 
 async function db(p,o={}){
   const r=await fetch(SB+'/rest/v1/'+p,{headers:{...H,...(o.headers||{})},...o});
@@ -976,8 +952,15 @@ function toggleDark(){
 }
 if(localStorage.getItem(DARK)){document.body.classList.add('dark');document.getElementById('dark-btn').textContent='☀️'}
 
-// COPY ACCOUNT — FIX: no onclick on parent div, only on badge (badge stops propagation)
-function copyAcct(num,label){navigator.clipboard.writeText(num).then(()=>showToast(label+' copied: '+num))}
+function copyAcct(num,label){
+  if(navigator.clipboard&&navigator.clipboard.writeText){
+    navigator.clipboard.writeText(num).then(()=>showToast(label+' copied: '+num)).catch(()=>{
+      const el=document.createElement('textarea');el.value=num;document.body.appendChild(el);el.select();document.execCommand('copy');document.body.removeChild(el);showToast(label+' copied: '+num);
+    });
+  } else {
+    const el=document.createElement('textarea');el.value=num;document.body.appendChild(el);el.select();document.execCommand('copy');document.body.removeChild(el);showToast(label+' copied: '+num);
+  }
+}
 
 // BOOKMARKS
 function getBookmarks(){return JSON.parse(localStorage.getItem(BOOKMARKS)||'[]')}
@@ -1001,50 +984,234 @@ function updateBookmarkUI(id){
   if(mob)mob.textContent=saved?'🔖 Saved':'🔖 Save';
 }
 
-// FONT SIZE — FIX: accept `el` param instead of using implicit `event`
+// FIX 7: font size — only target [data-size] buttons, not bookmark button
 const fontSizes={sm:'0.95rem',md:'1.15rem',lg:'1.35rem'};
-function setFontSize(size, el){
+function setFontSize(size,el){
   document.documentElement.style.setProperty('--fs-body',fontSizes[size]);
   localStorage.setItem('maru_fs',size);
-  document.querySelectorAll('.font-btn').forEach(b=>b.classList.remove('active'));
-  if(el) el.classList.add('active');
+  document.querySelectorAll('.font-btn[data-size]').forEach(b=>b.classList.remove('active'));
+  if(el)el.classList.add('active');
 }
 const savedFs=localStorage.getItem('maru_fs');
 if(savedFs){
   document.documentElement.style.setProperty('--fs-body',fontSizes[savedFs]||fontSizes.md);
-  // Re-mark active button after DOM ready
-  document.addEventListener('DOMContentLoaded',()=>{
-    document.querySelectorAll('.font-btn').forEach(b=>{
-      if((b.textContent==='A−'&&savedFs==='sm')||(b.textContent==='A'&&savedFs==='md')||(b.textContent==='A+'&&savedFs==='lg'))
-        b.classList.add('active');
-    });
-  });
 }
 
 let allWorks=[],activeFilter='all',currentWork=null,currentLiked=false;
-let selectedText='',selectedRange=null;
-let currentHlColor='rgba(212,160,48,.25)';
-let currentHlBorder='rgba(212,160,48,.6)';
 
-// FIX: AbortController so we never stack duplicate highlight listeners
-let hlAbortCtrl = null;
+// FIX 1,3,6: selectedText/Range saved BEFORE hiding toolbar
+let _pendingText='';
+let _pendingRange=null;
+let currentHlColor='rgba(212,160,48,.3)';
+let currentHlBorder='rgba(212,160,48,.7)';
 
-function setHlColor(bg, border, dotEl){
-  currentHlColor = bg;
-  currentHlBorder = border;
+// FIX 1: AbortController for highlight listeners
+let hlAbortCtrl=null;
+
+// FIX 2,13: position both toolbar and color row together
+function positionToolbar(rect){
+  const tb=document.getElementById('highlight-toolbar');
+  const cr=document.getElementById('hl-color-row');
+  const tbW=tb.offsetWidth||240;
+  const crH=cr.offsetHeight||34;
+  const left=Math.max(8,Math.min(rect.left+(rect.width/2)-(tbW/2),window.innerWidth-tbW-8));
+  const tbH=tb.offsetHeight||52;
+  // Place above selection; if too close to top place below
+  let top=rect.top-tbH-crH-8;
+  let colorTop;
+  if(top<8){
+    top=rect.bottom+8;
+    colorTop=top+tbH;
+  } else {
+    colorTop=rect.top-crH-6;
+  }
+  tb.style.top=top+'px';
+  tb.style.left=left+'px';
+  cr.style.top=colorTop+'px';
+  cr.style.left=left+'px';
+  cr.style.minWidth=tbW+'px';
+}
+
+function setHlColor(bg,border,dotEl){
+  currentHlColor=bg;
+  currentHlBorder=border;
   document.querySelectorAll('.hl-dot').forEach(d=>d.classList.remove('active'));
-  if(dotEl) dotEl.classList.add('active');
+  if(dotEl)dotEl.classList.add('active');
+}
+
+// FIX 1: attach listener to document (not a specific wrap element) so it works reliably after modal opens
+function setupHighlightToolbar(){
+  if(hlAbortCtrl){hlAbortCtrl.abort();}
+  hlAbortCtrl=new AbortController();
+  const signal=hlAbortCtrl.signal;
+  let hlTimer=null;
+
+  function onSelect(){
+    clearTimeout(hlTimer);
+    hlTimer=setTimeout(()=>{
+      const sel=window.getSelection();
+      // Only show if inside read content
+      if(!sel||sel.isCollapsed||!sel.rangeCount){hideHighlightToolbar();return;}
+      const text=sel.toString().trim();
+      if(text.length<8){hideHighlightToolbar();return;}
+      const wrap=document.getElementById('read-content-wrap');
+      if(!wrap){hideHighlightToolbar();return;}
+      // Check selection is within read content
+      const range=sel.getRangeAt(0);
+      if(!wrap.contains(range.commonAncestorContainer)){hideHighlightToolbar();return;}
+
+      // FIX 3,6: save text+range FIRST before any hide logic
+      _pendingText=text;
+      _pendingRange=range.cloneRange();
+
+      const rect=range.getBoundingClientRect();
+      const tb=document.getElementById('highlight-toolbar');
+      const cr=document.getElementById('hl-color-row');
+      // Make visible first to measure
+      tb.style.visibility='hidden';
+      cr.style.visibility='hidden';
+      tb.classList.add('visible');
+      cr.classList.add('visible');
+      requestAnimationFrame(()=>{
+        positionToolbar(rect);
+        tb.style.visibility='';
+        cr.style.visibility='';
+      });
+    },80);
+  }
+
+  document.addEventListener('mouseup',onSelect,{signal});
+  document.addEventListener('touchend',onSelect,{signal});
+
+  // Dismiss when clicking outside toolbar and color row
+  document.addEventListener('mousedown',function(e){
+    const tb=document.getElementById('highlight-toolbar');
+    const cr=document.getElementById('hl-color-row');
+    if(!tb.contains(e.target)&&!cr.contains(e.target)){
+      const wrap=document.getElementById('read-content-wrap');
+      if(wrap&&!wrap.contains(e.target)){
+        hideHighlightToolbar();
+      }
+    }
+  },{signal});
+}
+
+function hideHighlightToolbar(){
+  const tb=document.getElementById('highlight-toolbar');
+  const cr=document.getElementById('hl-color-row');
+  if(tb)tb.classList.remove('visible');
+  if(cr)cr.classList.remove('visible');
+  // Do NOT clear _pendingText/_pendingRange here — they are cleared after use
+}
+
+// FIX 6: use saved _pendingText/_pendingRange, hide toolbar AFTER extracting values
+function hlComment(){
+  const text=_pendingText;
+  const range=_pendingRange?_pendingRange.cloneRange():null;
+  _pendingText='';_pendingRange=null;
+  hideHighlightToolbar();
+  if(!text||!currentWork)return;
+  const sess=getS();
+  if(!sess){showToast('Sign in to comment on a passage');openAuth('login');return;}
+  insertInlineThread(text,range);
+}
+
+// FIX 3: use saved _pendingText BEFORE hiding toolbar
+function hlShare(){
+  const text=_pendingText;
+  _pendingText='';_pendingRange=null;
+  hideHighlightToolbar();
+  if(!text)return;
+  activeQuoteText=text.slice(0,280);
+  document.getElementById('quote-card-text').textContent=activeQuoteText;
+  document.getElementById('quote-card-byline').textContent=(currentWork?.title||'')+(currentWork?.title?' — ':'')+'Haliru Ali Musa';
+  document.getElementById('quote-card-overlay').classList.add('open');
+  window.getSelection().removeAllRanges();
+}
+
+function insertInlineThread(text,range){
+  const threadId='thread_'+Date.now();
+  const after=document.createElement('div');
+  after.className='inline-comment-thread';
+  after.id=threadId;
+  after.innerHTML=`<button class="inline-thread-close" onclick="document.getElementById('${threadId}').remove()">✕</button>
+    <div class="inline-thread-label">Comment on passage</div>
+    <div class="inline-thread-passage">${escapeHtml(text.slice(0,200))}${text.length>200?'…':''}</div>
+    <textarea class="inline-thread-input" id="inp_${threadId}" placeholder="Your thoughts on this passage…"></textarea>
+    <button class="inline-thread-submit" onclick="submitInlineComment('${threadId}','${escapeHtml(text.slice(0,300)).replace(/'/g,'&#39;')}')">Post →</button>`;
+  try{
+    if(range){
+      let el=range.endContainer.nodeType===3?range.endContainer.parentElement:range.endContainer;
+      let block=el;
+      while(block&&!['P','DIV','SECTION','ARTICLE','PRE'].includes(block.tagName)){block=block.parentElement;}
+      if(block&&block.parentNode){block.parentNode.insertBefore(after,block.nextSibling);}
+      else{document.getElementById('read-body').appendChild(after);}
+    } else {
+      document.getElementById('read-body').appendChild(after);
+    }
+    after.scrollIntoView({behavior:'smooth',block:'center'});
+    document.getElementById('inp_'+threadId).focus();
+  }catch(ex){document.getElementById('read-body').appendChild(after);}
+  window.getSelection().removeAllRanges();
+}
+
+async function submitInlineComment(threadId,passage){
+  const sess=getS();if(!sess||!currentWork)return;
+  const inp=document.getElementById('inp_'+threadId);
+  const body=inp?.value.trim();
+  if(!body){showToast('Write something first');return;}
+  try{
+    await db('comments',{method:'POST',body:JSON.stringify({work_id:currentWork.id,reader_id:sess.id,reader_name:sess.name,body,passage:passage.slice(0,300)})});
+    const el=document.getElementById(threadId);
+    if(el)el.innerHTML=`<div class="inline-thread-label">Comment posted ✓</div><div class="inline-thread-comment"><div class="inline-thread-author">${sess.name}</div><div class="inline-thread-body">${escapeHtml(body)}</div></div><button class="inline-thread-close" onclick="this.parentElement.remove()">✕</button>`;
+    showToast('Comment posted on this passage!');
+    await loadComments(currentWork.id);
+  }catch(e){showToast('Error posting comment')}
+}
+
+// FIX 12: safe highlight that handles cross-node selections
+function hlHighlight(){
+  const text=_pendingText;
+  const range=_pendingRange?_pendingRange.cloneRange():null;
+  _pendingText='';_pendingRange=null;
+  hideHighlightToolbar();
+  if(!text||!currentWork||!range)return;
+  const fp=getFP();
+  const bg=currentHlColor;
+  const border=currentHlBorder;
+
+  // Save to DB
+  db('highlights',{method:'POST',body:JSON.stringify({work_id:currentWork.id,fingerprint:fp,passage:text.slice(0,500),color:bg})})
+    .then(()=>showToast('Passage highlighted ✦'))
+    .catch(()=>showToast('Highlighted locally ✦'));
+
+  // FIX 12: safe DOM highlight — try surroundContents first, fall back to extractContents+wrap
+  try{
+    const span=document.createElement('mark');
+    span.style.cssText=`background:${bg};border-bottom:2px solid ${border};padding:0 1px;border-radius:0;font-style:inherit;font-weight:inherit`;
+    span.title=text.slice(0,60);
+    try{
+      // surroundContents only works for single-node ranges
+      range.surroundContents(span);
+    }catch(e1){
+      // Cross-node range: extractContents wraps all nodes safely
+      const fragment=range.extractContents();
+      span.appendChild(fragment);
+      range.insertNode(span);
+    }
+    window.getSelection().removeAllRanges();
+  }catch(e){
+    window.getSelection().removeAllRanges();
+  }
 }
 
 async function loadWorks(){
   try{
     allWorks=await db('works?select=*&status=eq.published&order=created_at.desc');
     renderFeatured();renderGrid();renderSeriesStrip();renderChangelog();
-    // start here button
     const featured=allWorks.find(w=>w.featured)||allWorks[0];
     if(featured){document.getElementById('start-here-btn').onclick=()=>openWork(featured.id)}
     if(localStorage.getItem('maru_seen'))document.getElementById('start-here-strip').style.display='none';
-    // Route after works loaded
     checkHashRoute();
   }catch(e){document.getElementById('works-grid').innerHTML='<div class="works-empty">Could not load library. Please refresh.</div>'}
 }
@@ -1066,6 +1233,7 @@ document.addEventListener('keydown',e=>{
     if(document.getElementById('read-modal').classList.contains('open')){closeRead();return}
     if(document.getElementById('auth-overlay').classList.contains('open')){closeAuth();return}
     if(document.getElementById('profile-overlay').classList.contains('open')){closeProfile();return}
+    hideHighlightToolbar();
   }
 });
 function handleBrandClick(e){e.preventDefault();if(document.getElementById('read-modal').classList.contains('open'))closeRead();window.scrollTo({top:0,behavior:'smooth'})}
@@ -1088,7 +1256,6 @@ function renderFeatured(){
   const f=allWorks.find(w=>w.featured);
   const fc=document.getElementById('featured-container');
   if(!f){fc.innerHTML='';return}
-  // FIX: all child elements have pointer-events:none so the parent div click always fires
   fc.innerHTML=`<div class="featured-work" onclick="openWork('${f.id}')">
     <div class="featured-img"><img src="${f.img||'https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=600&q=80'}" alt="${f.title}" loading="lazy"/></div>
     <div>
@@ -1173,7 +1340,13 @@ function setFilter(f,el){
   renderGrid();
 }
 
-// ===================== OPEN WORK =====================
+// Share URL state — populated in openWork
+let _shareWAUrl='';
+let _shareTWUrl='';
+// FIX 5,9: share via JS functions, no anchor hrefs that navigate on early click
+function doShareWA(){if(_shareWAUrl)window.open(_shareWAUrl,'_blank');else showToast('Loading…');}
+function doShareTW(){if(_shareTWUrl)window.open(_shareTWUrl,'_blank');else showToast('Loading…');}
+
 async function openWork(id){
   const modal=document.getElementById('read-modal');
   try{
@@ -1186,7 +1359,6 @@ async function openWork(id){
     document.getElementById('read-progress').style.width='0%';
     if(location.hash!=='#work-'+id)history.pushState(null,'','#work-'+id);
 
-    // Reading history
     const sess=getS();
     if(sess){
       try{await db('reading_history',{method:'POST',headers:{'Prefer':'resolution=merge-duplicates'},body:JSON.stringify({reader_id:sess.id,work_id:id,last_read:new Date().toISOString()})})}catch(e){}
@@ -1197,7 +1369,6 @@ async function openWork(id){
     document.getElementById('read-date').textContent=w.date?new Date(w.date).toLocaleDateString('en-NG',{year:'numeric',month:'long',day:'numeric'}):'';
     document.getElementById('read-time').textContent='⏱ '+readTime(w.content);
 
-    // Likes
     const fp=getFP();
     currentLiked=likes.some(l=>l.fingerprint===fp);
     document.getElementById('like-count').textContent=likes.length;
@@ -1206,33 +1377,27 @@ async function openWork(id){
     const mobLike=document.getElementById('mob-like-btn');
     if(mobLike){mobLike.textContent=(currentLiked?'♥':'♡')+' Like';mobLike.classList.toggle('liked',currentLiked)}
 
-    // Author note
     const noteEl=document.getElementById('author-note');
     if(w.author_note){document.getElementById('author-note-text').textContent=w.author_note;noteEl.style.display='block'}
     else noteEl.style.display='none';
 
-    // Content
     const content=w.content||'Content coming soon.';
     document.getElementById('read-body').innerHTML=`<div class="read-content" id="read-content-text">${escapeHtml(content)}</div>`;
 
-    // TOC
     buildTOC(content);
-
-    // Inline highlights from DB
     loadInlineHighlights(id);
 
-    // Donate nudge + share
     document.getElementById('read-donate-nudge').style.display='block';
     document.getElementById('read-share').style.display='block';
+
+    // FIX 5,9: populate share URLs in JS variables, not anchor hrefs
     const url=encodeURIComponent(workUrl(id));
     const title=encodeURIComponent(w.title+' — Marubuci by Haliru Ali Musa');
-    document.getElementById('share-wa').href=`https://wa.me/?text=${title}%20${url}`;
-    document.getElementById('share-tw').href=`https://twitter.com/intent/tweet?text=${title}&url=${url}`;
+    _shareWAUrl=`https://wa.me/?text=${title}%20${url}`;
+    _shareTWUrl=`https://twitter.com/intent/tweet?text=${title}&url=${url}`;
 
-    // Prev/Next
     buildPrevNext(id);
 
-    // Related
     const related=allWorks.filter(x=>x.id!==id&&(x.genre||'')===(w.genre||'')).slice(0,3);
     const rs=document.getElementById('related-section');
     if(related.length){
@@ -1240,30 +1405,34 @@ async function openWork(id){
       document.getElementById('related-grid').innerHTML=related.map(r=>`<div class="related-card" onclick="openWork('${r.id}')"><div class="related-cover"><img src="${r.img||'https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=300&q=80'}" alt="${r.title}" loading="lazy"/></div><div class="related-genre">${r.genre||''}</div><div class="related-name">${r.title}</div></div>`).join('');
     }else rs.style.display='none';
 
-    // Comments
     document.getElementById('comments-section').style.display='block';
     loadComments(id);updateCommentForm();
 
-    // Reactions
+    // FIX 4: always load reactions and make bar visible
+    document.getElementById('reactions-bar').style.display='flex';
     loadReactions(id);
 
-    // Bookmark UI
     updateBookmarkUI(id);
 
     modal.classList.add('open');modal.scrollTop=0;document.body.style.overflow='hidden';
 
-    // Mobile bar
-    if(window.innerWidth<=768)document.getElementById('mobile-read-bar').style.display='flex';
+    // FIX 8: show mobile bar unconditionally when modal opens
+    document.getElementById('mobile-read-bar').style.display='flex';
+
+    // FIX 1: setup highlight AFTER modal is open and rendered
+    requestAnimationFrame(()=>{
+      requestAnimationFrame(()=>{
+        setupHighlightToolbar();
+      });
+    });
 
     modal.onscroll=function(){
       const prog=(modal.scrollTop/(modal.scrollHeight-modal.clientHeight))*100;
       document.getElementById('read-progress').style.width=Math.min(100,prog)+'%';
       if(currentWork)localStorage.setItem(SAVED_SCROLL+'_'+currentWork.id,modal.scrollTop);
-      // FIX: dismiss highlight toolbar on scroll
       hideHighlightToolbar();
     };
 
-    // Continue reading
     setTimeout(()=>{
       const savedScroll=parseInt(localStorage.getItem(SAVED_SCROLL+'_'+id)||'0');
       if(savedScroll>300){
@@ -1276,14 +1445,17 @@ async function openWork(id){
       }
     },400);
 
-    // FIX: Tear down any previous highlight listener before adding a new one
-    setupHighlightToolbar();
+    // FIX 7: restore correct active font button
+    const fs=localStorage.getItem('maru_fs')||'sm';
+    document.querySelectorAll('.font-btn[data-size]').forEach(b=>{
+      b.classList.toggle('active',b.dataset.size===fs);
+    });
+
   }catch(e){console.error(e)}
 }
 
-function escapeHtml(t){return t.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
+function escapeHtml(t){return(t||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
 
-// TOC
 function buildTOC(content){
   const lines=content.split('\n');
   const headings=lines.filter(l=>l.startsWith('##')).map(l=>l.replace(/^#+\s*/,''));
@@ -1306,7 +1478,6 @@ function scrollToHeading(encoded){
   }
 }
 
-// PREV/NEXT
 function buildPrevNext(id){
   const idx=allWorks.findIndex(w=>w.id===id);
   const navEl=document.getElementById('read-nav');
@@ -1335,219 +1506,14 @@ function closeRead(){
   document.getElementById('read-modal').classList.remove('open');
   document.body.style.overflow='';
   document.getElementById('read-progress').style.width='0%';
+  // FIX 8: always hide mobile bar on close
   document.getElementById('mobile-read-bar').style.display='none';
   hideHighlightToolbar();
-  // FIX: Abort the highlight listener so it doesn't persist after modal closes
   if(hlAbortCtrl){hlAbortCtrl.abort();hlAbortCtrl=null;}
   history.pushState(null,'',location.pathname+location.search);
 }
 
-// ========================================================
-// HIGHLIGHT SYSTEM — fully rebuilt, Substack-style
-// ========================================================
-
-// FIX: Use AbortController so each openWork() gets a fresh, single listener
-function setupHighlightToolbar(){
-  // Abort any previous listener
-  if(hlAbortCtrl){hlAbortCtrl.abort();}
-  hlAbortCtrl = new AbortController();
-  const signal = hlAbortCtrl.signal;
-
-  const wrap = document.getElementById('read-content-wrap');
-  if(!wrap) return;
-
-  let hlTimer = null;
-
-  function onSelect(e){
-    clearTimeout(hlTimer);
-    hlTimer = setTimeout(()=>{
-      const sel = window.getSelection();
-      if(!sel || sel.isCollapsed || !sel.rangeCount){
-        hideHighlightToolbar();
-        return;
-      }
-      const text = sel.toString().trim();
-      if(text.length < 8){
-        hideHighlightToolbar();
-        return;
-      }
-      selectedText = text;
-      selectedRange = sel.getRangeAt(0).cloneRange();
-
-      // FIX: Position toolbar above the selection using viewport coords (fixed positioning)
-      const rect = sel.getRangeAt(0).getBoundingClientRect();
-      const tb = document.getElementById('highlight-toolbar');
-      // Make visible first to measure width
-      tb.style.visibility = 'hidden';
-      tb.classList.add('visible');
-      const tbW = tb.offsetWidth || 280;
-      // Place above selection, centred on it
-      const left = Math.max(8, Math.min(rect.left + (rect.width/2) - (tbW/2), window.innerWidth - tbW - 8));
-      // Place above selection with 8px gap; if too close to top, place below
-      let top = rect.top - 58;
-      if(top < 8) top = rect.bottom + 8;
-      tb.style.top = top + 'px';
-      tb.style.left = left + 'px';
-      tb.style.visibility = '';
-    }, 100);
-  }
-
-  wrap.addEventListener('mouseup', onSelect, {signal});
-  wrap.addEventListener('touchend', onSelect, {signal});
-
-  // Dismiss when clicking outside toolbar and content
-  document.addEventListener('mousedown', function onDown(e){
-    const tb = document.getElementById('highlight-toolbar');
-    if(!tb.contains(e.target) && !wrap.contains(e.target)){
-      hideHighlightToolbar();
-    }
-  }, {signal});
-}
-
-function hideHighlightToolbar(){
-  const tb = document.getElementById('highlight-toolbar');
-  if(tb) tb.classList.remove('visible');
-  selectedText = '';
-  selectedRange = null;
-}
-
-// COMMENT on selected passage
-function hlComment(){
-  const text = selectedText;
-  const range = selectedRange;
-  hideHighlightToolbar();
-  if(!text || !currentWork) return;
-  const sess = getS();
-  if(!sess){showToast('Sign in to comment on a passage');openAuth('login');return;}
-  insertInlineThread(text, range);
-}
-
-function insertInlineThread(text, range){
-  if(!range) return;
-  const threadId = 'thread_'+Date.now();
-  const after = document.createElement('div');
-  after.className = 'inline-comment-thread';
-  after.id = threadId;
-  after.innerHTML = `
-    <button class="inline-thread-close" onclick="document.getElementById('${threadId}').remove()">✕</button>
-    <div class="inline-thread-label">Comment on passage</div>
-    <div class="inline-thread-passage">${escapeHtml(text.slice(0,200))}${text.length>200?'…':''}</div>
-    <textarea class="inline-thread-input" id="inp_${threadId}" placeholder="Your thoughts on this passage…"></textarea>
-    <button class="inline-thread-submit" onclick="submitInlineComment('${threadId}','${escapeHtml(text.slice(0,300)).replace(/'/g,'&#39;')}')">Post →</button>`;
-  try{
-    const el = range.endContainer.nodeType===3 ? range.endContainer.parentElement : range.endContainer;
-    // Walk up to a block element
-    let block = el;
-    while(block && !['P','DIV','SECTION','ARTICLE','PRE'].includes(block.tagName)){
-      block = block.parentElement;
-    }
-    if(block && block.parentNode){
-      block.parentNode.insertBefore(after, block.nextSibling);
-    } else {
-      document.getElementById('read-body').appendChild(after);
-    }
-    after.scrollIntoView({behavior:'smooth',block:'center'});
-    document.getElementById('inp_'+threadId).focus();
-  }catch(ex){
-    document.getElementById('read-body').appendChild(after);
-  }
-  window.getSelection().removeAllRanges();
-}
-
-async function submitInlineComment(threadId, passage){
-  const sess = getS(); if(!sess||!currentWork) return;
-  const inp = document.getElementById('inp_'+threadId);
-  const body = inp?.value.trim();
-  if(!body){showToast('Write something first');return;}
-  try{
-    await db('comments',{method:'POST',body:JSON.stringify({work_id:currentWork.id,reader_id:sess.id,reader_name:sess.name,body,passage:passage.slice(0,300)})});
-    const el = document.getElementById(threadId);
-    if(el) el.innerHTML=`<div class="inline-thread-label">Comment posted ✓</div><div class="inline-thread-comment"><div class="inline-thread-author">${sess.name}</div><div class="inline-thread-body">${escapeHtml(body)}</div></div><button class="inline-thread-close" onclick="this.parentElement.remove()">✕</button>`;
-    showToast('Comment posted on this passage!');
-    await loadComments(currentWork.id);
-  }catch(e){showToast('Error posting comment')}
-}
-
-// HIGHLIGHT — save colour to DB; FIX: use extractContents/insertNode to handle multi-node ranges
-async function hlHighlight(bgColor){
-  const text = selectedText;
-  const range = selectedRange ? selectedRange.cloneRange() : null;
-  hideHighlightToolbar();
-  if(!text || !currentWork || !range) return;
-  const fp = getFP();
-  const bg = bgColor || currentHlColor;
-  const border = currentHlBorder;
-  try{
-    await db('highlights',{method:'POST',body:JSON.stringify({work_id:currentWork.id,fingerprint:fp,passage:text.slice(0,500),color:bg})});
-    showToast('Passage highlighted ✦');
-    // FIX: wrap selection safely without surroundContents (which throws on multi-node ranges)
-    try{
-      const span = document.createElement('mark');
-      span.style.cssText = `background:${bg};border-bottom:2px solid ${border};padding:0;border-radius:0`;
-      // extractContents then wrap works even across nodes
-      const fragment = range.extractContents();
-      span.appendChild(fragment);
-      range.insertNode(span);
-      // Collapse selection to avoid visual artefacts
-      window.getSelection().removeAllRanges();
-    }catch(ex){
-      // If DOM manipulation fails (e.g. inside pre/code), just clear selection
-      window.getSelection().removeAllRanges();
-    }
-  }catch(e){showToast('Could not save highlight')}
-}
-
-// QUOTE CARD
-let activeQuoteText='';
-function hlShare(){
-  const text = selectedText;
-  hideHighlightToolbar();
-  if(!text) return;
-  activeQuoteText = text.slice(0,280);
-  document.getElementById('quote-card-text').textContent = activeQuoteText;
-  document.getElementById('quote-card-byline').textContent = (currentWork?.title||'')+(currentWork?.title?' — ':'')+' Haliru Ali Musa';
-  document.getElementById('quote-card-overlay').classList.add('open');
-  window.getSelection().removeAllRanges();
-}
-function getQuoteShareText(){
-  return `"${activeQuoteText}" — ${currentWork?.title||''} by Haliru Ali Musa\n${workUrl(currentWork?.id||'')}`;
-}
-function shareQuoteWA(){window.open('https://wa.me/?text='+encodeURIComponent(getQuoteShareText()),'_blank')}
-function shareQuoteTW(){
-  const t=encodeURIComponent('"'+activeQuoteText.slice(0,200)+'" — '+(currentWork?.title||'')+' by Haliru Ali Musa');
-  const u=encodeURIComponent(workUrl(currentWork?.id||''));
-  window.open('https://twitter.com/intent/tweet?text='+t+'&url='+u,'_blank');
-}
-function copyQuoteLink(){
-  navigator.clipboard.writeText(getQuoteShareText()).then(()=>showToast('Quote + link copied!'));
-}
-function downloadQuoteCard(){
-  const canvas=document.getElementById('quote-canvas');
-  const ctx=canvas.getContext('2d');
-  const W=900,H=540;
-  ctx.clearRect(0,0,W,H);
-  ctx.fillStyle='#F5EFE0';ctx.fillRect(0,0,W,H);
-  ctx.strokeStyle='rgba(196,98,45,0.06)';ctx.lineWidth=0.8;
-  for(let x=0;x<W;x+=60){for(let y=0;y<H;y+=60){ctx.beginPath();ctx.moveTo(x+30,y);ctx.lineTo(x+60,y+30);ctx.lineTo(x+30,y+60);ctx.lineTo(x,y+30);ctx.closePath();ctx.stroke()}}
-  ctx.strokeStyle='rgba(196,98,45,0.2)';ctx.lineWidth=1;ctx.strokeRect(20,20,W-40,H-40);
-  ctx.fillStyle='#C4622D';ctx.fillRect(20,20,W-40,3);
-  ctx.fillStyle='rgba(196,98,45,0.5)';ctx.font='bold 72px Georgia,serif';ctx.fillText('"',60,120);
-  ctx.fillStyle='#1A1208';ctx.font='italic 28px Georgia,serif';
-  const words=activeQuoteText.split(' ');let line='';let y=160;const maxW=W-140;
-  words.forEach(word=>{
-    const test=line+(line?' ':'')+word;
-    if(ctx.measureText(test).width>maxW&&line){ctx.fillText(line,70,y);y+=44;line=word}
-    else line=test;
-  });
-  if(line)ctx.fillText(line,70,y);y+=60;
-  ctx.fillStyle='rgba(26,18,8,0.45)';ctx.font='400 14px sans-serif';
-  ctx.fillText((currentWork?.title||'')+(currentWork?.title?' — ':'')+' Haliru Ali Musa',70,y);
-  ctx.fillStyle='rgba(196,98,45,0.6)';ctx.font='italic 18px Georgia,serif';ctx.fillText('Marubuci',W-150,H-30);
-  const a=document.createElement('a');a.download='quote-marubuci.png';a.href=canvas.toDataURL('image/png');a.click();
-  showToast('Quote card downloaded!');
-}
-
-// REACTIONS
+// REACTIONS — FIX 4: loadReactions sets display, buttons are always in DOM
 async function loadReactions(workId){
   const stored=JSON.parse(localStorage.getItem(REACTIONS_KEY)||'{}');
   const myReactions=stored[workId]||[];
@@ -1560,39 +1526,76 @@ async function loadReactions(workId){
       btn.querySelector('.reaction-count').textContent=counts[r]||0;
       btn.classList.toggle('reacted',myReactions.includes(r));
     });
-  }catch(e){}
+  }catch(e){
+    // Still show counts as 0 even if DB fails — buttons still clickable
+    document.querySelectorAll('.reaction-btn').forEach(btn=>{
+      btn.querySelector('.reaction-count').textContent='0';
+      btn.classList.toggle('reacted',myReactions.includes(btn.dataset.reaction));
+    });
+  }
 }
+
 async function toggleReaction(btn){
   if(!currentWork)return;
   const r=btn.dataset.reaction;const workId=currentWork.id;const fp=getFP();
   const stored=JSON.parse(localStorage.getItem(REACTIONS_KEY)||'{}');
   const myReactions=stored[workId]||[];
   const already=myReactions.includes(r);
+
+  // Optimistic UI update
+  const countEl=btn.querySelector('.reaction-count');
+  const currentCount=parseInt(countEl.textContent)||0;
+  if(already){
+    btn.classList.remove('reacted');
+    countEl.textContent=Math.max(0,currentCount-1);
+    stored[workId]=myReactions.filter(x=>x!==r);
+  } else {
+    btn.classList.add('reacted');
+    countEl.textContent=currentCount+1;
+    stored[workId]=[...myReactions,r];
+  }
+  localStorage.setItem(REACTIONS_KEY,JSON.stringify(stored));
+
   try{
-    if(already){await db('reactions?work_id=eq.'+workId+'&fingerprint=eq.'+fp+'&reaction=eq.'+r,{method:'DELETE'});stored[workId]=myReactions.filter(x=>x!==r)}
-    else{await db('reactions',{method:'POST',body:JSON.stringify({work_id:workId,fingerprint:fp,reaction:r})});stored[workId]=[...myReactions,r]}
+    if(already){await db('reactions?work_id=eq.'+workId+'&fingerprint=eq.'+fp+'&reaction=eq.'+r,{method:'DELETE'});}
+    else{await db('reactions',{method:'POST',body:JSON.stringify({work_id:workId,fingerprint:fp,reaction:r})});}
+  }catch(e){
+    // Revert on failure
+    if(already){btn.classList.add('reacted');countEl.textContent=currentCount;}
+    else{btn.classList.remove('reacted');countEl.textContent=Math.max(0,currentCount);}
+    stored[workId]=myReactions;
     localStorage.setItem(REACTIONS_KEY,JSON.stringify(stored));
-    await loadReactions(workId);
-  }catch(e){}
+  }
 }
 
-// LIKES
 async function toggleLike(){
   if(!currentWork)return;
   const fp=getFP();const id=currentWork.id;
+  // Optimistic update
+  const heartEl=document.getElementById('like-heart');
+  const countEl=document.getElementById('like-count');
+  const btn=document.getElementById('like-btn');
+  const mob=document.getElementById('mob-like-btn');
+  const prevCount=parseInt(countEl.textContent)||0;
+  const wasLiked=currentLiked;
+  currentLiked=!wasLiked;
+  heartEl.textContent=currentLiked?'♥':'♡';
+  countEl.textContent=currentLiked?prevCount+1:Math.max(0,prevCount-1);
+  btn.classList.toggle('liked',currentLiked);
+  if(mob){mob.textContent=(currentLiked?'♥':'♡')+' Like';mob.classList.toggle('liked',currentLiked)}
   try{
-    if(currentLiked){await db('likes?work_id=eq.'+id+'&fingerprint=eq.'+fp,{method:'DELETE'});currentLiked=false}
-    else{await db('likes',{method:'POST',body:JSON.stringify({work_id:id,fingerprint:fp})});currentLiked=true}
-    const likes=await db('likes?work_id=eq.'+id);
-    document.getElementById('like-count').textContent=likes.length;
-    document.getElementById('like-heart').textContent=currentLiked?'♥':'♡';
-    document.getElementById('like-btn').classList.toggle('liked',currentLiked);
-    const mob=document.getElementById('mob-like-btn');
-    if(mob){mob.textContent=(currentLiked?'♥':'♡')+' Like';mob.classList.toggle('liked',currentLiked)}
-  }catch(e){}
+    if(wasLiked){await db('likes?work_id=eq.'+id+'&fingerprint=eq.'+fp,{method:'DELETE'});}
+    else{await db('likes',{method:'POST',body:JSON.stringify({work_id:id,fingerprint:fp})});}
+  }catch(e){
+    // Revert
+    currentLiked=wasLiked;
+    heartEl.textContent=wasLiked?'♥':'♡';
+    countEl.textContent=prevCount;
+    btn.classList.toggle('liked',wasLiked);
+    if(mob){mob.textContent=(wasLiked?'♥':'♡')+' Like';mob.classList.toggle('liked',wasLiked)}
+  }
 }
 
-// COMMENTS
 async function loadComments(workId){
   document.getElementById('comments-list').innerHTML='<div class="comments-loading">Loading…</div>';
   try{
@@ -1626,7 +1629,6 @@ async function submitComment(){
   }catch(e){showToast('Error posting comment')}
 }
 
-// INLINE HIGHLIGHTS from DB
 async function loadInlineHighlights(workId){
   try{
     const rows=await db('highlights?work_id=eq.'+workId);
@@ -1665,20 +1667,85 @@ function highlightPassageInDOM(container,passage,count,color){
       parent.insertBefore(badge,node);
       parent.insertBefore(after,node);
       parent.removeChild(node);
-      break; // Only highlight first occurrence
+      break;
     }
   }
 }
 
-// SHARE
+// FIX 10: copyLink with fallback
+function copyLink(){
+  if(!currentWork)return;
+  const url=workUrl(currentWork.id);
+  if(navigator.clipboard&&navigator.clipboard.writeText){
+    navigator.clipboard.writeText(url).then(()=>showToast('Link copied!')).catch(()=>{
+      const el=document.createElement('textarea');el.value=url;document.body.appendChild(el);el.select();document.execCommand('copy');document.body.removeChild(el);showToast('Link copied!');
+    });
+  } else {
+    const el=document.createElement('textarea');el.value=url;document.body.appendChild(el);el.select();document.execCommand('copy');document.body.removeChild(el);showToast('Link copied!');
+  }
+}
+
 function shareQuick(id,title,p){
   const url=encodeURIComponent(workUrl(id));
   const t=encodeURIComponent(decodeURIComponent(title)+' — Marubuci by Haliru Ali Musa');
   if(p==='wa')window.open(`https://wa.me/?text=${t}%20${url}`,'_blank');
   else window.open(`https://twitter.com/intent/tweet?text=${t}&url=${url}`,'_blank');
 }
-function copyWorkLink(id){navigator.clipboard.writeText(workUrl(id)).then(()=>showToast('Link copied!'))}
-function copyLink(){if(currentWork)navigator.clipboard.writeText(workUrl(currentWork.id)).then(()=>showToast('Link copied!'))}
+function copyWorkLink(id){
+  const url=workUrl(id);
+  if(navigator.clipboard&&navigator.clipboard.writeText){
+    navigator.clipboard.writeText(url).then(()=>showToast('Link copied!')).catch(()=>{
+      const el=document.createElement('textarea');el.value=url;document.body.appendChild(el);el.select();document.execCommand('copy');document.body.removeChild(el);showToast('Link copied!');
+    });
+  } else {
+    const el=document.createElement('textarea');el.value=url;document.body.appendChild(el);el.select();document.execCommand('copy');document.body.removeChild(el);showToast('Link copied!');
+  }
+}
+
+// QUOTE CARD
+let activeQuoteText='';
+function getQuoteShareText(){return`"${activeQuoteText}" — ${currentWork?.title||''} by Haliru Ali Musa\n${workUrl(currentWork?.id||'')}`}
+function shareQuoteWA(){window.open('https://wa.me/?text='+encodeURIComponent(getQuoteShareText()),'_blank')}
+function shareQuoteTW(){
+  const t=encodeURIComponent('"'+activeQuoteText.slice(0,200)+'" — '+(currentWork?.title||'')+' by Haliru Ali Musa');
+  const u=encodeURIComponent(workUrl(currentWork?.id||''));
+  window.open('https://twitter.com/intent/tweet?text='+t+'&url='+u,'_blank');
+}
+function copyQuoteLink(){
+  const text=getQuoteShareText();
+  if(navigator.clipboard&&navigator.clipboard.writeText){
+    navigator.clipboard.writeText(text).then(()=>showToast('Quote + link copied!')).catch(()=>{
+      const el=document.createElement('textarea');el.value=text;document.body.appendChild(el);el.select();document.execCommand('copy');document.body.removeChild(el);showToast('Quote + link copied!');
+    });
+  } else {
+    const el=document.createElement('textarea');el.value=text;document.body.appendChild(el);el.select();document.execCommand('copy');document.body.removeChild(el);showToast('Quote + link copied!');
+  }
+}
+function downloadQuoteCard(){
+  const canvas=document.getElementById('quote-canvas');
+  const ctx=canvas.getContext('2d');
+  const W=900,H=540;
+  ctx.clearRect(0,0,W,H);
+  ctx.fillStyle='#F5EFE0';ctx.fillRect(0,0,W,H);
+  ctx.strokeStyle='rgba(196,98,45,0.06)';ctx.lineWidth=0.8;
+  for(let x=0;x<W;x+=60){for(let y=0;y<H;y+=60){ctx.beginPath();ctx.moveTo(x+30,y);ctx.lineTo(x+60,y+30);ctx.lineTo(x+30,y+60);ctx.lineTo(x,y+30);ctx.closePath();ctx.stroke()}}
+  ctx.strokeStyle='rgba(196,98,45,0.2)';ctx.lineWidth=1;ctx.strokeRect(20,20,W-40,H-40);
+  ctx.fillStyle='#C4622D';ctx.fillRect(20,20,W-40,3);
+  ctx.fillStyle='rgba(196,98,45,0.5)';ctx.font='bold 72px Georgia,serif';ctx.fillText('"',60,120);
+  ctx.fillStyle='#1A1208';ctx.font='italic 28px Georgia,serif';
+  const words=activeQuoteText.split(' ');let line='';let y2=160;const maxW=W-140;
+  words.forEach(word=>{
+    const test=line+(line?' ':'')+word;
+    if(ctx.measureText(test).width>maxW&&line){ctx.fillText(line,70,y2);y2+=44;line=word}
+    else line=test;
+  });
+  if(line)ctx.fillText(line,70,y2);y2+=60;
+  ctx.fillStyle='rgba(26,18,8,0.45)';ctx.font='400 14px sans-serif';
+  ctx.fillText((currentWork?.title||'')+(currentWork?.title?' — ':'')+'Haliru Ali Musa',70,y2);
+  ctx.fillStyle='rgba(196,98,45,0.6)';ctx.font='italic 18px Georgia,serif';ctx.fillText('Marubuci',W-150,H-30);
+  const a=document.createElement('a');a.download='quote-marubuci.png';a.href=canvas.toDataURL('image/png');a.click();
+  showToast('Quote card downloaded!');
+}
 
 // AUTH
 function openAuth(m){if(getS()){openProfile();return}document.getElementById('auth-overlay').classList.add('open');m==='signup'?showSignup():showLogin();document.body.style.overflow='hidden'}
@@ -1728,7 +1795,6 @@ function updateNav(){
   else area.innerHTML=`<button class="nav-auth-btn" onclick="openAuth('login')">Sign In</button>`;
 }
 
-// PROFILE
 function openProfile(){
   const sess=getS();if(!sess)return;
   document.getElementById('profile-name').textContent=sess.name||'Reader';
@@ -1768,7 +1834,6 @@ async function loadHistory(){
   }catch(e){}
 }
 
-// NEWSLETTER
 async function subscribeNewsletter(){
   const name=document.getElementById('nl-name').value.trim();
   const email=document.getElementById('nl-email').value.trim();
@@ -1799,14 +1864,12 @@ async function loadSocials(){
     let html='';
     if(s.twitter)html+=`<a href="https://twitter.com/${s.twitter.replace('@','')}" target="_blank" class="social-link">𝕏 ${s.twitter}</a>`;
     if(s.instagram)html+=`<a href="https://instagram.com/${s.instagram.replace('@','')}" target="_blank" class="social-link">📷 ${s.instagram}</a>`;
-    // FIX: save contact email from settings for use in sendMessage
     if(s.email){html+=`<a href="mailto:${s.email}" class="social-link">✉ ${s.email}</a>`;CONTACT_EMAIL=s.email;}
     if(html)document.getElementById('social-links').innerHTML=html;
     else document.getElementById('social-links').innerHTML='';
   }catch(e){}
 }
 
-// FIX: sendMessage now uses CONTACT_EMAIL loaded from settings (not a blank mailto:)
 function sendMessage(){
   const name=document.getElementById('cf-name').value.trim();
   const email=document.getElementById('cf-email').value.trim();
@@ -1830,6 +1893,9 @@ function showToast(msg){
   stack.appendChild(el);setTimeout(()=>el.classList.add('show'),50);
   setTimeout(()=>{el.classList.remove('show');setTimeout(()=>el.remove(),400)},3500);
 }
+
+// FIX 8: hide mobile bar on page load (only show inside read modal)
+document.getElementById('mobile-read-bar').style.display='none';
 
 document.getElementById('login-password').addEventListener('keydown',e=>{if(e.key==='Enter')doLogin()});
 document.getElementById('comment-input')?.addEventListener('keydown',e=>{if(e.key==='Enter'&&e.ctrlKey)submitComment()});
