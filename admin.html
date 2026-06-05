@@ -10,26 +10,25 @@
 :root{
   --bg:#F0E8D5;--panel:#EAE0C8;--card:#F5EFE0;--border:#D6C9B0;
   --earth:#1A1208;--terra:#C4622D;--indigo:#1B3A6B;--gold:#D4A030;
-  --muted:#7A6A52;--danger:#8B2020;--success:#2D6A4F;--soft:#E8DFC8;
+  --muted:#7A6A52;--danger:#8B2020;--success:#2D6A4F;
 }
 body{background:var(--bg);color:var(--earth);font-family:'DM Mono',monospace;min-height:100vh}
-::selection{background:rgba(196,98,45,.2)}
 ::-webkit-scrollbar{width:3px}::-webkit-scrollbar-thumb{background:var(--terra)}
+::selection{background:rgba(196,98,45,.2)}
 
 /* LOGIN */
 #login-screen{position:fixed;inset:0;background:var(--bg);z-index:999;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:32px}
-.login-logo{display:flex;align-items:center;gap:10px;font-family:'Newsreader',serif;font-size:1.4rem;font-style:italic;color:var(--earth)}
+.login-logo{font-family:'Newsreader',serif;font-size:1.4rem;font-style:italic;color:var(--earth);display:flex;align-items:center;gap:10px}
 .login-box{width:360px;padding:44px;border:1px solid var(--border);background:var(--card);box-shadow:0 4px 32px rgba(26,18,8,.08)}
-.login-box h2{font-family:'Newsreader',serif;font-weight:300;font-size:1.15rem;margin-bottom:4px;color:var(--earth)}
+.login-box h2{font-family:'Newsreader',serif;font-weight:300;font-size:1.15rem;margin-bottom:4px}
 .login-box .sub{font-size:.6rem;letter-spacing:.25em;text-transform:uppercase;color:var(--muted);margin-bottom:32px;display:block}
 
-/* FORM ELEMENTS */
 .field{margin-bottom:16px}
 .field label{display:block;font-size:.58rem;letter-spacing:.25em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
 .field label .hint{font-size:.52rem;letter-spacing:.1em;color:rgba(122,106,82,.6);text-transform:none;font-style:italic;margin-left:6px}
 .field input,.field textarea,.field select{width:100%;background:var(--bg);border:1px solid var(--border);color:var(--earth);padding:10px 14px;font-family:'DM Mono',monospace;font-size:.85rem;outline:none;transition:border-color .3s}
 .field input:focus,.field textarea:focus,.field select:focus{border-color:var(--terra)}
-.field textarea{resize:vertical;min-height:120px;line-height:1.7}
+.field textarea{resize:vertical;line-height:1.7}
 .field-note{font-size:.58rem;letter-spacing:.1em;color:var(--muted);margin-top:5px;line-height:1.5;font-style:italic}
 
 .btn{width:100%;padding:12px;background:var(--terra);color:var(--card);border:none;font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.3em;text-transform:uppercase;cursor:pointer;transition:opacity .3s}
@@ -39,142 +38,122 @@ body{background:var(--bg);color:var(--earth);font-family:'DM Mono',monospace;min
 .btn-ghost:hover{border-color:var(--terra);color:var(--terra);opacity:1}
 .btn-danger{background:var(--danger);color:#fff}
 .btn-gold{background:var(--gold);color:var(--earth)}
-.btn-gold:hover{opacity:.85}
-.btn-success{background:var(--success);color:#fff}
 .err{color:#C0392B;font-size:.7rem;margin-top:8px;display:none}
 
 /* IMAGE UPLOAD */
-.img-upload-area{border:2px dashed var(--border);padding:24px;text-align:center;cursor:pointer;transition:all .3s;background:var(--bg);position:relative;margin-bottom:8px}
-.img-upload-area:hover{border-color:var(--terra);background:rgba(196,98,45,.03)}
-.img-upload-area.dragover{border-color:var(--terra);background:rgba(196,98,45,.06)}
-.img-upload-area input[type=file]{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%}
-.img-upload-label{font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:6px}
-.img-upload-icon{font-size:1.5rem;margin-bottom:8px;display:block}
-.img-upload-hint{font-size:.58rem;color:var(--muted);letter-spacing:.1em}
-.img-preview{width:100%;max-height:180px;object-fit:cover;display:none;margin-top:12px;border:1px solid var(--border)}
-.img-preview.visible{display:block}
+.img-upload-area{border:2px dashed var(--border);padding:24px;text-align:center;cursor:pointer;transition:all .3s;background:var(--bg);position:relative;margin-bottom:8px;border-radius:2px}
+.img-upload-area:hover,.img-upload-area.dragover{border-color:var(--terra);background:rgba(196,98,45,.03)}
+.img-upload-area input[type=file]{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%;z-index:2}
+.img-upload-icon{font-size:1.8rem;margin-bottom:8px;display:block;pointer-events:none}
+.img-upload-label{font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:4px;pointer-events:none}
+.img-upload-hint{font-size:.58rem;color:var(--muted);letter-spacing:.1em;pointer-events:none}
+.img-preview{width:100%;max-height:200px;object-fit:cover;display:none;margin-top:10px;border:1px solid var(--border)}
+.img-preview.show{display:block}
 .upload-progress{display:none;margin-top:8px}
 .upload-bar{height:3px;background:var(--border);border-radius:2px;overflow:hidden}
-.upload-bar-fill{height:100%;background:var(--terra);width:0%;transition:width .3s}
+.upload-fill{height:100%;background:var(--terra);width:0%;transition:width .4s}
 .upload-status{font-size:.58rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-top:6px}
 
 /* LAYOUT */
 #app{display:none;min-height:100vh}
 .top-stripe{height:4px;background:repeating-linear-gradient(90deg,var(--terra) 0 6px,var(--indigo) 6px 12px,var(--gold) 12px 18px,var(--earth) 18px 24px)}
 .topbar{position:sticky;top:0;z-index:50;background:rgba(240,232,213,.96);backdrop-filter:blur(8px);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:14px 32px}
-.topbar-brand{font-family:'Newsreader',serif;font-style:italic;font-size:1.1rem;display:flex;align-items:center;gap:8px;color:var(--earth)}
+.topbar-brand{font-family:'Newsreader',serif;font-style:italic;font-size:1.1rem;display:flex;align-items:center;gap:8px}
 .topbar-right{display:flex;align-items:center;gap:20px}
 .topbar-user{font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
 .logout-btn{font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--terra);background:none;border:none;cursor:pointer;font-family:'DM Mono',monospace}
 .logout-btn:hover{text-decoration:underline}
+
 .layout{display:grid;grid-template-columns:220px 1fr;min-height:calc(100vh - 57px)}
 .sidebar{background:var(--panel);border-right:1px solid var(--border);padding:24px 0;display:flex;flex-direction:column}
 .nav-item{display:flex;align-items:center;gap:10px;padding:10px 24px;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);cursor:pointer;transition:all .2s;border-left:2px solid transparent}
 .nav-item:hover{color:var(--earth);background:rgba(196,98,45,.06)}
 .nav-item.active{color:var(--terra);border-left-color:var(--terra);background:rgba(196,98,45,.08)}
-.nav-icon{width:14px;height:14px;opacity:.6}
-.nav-badge{background:var(--terra);color:var(--card);font-size:.5rem;padding:2px 6px;border-radius:99px;margin-left:auto}
+.nav-icon{width:14px;height:14px;opacity:.6;flex-shrink:0}
 .sidebar-bottom{margin-top:auto;padding:20px 24px;border-top:1px solid var(--border)}
 .sidebar-link{font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);text-decoration:none;display:flex;align-items:center;gap:6px}
 .sidebar-link:hover{color:var(--terra)}
-.main{padding:40px 48px;max-width:1100px}
+
+.main{padding:40px 48px;max-width:1100px;overflow-x:hidden}
 .page{display:none}.page.active{display:block}
 .page-header{margin-bottom:32px;display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:12px}
-.page-header-left h1{font-family:'Newsreader',serif;font-weight:300;font-size:1.8rem;margin-bottom:4px;color:var(--earth)}
-.page-header-left p{font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
-.page-header h1{font-family:'Newsreader',serif;font-weight:300;font-size:1.8rem;margin-bottom:4px;color:var(--earth)}
+.page-header h1{font-family:'Newsreader',serif;font-weight:300;font-size:1.8rem;margin-bottom:4px}
 .page-header p{font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
 
-/* STATS */
 .stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:40px}
-.stat-card{background:var(--card);border:1px solid var(--border);padding:24px;border-left:3px solid var(--terra);box-shadow:0 2px 8px rgba(26,18,8,.04);cursor:default}
-.stat-card.clickable{cursor:pointer;transition:border-color .2s}
-.stat-card.clickable:hover{border-left-color:var(--gold)}
+.stat-card{background:var(--card);border:1px solid var(--border);padding:24px;border-left:3px solid var(--terra);box-shadow:0 2px 8px rgba(26,18,8,.04)}
 .stat-val{font-family:'Newsreader',serif;font-size:2.2rem;font-weight:300;color:var(--terra)}
 .stat-label{font-size:.58rem;letter-spacing:.25em;text-transform:uppercase;color:var(--muted);margin-top:4px}
 
-/* WORKS */
 .works-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;flex-wrap:wrap;gap:10px}
-.works-header h2{font-family:'Newsreader',serif;font-weight:300;font-size:1.3rem;color:var(--earth)}
-.work-row{background:var(--card);border:1px solid var(--border);padding:16px 20px;margin-bottom:10px;display:grid;grid-template-columns:60px 1fr auto auto auto auto auto;gap:14px;align-items:center;transition:border-color .2s;box-shadow:0 1px 4px rgba(26,18,8,.04)}
+.works-header h2{font-family:'Newsreader',serif;font-weight:300;font-size:1.3rem}
+.work-row{background:var(--card);border:1px solid var(--border);padding:16px 20px;margin-bottom:10px;display:grid;grid-template-columns:60px 1fr auto auto auto;gap:14px;align-items:center;transition:border-color .2s}
 .work-row:hover{border-color:var(--terra)}
 .work-thumb{width:60px;height:60px;object-fit:cover;border:1px solid var(--border)}
 .work-thumb-empty{width:60px;height:60px;background:var(--bg);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:1.2rem;opacity:.4}
-.work-row-title{font-family:'Newsreader',serif;font-size:1rem;color:var(--earth);line-height:1.2}
-.work-row-meta{font-size:.58rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-top:3px;display:flex;gap:10px;flex-wrap:wrap}
+.work-row-title{font-family:'Newsreader',serif;font-size:1rem;line-height:1.2}
+.work-row-meta{font-size:.58rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-top:3px}
 .badge{font-size:.52rem;letter-spacing:.2em;text-transform:uppercase;padding:4px 10px;border:1px solid}
 .badge-free{color:var(--success);border-color:var(--success)}
 .badge-draft{color:var(--muted);border-color:var(--border)}
 .badge-published{color:var(--terra);border-color:var(--terra)}
 .badge-featured{color:var(--gold);border-color:var(--gold)}
-.row-actions{display:flex;gap:6px}
-.work-stats{display:flex;flex-direction:column;align-items:center;gap:3px;min-width:40px}
-.work-stat-num{font-family:'Newsreader',serif;font-size:1.1rem;color:var(--terra);line-height:1}
-.work-stat-label{font-size:.48rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted)}
+.row-actions{display:flex;gap:6px;flex-wrap:wrap}
 
-/* TABLES */
 .sub-table{width:100%;border-collapse:collapse;margin-top:20px}
-.sub-table th{font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);padding:8px 16px;text-align:left;border-bottom:1px solid var(--border)}
-.sub-table td{font-family:'DM Mono',monospace;font-size:.75rem;color:var(--earth);padding:12px 16px;border-bottom:1px solid rgba(214,201,176,.5)}
+.sub-table th{font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);padding:8px 16px;text-align:left;border-bottom:1px solid var(--border)}
+.sub-table td{font-size:.75rem;color:var(--earth);padding:12px 16px;border-bottom:1px solid rgba(214,201,176,.5)}
 .sub-table tr:hover td{background:rgba(196,98,45,.04)}
-.sub-active{color:var(--success)}.sub-expired{color:var(--muted)}
 
-/* COMMENTS / HIGHLIGHTS PAGE */
-.comment-card{background:var(--card);border:1px solid var(--border);padding:20px 24px;margin-bottom:12px;box-shadow:0 1px 4px rgba(26,18,8,.04)}
-.comment-card-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:10px;gap:12px;flex-wrap:wrap}
+.comment-card{background:var(--card);border:1px solid var(--border);padding:20px 24px;margin-bottom:12px}
+.comment-card-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px;gap:12px;flex-wrap:wrap}
 .comment-card-author{font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--terra)}
-.comment-card-date{font-size:.58rem;letter-spacing:.15em;color:var(--muted)}
-.comment-card-work{font-family:'Newsreader',serif;font-size:.85rem;color:var(--muted);margin-bottom:8px;font-style:italic}
-.comment-card-passage{font-size:.82rem;border-left:2px solid var(--gold);padding-left:10px;color:var(--muted);font-style:italic;margin-bottom:8px;line-height:1.5}
-.comment-card-body{font-size:.9rem;line-height:1.7;color:var(--earth)}
-.comment-filter-bar{display:flex;gap:8px;margin-bottom:20px;flex-wrap:wrap}
+.comment-card-work{font-family:'Newsreader',serif;font-size:.85rem;color:var(--muted);font-style:italic}
+.comment-card-date{font-size:.58rem;color:var(--muted)}
+.comment-card-body{font-size:.9rem;line-height:1.7}
 .cf-tab{font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;padding:6px 14px;border:1px solid var(--border);color:var(--muted);background:none;cursor:pointer;transition:all .2s}
 .cf-tab:hover{border-color:var(--terra);color:var(--terra)}
 .cf-tab.active{background:var(--terra);border-color:var(--terra);color:var(--card)}
+.cf-bar{display:flex;gap:8px;margin-bottom:20px;flex-wrap:wrap}
 
-/* HIGHLIGHT ROWS */
-.highlight-row{background:var(--card);border:1px solid var(--border);padding:14px 20px;margin-bottom:8px;box-shadow:0 1px 3px rgba(26,18,8,.03)}
-.highlight-row-passage{font-size:.9rem;font-style:italic;color:var(--earth);border-left:2px solid var(--gold);padding-left:12px;line-height:1.6;margin-bottom:6px}
-.highlight-row-meta{display:flex;gap:16px;align-items:center;font-size:.58rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted)}
-.highlight-count{color:var(--gold);font-family:'Newsreader',serif;font-size:1rem}
-
-/* REACTIONS SUMMARY */
-.reactions-summary{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:24px}
-.reaction-stat{background:var(--card);border:1px solid var(--border);padding:16px;text-align:center}
-.reaction-emoji{font-size:1.6rem;margin-bottom:6px;display:block}
-.reaction-count-big{font-family:'Newsreader',serif;font-size:1.8rem;color:var(--terra)}
-.reaction-label{font-size:.55rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-top:2px}
+.bio-card,.settings-section{background:var(--card);border:1px solid var(--border);padding:32px;margin-bottom:24px}
+.settings-section h3{font-family:'Newsreader',serif;font-weight:300;font-size:1.1rem;margin-bottom:20px;padding-bottom:12px;border-bottom:1px solid var(--border)}
 
 /* MODAL */
-.modal-overlay{position:fixed;inset:0;background:rgba(26,18,8,.5);z-index:200;display:none;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(4px)}
+.modal-overlay{position:fixed;inset:0;background:rgba(26,18,8,.55);z-index:200;display:none;align-items:flex-start;justify-content:center;padding:20px;backdrop-filter:blur(4px);overflow-y:auto}
 .modal-overlay.open{display:flex}
-.modal{background:var(--card);border:1px solid var(--border);width:100%;max-width:780px;max-height:92vh;overflow-y:auto;padding:44px;box-shadow:0 8px 40px rgba(26,18,8,.12)}
+.modal{background:var(--card);border:1px solid var(--border);width:100%;max-width:800px;padding:44px;box-shadow:0 8px 40px rgba(26,18,8,.12);margin:auto}
 .modal-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:28px}
-.modal-header h2{font-family:'Newsreader',serif;font-weight:300;font-size:1.4rem;color:var(--earth)}
-.modal-close{background:none;border:none;color:var(--muted);cursor:pointer;font-size:1.1rem;font-family:'DM Mono',monospace}
+.modal-header h2{font-family:'Newsreader',serif;font-weight:300;font-size:1.4rem}
+.modal-close{background:none;border:none;color:var(--muted);cursor:pointer;font-size:1.2rem;padding:4px 8px}
 .modal-close:hover{color:var(--terra)}
 .form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-.form-row-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px}
 
-/* SECTION CARDS */
-.bio-card,.settings-section{background:var(--card);border:1px solid var(--border);padding:32px;margin-bottom:24px;box-shadow:0 2px 8px rgba(26,18,8,.04)}
-.settings-section h3{font-family:'Newsreader',serif;font-weight:300;font-size:1.1rem;margin-bottom:20px;padding-bottom:12px;border-bottom:1px solid var(--border);color:var(--earth)}
+.char-info{font-size:.55rem;letter-spacing:.1em;color:var(--muted);text-align:right;margin-top:3px}
+.word-info{font-size:.58rem;letter-spacing:.1em;color:var(--muted);margin-top:4px}
 
-/* FEATURED TOGGLE */
-.featured-toggle{display:flex;align-items:center;gap:10px;padding:10px 14px;background:rgba(212,160,48,.06);border:1px solid rgba(212,160,48,.2);cursor:pointer}
-.featured-toggle input[type=checkbox]{accent-color:var(--gold);width:16px;height:16px;cursor:pointer}
-.featured-toggle label{font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);cursor:pointer}
-.featured-toggle .featured-note{font-size:.55rem;color:var(--muted);margin-left:auto;font-style:italic}
+.featured-toggle{display:flex;align-items:center;gap:10px;padding:12px 16px;background:rgba(212,160,48,.06);border:1px solid rgba(212,160,48,.2);margin-bottom:20px;border-radius:2px}
+.featured-toggle input{width:16px;height:16px;accent-color:var(--gold);cursor:pointer;flex-shrink:0}
+.featured-toggle label{font-size:.65rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);cursor:pointer}
+.featured-note{font-size:.55rem;color:var(--muted);margin-left:auto;font-style:italic}
 
-/* CHAR COUNTER */
-.char-count{font-size:.55rem;letter-spacing:.1em;color:var(--muted);text-align:right;margin-top:3px}
-.char-count.warn{color:var(--gold)}
-.char-count.over{color:var(--danger)}
-
-/* INLINE NOTE BOX */
-.note-box{background:rgba(27,58,107,.06);border:1px solid rgba(27,58,107,.15);padding:12px 16px;margin-bottom:16px}
+.note-box{background:rgba(27,58,107,.06);border:1px solid rgba(27,58,107,.2);padding:12px 16px;margin-bottom:10px}
 .note-box p{font-size:.65rem;letter-spacing:.1em;color:var(--indigo);line-height:1.6}
-.note-box strong{letter-spacing:.15em;text-transform:uppercase;font-size:.58rem}
+
+/* PREVIEW */
+.preview-overlay{position:fixed;inset:0;z-index:400;background:var(--bg);overflow-y:auto;display:none}
+.preview-overlay.open{display:block}
+.preview-bar{position:sticky;top:0;background:rgba(240,232,213,.96);backdrop-filter:blur(6px);border-bottom:1px solid var(--border);padding:12px 32px;display:flex;align-items:center;justify-content:space-between}
+.preview-bar span{font-size:.6rem;letter-spacing:.25em;text-transform:uppercase;color:var(--muted)}
+.preview-bar button{font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;padding:7px 16px;background:var(--terra);color:var(--card);border:none;cursor:pointer;font-family:'DM Mono',monospace}
+.preview-inner{max-width:680px;margin:0 auto;padding:60px 40px}
+.preview-genre{font-family:'Inter',sans-serif;font-size:.6rem;letter-spacing:.35em;text-transform:uppercase;color:var(--terra);margin-bottom:16px}
+.preview-title{font-family:'Newsreader',serif;font-size:clamp(1.8rem,4vw,3rem);font-weight:300;letter-spacing:-.02em;line-height:1.15;color:var(--earth);margin-bottom:16px}
+.preview-meta{font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:32px}
+.preview-divider{height:1px;background:var(--border);margin:32px 0}
+.preview-author-note{background:rgba(212,160,48,.06);border-left:3px solid var(--gold);padding:16px 20px;margin-bottom:32px;font-family:'Newsreader',serif;font-size:1rem;font-style:italic;color:var(--muted);line-height:1.8}
+.preview-content{font-family:'Newsreader',serif;font-size:1.15rem;line-height:2.1;color:var(--earth);white-space:pre-wrap}
+.preview-content h2{font-weight:300;font-size:1.4rem;letter-spacing:-.01em;margin:40px 0 20px;color:var(--terra);white-space:normal}
 
 .toast{position:fixed;bottom:32px;right:32px;z-index:999;padding:14px 24px;font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;transform:translateY(80px);opacity:0;transition:all .4s;pointer-events:none}
 .toast.show{transform:translateY(0);opacity:1}
@@ -184,15 +163,13 @@ body{background:var(--bg);color:var(--earth);font-family:'DM Mono',monospace;min
 .empty{text-align:center;padding:60px;color:var(--muted);font-size:.75rem;letter-spacing:.2em;text-transform:uppercase}
 .loading{text-align:center;padding:40px;color:var(--muted);font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;animation:pulse 1.5s infinite}
 @keyframes pulse{0%,100%{opacity:.4}50%{opacity:1}}
-.section-divider{height:1px;background:var(--border);margin:24px 0}
 
 @media(max-width:900px){
   .layout{grid-template-columns:1fr}.sidebar{display:none}
   .stats-grid{grid-template-columns:1fr 1fr}
   .work-row{grid-template-columns:1fr auto}.work-thumb,.work-thumb-empty{display:none}
-  .form-row,.form-row-3{grid-template-columns:1fr}
+  .form-row{grid-template-columns:1fr}
   .main{padding:24px 20px}
-  .reactions-summary{grid-template-columns:1fr 1fr}
 }
 </style>
 </head>
@@ -201,15 +178,15 @@ body{background:var(--bg);color:var(--earth);font-family:'DM Mono',monospace;min
 <!-- LOGIN -->
 <div id="login-screen">
   <div class="login-logo">
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 2L22 12L12 22L2 12Z" stroke="#C4622D" stroke-width="1.2" fill="none"/><rect x="7" y="7" width="10" height="10" transform="rotate(45 12 12)" stroke="#1B3A6B" stroke-width=".8" fill="none" opacity=".5"/><circle cx="12" cy="12" r="2" fill="#C4622D"/></svg>
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 2L22 12L12 22L2 12Z" stroke="#C4622D" stroke-width="1.2" fill="none"/><circle cx="12" cy="12" r="2" fill="#C4622D"/></svg>
     Marubuci
   </div>
   <div class="login-box">
     <h2>Admin Access</h2>
     <span class="sub">Control Centre — Haliru Ali Musa</span>
-    <div class="field"><label>Username</label><input type="text" id="login-user" placeholder="admin"/></div>
-    <div class="field"><label>Password</label><input type="password" id="login-pass" placeholder="••••••••"/></div>
-    <div class="err" id="login-err">Incorrect credentials. Try again.</div>
+    <div class="field"><label>Username</label><input type="text" id="login-user" placeholder="admin" autocomplete="username"/></div>
+    <div class="field"><label>Password</label><input type="password" id="login-pass" placeholder="••••••••" autocomplete="current-password"/></div>
+    <div class="err" id="login-err">Incorrect credentials.</div>
     <br/>
     <button class="btn" onclick="doLogin()">Enter Dashboard →</button>
   </div>
@@ -242,15 +219,6 @@ body{background:var(--bg);color:var(--earth);font-family:'DM Mono',monospace;min
       <div class="nav-item" onclick="showPage('comments',this)">
         <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
         Comments
-        <span class="nav-badge" id="comments-badge" style="display:none">0</span>
-      </div>
-      <div class="nav-item" onclick="showPage('highlights',this)">
-        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M14 2l7 7-7 7"/></svg>
-        Highlights
-      </div>
-      <div class="nav-item" onclick="showPage('reactions',this)">
-        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
-        Reactions
       </div>
       <div class="nav-item" onclick="showPage('subscribers',this)">
         <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
@@ -276,72 +244,35 @@ body{background:var(--bg);color:var(--earth);font-family:'DM Mono',monospace;min
 
       <!-- DASHBOARD -->
       <div class="page active" id="page-dashboard">
-        <div class="page-header"><h1>Overview</h1><p>Marubuci Control Centre</p></div>
+        <div class="page-header"><div><h1>Overview</h1><p>Marubuci Control Centre</p></div><button class="btn btn-sm" onclick="openNewWork()">+ New Work</button></div>
         <div class="stats-grid" id="stats-grid">
           <div class="stat-card"><div class="stat-val">—</div><div class="stat-label">Total Works</div></div>
           <div class="stat-card"><div class="stat-val">—</div><div class="stat-label">Published</div></div>
           <div class="stat-card"><div class="stat-val">—</div><div class="stat-label">Readers</div></div>
-          <div class="stat-card clickable" onclick="showPage('comments',document.querySelector('.nav-item:nth-child(3)'))"><div class="stat-val" id="dash-comments">—</div><div class="stat-label">Comments</div></div>
-          <div class="stat-card clickable" onclick="showPage('highlights',document.querySelector('.nav-item:nth-child(4)'))"><div class="stat-val" id="dash-highlights">—</div><div class="stat-label">Highlights</div></div>
-          <div class="stat-card clickable" onclick="showPage('reactions',document.querySelector('.nav-item:nth-child(5)'))"><div class="stat-val" id="dash-reactions">—</div><div class="stat-label">Reactions</div></div>
-          <div class="stat-card"><div class="stat-val" id="dash-likes">—</div><div class="stat-label">Total Likes</div></div>
-          <div class="stat-card"><div class="stat-val" id="dash-subs">—</div><div class="stat-label">Subscribers</div></div>
+          <div class="stat-card"><div class="stat-val">—</div><div class="stat-label">Comments</div></div>
         </div>
-        <div class="works-header"><h2>Recent Works</h2><button class="btn btn-sm" onclick="openNewWork()">+ New Work</button></div>
+        <div class="works-header"><h2>Recent Works</h2></div>
         <div id="recent-works-list"><div class="loading">Loading…</div></div>
       </div>
 
       <!-- WORKS -->
       <div class="page" id="page-works">
-        <div class="page-header">
-          <div class="page-header-left"><h1>Works & Library</h1><p>Manage all published and draft works</p></div>
-          <button class="btn btn-sm" onclick="openNewWork()">+ New Work</button>
-        </div>
+        <div class="page-header"><div><h1>Works & Library</h1><p>All works</p></div><button class="btn btn-sm" onclick="openNewWork()">+ New Work</button></div>
         <div class="works-header">
-          <input type="text" placeholder="Search title, genre, series…" id="search-works" oninput="renderWorks()" style="background:var(--card);border:1px solid var(--border);color:var(--earth);padding:8px 14px;font-family:'DM Mono',monospace;font-size:.75rem;outline:none;width:280px;transition:border-color .3s" onfocus="this.style.borderColor='#C4622D'" onblur="this.style.borderColor='#D6C9B0'"/>
-          <div style="display:flex;gap:8px">
-            <button class="btn btn-sm btn-ghost" onclick="filterWorks('all',this)" style="border-color:var(--terra);color:var(--terra)">All</button>
-            <button class="btn btn-sm btn-ghost" onclick="filterWorks('published',this)">Published</button>
-            <button class="btn btn-sm btn-ghost" onclick="filterWorks('draft',this)">Drafts</button>
-            <button class="btn btn-sm btn-ghost" onclick="filterWorks('featured',this)">★ Featured</button>
-          </div>
+          <input type="text" placeholder="Search title or genre…" id="search-works" oninput="renderWorks()" style="background:var(--card);border:1px solid var(--border);color:var(--earth);padding:8px 14px;font-family:'DM Mono',monospace;font-size:.75rem;outline:none;width:260px"/>
         </div>
         <div id="works-list"><div class="loading">Loading…</div></div>
       </div>
 
-      <!-- COMMENTS — new page -->
+      <!-- COMMENTS -->
       <div class="page" id="page-comments">
-        <div class="page-header"><h1>Comments</h1><p>All reader comments across works — including inline passage comments</p></div>
-        <div class="comment-filter-bar">
-          <button class="cf-tab active" onclick="loadComments('all',this)">All</button>
-          <button class="cf-tab" onclick="loadComments('passage',this)">On Passages</button>
-          <button class="cf-tab" onclick="loadComments('general',this)">General</button>
-        </div>
+        <div class="page-header"><h1>Comments</h1><p>All reader comments</p></div>
         <div id="comments-content"><div class="loading">Loading…</div></div>
-      </div>
-
-      <!-- HIGHLIGHTS — new page -->
-      <div class="page" id="page-highlights">
-        <div class="page-header"><h1>Highlights</h1><p>Passages readers have highlighted — most highlighted shown first</p></div>
-        <div id="highlights-content"><div class="loading">Loading…</div></div>
-      </div>
-
-      <!-- REACTIONS — new page -->
-      <div class="page" id="page-reactions">
-        <div class="page-header"><h1>Reactions</h1><p>How readers are responding to the work emotionally</p></div>
-        <div class="reactions-summary" id="reactions-summary">
-          <div class="reaction-stat"><span class="reaction-emoji">🥺</span><div class="reaction-count-big" id="r-moved">—</div><div class="reaction-label">Moved</div></div>
-          <div class="reaction-stat"><span class="reaction-emoji">💭</span><div class="reaction-count-big" id="r-thought">—</div><div class="reaction-label">Thought-provoking</div></div>
-          <div class="reaction-stat"><span class="reaction-emoji">✨</span><div class="reaction-count-big" id="r-beautiful">—</div><div class="reaction-label">Beautifully written</div></div>
-          <div class="reaction-stat"><span class="reaction-emoji">📢</span><div class="reaction-count-big" id="r-shared">—</div><div class="reaction-label">Shared</div></div>
-        </div>
-        <h3 style="font-family:'Newsreader',serif;font-weight:300;font-size:1.1rem;color:var(--earth);margin-bottom:16px">By Work</h3>
-        <div id="reactions-content"><div class="loading">Loading…</div></div>
       </div>
 
       <!-- SUBSCRIBERS -->
       <div class="page" id="page-subscribers">
-        <div class="page-header"><h1>Subscribers & Readers</h1><p>All reader accounts and newsletter signups</p></div>
+        <div class="page-header"><h1>Subscribers & Readers</h1><p>Reader accounts and newsletter signups</p></div>
         <div id="subscribers-content"><div class="loading">Loading…</div></div>
       </div>
 
@@ -353,30 +284,30 @@ body{background:var(--bg);color:var(--earth);font-family:'DM Mono',monospace;min
             <div class="field"><label>Display Name</label><input type="text" id="bio-name" value="Haliru Ali Musa"/></div>
             <div class="field"><label>Tagline</label><input type="text" id="bio-tagline" value="Writer · Critic · Engineer · Katsina, Nigeria"/></div>
           </div>
-          <div class="field"><label>Short Bio <span class="hint">— shown on the about strip</span></label><textarea id="bio-short" rows="3">Haliru Ali Musa is a writer, critic, and engineer from Katsina State, Nigeria, now based in Lagos.</textarea></div>
-          <div class="field"><label>Full Bio <span class="hint">— separate paragraphs with a blank line</span></label><textarea id="bio-full" rows="10">Haliru Ali Musa is a writer, critic, and engineer from Katsina State, Nigeria, now based in Lagos. A 2024 alumnus of the Nigerian Academy of Letters Creative Writing Workshop, he writes The Long View, a weekly column in Naira Stories Magazine that meditates on art, literature, and the African condition through the lens of introspection and cultural truth, and also a reviewer for P.eng literature magazine.
+          <div class="field"><label>Short Bio</label><textarea id="bio-short" rows="3">Haliru Ali Musa is a writer, critic, and engineer from Katsina State, Nigeria, now based in Lagos.</textarea></div>
+          <div class="field"><label>Full Bio</label><textarea id="bio-full" rows="10">Haliru Ali Musa is a writer, critic, and engineer from Katsina State, Nigeria, now based in Lagos. A 2024 alumnus of the Nigerian Academy of Letters Creative Writing Workshop, he writes The Long View, a weekly column in Naira Stories Magazine that meditates on art, literature, and the African condition through the lens of introspection and cultural truth, and also a reviewer for P.eng literature magazine.
 
 His short story The Pregnant Ghost won the inaugural 2024 Alexander Nderitu Prize for World Literature, while his novella Dogs Are No Better was longlisted for the 2025 Quramo Prize. His story Build a Bird That Flies Backward into Yesterday won the 8th African Writers Award in 2025.</textarea></div>
-          <div class="field"><label>Awards & Publications <span class="hint">— one per line</span></label><textarea id="bio-awards" rows="6">2024 Alexander Nderitu Prize for World Literature — The Pregnant Ghost
+          <div class="field"><label>Awards & Publications <span class="hint">one per line</span></label><textarea id="bio-awards" rows="6">2024 Alexander Nderitu Prize for World Literature — The Pregnant Ghost
 2025 Quramo Prize Longlist — Dogs Are No Better
 8th African Writers Award 2025 — Build a Bird That Flies Backward into Yesterday
 2024 Nigerian Academy of Letters Creative Writing Workshop
 Columnist, Naira Stories Magazine — The Long View
 Reviewer, P.eng Literature Magazine</textarea></div>
           <div class="field">
-            <label>Profile / About Photo</label>
-            <div class="img-upload-area" id="bio-img-area" ondragover="dragOver(event,'bio-img-area')" ondragleave="dragLeave('bio-img-area')" ondrop="dropFile(event,'bio')">
-              <input type="file" accept="image/*" onchange="uploadImage(this.files[0],'bio')" id="bio-file-input"/>
+            <label>Profile Photo</label>
+            <div class="img-upload-area" id="bio-upload-area">
+              <input type="file" id="bio-file-input" accept="image/jpeg,image/png,image/webp" onchange="handleFileSelect(event,'bio')"/>
               <span class="img-upload-icon">🖼️</span>
               <span class="img-upload-label">Click to upload or drag & drop</span>
               <span class="img-upload-hint">JPG, PNG, WEBP — max 5MB</span>
             </div>
             <div class="upload-progress" id="bio-progress">
-              <div class="upload-bar"><div class="upload-bar-fill" id="bio-bar"></div></div>
-              <div class="upload-status" id="bio-status">Uploading…</div>
+              <div class="upload-bar"><div class="upload-fill" id="bio-bar"></div></div>
+              <div class="upload-status" id="bio-status"></div>
             </div>
-            <img class="img-preview" id="bio-img-preview" src="" alt="Preview"/>
-            <input type="text" id="bio-img" placeholder="Or paste image URL directly" style="margin-top:8px;width:100%;background:var(--bg);border:1px solid var(--border);color:var(--muted);padding:8px 12px;font-family:'DM Mono',monospace;font-size:.72rem;outline:none"/>
+            <img class="img-preview" id="bio-preview" src="" alt="Preview"/>
+            <input type="text" id="bio-img" placeholder="Or paste an image URL here" style="margin-top:8px;width:100%;background:var(--bg);border:1px solid var(--border);color:var(--muted);padding:8px 12px;font-family:'DM Mono',monospace;font-size:.72rem;outline:none" oninput="syncUrlPreview('bio-img','bio-preview')"/>
           </div>
           <button class="btn btn-sm" onclick="saveBio()" style="margin-top:8px">Save Bio</button>
         </div>
@@ -389,7 +320,7 @@ Reviewer, P.eng Literature Magazine</textarea></div>
           <h3>Contact & Social</h3>
           <div class="form-row">
             <div class="field"><label>Contact Email</label><input type="email" id="set-email" placeholder="haliru@example.com"/></div>
-            <div class="field"><label>Twitter / X <span class="hint">— with @</span></label><input type="text" id="set-twitter" placeholder="@haliruali"/></div>
+            <div class="field"><label>Twitter / X</label><input type="text" id="set-twitter" placeholder="@haliruali"/></div>
           </div>
           <div class="field"><label>Instagram</label><input type="text" id="set-instagram" placeholder="@haliruali"/></div>
           <button class="btn btn-sm" onclick="saveSettings()">Save</button>
@@ -405,18 +336,18 @@ Reviewer, P.eng Literature Magazine</textarea></div>
         <div class="settings-section">
           <h3>Data Export</h3>
           <div style="display:flex;gap:10px;flex-wrap:wrap">
-            <button class="btn btn-sm btn-ghost" onclick="exportData('works')">Export Works as JSON</button>
-            <button class="btn btn-sm btn-ghost" onclick="exportData('comments')">Export Comments as JSON</button>
-            <button class="btn btn-sm btn-ghost" onclick="exportData('newsletter')">Export Newsletter List as CSV</button>
+            <button class="btn btn-sm btn-ghost" onclick="exportData('works')">Export Works JSON</button>
+            <button class="btn btn-sm btn-ghost" onclick="exportData('comments')">Export Comments JSON</button>
+            <button class="btn btn-sm btn-ghost" onclick="exportData('newsletter')">Export Newsletter CSV</button>
           </div>
         </div>
       </div>
 
-    </div>
-  </div>
-</div>
+    </div><!-- /main -->
+  </div><!-- /layout -->
+</div><!-- /app -->
 
-<!-- WORK MODAL — enhanced with all new fields -->
+<!-- WORK MODAL -->
 <div class="modal-overlay" id="work-modal">
   <div class="modal">
     <div class="modal-header">
@@ -424,24 +355,27 @@ Reviewer, P.eng Literature Magazine</textarea></div>
       <button class="modal-close" onclick="closeModal()">✕</button>
     </div>
 
-    <!-- FEATURED TOGGLE — #featured -->
-    <div class="featured-toggle" style="margin-bottom:20px">
+    <div class="featured-toggle">
       <input type="checkbox" id="w-featured"/>
       <label for="w-featured">★ Set as Work of the Week (featured on homepage)</label>
-      <span class="featured-note">Only one work can be featured at a time</span>
+      <span class="featured-note">Only one work featured at a time</span>
     </div>
 
-    <div class="form-row">
-      <div class="field"><label>Title</label><input type="text" id="w-title" placeholder="Title of the work" oninput="updateCharCount('w-title','tc-title',80)"/><div class="char-count" id="tc-title">0 / 80</div></div>
-      <div class="field"><label>Genre</label><input type="text" id="w-genre" placeholder="Fiction, Poetry, Essay, Column…"/></div>
-    </div>
-
-    <!-- SERIES FIELD — #15 -->
     <div class="form-row">
       <div class="field">
-        <label>Series / Collection <span class="hint">— groups works together on the site</span></label>
+        <label>Title *</label>
+        <input type="text" id="w-title" placeholder="Title of the work"/>
+      </div>
+      <div class="field">
+        <label>Genre</label>
+        <input type="text" id="w-genre" placeholder="Fiction, Poetry, Essay, Column…"/>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="field">
+        <label>Series / Collection <span class="hint">optional</span></label>
         <input type="text" id="w-series" placeholder="e.g. The Long View"/>
-        <p class="field-note">If this work is part of a recurring column or series, name it here. Works with the same series name are grouped together in the library.</p>
       </div>
       <div class="field">
         <label>Publication Date</label>
@@ -450,61 +384,71 @@ Reviewer, P.eng Literature Magazine</textarea></div>
     </div>
 
     <div class="field">
-      <label>Excerpt / Tagline <span class="hint">— shown on library cards (max 120 chars)</span></label>
-      <input type="text" id="w-excerpt" placeholder="A short description shown on the library card" oninput="updateCharCount('w-excerpt','tc-excerpt',120)"/>
-      <div class="char-count" id="tc-excerpt">0 / 120</div>
-    </div>
-
-    <!-- AUTHOR NOTE — #16 -->
-    <div class="field">
-      <label>Author's Note <span class="hint">— shown before the work as a personal context</span></label>
-      <textarea id="w-author-note" rows="3" placeholder="What sparked this piece? When was it written? What does it mean to you? This appears as a gold-bordered note before the work begins."></textarea>
-      <p class="field-note">Optional. This is the intimate note that connects you to the reader before they read a single word.</p>
+      <label>Excerpt / Tagline <span class="hint">shown on library cards</span></label>
+      <input type="text" id="w-excerpt" placeholder="A short description for the card"/>
     </div>
 
     <div class="field">
-      <label>Full Text <span class="hint">— use ## Heading to create table of contents sections</span></label>
-      <div class="note-box" style="margin-bottom:8px">
-        <p><strong>TOC tip:</strong> Start any paragraph with <code style="background:rgba(27,58,107,.1);padding:1px 5px">## Section Title</code> and it will automatically appear as a jump-link in the table of contents. Use at least 2 headings for the TOC to show.</p>
-      </div>
-      <textarea id="w-content" rows="16" placeholder="Write or paste the full text here. Use ## Heading for section breaks." oninput="updateWordCount(this)"></textarea>
-      <div style="display:flex;justify-content:space-between;margin-top:4px">
-        <span class="field-note" id="word-count-display">0 words · ~0 min read</span>
-        <span class="char-count" id="tc-content">0 chars</span>
-      </div>
+      <label>Author's Note <span class="hint">personal context shown before the work</span></label>
+      <textarea id="w-author-note" rows="3" placeholder="What sparked this piece? This appears as a gold note before the work begins."></textarea>
     </div>
 
-    <!-- COVER IMAGE -->
+    <div class="field">
+      <label>Full Text *</label>
+      <div class="note-box"><p>Tip: Start a paragraph with <code style="background:rgba(27,58,107,.1);padding:1px 5px">## Section Title</code> to create section headings.</p></div>
+      <textarea id="w-content" rows="18" placeholder="Write or paste the full text here…" oninput="updateWordCount()"></textarea>
+      <div class="word-info" id="word-info">0 words · ~0 min read</div>
+    </div>
+
+    <!-- COVER IMAGE UPLOAD — FIXED -->
     <div class="field">
       <label>Cover Image</label>
-      <div class="img-upload-area" id="cover-img-area" ondragover="dragOver(event,'cover-img-area')" ondragleave="dragLeave('cover-img-area')" ondrop="dropFile(event,'cover')">
-        <input type="file" accept="image/*" onchange="uploadImage(this.files[0],'cover')" id="cover-file-input"/>
+      <div class="img-upload-area" id="cover-upload-area">
+        <input type="file" id="cover-file-input" accept="image/jpeg,image/png,image/webp" onchange="handleFileSelect(event,'cover')"/>
         <span class="img-upload-icon">📸</span>
         <span class="img-upload-label">Click to upload cover image or drag & drop</span>
         <span class="img-upload-hint">JPG, PNG, WEBP — max 5MB · Recommended: portrait 3:4 ratio</span>
       </div>
       <div class="upload-progress" id="cover-progress">
-        <div class="upload-bar"><div class="upload-bar-fill" id="cover-bar"></div></div>
-        <div class="upload-status" id="cover-status">Uploading…</div>
+        <div class="upload-bar"><div class="upload-fill" id="cover-bar"></div></div>
+        <div class="upload-status" id="cover-status"></div>
       </div>
-      <img class="img-preview" id="cover-img-preview" src="" alt="Cover preview"/>
-      <input type="text" id="w-img" placeholder="Or paste image URL directly" style="margin-top:8px;width:100%;background:var(--bg);border:1px solid var(--border);color:var(--muted);padding:8px 12px;font-family:'DM Mono',monospace;font-size:.72rem;outline:none"/>
+      <img class="img-preview" id="cover-preview" src="" alt="Cover preview"/>
+      <input type="text" id="w-img" placeholder="Or paste an image URL here" style="margin-top:8px;width:100%;background:var(--bg);border:1px solid var(--border);color:var(--muted);padding:8px 12px;font-family:'DM Mono',monospace;font-size:.72rem;outline:none" oninput="syncUrlPreview('w-img','cover-preview')"/>
     </div>
 
-    <div class="form-row" style="margin-top:8px">
-      <div class="field"><label>Status</label>
+    <div class="form-row">
+      <div class="field">
+        <label>Status</label>
         <select id="w-status"><option value="published">Published</option><option value="draft">Draft</option></select>
       </div>
-      <div class="field"><label>Access</label>
+      <div class="field">
+        <label>Access</label>
         <select id="w-access"><option value="free">Free — anyone can read</option></select>
       </div>
     </div>
 
-    <div style="display:flex;gap:12px;margin-top:20px;flex-wrap:wrap">
-      <button class="btn btn-sm" onclick="saveWork()">Save to Database</button>
-      <button class="btn btn-sm btn-ghost" onclick="previewWork()">Preview →</button>
+    <div style="display:flex;gap:12px;margin-top:24px;flex-wrap:wrap">
+      <button class="btn btn-sm" onclick="saveWork()">💾 Save & Publish</button>
+      <button class="btn btn-sm btn-ghost" onclick="previewWork()">👁 Preview</button>
       <button class="btn btn-sm btn-ghost" onclick="closeModal()">Cancel</button>
     </div>
+  </div>
+</div>
+
+<!-- PREVIEW OVERLAY — FIXED -->
+<div class="preview-overlay" id="preview-overlay">
+  <div class="preview-bar">
+    <span>Preview — this is how it will appear to readers</span>
+    <button onclick="closePreview()">✕ Close Preview</button>
+  </div>
+  <div class="preview-inner">
+    <div class="preview-genre" id="pv-genre"></div>
+    <h1 class="preview-title" id="pv-title"></h1>
+    <div class="preview-meta" id="pv-meta"></div>
+    <div class="preview-divider"></div>
+    <div class="preview-author-note" id="pv-note" style="display:none"></div>
+    <div class="preview-content" id="pv-content"></div>
   </div>
 </div>
 
@@ -516,68 +460,105 @@ const SB_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZ
 const CREDS_KEY='maru_admin_creds';
 const AUTH_KEY='maru_admin_auth';
 const BUCKET='covers';
-const hdrs={'apikey':SB_KEY,'Authorization':'Bearer '+SB_KEY,'Content-Type':'application/json','Prefer':'return=representation'};
+
+const hdrs={
+  'apikey':SB_KEY,
+  'Authorization':'Bearer '+SB_KEY,
+  'Content-Type':'application/json',
+  'Prefer':'return=representation'
+};
 
 async function sb(path,opts={}){
   const r=await fetch(SB_URL+'/rest/v1/'+path,{headers:{...hdrs,...(opts.headers||{})},...opts});
+  if(!r.ok){const t=await r.text();throw new Error(t||r.status)}
   const t=await r.text();return t?JSON.parse(t):[];
 }
 
-// ── IMAGE UPLOAD ──
-async function uploadImage(file,target){
-  if(!file)return;
-  if(file.size>5*1024*1024){showToast('File too large — max 5MB',false);return}
-  const progressEl=document.getElementById(target+'-progress');
-  const barEl=document.getElementById(target+'-bar');
-  const statusEl=document.getElementById(target+'-status');
-  const previewEl=document.getElementById(target==='cover'?'cover-img-preview':'bio-img-preview');
-  const urlInput=document.getElementById(target==='cover'?'w-img':'bio-img');
-  progressEl.style.display='block';barEl.style.width='20%';statusEl.textContent='Uploading image…';
-  const ext=file.name.split('.').pop();
-  const fileName=target+'_'+Date.now()+'.'+ext;
-  try{
-    barEl.style.width='50%';
-    const uploadRes=await fetch(`${SB_URL}/storage/v1/object/${BUCKET}/${fileName}`,{method:'POST',headers:{'apikey':SB_KEY,'Authorization':'Bearer '+SB_KEY,'Content-Type':file.type,'x-upsert':'true'},body:file});
-    if(!uploadRes.ok)throw new Error(await uploadRes.text());
-    barEl.style.width='100%';statusEl.textContent='Upload complete ✓';
-    const publicUrl=`${SB_URL}/storage/v1/object/public/${BUCKET}/${fileName}`;
-    urlInput.value=publicUrl;previewEl.src=publicUrl;previewEl.classList.add('visible');
-    setTimeout(()=>{progressEl.style.display='none';barEl.style.width='0%'},2000);
-    showToast('Image uploaded');
-  }catch(e){statusEl.textContent='Upload failed — '+e.message;barEl.style.background='#8B2020';showToast('Upload error: '+e.message,false)}
-}
-function dragOver(e,id){e.preventDefault();document.getElementById(id).classList.add('dragover')}
-function dragLeave(id){document.getElementById(id).classList.remove('dragover')}
-function dropFile(e,target){
-  e.preventDefault();dragLeave(target==='cover'?'cover-img-area':'bio-img-area');
-  const file=e.dataTransfer.files[0];
-  if(file&&file.type.startsWith('image/'))uploadImage(file,target);
-}
-document.addEventListener('DOMContentLoaded',()=>{
-  document.getElementById('w-img').addEventListener('input',function(){
-    const p=document.getElementById('cover-img-preview');
-    if(this.value){p.src=this.value;p.classList.add('visible')}else p.classList.remove('visible');
-  });
-  document.getElementById('bio-img').addEventListener('input',function(){
-    const p=document.getElementById('bio-img-preview');
-    if(this.value){p.src=this.value;p.classList.add('visible')}else p.classList.remove('visible');
-  });
-});
+// ── IMAGE UPLOAD — FIXED ──
+// The key bug was: file input was behind an overlay div that captured clicks
+// and prevented the onchange from firing. Fixed by using event listeners properly.
 
-// ── CHAR / WORD COUNTERS ──
-function updateCharCount(inputId,countId,max){
-  const val=document.getElementById(inputId)?.value||'';
-  const el=document.getElementById(countId);if(!el)return;
-  el.textContent=val.length+' / '+max;
-  el.className='char-count'+(val.length>max?' over':val.length>max*0.9?' warn':'');
+function handleFileSelect(event, target){
+  const file = event.target.files[0];
+  if(!file) return;
+  uploadImage(file, target);
 }
-function updateWordCount(textarea){
-  const words=(textarea.value||'').trim().split(/\s+/).filter(Boolean).length;
-  const mins=Math.max(1,Math.round(words/200));
-  const el=document.getElementById('word-count-display');
-  if(el)el.textContent=words.toLocaleString()+' words · ~'+mins+' min read';
-  const cc=document.getElementById('tc-content');
-  if(cc)cc.textContent=textarea.value.length.toLocaleString()+' chars';
+
+async function uploadImage(file, target){
+  if(!file) return;
+  if(file.size > 5*1024*1024){showToast('File too large — max 5MB', false); return}
+
+  const isValid = ['image/jpeg','image/png','image/webp'].includes(file.type);
+  if(!isValid){showToast('Please use JPG, PNG or WEBP', false); return}
+
+  const progressEl = document.getElementById(target+'-progress');
+  const barEl = document.getElementById(target+'-bar');
+  const statusEl = document.getElementById(target+'-status');
+  const previewEl = document.getElementById(target+'-preview');
+  const urlInput = document.getElementById(target==='cover' ? 'w-img' : 'bio-img');
+
+  progressEl.style.display = 'block';
+  barEl.style.width = '10%';
+  statusEl.textContent = 'Uploading…';
+
+  const ext = file.name.split('.').pop().toLowerCase();
+  const fileName = target+'_'+Date.now()+'.'+ext;
+
+  try{
+    barEl.style.width = '40%';
+    const res = await fetch(
+      SB_URL+'/storage/v1/object/'+BUCKET+'/'+fileName,
+      {
+        method: 'POST',
+        headers: {
+          'apikey': SB_KEY,
+          'Authorization': 'Bearer '+SB_KEY,
+          'Content-Type': file.type,
+          'x-upsert': 'true'
+        },
+        body: file
+      }
+    );
+    if(!res.ok){
+      const err = await res.text();
+      throw new Error('Storage error: '+err);
+    }
+    barEl.style.width = '100%';
+    statusEl.textContent = '✓ Upload complete';
+
+    const publicUrl = SB_URL+'/storage/v1/object/public/'+BUCKET+'/'+fileName;
+    urlInput.value = publicUrl;
+    previewEl.src = publicUrl;
+    previewEl.classList.add('show');
+    setTimeout(()=>{ progressEl.style.display='none'; barEl.style.width='0%' }, 2000);
+    showToast('Image uploaded successfully');
+  }catch(e){
+    barEl.style.background='var(--danger)';
+    statusEl.textContent='Upload failed: '+e.message;
+    showToast('Upload failed: '+e.message, false);
+  }
+}
+
+// Setup drag & drop on upload areas
+function setupDragDrop(areaId, target){
+  const area = document.getElementById(areaId);
+  if(!area) return;
+  area.addEventListener('dragover', e=>{e.preventDefault();area.classList.add('dragover')});
+  area.addEventListener('dragleave', ()=>area.classList.remove('dragover'));
+  area.addEventListener('drop', e=>{
+    e.preventDefault();
+    area.classList.remove('dragover');
+    const file = e.dataTransfer.files[0];
+    if(file && file.type.startsWith('image/')) uploadImage(file, target);
+  });
+}
+
+// Sync URL input to preview image
+function syncUrlPreview(inputId, previewId){
+  const url = document.getElementById(inputId).value.trim();
+  const img = document.getElementById(previewId);
+  if(url){ img.src=url; img.classList.add('show') }
+  else img.classList.remove('show');
 }
 
 // ── AUTH ──
@@ -591,115 +572,88 @@ function doLogin(){
     document.getElementById('login-screen').style.display='none';
     document.getElementById('app').style.display='block';
     init();
-  }else{document.getElementById('login-err').style.display='block'}
+  }else{
+    document.getElementById('login-err').style.display='block';
+  }
 }
 function logout(){sessionStorage.removeItem(AUTH_KEY);location.reload()}
 document.getElementById('login-pass').addEventListener('keydown',e=>{if(e.key==='Enter')doLogin()});
-document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal()});
-if(sessionStorage.getItem(AUTH_KEY)){document.getElementById('login-screen').style.display='none';document.getElementById('app').style.display='block'}
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeModal();closePreview()}});
+if(sessionStorage.getItem(AUTH_KEY)){
+  document.getElementById('login-screen').style.display='none';
+  document.getElementById('app').style.display='block';
+}
 
 // ── NAV ──
-function showPage(id,el){
+function showPage(id, el){
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
   document.querySelectorAll('.nav-item').forEach(n=>n.classList.remove('active'));
   document.getElementById('page-'+id).classList.add('active');
-  if(el)el.classList.add('active');
-  if(id==='dashboard')renderDashboard();
-  if(id==='works'){allWorks=[];worksStatusFilter='all';renderWorks();}
-  if(id==='comments')loadComments('all',document.querySelector('.cf-tab'));
-  if(id==='highlights')loadHighlights();
-  if(id==='reactions')loadReactions();
-  if(id==='subscribers')renderSubscribers();
-  if(id==='bio')loadBio();
-  if(id==='settings')loadSettings();
+  if(el) el.classList.add('active');
+  if(id==='dashboard') renderDashboard();
+  if(id==='works'){allWorks=[];renderWorks();}
+  if(id==='comments') loadComments();
+  if(id==='subscribers') renderSubscribers();
+  if(id==='bio') loadBio();
+  if(id==='settings') loadSettings();
 }
 
 // ── DASHBOARD ──
 async function renderDashboard(){
   try{
-    const[works,readers,subs,comments,highlights,reactions,likes,newsletter]=await Promise.all([
-      sb('works?select=id,status,access'),
+    const[works,readers,comments]=await Promise.all([
+      sb('works?select=id,status'),
       sb('readers?select=id'),
-      sb('subscriptions?select=id,status,end_date'),
-      sb('comments?select=id'),
-      sb('highlights?select=id'),
-      sb('reactions?select=reaction'),
-      sb('likes?select=id'),
-      sb('newsletter?select=id')
+      sb('comments?select=id')
     ]);
     const pub=works.filter(w=>w.status==='published').length;
-    const activeSubs=subs.filter(s=>s.status==='active'&&new Date(s.end_date)>new Date()).length;
     document.getElementById('stats-grid').innerHTML=`
       <div class="stat-card"><div class="stat-val">${works.length}</div><div class="stat-label">Total Works</div></div>
       <div class="stat-card"><div class="stat-val">${pub}</div><div class="stat-label">Published</div></div>
       <div class="stat-card"><div class="stat-val">${readers.length}</div><div class="stat-label">Readers</div></div>
-      <div class="stat-card clickable" onclick="showPage('comments',document.querySelector('.nav-item:nth-child(3)'))"><div class="stat-val">${comments.length}</div><div class="stat-label">Comments</div></div>
-      <div class="stat-card clickable" onclick="showPage('highlights',document.querySelector('.nav-item:nth-child(4)'))"><div class="stat-val">${highlights.length}</div><div class="stat-label">Highlights</div></div>
-      <div class="stat-card clickable" onclick="showPage('reactions',document.querySelector('.nav-item:nth-child(5)'))"><div class="stat-val">${reactions.length}</div><div class="stat-label">Reactions</div></div>
-      <div class="stat-card"><div class="stat-val">${likes.length}</div><div class="stat-label">Total Likes</div></div>
-      <div class="stat-card"><div class="stat-val">${newsletter.length+readers.length}</div><div class="stat-label">Newsletter Subs</div></div>`;
-    // Update comment badge
-    if(comments.length>0){const b=document.getElementById('comments-badge');if(b){b.textContent=comments.length;b.style.display='block'}}
+      <div class="stat-card"><div class="stat-val">${comments.length}</div><div class="stat-label">Comments</div></div>`;
     const recent=await sb('works?select=*&order=created_at.desc&limit=5');
-    document.getElementById('recent-works-list').innerHTML=recent.length?recent.map(w=>workRow(w,true)).join(''):'<div class="empty">No works yet.</div>';
-  }catch(e){showToast('DB error: '+e.message,false)}
+    document.getElementById('recent-works-list').innerHTML=recent.length?recent.map(workRow).join(''):'<div class="empty">No works yet. Click "+ New Work" to start.</div>';
+  }catch(e){showToast('Error loading dashboard: '+e.message,false)}
 }
 
-// ── WORKS ──
-function workRow(w,compact=false){
-  const thumb=w.img?`<img class="work-thumb" src="${w.img}" alt="" onerror="this.style.display='none'"/>`:`<div class="work-thumb-empty">📄</div>`;
-  const featuredBadge=w.featured?`<span class="badge badge-featured">★ Featured</span>`:'';
-  const seriesBadge=w.series?`<span style="font-size:.5rem;letter-spacing:.15em;text-transform:uppercase;color:var(--indigo);border:1px solid rgba(27,58,107,.3);padding:3px 8px">${w.series}</span>`:'';
-  const wc=w.content?(Math.max(1,Math.round(w.content.split(/\s+/).length/200))+'m'):'—';
+function workRow(w){
+  const thumb=w.img?`<img class="work-thumb" src="${w.img}" alt="" onerror="this.style.display='none'"/>` : `<div class="work-thumb-empty">📄</div>`;
+  const featBadge=w.featured?`<span class="badge badge-featured">★ Featured</span>`:'';
   return`<div class="work-row">
     ${thumb}
     <div>
       <div class="work-row-title">${w.title}</div>
-      <div class="work-row-meta">${w.genre||''}${w.series?' · '+w.series:''}${w.date?' · '+new Date(w.date).toLocaleDateString('en-NG',{month:'short',year:'numeric'}):''} · ${wc} read</div>
+      <div class="work-row-meta">${w.genre||''} ${w.date?'· '+new Date(w.date).toLocaleDateString('en-NG',{month:'short',year:'numeric'}):''}</div>
     </div>
-    ${featuredBadge}
-    ${seriesBadge}
+    ${featBadge}
     <span class="badge badge-${w.status}">${w.status}</span>
-    <div class="work-stats"><div class="work-stat-num" id="wlikes-${w.id}">—</div><div class="work-stat-label">Likes</div></div>
     <div class="row-actions">
       <button class="btn btn-sm btn-ghost" onclick="editWork('${w.id}')">Edit</button>
-      ${w.featured?'<button class="btn btn-sm btn-ghost" onclick="unfeatureWork(\''+w.id+'\')">Unfeature</button>':'<button class="btn btn-sm btn-gold" onclick="featureWork(\''+w.id+'\')" style="font-size:.52rem;padding:6px 10px">★ Feature</button>'}
-      <button class="btn btn-sm btn-danger" onclick="deleteWork('${w.id}')">Del</button>
+      ${w.featured
+        ?`<button class="btn btn-sm btn-ghost" onclick="unfeatureWork('${w.id}')">Unfeature</button>`
+        :`<button class="btn btn-sm" style="background:var(--gold);color:var(--earth);font-size:.52rem;padding:6px 10px" onclick="featureWork('${w.id}')">★ Feature</button>`}
+      <button class="btn btn-sm btn-danger" onclick="deleteWork('${w.id}')">Delete</button>
     </div>
   </div>`;
 }
 
-let allWorks=[],worksStatusFilter='all';
+let allWorks=[];
 async function renderWorks(){
   const q=(document.getElementById('search-works')?.value||'').toLowerCase();
   try{
-    if(!allWorks.length)allWorks=await sb('works?select=*&order=created_at.desc');
-    let f=allWorks.filter(w=>{
-      const mq=!q||w.title.toLowerCase().includes(q)||(w.genre||'').toLowerCase().includes(q)||(w.series||'').toLowerCase().includes(q)||(w.excerpt||'').toLowerCase().includes(q);
-      const ms=worksStatusFilter==='all'||w.status===worksStatusFilter||(worksStatusFilter==='featured'&&w.featured);
-      return mq&&ms;
-    });
-    document.getElementById('works-list').innerHTML=f.length?f.map(w=>workRow(w)).join(''):'<div class="empty">No works found.</div>';
-    // Load like counts async
-    const likes=await sb('likes?select=work_id');
-    const counts={};likes.forEach(l=>{counts[l.work_id]=(counts[l.work_id]||0)+1});
-    f.forEach(w=>{const el=document.getElementById('wlikes-'+w.id);if(el)el.textContent=counts[w.id]||0});
-  }catch(e){document.getElementById('works-list').innerHTML='<div class="empty">Could not load.</div>'}
-}
-function filterWorks(status,btn){
-  worksStatusFilter=status;
-  document.querySelectorAll('.works-header .btn-ghost').forEach(b=>{b.style.borderColor='';b.style.color=''});
-  if(btn){btn.style.borderColor='var(--terra)';btn.style.color='var(--terra)'}
-  renderWorks();
+    if(!allWorks.length) allWorks=await sb('works?select=*&order=created_at.desc');
+    const f=allWorks.filter(w=>!q||w.title.toLowerCase().includes(q)||(w.genre||'').toLowerCase().includes(q));
+    document.getElementById('works-list').innerHTML=f.length?f.map(workRow).join(''):'<div class="empty">No works found.</div>';
+  }catch(e){document.getElementById('works-list').innerHTML='<div class="empty">Could not load works.</div>'}
 }
 
-// ── FEATURE / UNFEATURE ──
+// ── FEATURE ──
 async function featureWork(id){
   try{
-    // unfeature all first, then feature this one
     await sb('works?featured=eq.true',{method:'PATCH',body:JSON.stringify({featured:false})});
     await sb('works?id=eq.'+id,{method:'PATCH',body:JSON.stringify({featured:true})});
-    allWorks=[];renderWorks();showToast('Work set as featured ★');
+    allWorks=[];renderWorks();showToast('Work featured ★');
   }catch(e){showToast('Error: '+e.message,false)}
 }
 async function unfeatureWork(id){
@@ -711,24 +665,36 @@ async function unfeatureWork(id){
 
 // ── MODAL ──
 let editingId=null;
-function openNewWork(){
-  editingId=null;
-  document.getElementById('modal-title').textContent='New Work';
-  ['w-title','w-excerpt','w-content','w-img','w-genre','w-series','w-author-note'].forEach(id=>document.getElementById(id).value='');
-  document.getElementById('w-access').value='free';
+
+function resetModal(){
+  ['w-title','w-excerpt','w-content','w-img','w-genre','w-series','w-author-note'].forEach(id=>{
+    const el=document.getElementById(id);if(el)el.value='';
+  });
   document.getElementById('w-status').value='published';
+  document.getElementById('w-access').value='free';
   document.getElementById('w-date').value=new Date().toISOString().split('T')[0];
   document.getElementById('w-featured').checked=false;
-  document.getElementById('cover-img-preview').classList.remove('visible');
+  document.getElementById('cover-preview').classList.remove('show');
+  document.getElementById('cover-preview').src='';
   document.getElementById('cover-progress').style.display='none';
+  document.getElementById('cover-bar').style.width='0%';
   document.getElementById('cover-file-input').value='';
-  document.getElementById('word-count-display').textContent='0 words · ~0 min read';
-  document.getElementById('tc-content').textContent='0 chars';
-  document.getElementById('work-modal').classList.add('open');
+  document.getElementById('word-info').textContent='0 words · ~0 min read';
 }
+
+function openNewWork(){
+  editingId=null;
+  resetModal();
+  document.getElementById('modal-title').textContent='New Work';
+  document.getElementById('work-modal').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+
 function editWork(id){
-  const w=allWorks.find(x=>x.id===id);if(!w)return;
+  const w=allWorks.find(x=>x.id===id);
+  if(!w){showToast('Work not found — try refreshing',false);return}
   editingId=id;
+  resetModal();
   document.getElementById('modal-title').textContent='Edit: '+w.title;
   document.getElementById('w-title').value=w.title||'';
   document.getElementById('w-genre').value=w.genre||'';
@@ -736,47 +702,65 @@ function editWork(id){
   document.getElementById('w-excerpt').value=w.excerpt||'';
   document.getElementById('w-content').value=w.content||'';
   document.getElementById('w-author-note').value=w.author_note||'';
-  document.getElementById('w-access').value=w.access||'free';
-  document.getElementById('w-img').value=w.img||'';
   document.getElementById('w-status').value=w.status||'published';
   document.getElementById('w-date').value=w.date||'';
   document.getElementById('w-featured').checked=!!w.featured;
-  const prev=document.getElementById('cover-img-preview');
-  if(w.img){prev.src=w.img;prev.classList.add('visible')}else prev.classList.remove('visible');
-  updateCharCount('w-title','tc-title',80);
-  updateCharCount('w-excerpt','tc-excerpt',120);
-  updateWordCount(document.getElementById('w-content'));
+  if(w.img){
+    document.getElementById('w-img').value=w.img;
+    const p=document.getElementById('cover-preview');
+    p.src=w.img;p.classList.add('show');
+  }
+  updateWordCount();
   document.getElementById('work-modal').classList.add('open');
-}
-function closeModal(){document.getElementById('work-modal').classList.remove('open')}
-
-function previewWork(){
-  const title=document.getElementById('w-title').value;
-  if(!title){showToast('Add a title first',false);return}
-  showToast('Save first, then preview on the live site');
+  document.body.style.overflow='hidden';
 }
 
+function closeModal(){
+  document.getElementById('work-modal').classList.remove('open');
+  document.body.style.overflow='';
+}
+
+function updateWordCount(){
+  const text=document.getElementById('w-content')?.value||'';
+  const words=text.trim().split(/\s+/).filter(Boolean).length;
+  const mins=Math.max(1,Math.round(words/200));
+  const el=document.getElementById('word-info');
+  if(el)el.textContent=words.toLocaleString()+' words · ~'+mins+' min read';
+}
+
+// ── SAVE WORK — FIXED ──
 async function saveWork(){
   const title=document.getElementById('w-title').value.trim();
-  if(!title){showToast('Title is required',false);return}
+  const content=document.getElementById('w-content').value.trim();
+
+  if(!title){showToast('Title is required', false);return}
+  if(!content){showToast('Content cannot be empty', false);return}
+
   const isFeatured=document.getElementById('w-featured').checked;
+
   const work={
     title,
-    genre:document.getElementById('w-genre').value.trim(),
+    genre:document.getElementById('w-genre').value.trim()||null,
     series:document.getElementById('w-series').value.trim()||null,
-    excerpt:document.getElementById('w-excerpt').value.trim(),
-    content:document.getElementById('w-content').value.trim(),
+    excerpt:document.getElementById('w-excerpt').value.trim()||null,
+    content,
     author_note:document.getElementById('w-author-note').value.trim()||null,
     access:'free',
-    img:document.getElementById('w-img').value.trim(),
+    img:document.getElementById('w-img').value.trim()||null,
     status:document.getElementById('w-status').value,
     date:document.getElementById('w-date').value||null,
     featured:isFeatured
   };
+
+  // Show saving state
+  const saveBtn=document.querySelector('#work-modal .btn-sm');
+  const origText=saveBtn.textContent;
+  saveBtn.textContent='Saving…';saveBtn.disabled=true;
+
   try{
     if(isFeatured){
-      // Clear featured flag on all others first
-      await sb('works?featured=eq.true',{method:'PATCH',body:JSON.stringify({featured:false})});
+      // Clear featured on all other works first
+      try{await sb('works?featured=eq.true',{method:'PATCH',body:JSON.stringify({featured:false})})}catch(e){}
     }
     if(editingId){
       await sb('works?id=eq.'+editingId,{method:'PATCH',body:JSON.stringify(work)});
@@ -785,30 +769,67 @@ async function saveWork(){
       await sb('works',{method:'POST',body:JSON.stringify(work)});
       showToast('Work published ✓');
     }
-    allWorks=[];closeModal();renderDashboard();
+    allWorks=[];
+    closeModal();
+    renderDashboard();
     if(document.getElementById('page-works').classList.contains('active'))renderWorks();
-  }catch(e){showToast('Error: '+e.message,false)}
+  }catch(e){
+    showToast('Save failed: '+e.message, false);
+  }finally{
+    saveBtn.textContent=origText;saveBtn.disabled=false;
+  }
 }
 
 async function deleteWork(id){
-  if(!confirm('Delete this work permanently? This also removes its comments, likes and highlights.'))return;
+  if(!confirm('Delete this work permanently?'))return;
   try{
-    await Promise.all([
+    // Delete related data first
+    await Promise.allSettled([
       sb('comments?work_id=eq.'+id,{method:'DELETE'}),
       sb('likes?work_id=eq.'+id,{method:'DELETE'}),
-      sb('highlights?work_id=eq.'+id,{method:'DELETE'}),
-      sb('reactions?work_id=eq.'+id,{method:'DELETE'})
+      sb('reading_history?work_id=eq.'+id,{method:'DELETE'})
     ]);
     await sb('works?id=eq.'+id,{method:'DELETE'});
     allWorks=[];renderWorks();renderDashboard();
-    showToast('Work and all related data deleted');
-  }catch(e){showToast('Error',false)}
+    showToast('Work deleted');
+  }catch(e){showToast('Delete error: '+e.message,false)}
 }
 
-// ── COMMENTS PAGE — #11 ──
-async function loadComments(filter,el){
-  document.querySelectorAll('.cf-tab').forEach(t=>t.classList.remove('active'));
-  if(el)el.classList.add('active');
+// ── PREVIEW — FIXED ──
+function previewWork(){
+  const title=document.getElementById('w-title').value.trim();
+  if(!title){showToast('Add a title first',false);return}
+
+  const genre=document.getElementById('w-genre').value.trim();
+  const date=document.getElementById('w-date').value;
+  const note=document.getElementById('w-author-note').value.trim();
+  const content=document.getElementById('w-content').value.trim();
+
+  document.getElementById('pv-genre').textContent=genre||'';
+  document.getElementById('pv-title').textContent=title;
+  document.getElementById('pv-meta').textContent=
+    (date?new Date(date).toLocaleDateString('en-NG',{year:'numeric',month:'long',day:'numeric'})+' · ':'')+
+    document.getElementById('word-info').textContent;
+
+  const noteEl=document.getElementById('pv-note');
+  if(note){noteEl.textContent=note;noteEl.style.display='block'}
+  else noteEl.style.display='none';
+
+  // Render content — convert ## headings
+  const rendered=content
+    .replace(/^## (.+)$/gm,'<h2>$1</h2>')
+    .replace(/\n/g,'<br>');
+  document.getElementById('pv-content').innerHTML=rendered;
+
+  document.getElementById('preview-overlay').classList.add('open');
+  document.getElementById('preview-overlay').scrollTop=0;
+}
+function closePreview(){
+  document.getElementById('preview-overlay').classList.remove('open');
+}
+
+// ── COMMENTS ──
+async function loadComments(){
   document.getElementById('comments-content').innerHTML='<div class="loading">Loading…</div>';
   try{
     const[comments,works]=await Promise.all([
@@ -816,11 +837,8 @@ async function loadComments(filter,el){
       sb('works?select=id,title')
     ]);
     const workMap={};works.forEach(w=>workMap[w.id]=w.title);
-    let filtered=comments;
-    if(filter==='passage')filtered=comments.filter(c=>c.passage);
-    if(filter==='general')filtered=comments.filter(c=>!c.passage);
-    if(!filtered.length){document.getElementById('comments-content').innerHTML='<div class="empty">No comments yet.</div>';return}
-    document.getElementById('comments-content').innerHTML=filtered.map(c=>`
+    if(!comments.length){document.getElementById('comments-content').innerHTML='<div class="empty">No comments yet.</div>';return}
+    document.getElementById('comments-content').innerHTML=comments.map(c=>`
       <div class="comment-card">
         <div class="comment-card-header">
           <div>
@@ -829,10 +847,9 @@ async function loadComments(filter,el){
           </div>
           <div style="display:flex;align-items:center;gap:10px">
             <div class="comment-card-date">${new Date(c.created_at).toLocaleDateString('en-NG',{day:'numeric',month:'short',year:'numeric'})}</div>
-            <button class="btn btn-sm btn-danger" onclick="deleteComment('${c.id}',this)" style="font-size:.52rem;padding:5px 10px">Delete</button>
+            <button class="btn btn-sm btn-danger" style="font-size:.52rem;padding:5px 10px" onclick="deleteComment('${c.id}',this)">Delete</button>
           </div>
         </div>
-        ${c.passage?`<div class="comment-card-passage">"${c.passage.slice(0,200)}${c.passage.length>200?'…':''}"</div>`:''}
         <div class="comment-card-body">${c.body.replace(/</g,'&lt;').replace(/\n/g,'<br>')}</div>
       </div>`).join('');
   }catch(e){document.getElementById('comments-content').innerHTML='<div class="empty">Could not load comments.</div>'}
@@ -847,78 +864,6 @@ async function deleteComment(id,btn){
   }catch(e){showToast('Error',false)}
 }
 
-// ── HIGHLIGHTS PAGE — #13 ──
-async function loadHighlights(){
-  document.getElementById('highlights-content').innerHTML='<div class="loading">Loading…</div>';
-  try{
-    const[highlights,works]=await Promise.all([
-      sb('highlights?select=*&order=created_at.desc'),
-      sb('works?select=id,title')
-    ]);
-    const workMap={};works.forEach(w=>workMap[w.id]=w.title);
-    if(!highlights.length){document.getElementById('highlights-content').innerHTML='<div class="empty">No highlights yet. Readers will highlight passages as they read.</div>';return}
-    // Group by passage text, count occurrences
-    const passageMap={};
-    highlights.forEach(h=>{
-      const key=(h.work_id||'')+':::'+(h.passage||'').slice(0,100);
-      if(!passageMap[key])passageMap[key]={passage:h.passage,work_id:h.work_id,count:0,latest:h.created_at};
-      passageMap[key].count++;
-    });
-    const sorted=Object.values(passageMap).sort((a,b)=>b.count-a.count);
-    document.getElementById('highlights-content').innerHTML=`
-      <p style="font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:16px">${highlights.length} total highlights · ${sorted.length} unique passages</p>
-      ${sorted.map(p=>`
-      <div class="highlight-row">
-        <div class="highlight-row-passage">${(p.passage||'').slice(0,300)}${(p.passage||'').length>300?'…':''}</div>
-        <div class="highlight-row-meta">
-          <span class="highlight-count">${p.count}×</span>
-          <span>highlighted</span>
-          <span>·</span>
-          <span>${workMap[p.work_id]||'Unknown work'}</span>
-        </div>
-      </div>`).join('')}`;
-  }catch(e){document.getElementById('highlights-content').innerHTML='<div class="empty">Could not load highlights.</div>'}
-}
-
-// ── REACTIONS PAGE — #19 ──
-async function loadReactions(){
-  document.getElementById('reactions-content').innerHTML='<div class="loading">Loading…</div>';
-  try{
-    const[reactions,works]=await Promise.all([
-      sb('reactions?select=*'),
-      sb('works?select=id,title&status=eq.published&order=created_at.desc')
-    ]);
-    const totals={moved:0,thought:0,beautiful:0,shared:0};
-    reactions.forEach(r=>{if(totals[r.reaction]!==undefined)totals[r.reaction]++});
-    document.getElementById('r-moved').textContent=totals.moved;
-    document.getElementById('r-thought').textContent=totals.thought;
-    document.getElementById('r-beautiful').textContent=totals.beautiful;
-    document.getElementById('r-shared').textContent=totals.shared;
-    if(!works.length){document.getElementById('reactions-content').innerHTML='<div class="empty">No published works yet.</div>';return}
-    const byWork={};
-    reactions.forEach(r=>{
-      if(!byWork[r.work_id])byWork[r.work_id]={moved:0,thought:0,beautiful:0,shared:0};
-      if(byWork[r.work_id][r.reaction]!==undefined)byWork[r.work_id][r.reaction]++;
-    });
-    const rows=works.map(w=>{
-      const r=byWork[w.id]||{moved:0,thought:0,beautiful:0,shared:0};
-      const total=Object.values(r).reduce((a,b)=>a+b,0);
-      if(!total)return '';
-      return`<div style="background:var(--card);border:1px solid var(--border);padding:14px 20px;margin-bottom:8px;display:flex;align-items:center;gap:16px;flex-wrap:wrap">
-        <div style="font-family:'Newsreader',serif;font-size:.95rem;color:var(--earth);flex:1;min-width:180px">${w.title}</div>
-        <div style="display:flex;gap:12px;font-size:.72rem;font-family:'DM Mono',monospace">
-          <span style="color:var(--muted)">🥺 ${r.moved}</span>
-          <span style="color:var(--muted)">💭 ${r.thought}</span>
-          <span style="color:var(--muted)">✨ ${r.beautiful}</span>
-          <span style="color:var(--muted)">📢 ${r.shared}</span>
-          <span style="color:var(--terra);font-weight:500">= ${total}</span>
-        </div>
-      </div>`;
-    }).filter(Boolean).join('');
-    document.getElementById('reactions-content').innerHTML=rows||'<div class="empty">No reactions on any work yet.</div>';
-  }catch(e){document.getElementById('reactions-content').innerHTML='<div class="empty">Could not load reactions.</div>'}
-}
-
 // ── SUBSCRIBERS ──
 async function renderSubscribers(){
   try{
@@ -926,17 +871,21 @@ async function renderSubscribers(){
       sb('readers?select=*&order=created_at.desc'),
       sb('newsletter?select=*&order=created_at.desc')
     ]);
-    let html=`<div style="display:flex;gap:10px;margin-bottom:20px;flex-wrap:wrap">
-      <button class="cf-tab active" onclick="subTab('readers',this)">Reader Accounts (${readers.length})</button>
-      <button class="cf-tab" onclick="subTab('newsletter',this)">Newsletter (${newsletter.length})</button>
-    </div>
-    <div id="sub-readers"><table class="sub-table"><tr><th>Name</th><th>Email</th><th>Joined</th></tr>
-    ${readers.map(r=>`<tr><td>${r.name||'—'}</td><td>${r.email}</td><td>${new Date(r.created_at).toLocaleDateString('en-NG')}</td></tr>`).join('')}
-    </table></div>
-    <div id="sub-newsletter" style="display:none"><table class="sub-table"><tr><th>Name</th><th>Email</th><th>Signed Up</th></tr>
-    ${newsletter.map(n=>`<tr><td>${n.name||'—'}</td><td>${n.email}</td><td>${new Date(n.created_at).toLocaleDateString('en-NG')}</td></tr>`).join('')}
-    </table></div>`;
-    document.getElementById('subscribers-content').innerHTML=html;
+    document.getElementById('subscribers-content').innerHTML=`
+      <div class="cf-bar">
+        <button class="cf-tab active" onclick="subTab('readers',this)">Reader Accounts (${readers.length})</button>
+        <button class="cf-tab" onclick="subTab('newsletter',this)">Newsletter (${newsletter.length})</button>
+      </div>
+      <div id="sub-readers">
+        ${readers.length?`<table class="sub-table"><tr><th>Name</th><th>Email</th><th>Joined</th></tr>
+        ${readers.map(r=>`<tr><td>${r.name||'—'}</td><td>${r.email}</td><td>${new Date(r.created_at).toLocaleDateString('en-NG')}</td></tr>`).join('')}
+        </table>`:'<div class="empty">No reader accounts yet.</div>'}
+      </div>
+      <div id="sub-newsletter" style="display:none">
+        ${newsletter.length?`<table class="sub-table"><tr><th>Name</th><th>Email</th><th>Signed Up</th></tr>
+        ${newsletter.map(n=>`<tr><td>${n.name||'—'}</td><td>${n.email}</td><td>${new Date(n.created_at).toLocaleDateString('en-NG')}</td></tr>`).join('')}
+        </table>`:'<div class="empty">No newsletter subscribers yet.</div>'}
+      </div>`;
   }catch(e){document.getElementById('subscribers-content').innerHTML='<div class="empty">Could not load.</div>'}
 }
 function subTab(tab,el){
@@ -949,32 +898,56 @@ function subTab(tab,el){
 // ── BIO ──
 async function loadBio(){
   try{
-    const rows=await sb('bio?id=eq.1');if(!rows.length)return;const b=rows[0];
+    const rows=await sb('bio?id=eq.1');
+    if(!rows.length)return;
+    const b=rows[0];
     if(b.name)document.getElementById('bio-name').value=b.name;
     if(b.tagline)document.getElementById('bio-tagline').value=b.tagline;
     if(b.short_bio)document.getElementById('bio-short').value=b.short_bio;
     if(b.full_bio)document.getElementById('bio-full').value=b.full_bio;
     if(b.awards)document.getElementById('bio-awards').value=b.awards;
-    if(b.img){document.getElementById('bio-img').value=b.img;const p=document.getElementById('bio-img-preview');p.src=b.img;p.classList.add('visible')}
+    if(b.img){
+      document.getElementById('bio-img').value=b.img;
+      const p=document.getElementById('bio-preview');
+      p.src=b.img;p.classList.add('show');
+    }
   }catch(e){}
 }
 async function saveBio(){
-  const bio={id:1,name:document.getElementById('bio-name').value,tagline:document.getElementById('bio-tagline').value,short_bio:document.getElementById('bio-short').value,full_bio:document.getElementById('bio-full').value,awards:document.getElementById('bio-awards').value,img:document.getElementById('bio-img').value};
-  try{await sb('bio',{method:'POST',headers:{'Prefer':'resolution=merge-duplicates'},body:JSON.stringify(bio)});showToast('Bio saved')}catch(e){showToast('Error: '+e.message,false)}
+  const bio={id:1,
+    name:document.getElementById('bio-name').value,
+    tagline:document.getElementById('bio-tagline').value,
+    short_bio:document.getElementById('bio-short').value,
+    full_bio:document.getElementById('bio-full').value,
+    awards:document.getElementById('bio-awards').value,
+    img:document.getElementById('bio-img').value
+  };
+  try{
+    await sb('bio',{method:'POST',headers:{'Prefer':'resolution=merge-duplicates'},body:JSON.stringify(bio)});
+    showToast('Bio saved');
+  }catch(e){showToast('Error: '+e.message,false)}
 }
 
 // ── SETTINGS ──
 async function loadSettings(){
   try{
-    const rows=await sb('settings?id=eq.1');if(!rows.length)return;const s=rows[0];
+    const rows=await sb('settings?id=eq.1');
+    if(!rows.length)return;const s=rows[0];
     if(s.email)document.getElementById('set-email').value=s.email;
     if(s.twitter)document.getElementById('set-twitter').value=s.twitter;
     if(s.instagram)document.getElementById('set-instagram').value=s.instagram;
   }catch(e){}
 }
 async function saveSettings(){
-  const s={id:1,email:document.getElementById('set-email').value,twitter:document.getElementById('set-twitter').value,instagram:document.getElementById('set-instagram').value};
-  try{await sb('settings',{method:'POST',headers:{'Prefer':'resolution=merge-duplicates'},body:JSON.stringify(s)});showToast('Settings saved')}catch(e){showToast('Error: '+e.message,false)}
+  const s={id:1,
+    email:document.getElementById('set-email').value,
+    twitter:document.getElementById('set-twitter').value,
+    instagram:document.getElementById('set-instagram').value
+  };
+  try{
+    await sb('settings',{method:'POST',headers:{'Prefer':'resolution=merge-duplicates'},body:JSON.stringify(s)});
+    showToast('Settings saved');
+  }catch(e){showToast('Error: '+e.message,false)}
 }
 function changePass(){
   const np=document.getElementById('new-pass').value;
@@ -984,34 +957,51 @@ function changePass(){
   const c=getCreds();
   localStorage.setItem(CREDS_KEY,JSON.stringify({...c,pass:np}));
   showToast('Password updated');
-  document.getElementById('new-pass').value='';document.getElementById('confirm-pass').value='';
+  document.getElementById('new-pass').value='';
+  document.getElementById('confirm-pass').value='';
 }
 
 // ── EXPORT ──
 async function exportData(type){
   try{
-    let data,filename;
-    if(type==='works'){data=await sb('works?select=*');filename='marubuci-works.json';const blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=filename;a.click();showToast('Works exported')}
-    else if(type==='comments'){data=await sb('comments?select=*&order=created_at.desc');filename='marubuci-comments.json';const blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=filename;a.click();showToast('Comments exported')}
-    else if(type==='newsletter'){
-      const[readers,nl]=await Promise.all([sb('readers?select=name,email,created_at'),sb('newsletter?select=name,email,created_at')]);
-      const all=[...readers,...nl];
-      const csv='Name,Email,Joined\n'+all.map(r=>`"${r.name||''}","${r.email}","${r.created_at}"`).join('\n');
-      const blob=new Blob([csv],{type:'text/csv'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='marubuci-newsletter.csv';a.click();
-      showToast('Newsletter list exported as CSV');
+    if(type==='works'){
+      const d=await sb('works?select=*');
+      download(JSON.stringify(d,null,2),'marubuci-works.json','application/json');
+      showToast('Works exported');
+    }else if(type==='comments'){
+      const d=await sb('comments?select=*&order=created_at.desc');
+      download(JSON.stringify(d,null,2),'marubuci-comments.json','application/json');
+      showToast('Comments exported');
+    }else if(type==='newsletter'){
+      const[r,n]=await Promise.all([sb('readers?select=name,email,created_at'),sb('newsletter?select=name,email,created_at')]);
+      const csv='Name,Email,Joined\n'+[...r,...n].map(x=>`"${x.name||''}","${x.email}","${new Date(x.created_at).toLocaleDateString()}"`).join('\n');
+      download(csv,'marubuci-newsletter.csv','text/csv');
+      showToast('Newsletter exported');
     }
   }catch(e){showToast('Export error: '+e.message,false)}
 }
+function download(content,filename,type){
+  const a=document.createElement('a');
+  a.href=URL.createObjectURL(new Blob([content],{type}));
+  a.download=filename;a.style.display='none';
+  document.body.appendChild(a);a.click();document.body.removeChild(a);
+}
 
+// ── TOAST ──
 function showToast(msg,ok=true){
   const t=document.getElementById('toast');
   t.textContent=msg;t.className='toast '+(ok?'ok':'fail');
   t.classList.add('show');
-  setTimeout(()=>t.classList.remove('show'),2800);
+  setTimeout(()=>t.classList.remove('show'),3000);
 }
 
-async function init(){await renderDashboard()}
-if(sessionStorage.getItem(AUTH_KEY))init();
+// ── INIT ──
+async function init(){
+  setupDragDrop('cover-upload-area','cover');
+  setupDragDrop('bio-upload-area','bio');
+  await renderDashboard();
+}
+if(sessionStorage.getItem(AUTH_KEY)) init();
 </script>
 </body>
 </html>
