@@ -29,7 +29,6 @@ body{background:var(--bg);color:var(--earth);font-family:'DM Mono',monospace;min
 .field input,.field textarea,.field select{width:100%;background:var(--bg);border:1px solid var(--border);color:var(--earth);padding:10px 14px;font-family:'DM Mono',monospace;font-size:.85rem;outline:none;transition:border-color .3s}
 .field input:focus,.field textarea:focus,.field select:focus{border-color:var(--terra)}
 .field textarea{resize:vertical;line-height:1.7}
-.field-note{font-size:.58rem;letter-spacing:.1em;color:var(--muted);margin-top:5px;line-height:1.5;font-style:italic}
 
 .btn{width:100%;padding:12px;background:var(--terra);color:var(--card);border:none;font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.3em;text-transform:uppercase;cursor:pointer;transition:opacity .3s}
 .btn:hover{opacity:.85}
@@ -129,7 +128,6 @@ body{background:var(--bg);color:var(--earth);font-family:'DM Mono',monospace;min
 .modal-close:hover{color:var(--terra)}
 .form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
 
-.char-info{font-size:.55rem;letter-spacing:.1em;color:var(--muted);text-align:right;margin-top:3px}
 .word-info{font-size:.58rem;letter-spacing:.1em;color:var(--muted);margin-top:4px}
 
 .featured-toggle{display:flex;align-items:center;gap:10px;padding:12px 16px;background:rgba(212,160,48,.06);border:1px solid rgba(212,160,48,.2);margin-bottom:20px;border-radius:2px}
@@ -147,9 +145,9 @@ body{background:var(--bg);color:var(--earth);font-family:'DM Mono',monospace;min
 .preview-bar span{font-size:.6rem;letter-spacing:.25em;text-transform:uppercase;color:var(--muted)}
 .preview-bar button{font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;padding:7px 16px;background:var(--terra);color:var(--card);border:none;cursor:pointer;font-family:'DM Mono',monospace}
 .preview-inner{max-width:680px;margin:0 auto;padding:60px 40px}
-.preview-genre{font-family:'Inter',sans-serif;font-size:.6rem;letter-spacing:.35em;text-transform:uppercase;color:var(--terra);margin-bottom:16px}
+.preview-genre{font-size:.6rem;letter-spacing:.35em;text-transform:uppercase;color:var(--terra);margin-bottom:16px}
 .preview-title{font-family:'Newsreader',serif;font-size:clamp(1.8rem,4vw,3rem);font-weight:300;letter-spacing:-.02em;line-height:1.15;color:var(--earth);margin-bottom:16px}
-.preview-meta{font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:32px}
+.preview-meta{font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:32px}
 .preview-divider{height:1px;background:var(--border);margin:32px 0}
 .preview-author-note{background:rgba(212,160,48,.06);border-left:3px solid var(--gold);padding:16px 20px;margin-bottom:32px;font-family:'Newsreader',serif;font-size:1rem;font-style:italic;color:var(--muted);line-height:1.8}
 .preview-content{font-family:'Newsreader',serif;font-size:1.15rem;line-height:2.1;color:var(--earth);white-space:pre-wrap}
@@ -244,7 +242,10 @@ body{background:var(--bg);color:var(--earth);font-family:'DM Mono',monospace;min
 
       <!-- DASHBOARD -->
       <div class="page active" id="page-dashboard">
-        <div class="page-header"><div><h1>Overview</h1><p>Marubuci Control Centre</p></div><button class="btn btn-sm" onclick="openNewWork()">+ New Work</button></div>
+        <div class="page-header">
+          <div><h1>Overview</h1><p>Marubuci Control Centre</p></div>
+          <button class="btn btn-sm" onclick="openNewWork()">+ New Work</button>
+        </div>
         <div class="stats-grid" id="stats-grid">
           <div class="stat-card"><div class="stat-val">—</div><div class="stat-label">Total Works</div></div>
           <div class="stat-card"><div class="stat-val">—</div><div class="stat-label">Published</div></div>
@@ -257,7 +258,10 @@ body{background:var(--bg);color:var(--earth);font-family:'DM Mono',monospace;min
 
       <!-- WORKS -->
       <div class="page" id="page-works">
-        <div class="page-header"><div><h1>Works & Library</h1><p>All works</p></div><button class="btn btn-sm" onclick="openNewWork()">+ New Work</button></div>
+        <div class="page-header">
+          <div><h1>Works & Library</h1><p>All works</p></div>
+          <button class="btn btn-sm" onclick="openNewWork()">+ New Work</button>
+        </div>
         <div class="works-header">
           <input type="text" placeholder="Search title or genre…" id="search-works" oninput="renderWorks()" style="background:var(--card);border:1px solid var(--border);color:var(--earth);padding:8px 14px;font-family:'DM Mono',monospace;font-size:.75rem;outline:none;width:260px"/>
         </div>
@@ -400,7 +404,6 @@ Reviewer, P.eng Literature Magazine</textarea></div>
       <div class="word-info" id="word-info">0 words · ~0 min read</div>
     </div>
 
-    <!-- COVER IMAGE UPLOAD — FIXED -->
     <div class="field">
       <label>Cover Image</label>
       <div class="img-upload-area" id="cover-upload-area">
@@ -429,14 +432,14 @@ Reviewer, P.eng Literature Magazine</textarea></div>
     </div>
 
     <div style="display:flex;gap:12px;margin-top:24px;flex-wrap:wrap">
-      <button class="btn btn-sm" onclick="saveWork()">💾 Save & Publish</button>
+      <button class="btn btn-sm" id="save-btn" onclick="saveWork()">💾 Save & Publish</button>
       <button class="btn btn-sm btn-ghost" onclick="previewWork()">👁 Preview</button>
       <button class="btn btn-sm btn-ghost" onclick="closeModal()">Cancel</button>
     </div>
   </div>
 </div>
 
-<!-- PREVIEW OVERLAY — FIXED -->
+<!-- PREVIEW OVERLAY -->
 <div class="preview-overlay" id="preview-overlay">
   <div class="preview-bar">
     <span>Preview — this is how it will appear to readers</span>
@@ -474,90 +477,76 @@ async function sb(path,opts={}){
   const t=await r.text();return t?JSON.parse(t):[];
 }
 
-// ── IMAGE UPLOAD — FIXED ──
-// The key bug was: file input was behind an overlay div that captured clicks
-// and prevented the onchange from firing. Fixed by using event listeners properly.
-
-function handleFileSelect(event, target){
-  const file = event.target.files[0];
-  if(!file) return;
-  uploadImage(file, target);
+// ── IMAGE UPLOAD ──
+function handleFileSelect(event,target){
+  const file=event.target.files[0];
+  if(!file)return;
+  uploadImage(file,target);
 }
 
-async function uploadImage(file, target){
-  if(!file) return;
-  if(file.size > 5*1024*1024){showToast('File too large — max 5MB', false); return}
+async function uploadImage(file,target){
+  if(!file)return;
+  if(file.size>5*1024*1024){showToast('File too large — max 5MB',false);return}
+  if(!['image/jpeg','image/png','image/webp'].includes(file.type)){showToast('Please use JPG, PNG or WEBP',false);return}
 
-  const isValid = ['image/jpeg','image/png','image/webp'].includes(file.type);
-  if(!isValid){showToast('Please use JPG, PNG or WEBP', false); return}
+  const progressEl=document.getElementById(target+'-progress');
+  const barEl=document.getElementById(target+'-bar');
+  const statusEl=document.getElementById(target+'-status');
+  const previewEl=document.getElementById(target+'-preview');
+  const urlInput=document.getElementById(target==='cover'?'w-img':'bio-img');
 
-  const progressEl = document.getElementById(target+'-progress');
-  const barEl = document.getElementById(target+'-bar');
-  const statusEl = document.getElementById(target+'-status');
-  const previewEl = document.getElementById(target+'-preview');
-  const urlInput = document.getElementById(target==='cover' ? 'w-img' : 'bio-img');
+  progressEl.style.display='block';
+  barEl.style.width='10%';
+  barEl.style.background='var(--terra)';
+  statusEl.textContent='Uploading…';
 
-  progressEl.style.display = 'block';
-  barEl.style.width = '10%';
-  statusEl.textContent = 'Uploading…';
-
-  const ext = file.name.split('.').pop().toLowerCase();
-  const fileName = target+'_'+Date.now()+'.'+ext;
+  const ext=file.name.split('.').pop().toLowerCase();
+  const fileName=target+'_'+Date.now()+'.'+ext;
 
   try{
-    barEl.style.width = '40%';
-    const res = await fetch(
-      SB_URL+'/storage/v1/object/'+BUCKET+'/'+fileName,
-      {
-        method: 'POST',
-        headers: {
-          'apikey': SB_KEY,
-          'Authorization': 'Bearer '+SB_KEY,
-          'Content-Type': file.type,
-          'x-upsert': 'true'
-        },
-        body: file
-      }
-    );
-    if(!res.ok){
-      const err = await res.text();
-      throw new Error('Storage error: '+err);
-    }
-    barEl.style.width = '100%';
-    statusEl.textContent = '✓ Upload complete';
-
-    const publicUrl = SB_URL+'/storage/v1/object/public/'+BUCKET+'/'+fileName;
-    urlInput.value = publicUrl;
-    previewEl.src = publicUrl;
+    barEl.style.width='40%';
+    const res=await fetch(SB_URL+'/storage/v1/object/'+BUCKET+'/'+fileName,{
+      method:'POST',
+      headers:{
+        'apikey':SB_KEY,
+        'Authorization':'Bearer '+SB_KEY,
+        'Content-Type':file.type,
+        'x-upsert':'true'
+      },
+      body:file
+    });
+    if(!res.ok){const err=await res.text();throw new Error('Storage error: '+err)}
+    barEl.style.width='100%';
+    statusEl.textContent='✓ Upload complete';
+    const publicUrl=SB_URL+'/storage/v1/object/public/'+BUCKET+'/'+fileName;
+    urlInput.value=publicUrl;
+    previewEl.src=publicUrl;
     previewEl.classList.add('show');
-    setTimeout(()=>{ progressEl.style.display='none'; barEl.style.width='0%' }, 2000);
+    setTimeout(()=>{progressEl.style.display='none';barEl.style.width='0%'},2000);
     showToast('Image uploaded successfully');
   }catch(e){
     barEl.style.background='var(--danger)';
     statusEl.textContent='Upload failed: '+e.message;
-    showToast('Upload failed: '+e.message, false);
+    showToast('Upload failed: '+e.message,false);
   }
 }
 
-// Setup drag & drop on upload areas
-function setupDragDrop(areaId, target){
-  const area = document.getElementById(areaId);
-  if(!area) return;
-  area.addEventListener('dragover', e=>{e.preventDefault();area.classList.add('dragover')});
-  area.addEventListener('dragleave', ()=>area.classList.remove('dragover'));
-  area.addEventListener('drop', e=>{
-    e.preventDefault();
-    area.classList.remove('dragover');
-    const file = e.dataTransfer.files[0];
-    if(file && file.type.startsWith('image/')) uploadImage(file, target);
+function setupDragDrop(areaId,target){
+  const area=document.getElementById(areaId);
+  if(!area)return;
+  area.addEventListener('dragover',e=>{e.preventDefault();area.classList.add('dragover')});
+  area.addEventListener('dragleave',()=>area.classList.remove('dragover'));
+  area.addEventListener('drop',e=>{
+    e.preventDefault();area.classList.remove('dragover');
+    const file=e.dataTransfer.files[0];
+    if(file&&file.type.startsWith('image/'))uploadImage(file,target);
   });
 }
 
-// Sync URL input to preview image
-function syncUrlPreview(inputId, previewId){
-  const url = document.getElementById(inputId).value.trim();
-  const img = document.getElementById(previewId);
-  if(url){ img.src=url; img.classList.add('show') }
+function syncUrlPreview(inputId,previewId){
+  const url=document.getElementById(inputId).value.trim();
+  const img=document.getElementById(previewId);
+  if(url){img.src=url;img.classList.add('show')}
   else img.classList.remove('show');
 }
 
@@ -585,17 +574,17 @@ if(sessionStorage.getItem(AUTH_KEY)){
 }
 
 // ── NAV ──
-function showPage(id, el){
+function showPage(id,el){
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
   document.querySelectorAll('.nav-item').forEach(n=>n.classList.remove('active'));
   document.getElementById('page-'+id).classList.add('active');
-  if(el) el.classList.add('active');
-  if(id==='dashboard') renderDashboard();
+  if(el)el.classList.add('active');
+  if(id==='dashboard')renderDashboard();
   if(id==='works'){allWorks=[];renderWorks();}
-  if(id==='comments') loadComments();
-  if(id==='subscribers') renderSubscribers();
-  if(id==='bio') loadBio();
-  if(id==='settings') loadSettings();
+  if(id==='comments')loadComments();
+  if(id==='subscribers')renderSubscribers();
+  if(id==='bio')loadBio();
+  if(id==='settings')loadSettings();
 }
 
 // ── DASHBOARD ──
@@ -632,7 +621,7 @@ function workRow(w){
       <button class="btn btn-sm btn-ghost" onclick="editWork('${w.id}')">Edit</button>
       ${w.featured
         ?`<button class="btn btn-sm btn-ghost" onclick="unfeatureWork('${w.id}')">Unfeature</button>`
-        :`<button class="btn btn-sm" style="background:var(--gold);color:var(--earth);font-size:.52rem;padding:6px 10px" onclick="featureWork('${w.id}')">★ Feature</button>`}
+        :`<button class="btn btn-sm btn-gold" onclick="featureWork('${w.id}')">★ Feature</button>`}
       <button class="btn btn-sm btn-danger" onclick="deleteWork('${w.id}')">Delete</button>
     </div>
   </div>`;
@@ -642,7 +631,7 @@ let allWorks=[];
 async function renderWorks(){
   const q=(document.getElementById('search-works')?.value||'').toLowerCase();
   try{
-    if(!allWorks.length) allWorks=await sb('works?select=*&order=created_at.desc');
+    allWorks=await sb('works?select=*&order=created_at.desc');
     const f=allWorks.filter(w=>!q||w.title.toLowerCase().includes(q)||(w.genre||'').toLowerCase().includes(q));
     document.getElementById('works-list').innerHTML=f.length?f.map(workRow).join(''):'<div class="empty">No works found.</div>';
   }catch(e){document.getElementById('works-list').innerHTML='<div class="empty">Could not load works.</div>'}
@@ -653,13 +642,17 @@ async function featureWork(id){
   try{
     await sb('works?featured=eq.true',{method:'PATCH',body:JSON.stringify({featured:false})});
     await sb('works?id=eq.'+id,{method:'PATCH',body:JSON.stringify({featured:true})});
-    allWorks=[];renderWorks();showToast('Work featured ★');
+    allWorks=[];renderDashboard();
+    if(document.getElementById('page-works').classList.contains('active'))renderWorks();
+    showToast('Work featured ★');
   }catch(e){showToast('Error: '+e.message,false)}
 }
 async function unfeatureWork(id){
   try{
     await sb('works?id=eq.'+id,{method:'PATCH',body:JSON.stringify({featured:false})});
-    allWorks=[];renderWorks();showToast('Work unfeatured');
+    allWorks=[];renderDashboard();
+    if(document.getElementById('page-works').classList.contains('active'))renderWorks();
+    showToast('Work unfeatured');
   }catch(e){showToast('Error',false)}
 }
 
@@ -680,6 +673,8 @@ function resetModal(){
   document.getElementById('cover-bar').style.width='0%';
   document.getElementById('cover-file-input').value='';
   document.getElementById('word-info').textContent='0 words · ~0 min read';
+  document.getElementById('save-btn').textContent='💾 Save & Publish';
+  document.getElementById('save-btn').disabled=false;
 }
 
 function openNewWork(){
@@ -690,34 +685,42 @@ function openNewWork(){
   document.body.style.overflow='hidden';
 }
 
-function editWork(id){
-  const w=allWorks.find(x=>x.id===id);
-  if(!w){showToast('Work not found — try refreshing',false);return}
-  editingId=id;
-  resetModal();
-  document.getElementById('modal-title').textContent='Edit: '+w.title;
-  document.getElementById('w-title').value=w.title||'';
-  document.getElementById('w-genre').value=w.genre||'';
-  document.getElementById('w-series').value=w.series||'';
-  document.getElementById('w-excerpt').value=w.excerpt||'';
-  document.getElementById('w-content').value=w.content||'';
-  document.getElementById('w-author-note').value=w.author_note||'';
-  document.getElementById('w-status').value=w.status||'published';
-  document.getElementById('w-date').value=w.date||'';
-  document.getElementById('w-featured').checked=!!w.featured;
-  if(w.img){
-    document.getElementById('w-img').value=w.img;
-    const p=document.getElementById('cover-preview');
-    p.src=w.img;p.classList.add('show');
+// ── EDIT WORK — FIXED: always fetches from DB, never relies on cache ──
+async function editWork(id){
+  try{
+    showToast('Loading…');
+    const rows=await sb('works?id=eq.'+id+'&select=*');
+    if(!rows.length){showToast('Work not found',false);return}
+    const w=rows[0];
+    editingId=id;
+    resetModal();
+    document.getElementById('modal-title').textContent='Edit: '+w.title;
+    document.getElementById('w-title').value=w.title||'';
+    document.getElementById('w-genre').value=w.genre||'';
+    document.getElementById('w-series').value=w.series||'';
+    document.getElementById('w-excerpt').value=w.excerpt||'';
+    document.getElementById('w-content').value=w.content||'';
+    document.getElementById('w-author-note').value=w.author_note||'';
+    document.getElementById('w-status').value=w.status||'published';
+    document.getElementById('w-date').value=w.date||'';
+    document.getElementById('w-featured').checked=!!w.featured;
+    if(w.img){
+      document.getElementById('w-img').value=w.img;
+      const p=document.getElementById('cover-preview');
+      p.src=w.img;p.classList.add('show');
+    }
+    updateWordCount();
+    document.getElementById('work-modal').classList.add('open');
+    document.body.style.overflow='hidden';
+  }catch(e){
+    showToast('Error loading work: '+e.message,false);
   }
-  updateWordCount();
-  document.getElementById('work-modal').classList.add('open');
-  document.body.style.overflow='hidden';
 }
 
 function closeModal(){
   document.getElementById('work-modal').classList.remove('open');
   document.body.style.overflow='';
+  editingId=null;
 }
 
 function updateWordCount(){
@@ -728,16 +731,14 @@ function updateWordCount(){
   if(el)el.textContent=words.toLocaleString()+' words · ~'+mins+' min read';
 }
 
-// ── SAVE WORK — FIXED ──
+// ── SAVE WORK ──
 async function saveWork(){
   const title=document.getElementById('w-title').value.trim();
   const content=document.getElementById('w-content').value.trim();
-
-  if(!title){showToast('Title is required', false);return}
-  if(!content){showToast('Content cannot be empty', false);return}
+  if(!title){showToast('Title is required',false);return}
+  if(!content){showToast('Content cannot be empty',false);return}
 
   const isFeatured=document.getElementById('w-featured').checked;
-
   const work={
     title,
     genre:document.getElementById('w-genre').value.trim()||null,
@@ -752,14 +753,12 @@ async function saveWork(){
     featured:isFeatured
   };
 
-  // Show saving state
-  const saveBtn=document.querySelector('#work-modal .btn-sm');
-  const origText=saveBtn.textContent;
-  saveBtn.textContent='Saving…';saveBtn.disabled=true;
+  const saveBtn=document.getElementById('save-btn');
+  saveBtn.textContent='Saving…';
+  saveBtn.disabled=true;
 
   try{
     if(isFeatured){
-      // Clear featured on all other works first
       try{await sb('works?featured=eq.true',{method:'PATCH',body:JSON.stringify({featured:false})})}catch(e){}
     }
     if(editingId){
@@ -774,16 +773,15 @@ async function saveWork(){
     renderDashboard();
     if(document.getElementById('page-works').classList.contains('active'))renderWorks();
   }catch(e){
-    showToast('Save failed: '+e.message, false);
-  }finally{
-    saveBtn.textContent=origText;saveBtn.disabled=false;
+    showToast('Save failed: '+e.message,false);
+    saveBtn.textContent='💾 Save & Publish';
+    saveBtn.disabled=false;
   }
 }
 
 async function deleteWork(id){
   if(!confirm('Delete this work permanently?'))return;
   try{
-    // Delete related data first
     await Promise.allSettled([
       sb('comments?work_id=eq.'+id,{method:'DELETE'}),
       sb('likes?work_id=eq.'+id,{method:'DELETE'}),
@@ -795,32 +793,26 @@ async function deleteWork(id){
   }catch(e){showToast('Delete error: '+e.message,false)}
 }
 
-// ── PREVIEW — FIXED ──
+// ── PREVIEW ──
 function previewWork(){
   const title=document.getElementById('w-title').value.trim();
   if(!title){showToast('Add a title first',false);return}
-
   const genre=document.getElementById('w-genre').value.trim();
   const date=document.getElementById('w-date').value;
   const note=document.getElementById('w-author-note').value.trim();
   const content=document.getElementById('w-content').value.trim();
-
   document.getElementById('pv-genre').textContent=genre||'';
   document.getElementById('pv-title').textContent=title;
   document.getElementById('pv-meta').textContent=
     (date?new Date(date).toLocaleDateString('en-NG',{year:'numeric',month:'long',day:'numeric'})+' · ':'')+
     document.getElementById('word-info').textContent;
-
   const noteEl=document.getElementById('pv-note');
   if(note){noteEl.textContent=note;noteEl.style.display='block'}
   else noteEl.style.display='none';
-
-  // Render content — convert ## headings
   const rendered=content
     .replace(/^## (.+)$/gm,'<h2>$1</h2>')
     .replace(/\n/g,'<br>');
   document.getElementById('pv-content').innerHTML=rendered;
-
   document.getElementById('preview-overlay').classList.add('open');
   document.getElementById('preview-overlay').scrollTop=0;
 }
@@ -1001,7 +993,7 @@ async function init(){
   setupDragDrop('bio-upload-area','bio');
   await renderDashboard();
 }
-if(sessionStorage.getItem(AUTH_KEY)) init();
+if(sessionStorage.getItem(AUTH_KEY))init();
 </script>
 </body>
 </html>
